@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     private float originalStepOffset;
     private float? lastGroundedTime;
     private float? jumpButtonPressedTime;
+    
+    public CameraRecenter cameraRecenter;
 
     // cache animator hashes
     private static readonly int IsMovingHash = Animator.StringToHash("IsMoving");
@@ -139,6 +141,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     
+    public void OnRecenter(InputValue value)
+    {
+        cameraRecenter?.Recenter(value);
+    }
 
     private void OnApplicationFocus(bool hasFocus)
     {

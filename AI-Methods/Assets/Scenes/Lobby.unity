@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 433024721}
   - component: {fileID: 433024728}
   - component: {fileID: 433024727}
+  - component: {fileID: 433024729}
   m_Layer: 0
   m_Name: Cinemachine Camera
   m_TagString: Untagged
@@ -512,6 +513,19 @@ MonoBehaviour:
       m_Bits: 1
     MaximumRaycast: 10
     Damping: 0.5
+--- !u!114 &433024729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433024720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad4ce5a45025b54e9422ddd775b3997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recenterTime: 0.8
 --- !u!1 &656593178 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 198716, guid: 83a919b0e630c394780833b59a51ab4f, type: 3}
@@ -1046,6 +1060,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3339153548550117345, guid: 7606ab0833cb1c44c9f695b1aca6b373, type: 3}
+      propertyPath: cameraRecenter
+      value: 
+      objectReference: {fileID: 433024729}
     - target: {fileID: 3339153548550117345, guid: 7606ab0833cb1c44c9f695b1aca6b373, type: 3}
       propertyPath: cameraTransform
       value: 
