@@ -1,26 +1,25 @@
-using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement")] [SerializeField] private float maximumSpeed = 6f;
-    [SerializeField] private float rotationSpeed = 720f;
+    [Header("Movement")] 
+    [SerializeField] private float maximumSpeed;
+    [SerializeField] private float rotationSpeed;
     [SerializeField] private Transform cameraTransform;
 
-    [Header("Jump / Gravity")] [SerializeField]
-    private float jumpSpeed = 8f;
+    [Header("Jump / Gravity")] 
+    [SerializeField] private float jumpSpeed;
+    [SerializeField] private float jumpButtonGracePeriod; // buffer + coyote window
+    [SerializeField] private float groundedStick; // small downward force
 
-    [SerializeField] private float jumpButtonGracePeriod = 0.15f; // buffer + coyote window
-    [SerializeField] private float groundedStick = -2f; // small downward force
-
-    [Header("Ground Check")] [SerializeField]
-    private LayerMask groundLayers = ~0; // set to your environment layers only
-
-    [SerializeField] private float groundedRadius = 0.25f;
-    [SerializeField] private float groundedOffset = 0.05f; // probe slightly below capsule bottom
-
+    [Header("Ground Check")] 
+    [SerializeField] private LayerMask groundLayers; // set to your environment layers only
+    [SerializeField] private float groundedRadius;
+    [SerializeField] private float groundedOffset; // probe slightly below capsule bottom
+    
     private Vector2 moveInput;
     private CharacterController controller;
     private Animator animator;
@@ -41,9 +40,6 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         originalStepOffset = controller.stepOffset;
-
-        // Recommended CC settings in Inspector:
-        // Min Move Distance = 0, Skin Width ≈ 0.02, Step Offset ≈ 0.3–0.5
     }
 
     void Update()
@@ -57,20 +53,20 @@ public class PlayerMovement : MonoBehaviour
         if (cameraTransform)
             moveDir = Quaternion.AngleAxis(cameraTransform.eulerAngles.y, Vector3.up) * moveDir;
 
-        moveDir = moveDir.sqrMagnitude > 0f ? moveDir.normalized : Vector3.zero;
+        moveDir = (moveDir.sqrMagnitude > 0f) ? moveDir.normalized : Vector3.zero;
 
         // 2) PRE-MOVE ground check (robust) for jump/coyote decisions
-        bool groundedPre = GroundedCheck();
-        if (groundedPre) lastGroundedTime = Time.time;
+        bool wasGrounded = animator.GetBool(IsGroundedHash);
+        if (wasGrounded) lastGroundedTime = Time.time;
 
         float timeSinceGrounded =
             lastGroundedTime.HasValue ? Time.time - lastGroundedTime.Value : float.PositiveInfinity;
-        float timeSinceJumpPress = jumpButtonPressedTime.HasValue
-            ? Time.time - jumpButtonPressedTime.Value
-            : float.PositiveInfinity;
+        float timeSinceJumpPress = 
+            jumpButtonPressedTime.HasValue ? Time.time - jumpButtonPressedTime.Value : float.PositiveInfinity;
 
         // 3) Jump buffer + coyote time
         bool canJumpNow = (timeSinceJumpPress <= jumpButtonGracePeriod) && (timeSinceGrounded <= jumpButtonGracePeriod);
+        
         if (canJumpNow)
         {
             ySpeed = jumpSpeed;
@@ -81,13 +77,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // 4) Gravity / stick-to-ground
-        if (groundedPre && ySpeed < 0f) ySpeed = groundedStick;
+        if (wasGrounded && ySpeed < 0f) ySpeed = groundedStick;
         ySpeed += Physics.gravity.y * Time.deltaTime;
 
         // 5) Step offset: allow stepping when grounded or within coyote time
-        controller.stepOffset = (groundedPre || timeSinceGrounded <= jumpButtonGracePeriod)
-            ? originalStepOffset
-            : 0f;
+        controller.stepOffset = (wasGrounded || timeSinceGrounded <= jumpButtonGracePeriod) ? originalStepOffset : 0f;
 
         // 6) Move once
         Vector3 velocity = moveDir * moveSpeed;
@@ -95,12 +89,13 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         // 7) POST-MOVE ground check (final state for this frame)
-        bool groundedPost = GroundedCheck();
+        bool grounded = controller.isGrounded;
 
         // 8) Animator state machine
-        animator.SetBool(IsGroundedHash, groundedPost);
+        animator.SetBool(IsGroundedHash, grounded);
+        if (grounded) lastGroundedTime = Time.time;
 
-        if (groundedPost)
+        if (grounded)
         {
             // Landed
             if (ySpeed < 0f) ySpeed = groundedStick;
@@ -114,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
             bool falling = ySpeed < -0.1f;
             animator.SetBool(IsFallingHash, falling);
             // Keep IsJumping true only for the ascent frames after jump
-            if (ySpeed <= 0f) animator.SetBool(IsJumpingHash, false);
+            if (falling) animator.SetBool(IsJumpingHash, false);
         }
 
         // 9) Face move direction + walk bool
@@ -131,25 +126,22 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // New Input System (Player Input → Send Messages)
-    public void OnMove(InputValue v) => moveInput = v.Get<Vector2>();
-
-    public void OnJump(InputValue v)
+    public void OnMove(InputValue value)
     {
-        if (v.isPressed) jumpButtonPressedTime = Time.time;
-    }
+        moveInput = value.Get<Vector2>();
+    } 
 
-    // Robust grounded probe (independent of CC.isGrounded flicker)
-    bool GroundedCheck()
+    public void OnJump(InputValue value)
     {
-        Vector3 center = transform.position + controller.center;
-        float bottomY = center.y - (controller.height * 0.5f) + controller.radius;
-        Vector3 probePos = new Vector3(center.x, bottomY - groundedOffset, center.z);
-        return Physics.CheckSphere(probePos, groundedRadius, groundLayers, QueryTriggerInteraction.Ignore);
+        if (value.isPressed)
+        {
+            jumpButtonPressedTime = Time.time;
+        }
     }
+    
 
     private void OnApplicationFocus(bool hasFocus)
     {
         Cursor.lockState = hasFocus ? CursorLockMode.Locked : CursorLockMode.None;
     }
-
 }
