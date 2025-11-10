@@ -1061,6 +1061,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3339153548550117345, guid: 7606ab0833cb1c44c9f695b1aca6b373, type: 3}
+      propertyPath: jumpHeight
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339153548550117345, guid: 7606ab0833cb1c44c9f695b1aca6b373, type: 3}
       propertyPath: cameraRecenter
       value: 
       objectReference: {fileID: 433024729}
@@ -1071,6 +1075,10 @@ PrefabInstance:
     - target: {fileID: 3339153548550117345, guid: 7606ab0833cb1c44c9f695b1aca6b373, type: 3}
       propertyPath: holdJumpFlagTime
       value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339153548550117345, guid: 7606ab0833cb1c44c9f695b1aca6b373, type: 3}
+      propertyPath: gravityMultiplier
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3508300499730951984, guid: 7606ab0833cb1c44c9f695b1aca6b373, type: 3}
       propertyPath: m_Name

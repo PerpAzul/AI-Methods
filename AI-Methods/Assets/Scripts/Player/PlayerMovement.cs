@@ -11,7 +11,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
 
     [Header("Jump / Gravity")] 
-    [SerializeField] private float jumpSpeed;
+    [SerializeField] private float jumpHeight;
+    [SerializeField] private float gravityMultiplier;
     [SerializeField] private float jumpButtonGracePeriod; // buffer + coyote window
     [SerializeField] private float groundedStick; // small downward force
 
@@ -67,20 +68,23 @@ public class PlayerMovement : MonoBehaviour
             jumpButtonPressedTime.HasValue ? Time.time - jumpButtonPressedTime.Value : float.PositiveInfinity;
 
         // 3) Jump buffer + coyote time
+        float gravity = Physics.gravity.y * gravityMultiplier;
         bool canJumpNow = (timeSinceJumpPress <= jumpButtonGracePeriod) && (timeSinceGrounded <= jumpButtonGracePeriod);
         
         if (canJumpNow)
         {
-            ySpeed = jumpSpeed;
+            ySpeed = Mathf.Sqrt(jumpHeight * -3 * gravity);
+            
             jumpButtonPressedTime = null; // consume
             lastGroundedTime = null; // avoid double-trigger within same window
+            
             animator.SetBool(IsJumpingHash, true);
             animator.SetBool(IsFallingHash, false);
         }
 
         // 4) Gravity / stick-to-ground
         if (wasGrounded && ySpeed < 0f) ySpeed = groundedStick;
-        ySpeed += Physics.gravity.y * Time.deltaTime;
+        ySpeed += gravity * Time.deltaTime;
 
         // 5) Step offset: allow stepping when grounded or within coyote time
         controller.stepOffset = (wasGrounded || timeSinceGrounded <= jumpButtonGracePeriod) ? originalStepOffset : 0f;
