@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 7271541403353309008}
   - component: {fileID: 4752426116989718342}
   - component: {fileID: 1555411020339651112}
-  - component: {fileID: 7067765127928713684}
-  - component: {fileID: 6073719024131228678}
   - component: {fileID: 969110050422080319}
   m_Layer: 0
   m_Name: Cube (2)
@@ -89,41 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7067765127928713684
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 765865118833414749}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 7.3327217, y: 6.314951, z: 7.075958}
-  m_Center: {x: 3.0011191, y: 2.657477, z: -2.9262047}
---- !u!114 &6073719024131228678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 765865118833414749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3223b7333c492de47934c948cbe424ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blueGlow: {fileID: 2100000, guid: fca537b1e3760c945b00435a18fd7c0e, type: 2}
-  greenGlow: {fileID: 2100000, guid: 4fbd656cc9f8e8e4b88f01a1031f56f2, type: 2}
 --- !u!54 &969110050422080319
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -162,8 +125,6 @@ GameObject:
   - component: {fileID: 4188051738867134349}
   - component: {fileID: 5625842760763445505}
   - component: {fileID: 6361221693508241519}
-  - component: {fileID: 379773893219068392}
-  - component: {fileID: 7251451249041160886}
   - component: {fileID: 1266145577432137218}
   m_Layer: 0
   m_Name: Cube (4)
@@ -240,41 +201,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &379773893219068392
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5085000707183943852}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 7.371193, y: 6.314951, z: 7.1350985}
-  m_Center: {x: -3.022775, y: 2.657477, z: 2.860973}
---- !u!114 &7251451249041160886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5085000707183943852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3223b7333c492de47934c948cbe424ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blueGlow: {fileID: 2100000, guid: fca537b1e3760c945b00435a18fd7c0e, type: 2}
-  greenGlow: {fileID: 2100000, guid: 4fbd656cc9f8e8e4b88f01a1031f56f2, type: 2}
 --- !u!54 &1266145577432137218
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -313,8 +239,6 @@ GameObject:
   - component: {fileID: 7851613420755459284}
   - component: {fileID: 4619088254399141718}
   - component: {fileID: 381562235732467605}
-  - component: {fileID: 7089771763822337958}
-  - component: {fileID: 8686672243939610578}
   - component: {fileID: 4121972010502673307}
   m_Layer: 0
   m_Name: Cube (3)
@@ -391,41 +315,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7089771763822337958
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5376855440143253289}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 7.2555475, y: 6.314951, z: 7.0281506}
-  m_Center: {x: 3.0212746, y: 2.657477, z: 2.8812284}
---- !u!114 &8686672243939610578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5376855440143253289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3223b7333c492de47934c948cbe424ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blueGlow: {fileID: 2100000, guid: fca537b1e3760c945b00435a18fd7c0e, type: 2}
-  greenGlow: {fileID: 2100000, guid: 4fbd656cc9f8e8e4b88f01a1031f56f2, type: 2}
 --- !u!54 &4121972010502673307
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -560,8 +449,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.266033, y: 6.314951, z: 1.2344244}
-  m_Center: {x: 0.029803146, y: 2.657477, z: -0.0054344023}
+  m_Size: {x: 1.7465963, y: 6.314951, z: 1.7683629}
+  m_Center: {x: -0.027259849, y: 2.657477, z: 0.029401572}
 --- !u!114 &6799186045876946478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,6 +463,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3223b7333c492de47934c948cbe424ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  center: {fileID: 5633050392360755252}
+  cornerOne: {fileID: 6054511760317529371}
+  cornerTwo: {fileID: 765865118833414749}
+  cornerThree: {fileID: 5376855440143253289}
+  cornerFour: {fileID: 5085000707183943852}
   blueGlow: {fileID: 2100000, guid: fca537b1e3760c945b00435a18fd7c0e, type: 2}
   greenGlow: {fileID: 2100000, guid: 4fbd656cc9f8e8e4b88f01a1031f56f2, type: 2}
 --- !u!1 &6054511760317529371
@@ -587,8 +481,6 @@ GameObject:
   - component: {fileID: 2919010989503853199}
   - component: {fileID: 9203729576774833088}
   - component: {fileID: 6564564474545149885}
-  - component: {fileID: 4956200147711073037}
-  - component: {fileID: 8303360406060651502}
   - component: {fileID: 3340374894083921265}
   m_Layer: 0
   m_Name: Cube (1)
@@ -665,41 +557,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4956200147711073037
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6054511760317529371}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 7.371193, y: 6.314951, z: 7.075958}
-  m_Center: {x: -3.022775, y: 2.657477, z: -2.9262047}
---- !u!114 &8303360406060651502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6054511760317529371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3223b7333c492de47934c948cbe424ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blueGlow: {fileID: 2100000, guid: fca537b1e3760c945b00435a18fd7c0e, type: 2}
-  greenGlow: {fileID: 2100000, guid: 4fbd656cc9f8e8e4b88f01a1031f56f2, type: 2}
 --- !u!54 &3340374894083921265
 Rigidbody:
   m_ObjectHideFlags: 0
