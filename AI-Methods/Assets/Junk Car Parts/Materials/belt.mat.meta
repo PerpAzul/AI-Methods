@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 748b351ab506d6343a95898e62b9fc00
+timeCreated: 1530082961
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 119065
+  packageName: Junkyard Car Parts
+  packageVersion: 1.1
+  assetPath: Assets/Junk Car Parts/Materials/belt.mat
+  uploadId: 256474

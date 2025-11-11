@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b578f7fb44c86bb41ae6818d48691769
+timeCreated: 1526783221
+licenseType: Store
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 119065
+  packageName: Junkyard Car Parts
+  packageVersion: 1.1
+  assetPath: Assets/Junk Car Parts/showcase.unity
+  uploadId: 256474

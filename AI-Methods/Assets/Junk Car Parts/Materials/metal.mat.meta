@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 495d4e1dfad15be4ebf275418aad9380
+timeCreated: 1526766316
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 119065
+  packageName: Junkyard Car Parts
+  packageVersion: 1.1
+  assetPath: Assets/Junk Car Parts/Materials/metal.mat
+  uploadId: 256474

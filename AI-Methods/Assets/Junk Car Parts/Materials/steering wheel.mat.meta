@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 587af6c4e8de14f4393beb861177898c
+timeCreated: 1530120585
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 119065
+  packageName: Junkyard Car Parts
+  packageVersion: 1.1
+  assetPath: Assets/Junk Car Parts/Materials/steering wheel.mat
+  uploadId: 256474

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b65520aa45c99fd4faf4303897663b79
+timeCreated: 1476351688
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 72613
+  packageName: Lift Car
+  packageVersion: 1.0
+  assetPath: Assets/Lift Car/Prefab/LIFT_CAR.prefab
+  uploadId: 141800

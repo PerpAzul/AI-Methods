@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: abceb10e9c1c8504eb85132ddc32f9e7
+timeCreated: 1526790521
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 119065
+  packageName: Junkyard Car Parts
+  packageVersion: 1.1
+  assetPath: Assets/Junk Car Parts/Prefabs/Pully.prefab
+  uploadId: 256474
