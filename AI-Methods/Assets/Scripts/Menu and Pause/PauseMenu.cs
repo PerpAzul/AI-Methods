@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
@@ -8,6 +9,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject optionsUI;
     [SerializeField] private Button backButton; // Back button from Options menu
     [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private string gameplayActionMap = "Player";
+    [SerializeField] private string uiActionMap = "UI";
 
     private InputAction pauseAction;
     private bool isPaused;
@@ -63,10 +66,7 @@ public class PauseMenu : MonoBehaviour
             {
                 return;
             }
-            else
-            {
-                ActivateMenu();   
-            }
+            ActivateMenu();   
         }
     }
 
@@ -76,6 +76,14 @@ public class PauseMenu : MonoBehaviour
         AudioListener.pause = true;
         pauseUI.SetActive(true);
         isPaused = true;
+        
+        //switch to UI map so Submit/Cancel/Navigate work
+        if (playerInput != null && !string.IsNullOrEmpty(uiActionMap))
+            playerInput.SwitchCurrentActionMap(uiActionMap);
+        
+        //free the cursor (mouse users)
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void DeactivateMenu()
@@ -85,6 +93,14 @@ public class PauseMenu : MonoBehaviour
         pauseUI.SetActive(false);
         optionsUI.SetActive(false);
         isPaused = false;
+        
+        //back to gameplay input
+        if (playerInput != null && !string.IsNullOrEmpty(gameplayActionMap))
+            playerInput.SwitchCurrentActionMap(gameplayActionMap);
+
+        //relock cursor for gameplay
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void ResumeGame() => TogglePause();
