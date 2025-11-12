@@ -134,11 +134,19 @@ public class PlayerMovement : MonoBehaviour
     // New Input System (Player Input → Send Messages)
     public void OnMove(InputValue value)
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
         moveInput = value.Get<Vector2>();
     } 
 
     public void OnJump(InputValue value)
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
         if (value.isPressed)
         {
             jumpButtonPressedTime = Time.time;
@@ -147,6 +155,10 @@ public class PlayerMovement : MonoBehaviour
     
     public void OnRecenter(InputValue value)
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
         cameraRecenter?.Recenter(value);
     }
 

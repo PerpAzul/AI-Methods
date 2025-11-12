@@ -13,33 +13,37 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private string uiActionMap = "UI";
 
     private InputAction pauseAction;
+    private InputAction cancelAction;
     private bool isPaused;
 
     void Start()
     {
         if (playerInput == null)
         {
-            Debug.LogError("PlayerInput reference is missing on PauseMenu!");
             return;
         }
 
         pauseAction = playerInput.actions["Pause"];
         if (pauseAction == null)
         {
-            Debug.LogError("No 'Pause' action found in PlayerInput actions.");
             return;
         }
 
         pauseAction.Enable();
         pauseAction.performed += OnPausePressed;
 
+        cancelAction = playerInput.actions["Cancel"];
+        if (cancelAction == null)
+        {
+            return;
+        }
+
+        cancelAction.Enable();
+        cancelAction.performed += OnCancelPressed;
+        
         if (backButton != null)
         {
             backButton.onClick.AddListener(BackToPauseMenu);
-        }
-        else
-        {
-            Debug.LogWarning("Back button not assigned in PauseMenu.");
         }
     }
 
@@ -47,11 +51,28 @@ public class PauseMenu : MonoBehaviour
     {
         pauseAction.performed -= OnPausePressed;
         pauseAction.Disable();
+        cancelAction.performed -= OnPausePressed;
+        cancelAction.Disable();
     }
 
     private void OnPausePressed(InputAction.CallbackContext context)
     {
         TogglePause();
+    }
+    
+    private void OnCancelPressed(InputAction.CallbackContext context)
+    {
+        if (optionsUI.activeSelf)
+        {
+            optionsUI.SetActive(false);
+            pauseUI.SetActive(true);
+            return;
+        }
+        
+        if (pauseUI.activeSelf)
+        {
+            DeactivateMenu();
+        }
     }
 
     public void TogglePause()
@@ -77,11 +98,6 @@ public class PauseMenu : MonoBehaviour
         pauseUI.SetActive(true);
         isPaused = true;
         
-        //switch to UI map so Submit/Cancel/Navigate work
-        if (playerInput != null && !string.IsNullOrEmpty(uiActionMap))
-            playerInput.SwitchCurrentActionMap(uiActionMap);
-        
-        //free the cursor (mouse users)
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
@@ -94,11 +110,6 @@ public class PauseMenu : MonoBehaviour
         optionsUI.SetActive(false);
         isPaused = false;
         
-        //back to gameplay input
-        if (playerInput != null && !string.IsNullOrEmpty(gameplayActionMap))
-            playerInput.SwitchCurrentActionMap(gameplayActionMap);
-
-        //relock cursor for gameplay
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -107,7 +118,6 @@ public class PauseMenu : MonoBehaviour
 
     public void ExitGame()
     {
-        Debug.Log("Exiting Game...");
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
