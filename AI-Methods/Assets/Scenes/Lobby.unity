@@ -2294,6 +2294,10 @@ PrefabInstance:
       propertyPath: inputAxisController
       value: 
       objectReference: {fileID: 433024721}
+    - target: {fileID: 7074644462027498818, guid: 7606ab0833cb1c44c9f695b1aca6b373, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

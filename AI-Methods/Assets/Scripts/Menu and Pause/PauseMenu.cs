@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
@@ -49,7 +48,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseAction.performed -= OnPausePressed;
         pauseAction.Disable();
-        cancelAction.performed -= OnPausePressed;
+        cancelAction.performed -= OnCancelPressed;
         cancelAction.Disable();
     }
 

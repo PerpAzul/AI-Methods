@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         originalStepOffset = controller.stepOffset;
+        OnApplicationFocus(true);
     }
 
     void Update()
@@ -164,6 +165,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnApplicationFocus(bool hasFocus)
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
         Cursor.lockState = hasFocus ? CursorLockMode.Locked : CursorLockMode.None;
     }
 }

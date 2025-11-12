@@ -13,7 +13,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private TMP_Dropdown resolutionDropdown;
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private Slider sensitivitySlider;
-    [SerializeField] private CinemachineInputAxisController inputAxisController;
+    //[SerializeField] private CinemachineInputAxisController inputAxisController;
     
     void Start()
     {
@@ -85,10 +85,5 @@ public class OptionsMenu : MonoBehaviour
         PlayerPrefs.SetFloat("Sensitivity", sensitivity);
         PlayerPrefs.Save();
         sensitivitySlider.value = sensitivity;
-        
-        if (inputAxisController != null)
-        {
-            
-        }
     }
 }
