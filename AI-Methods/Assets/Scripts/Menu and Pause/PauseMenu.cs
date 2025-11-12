@@ -9,8 +9,6 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject optionsUI;
     [SerializeField] private Button backButton; // Back button from Options menu
     [SerializeField] private PlayerInput playerInput;
-    [SerializeField] private string gameplayActionMap = "Player";
-    [SerializeField] private string uiActionMap = "UI";
 
     private InputAction pauseAction;
     private InputAction cancelAction;
