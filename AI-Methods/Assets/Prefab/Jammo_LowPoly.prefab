@@ -4060,7 +4060,6 @@ MonoBehaviour:
   resolutionDropdown: {fileID: 6662700689370885753}
   volumeSlider: {fileID: 4311608517754169005}
   sensitivitySlider: {fileID: 1164901988386189601}
-  inputAxisController: {fileID: 0}
 --- !u!1 &7004050268935037130
 GameObject:
   m_ObjectHideFlags: 0
