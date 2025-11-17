@@ -1,25 +1,22 @@
 using UnityEngine;
 
-public class InstructionBook : Interactable
+public class InstructionBook : InteractableI
 {
     [SerializeField]
     public GameObject panel;        // Dein UI-Panel
+    private bool active = false;
     
     public static InstructionBook Instance;
 
     void Awake()
     {
         Instance = this;
-        panel.SetActive(false);
+        panel.SetActive(active);
     }
 
     protected override void Interact()
     {
-        panel.SetActive(true);
-    }
-
-    protected override void Destroy()
-    {
-        panel.SetActive(false);
+        active = !active;
+        panel.SetActive(active);
     }
 }
