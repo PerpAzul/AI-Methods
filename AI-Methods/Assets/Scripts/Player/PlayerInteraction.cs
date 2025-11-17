@@ -7,6 +7,7 @@ public class PlayerInteraction : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction interactAction;
     private ThirdPersonUI thirdUI;
+    [SerializeField] private float interactDistance = 0.5f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -21,7 +22,7 @@ public class PlayerInteraction : MonoBehaviour
     void Update()
     {
         thirdUI.UpdateText(string.Empty);
-        Collider[] hits = Physics.OverlapBox(transform.position + transform.forward * 0.25f, transform.localScale*0.5f, transform.rotation, mask, QueryTriggerInteraction.Collide);
+        Collider[] hits = Physics.OverlapBox(transform.position + transform.forward * 0.25f, transform.localScale * interactDistance, transform.rotation, mask, QueryTriggerInteraction.Collide);
         foreach (Collider hit in hits)
         {
             InteractableI interactable = hit.GetComponent<InteractableI>();
@@ -45,7 +46,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public void OnInteract(InputValue value)
     {
-        Collider[] hits = Physics.OverlapBox(transform.position + transform.forward * 0.25f, transform.localScale*0.5f, transform.rotation, mask, QueryTriggerInteraction.Collide);
+        Collider[] hits = Physics.OverlapBox(transform.position + transform.forward * 0.25f, transform.localScale * interactDistance, transform.rotation, mask, QueryTriggerInteraction.Collide);
         foreach (Collider hit in hits)
         {
             InteractableI interactable = hit.GetComponent<InteractableI>();

@@ -76,11 +76,20 @@ public class LineManager : MonoBehaviour
     {
         CapsuleCollider col = lineObj.AddComponent<CapsuleCollider>();
         col.isTrigger = true;
-        col.height = (end - start).magnitude;
+        if ((end - start).magnitude > 3) {
+            col.height = (end - start).magnitude - 3f;
+        } else {
+            col.height = 0.1f;
+        }
         col.radius = 0.03f;
         col.transform.localRotation = Quaternion.FromToRotation(Vector3.up, (end - start).normalized);
 
-        Interactable interactable = lineObj.AddComponent<LineObject>();
-        interactable.promptMessage = "Klicke zum Löschen";
+        InteractableI interactable = lineObj.AddComponent<LineObject>();
+        interactable.promptMessage = "Drücke E zum Löschen";
+    }
+
+    public bool onPlayer()
+    {
+        return waitingForSecond;
     }
 }
