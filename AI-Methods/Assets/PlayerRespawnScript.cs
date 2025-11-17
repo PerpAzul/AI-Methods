@@ -10,6 +10,7 @@ public class PlayerRespawnScript : MonoBehaviour
     void Start()
     {
         playerOriginPosition = player.transform.position;
+        //transformm = player.GetComponent<Transform>();
     }
 
     // Update is called once per frame
