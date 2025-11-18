@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerRespawnScript : MonoBehaviour
 {
@@ -20,7 +21,10 @@ public class PlayerRespawnScript : MonoBehaviour
         {
             Debug.Log("respawn key was pressed");
             //Physics.SyncTransforms();
-            player.transform.position = playerOriginPosition;
+            //player.transform.position = playerOriginPosition;
+
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currentSceneName);
         }
     }
 }
