@@ -18,7 +18,7 @@ public class PlayerRespawnScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            //Debug.Log("space key was pressed");
+            Debug.Log("respawn key was pressed");
             //Physics.SyncTransforms();
             player.transform.position = playerOriginPosition;
         }
