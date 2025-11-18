@@ -14,7 +14,6 @@ public class LineObject : InteractableI
     {
         if (LineManager.Instance != null && LineManager.Instance.onPlayer())
         {
-            earlierMessage = promptMessage;
             promptMessage = "";
         } else
         {
