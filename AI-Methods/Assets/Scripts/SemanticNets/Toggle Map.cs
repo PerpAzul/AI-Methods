@@ -9,7 +9,7 @@ public class MiniMapZoomToggle : MonoBehaviour
     [Header("Zoom Settings")]
     public float zoomScale = 2f;          // How much bigger the zoomed map is
     public Vector2 zoomPosition;          // Where enlarged map should appear
-    public KeyCode holdKey = KeyCode.O;   // Hold key
+    public KeyCode holdKey = KeyCode.T;   // Hold key
 
     // Internal storage
     private Vector2 borderOriginalPos;
