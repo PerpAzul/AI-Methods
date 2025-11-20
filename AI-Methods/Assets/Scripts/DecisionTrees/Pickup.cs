@@ -3,19 +3,22 @@ using UnityEngine;
 public class Pickup: MonoBehaviour
 {
     bool canPickup;
+    bool isPickingUp;
     [SerializeField] GameObject target;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && canPickup)
+        if (Input.GetKeyDown(KeyCode.E) && canPickup && !isPickingUp)
         {
+            isPickingUp = true;
             this.transform.parent = target.transform;
             this.transform.localEulerAngles = Vector3.zero;
             this.GetComponent<Rigidbody>().isKinematic = true;
         }
 
-        if (Input.GetKeyUp(KeyCode.E))
+        else if (Input.GetKeyDown(KeyCode.E) && isPickingUp)
         {
-            Debug.Log("Success");
+            Debug.Log("Drop");
+            isPickingUp = false;
             this.transform.parent = null;
             this.GetComponent<Rigidbody>().isKinematic = false;
         }
