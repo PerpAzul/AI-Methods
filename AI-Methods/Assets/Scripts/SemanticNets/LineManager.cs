@@ -46,9 +46,9 @@ public class LineManager : MonoBehaviour
             firstTarget = secondTarget;
             secondTarget = newTarget;
             Destroy(currentLine.gameObject); // alte Linie löschen
-            if (firstTarget != secondTarget) {
+            if (LevelManager.Instance.isValidConnection(firstTarget, secondTarget)) {
                 CreateLine(firstTarget, secondTarget);
-                AddCollider(currentLine.gameObject, firstTarget.position, secondTarget.position);
+                AddCollider(currentLine.gameObject, firstTarget, secondTarget);
             }
             currentLine = null;
         }
@@ -63,17 +63,12 @@ public class LineManager : MonoBehaviour
         currentLine.startWidth = 0.05f;
         currentLine.endWidth = 0.05f;
         currentLine.material = new Material(Shader.Find("Unlit/Color"));
+
         if (waitingForSecond) {
             currentLine.material.color = Color.cyan;
         } else {
-            Transform childStart = start.GetChild(0);
-            Transform childEnd = end.GetChild(0);
-            TMP_Text tmpStart = childStart.GetComponent<TextMeshPro>();
-            TMP_Text tmpEnd = childEnd.GetComponent<TextMeshPro>();
-            string node1 = tmpStart.text;
-            string node2 = tmpEnd.text;
-            Debug.Log(LevelManager.Instance);
-            currentLine.material.color = LevelManager.Instance.GetLineColor(1, node1, node2);
+            currentLine.material.color = LevelManager.Instance.GetLineColor(1, start, end);
+            LevelManager.Instance.addEdge(start, end);
         }
 
         currentLine.SetPosition(0, start.position);
@@ -84,8 +79,10 @@ public class LineManager : MonoBehaviour
         lineObj.layer = LayerMask.NameToLayer("Interactable");
     }
 
-    private void AddCollider(GameObject lineObj, Vector3 start, Vector3 end)
+    private void AddCollider(GameObject lineObj, Transform startNode, Transform endNode)
     {
+        Vector3 start = startNode.position;
+        Vector3 end = endNode.position;
         CapsuleCollider col = lineObj.AddComponent<CapsuleCollider>();
         col.isTrigger = true;
         if ((end - start).magnitude > 3) {
@@ -96,8 +93,9 @@ public class LineManager : MonoBehaviour
         col.radius = 0.03f;
         col.transform.localRotation = Quaternion.FromToRotation(Vector3.up, (end - start).normalized);
 
-        InteractableI interactable = lineObj.AddComponent<LineObject>();
-        interactable.promptMessage = "Drücke E zum Löschen";
+        LineObject lineObjComponent = lineObj.AddComponent<LineObject>();
+        lineObjComponent.promptMessage = "Drücke E zum Löschen";
+        lineObjComponent.Init(startNode, endNode);
     }
 
     public bool onPlayer()

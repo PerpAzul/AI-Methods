@@ -2,7 +2,16 @@ using UnityEngine;
 
 public class LineObject : InteractableI
 {
+    private Transform startNode;
+    private Transform endNode;
     private string earlierMessage;
+
+    public void Init(Transform startNode, Transform endNode)
+    {
+        this.startNode = startNode;
+        this.endNode = endNode;
+    }
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,6 +36,17 @@ public class LineObject : InteractableI
         {
             return;
         }
+        LevelManager.Instance.removeEdge(startNode, endNode);
         Destroy(this.gameObject);
+    }
+
+    public Transform getStartNode()
+    {
+        return startNode;
+    }
+
+    public Transform getEndNode()
+    {
+        return endNode;
     }
 }
