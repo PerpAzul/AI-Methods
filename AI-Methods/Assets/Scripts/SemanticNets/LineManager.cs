@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class LineManager : MonoBehaviour
 {
@@ -32,15 +33,16 @@ public class LineManager : MonoBehaviour
         if (!waitingForSecond)
         {
             // Start: Spieler -> Objekt
+            waitingForSecond = true;
             if (currentLine != null) Destroy(currentLine.gameObject); // alte Linie löschen
             CreateLine(player, newTarget);
             firstTarget = player;
             secondTarget = newTarget;
-            waitingForSecond = true;
         }
         else
         {
             // Nächstes Objekt -> Vorheriges Objekt
+            waitingForSecond = false;
             firstTarget = secondTarget;
             secondTarget = newTarget;
             Destroy(currentLine.gameObject); // alte Linie löschen
@@ -49,7 +51,6 @@ public class LineManager : MonoBehaviour
                 AddCollider(currentLine.gameObject, firstTarget.position, secondTarget.position);
             }
             currentLine = null;
-            waitingForSecond = false;
         }
     }
 
@@ -62,7 +63,18 @@ public class LineManager : MonoBehaviour
         currentLine.startWidth = 0.05f;
         currentLine.endWidth = 0.05f;
         currentLine.material = new Material(Shader.Find("Unlit/Color"));
-        currentLine.material.color = Color.cyan;
+        if (waitingForSecond) {
+            currentLine.material.color = Color.cyan;
+        } else {
+            Transform childStart = start.GetChild(0);
+            Transform childEnd = end.GetChild(0);
+            TMP_Text tmpStart = childStart.GetComponent<TextMeshPro>();
+            TMP_Text tmpEnd = childEnd.GetComponent<TextMeshPro>();
+            string node1 = tmpStart.text;
+            string node2 = tmpEnd.text;
+            Debug.Log(LevelManager.Instance);
+            currentLine.material.color = LevelManager.Instance.GetLineColor(1, node1, node2);
+        }
 
         currentLine.SetPosition(0, start.position);
         currentLine.SetPosition(1, end.position);
