@@ -1,10 +1,12 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class CanvasToggle : MonoBehaviour
 {
     public Canvas fullscreenCanvas;
+    public CinemachineCamera myCamera;
 
-    private bool isPlayerNear = false;
+    private bool isPlayerNear;
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -23,8 +25,10 @@ public class CanvasToggle : MonoBehaviour
         if (isPlayerNear && Input.GetKeyDown(KeyCode.E))
         {
             fullscreenCanvas.gameObject.SetActive(true);
+            myCamera.gameObject.SetActive(false);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
     }
+
 }
