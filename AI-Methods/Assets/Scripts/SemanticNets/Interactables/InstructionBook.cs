@@ -3,7 +3,7 @@ using UnityEngine;
 public class InstructionBook : InteractableI
 {
     [SerializeField]
-    public GameObject panel;        // Dein UI-Panel
+    public GameObject panel;
     private bool active = false;
     
     public static InstructionBook Instance;
@@ -17,6 +17,11 @@ public class InstructionBook : InteractableI
     protected override void Interact()
     {
         active = !active;
+        if (active) {
+            Time.timeScale = 0f;
+        } else {
+            Time.timeScale = 1f;
+        }
         panel.SetActive(active);
     }
 }
