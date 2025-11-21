@@ -3179,7 +3179,7 @@ MonoBehaviour:
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
-  m_PointAction: {fileID: -8512955718318877227, guid: 2f30d673008bf4bd9b7f13a2259d3afb, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: 289c1b55c9541489481df5cc06664110, type: 3}
   m_MoveAction: {fileID: -8784545083839296357, guid: 289c1b55c9541489481df5cc06664110, type: 3}
   m_SubmitAction: {fileID: 392368643174621059, guid: 289c1b55c9541489481df5cc06664110, type: 3}
   m_CancelAction: {fileID: 7727032971491509709, guid: 289c1b55c9541489481df5cc06664110, type: 3}
@@ -9449,7 +9449,7 @@ MonoBehaviour:
   pauseUI: {fileID: 799117259}
   optionsUI: {fileID: 1466493557}
   backButton: {fileID: 1953481185}
-  playerInput: {fileID: 0}
+  playerInput: {fileID: 1967294001}
 --- !u!114 &1621830586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9584,7 +9584,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!1001 &1651222321
 PrefabInstance:
@@ -11317,6 +11317,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 501207357194181923, guid: 7606ab0833cb1c44c9f695b1aca6b373, type: 3}
   m_PrefabInstance: {fileID: 709911018}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1967294001 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5875986607566073566, guid: 7606ab0833cb1c44c9f695b1aca6b373, type: 3}
+  m_PrefabInstance: {fileID: 709911018}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1975569670 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4936635111863572, guid: 33aa3234397faa044af73f4700427d62, type: 3}
