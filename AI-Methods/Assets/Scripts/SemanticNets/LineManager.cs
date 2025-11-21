@@ -49,6 +49,7 @@ public class LineManager : MonoBehaviour
             if (LevelManager.Instance.isValidConnection(firstTarget, secondTarget)) {
                 CreateLine(firstTarget, secondTarget);
                 AddCollider(currentLine.gameObject, firstTarget, secondTarget);
+                LevelManager.Instance.addEdge(firstTarget, secondTarget);
             }
             currentLine = null;
         }
@@ -68,7 +69,6 @@ public class LineManager : MonoBehaviour
             currentLine.material.color = Color.cyan;
         } else {
             currentLine.material.color = LevelManager.Instance.GetLineColor(1, start, end);
-            LevelManager.Instance.addEdge(start, end);
         }
 
         currentLine.SetPosition(0, start.position);

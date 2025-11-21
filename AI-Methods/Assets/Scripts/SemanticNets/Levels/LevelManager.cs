@@ -6,7 +6,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
     public int currentLevel = 1;
-    public List<(string, string)> playerEdges;
+    private List<(string, string)> playerEdges;
     private int correctEdges = 0;
     private int incorrectEdges = 0;
     
@@ -70,6 +70,8 @@ public class LevelManager : MonoBehaviour
         }
     }
     
+    // is called when an edge between two nodes (not between player and node!) is created
+    // called in ConnectTo() method of LineManager
     public void addEdge(Transform node1, Transform node2) {
         // check connection
         if (!isValidConnection(node1, node2))
@@ -89,6 +91,8 @@ public class LevelManager : MonoBehaviour
         isLevelComplete();
     }
 
+    // is called before an edge between two nodes is "destroyed"
+    // called in Interact() method of LineObject
     public void removeEdge(Transform node1, Transform node2) {
         TMP_Text tmpStart = node1.GetChild(0).GetComponent<TextMeshPro>();
         TMP_Text tmpEnd = node2.GetChild(0).GetComponent<TextMeshPro>();
@@ -120,5 +124,13 @@ public class LevelManager : MonoBehaviour
         }
         // more levels can be added here
         return false;
+    }
+
+    public int getCorrectEdgesCount() {
+        return correctEdges;
+    }
+
+    public int getIncorrectEdgesCount() {
+        return incorrectEdges;
     }
 }
