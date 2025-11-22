@@ -21,7 +21,7 @@ public class EvaluateDecisionTree : MonoBehaviour
     {
         if (FindNodeText("1_1").Equals("?"))
         {
-            Debug.Log("here");
+            Debug.Log("Characteristics: Metallic = " + metallic + ", Dangerous = " + dangerous + ", Blue Energy = " + blueEnergy);
             return Result.Undefined;
         }
 

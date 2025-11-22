@@ -7,7 +7,7 @@ public class Pickup: MonoBehaviour
     [SerializeField] GameObject target;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && canPickup && !isPickingUp)
+        if (Input.GetKeyDown(KeyCode.F) && canPickup && !isPickingUp)
         {
             isPickingUp = true;
             this.transform.parent = target.transform;
@@ -15,9 +15,8 @@ public class Pickup: MonoBehaviour
             this.GetComponent<Rigidbody>().isKinematic = true;
         }
 
-        else if (Input.GetKeyDown(KeyCode.E) && isPickingUp)
+        else if (Input.GetKeyDown(KeyCode.F) && isPickingUp)
         {
-            Debug.Log("Drop");
             isPickingUp = false;
             this.transform.parent = null;
             this.GetComponent<Rigidbody>().isKinematic = false;
