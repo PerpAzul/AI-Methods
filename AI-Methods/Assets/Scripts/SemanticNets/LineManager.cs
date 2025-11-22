@@ -68,7 +68,7 @@ public class LineManager : MonoBehaviour
         if (waitingForSecond) {
             currentLine.material.color = Color.cyan;
         } else {
-            currentLine.material.color = LevelManager.Instance.GetLineColor(1, start, end);
+            currentLine.material.color = LevelManager.Instance.GetLineColor(start, end);
         }
 
         currentLine.SetPosition(0, start.position);

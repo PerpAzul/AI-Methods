@@ -1,18 +1,21 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class Level1Storage : MonoBehaviour
+public class LevelStorage : MonoBehaviour
 {
-    public static Level1Storage Instance;
+    public static LevelStorage Instance;
 
-    public List<(string, string)> correctEdges;
-    public List<(string, string)> missingEdges;
+    public List<(string, string)> level1Edges;
+    public List<(string, string)>[] levels;
+
+    // IMPORTANT: when adding a new level, add a new list here and initialize is in Awake()
+    // ALSO CHANGE THE containsEdge() METHOD
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         Instance = this;
-        correctEdges = new List<(string, string)> {
+        level1Edges = new List<(string, string)> {
             ("Wissenschaft", "Ingenieurswissenschaften"),
             ("Wissenschaft", "Naturwissenschaften"),
             ("Naturwissenschaften", "Physik"),
@@ -20,16 +23,15 @@ public class Level1Storage : MonoBehaviour
             ("Ingenieurswissenschaften", "Informatik"),
             ("Ingenieurswissenschaften", "Maschinenbau")
         };
-        missingEdges = new List<(string, string)>{};
+        // more levels to be initialized here
+
+        levels = new List<(string, string)>[1];
+        levels[0] = level1Edges;
+        // put more levels into the array (used for easier access)
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public bool containsEdge(string node1, string node2) {
+    public bool containsEdge(string node1, string node2, int level) {
+        List<(string, string)> correctEdges = levels[0];
         foreach (var edge in correctEdges) {
             if ((edge.Item1 == node1 && edge.Item2 == node2) || (edge.Item1 == node2 && edge.Item2 == node1)) {
                 return true;

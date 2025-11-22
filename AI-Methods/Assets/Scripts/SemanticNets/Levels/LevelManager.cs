@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -9,18 +10,17 @@ public class LevelManager : MonoBehaviour
     private List<(string, string)> playerEdges;
     private int correctEdges = 0;
     private int incorrectEdges = 0;
+
+    // IMPORTANT: when adding a new level change
+    // 1: maxLevels
+    // 2: getListForLevel()
+    // Naming for new level scenes: "SemanticNets" + level
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         Instance = this;
         playerEdges = new List<(string, string)>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     // Checks valid connection in terms of if it is conceptually allowed to draw this connection
@@ -46,27 +46,18 @@ public class LevelManager : MonoBehaviour
         TMP_Text tmpEnd = node2.GetChild(0).GetComponent<TextMeshPro>();
         string node1Text = tmpStart.text;
         string node2Text = tmpEnd.text;
-        if (currentLevel == 1) {
-            return Level1Storage.Instance.containsEdge(node1Text, node2Text);
-        }
-        // more levels can be added here
-        return false;
+        return LevelStorage.Instance.containsEdge(node1Text, node2Text, currentLevel);
     }
 
-    public Color GetLineColor(int level, Transform node1, Transform node2) {
+    public Color GetLineColor(Transform node1, Transform node2) {
         TMP_Text tmpStart = node1.GetChild(0).GetComponent<TextMeshPro>();
         TMP_Text tmpEnd = node2.GetChild(0).GetComponent<TextMeshPro>();
         string node1Text = tmpStart.text;
         string node2Text = tmpEnd.text;
-        if (level == 1) {
-            if (Level1Storage.Instance.containsEdge(node1Text, node2Text)) {
-                return Color.green;
-            } else {
-                return Color.red;
-            }
-        // more levels can be added here
+        if (LevelStorage.Instance.containsEdge(node1Text, node2Text, currentLevel)) {
+            return Color.green;
         } else {
-            return Color.cyan;
+            return Color.red;
         }
     }
     
@@ -88,7 +79,7 @@ public class LevelManager : MonoBehaviour
         string node2Text = tmpEnd.text;
         playerEdges.Add((node1Text, node2Text));
 
-        isLevelComplete();
+        checkForLevelCompleteScreen();
     }
 
     // is called before an edge between two nodes is "destroyed"
@@ -111,19 +102,36 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        isLevelComplete();
+        checkForLevelCompleteScreen();
     }
 
     public bool isLevelComplete() {
-        if (currentLevel == 1) {
-            if (correctEdges == Level1Storage.Instance.correctEdges.Count && incorrectEdges == 0) {
-                Debug.Log("Level 1 complete!");
-                return true;
-            }
-            return false;
+        if (correctEdges == LevelStorage.Instance.levels[currentLevel - 1].Count && incorrectEdges == 0) {
+            Debug.Log("Level " + currentLevel + " complete!");
+            return true;
         }
-        // more levels can be added here
         return false;
+    }
+
+    public void checkForLevelCompleteScreen() {
+        if (isLevelComplete()) {
+            // logic for any global updates comes here
+            LevelComplete.ShowLevelCompleteScreen(currentLevel);
+        }
+    }
+
+    // called when pressing the button in the level complete screen
+    public void loadNextLevel() {
+        currentLevel++;
+        correctEdges = 0;
+        incorrectEdges = 0;
+        playerEdges.Clear();
+        
+        if (currentLevel > LevelStorage.Instance.levels.Length) {
+            SceneManager.LoadScene("Lobby");
+            return;
+        }
+        SceneManager.LoadScene("SemanticNets" + currentLevel);
     }
 
     public int getCorrectEdgesCount() {
