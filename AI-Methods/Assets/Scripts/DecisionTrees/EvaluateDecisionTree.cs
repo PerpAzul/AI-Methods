@@ -117,12 +117,14 @@ public class EvaluateDecisionTree : MonoBehaviour
             {
                 if (button.GetComponent<ToggleButton>().isOn)
                 {
+                    Debug.Log("Good");
                     return Result.Good;
                 }
-
+                Debug.Log("Bad");
                 return Result.Bad;
             }
         }
+        Debug.Log("Weird");
         return Result.Undefined;
     }
 
