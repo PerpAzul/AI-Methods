@@ -4,7 +4,7 @@ public class Pickup: MonoBehaviour
 {
     bool canPickup;
     bool isPickingUp;
-    [SerializeField] GameObject target;
+    public GameObject target;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && canPickup && !isPickingUp)

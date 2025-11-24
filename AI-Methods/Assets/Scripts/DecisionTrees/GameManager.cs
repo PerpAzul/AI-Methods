@@ -83,4 +83,11 @@ public class GameManager : MonoBehaviour
     {
         levelComplete.SetActive(true);
     }
+
+    public void resetProgress()
+    {
+        correctClassifications = 0;
+        progressBar.curr = 0.0f;
+        wasCorrectlyClassified = new bool[]{false, false, false, false, false, false, false, false};
+    }
 }
