@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    //for FloatScore Text
+    public Transform lastAddedNode1;
+    public Transform lastAddedNode2;
+
     public static LevelManager Instance;
     public int currentLevel = 1;
-    private List<(string, string)> playerEdges;
+    public List<(string, string)> playerEdges;
     private int correctEdges = 0;
     private int incorrectEdges = 0;
 
@@ -82,6 +86,10 @@ public class LevelManager : MonoBehaviour
         string node1Text = tmpStart.text;
         string node2Text = tmpEnd.text;
         playerEdges.Add((node1Text, node2Text));
+
+        // store last added positions
+        lastAddedNode1 = node1;
+        lastAddedNode2 = node2;
 
         checkForLevelCompleteScreen();
     }

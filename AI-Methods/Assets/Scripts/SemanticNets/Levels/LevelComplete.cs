@@ -20,6 +20,7 @@ public class LevelComplete : MonoBehaviour
         ColorUtility.TryParseHtmlString("#fff06b34", out color);
         image.color = color;
 
+        // Main text
         TextMeshProUGUI text = new GameObject("Text (TMP)").AddComponent<TextMeshProUGUI>();
         text.transform.SetParent(canvasObject.transform);
         text.text = "Level " + level + " geschafft!\n";
@@ -29,7 +30,18 @@ public class LevelComplete : MonoBehaviour
         rectTransform.sizeDelta = new Vector2(600, 200);
         rectTransform.anchoredPosition = new Vector2(0, 10);
 
-        // Add button
+        // Score text
+        TextMeshProUGUI scoreText = new GameObject("ScoreText").AddComponent<TextMeshProUGUI>();
+        scoreText.transform.SetParent(canvasObject.transform);
+        scoreText.text = "Punkte: " + ScoreSystem.Instance.GetScore();
+        scoreText.fontSize = 48;
+        scoreText.alignment = TextAlignmentOptions.Center;
+
+        RectTransform scoreRect = scoreText.GetComponent<RectTransform>();
+        scoreRect.sizeDelta = new Vector2(600, 100);
+        scoreRect.anchoredPosition = new Vector2(0, -60);
+
+        // Button
         GameObject buttonObj = new GameObject("ContinueButton");
         buttonObj.transform.SetParent(canvasObject.transform);
 
@@ -39,7 +51,8 @@ public class LevelComplete : MonoBehaviour
 
         RectTransform rect = buttonObj.GetComponent<RectTransform>();
         rect.sizeDelta = new Vector2(200, 60);
-        rect.anchoredPosition = new Vector2(0, -125);
+        rect.anchoredPosition = new Vector2(0, -150);
+
         GameObject textObj = new GameObject("ButtonText");
         textObj.transform.SetParent(buttonObj.transform);
         TextMeshProUGUI tmp = textObj.AddComponent<TextMeshProUGUI>();
@@ -47,11 +60,13 @@ public class LevelComplete : MonoBehaviour
         tmp.fontSize = 30;
         tmp.alignment = TextAlignmentOptions.Center;
         tmp.color = Color.black;
+
         RectTransform textRect = textObj.GetComponent<RectTransform>();
         textRect.anchorMin = Vector2.zero;
         textRect.anchorMax = Vector2.one;
         textRect.offsetMin = Vector2.zero;
         textRect.offsetMax = Vector2.zero;
+
         button.onClick.AddListener(() =>
         {
             Debug.Log("Button clicked!");
