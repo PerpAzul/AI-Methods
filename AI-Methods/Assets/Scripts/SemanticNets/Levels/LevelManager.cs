@@ -64,6 +64,10 @@ public class LevelManager : MonoBehaviour
     // is called when an edge between two nodes (not between player and node!) is created
     // called in ConnectTo() method of LineManager
     public void addEdge(Transform node1, Transform node2) {
+        // check if max. edge amount reached
+        if (HasReachedMaxEdges()) {
+            return;
+        }
         // check connection
         if (!isValidConnection(node1, node2))
             return;
@@ -133,6 +137,14 @@ public class LevelManager : MonoBehaviour
         }
         SceneManager.LoadScene("SemanticNets" + currentLevel);
     }
+
+    //Called in addEdge
+    //maxEdges = amount necessary to complete level. 
+    public bool HasReachedMaxEdges() {
+    int maxEdges = LevelStorage.Instance.levels[currentLevel - 1].Count;
+    int currentEdges = correctEdges + incorrectEdges;
+    return currentEdges >= maxEdges;
+}
 
     public int getCorrectEdgesCount() {
         return correctEdges;

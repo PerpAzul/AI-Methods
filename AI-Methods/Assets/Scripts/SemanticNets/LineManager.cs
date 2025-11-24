@@ -30,6 +30,16 @@ public class LineManager : MonoBehaviour
 
     public void ConnectTo(Transform newTarget, Transform player)
     {
+        // check if max. edge amount reached
+        if (LevelManager.Instance.HasReachedMaxEdges()) {
+            if (currentLine != null)
+                Destroy(currentLine.gameObject);
+
+            waitingForSecond = false;
+            currentLine = null;
+            return;
+        }
+
         if (!waitingForSecond)
         {
             // Start: Spieler -> Objekt

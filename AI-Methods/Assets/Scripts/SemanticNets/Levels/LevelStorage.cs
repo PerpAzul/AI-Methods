@@ -31,7 +31,7 @@ public class LevelStorage : MonoBehaviour
     }
 
     public bool containsEdge(string node1, string node2, int level) {
-        List<(string, string)> correctEdges = levels[0];
+        List<(string, string)> correctEdges = levels[level-1];
         foreach (var edge in correctEdges) {
             if ((edge.Item1 == node1 && edge.Item2 == node2) || (edge.Item1 == node2 && edge.Item2 == node1)) {
                 return true;
