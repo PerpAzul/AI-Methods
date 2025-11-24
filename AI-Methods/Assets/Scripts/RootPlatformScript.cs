@@ -10,17 +10,15 @@ public class RootPlatformScript : MonoBehaviour
     public ChangeGlowColorScript PlatformThree;
     public ChangeGlowColorScript PlatformFour;
     public ChangeGlowColorScript PlatformFive;
-    /*public ChangeGlowColorScript PlatformSix;
+    public ChangeGlowColorScript PlatformSix;
     public ChangeGlowColorScript PlatformSeven;
-    public ChangeGlowColorScript PlatformEight;
+    /*public ChangeGlowColorScript PlatformEight;
     public ChangeGlowColorScript PlatformNine;
     public ChangeGlowColorScript PlatformTen;*/
     void Start()
     {
         PlatformAnswer = false;
         PlatformOne.nextPlatform = true;
-        
-        
     }
 
     // Update is called once per frame
@@ -41,16 +39,16 @@ public class RootPlatformScript : MonoBehaviour
             else if (PlatformSeven.nextPlatform)
             {
                 PlatformEight.nextPlatform = true;
-            }
-            else if (PlatformSix.nextPlatform)
+            }*/
+            if (PlatformSix.nextPlatform)
             {
                 PlatformSeven.nextPlatform = true;
             }
             else if (PlatformFive.nextPlatform)
             {
                 PlatformSix.nextPlatform = true;
-            }*/
-            if (PlatformFour.nextPlatform)
+            }
+            else if (PlatformFour.nextPlatform)
             {
                 PlatformFive.nextPlatform = true;
             }
