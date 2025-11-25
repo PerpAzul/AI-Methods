@@ -9,7 +9,6 @@ public class LevelStorage : MonoBehaviour
     public List<(string, string)>[] levels;
 
     // IMPORTANT: when adding a new level, add a new list here and initialize is in Awake()
-    // ALSO CHANGE THE containsEdge() METHOD
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()

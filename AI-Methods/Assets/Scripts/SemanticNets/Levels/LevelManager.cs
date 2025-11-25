@@ -149,10 +149,13 @@ public class LevelManager : MonoBehaviour
     //Called in addEdge
     //maxEdges = amount necessary to complete level. 
     public bool HasReachedMaxEdges() {
-    int maxEdges = LevelStorage.Instance.levels[currentLevel - 1].Count;
-    int currentEdges = correctEdges + incorrectEdges;
-    return currentEdges >= maxEdges;
-}
+        if (currentLevel > LevelStorage.Instance.levels.Length) {
+            return false;
+        }
+        int maxEdges = LevelStorage.Instance.levels[currentLevel - 1].Count;
+        int currentEdges = correctEdges + incorrectEdges;
+        return currentEdges >= maxEdges;
+    }
 
     public int getCorrectEdgesCount() {
         return correctEdges;
