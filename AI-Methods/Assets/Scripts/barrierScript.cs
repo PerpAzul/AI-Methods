@@ -5,6 +5,7 @@ public class barrierScript : MonoBehaviour
 {
     public GameObject leftPillar;
     public GameObject rightPillar;
+    public GameObject durchgang;
 
     public Material redGlowPillar;
     public Material greenGlowPillar;
@@ -16,6 +17,7 @@ public class barrierScript : MonoBehaviour
         leftPillar.GetComponent<Renderer>().material = greenGlowPillar;
         rightPillar.GetComponent<Renderer>().material = greenGlowPillar;
         isRed = false;
+        durchgang.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,17 +27,20 @@ public class barrierScript : MonoBehaviour
         if (random < 0.01f)
         {
             isRed = !isRed;
-        }
 
-        if (isRed)
-        {
-            leftPillar.GetComponent<Renderer>().material = redGlowPillar;
-            rightPillar.GetComponent<Renderer>().material = redGlowPillar;
-        }
-        else {
-            leftPillar.GetComponent<Renderer>().material = greenGlowPillar;
-            rightPillar.GetComponent<Renderer>().material = greenGlowPillar;
-        }
+            if (isRed)
+            {
+                leftPillar.GetComponent<Renderer>().material = redGlowPillar;
+                rightPillar.GetComponent<Renderer>().material = redGlowPillar;
+                durchgang.SetActive(true);
+            }
+            else
+            {
+                leftPillar.GetComponent<Renderer>().material = greenGlowPillar;
+                rightPillar.GetComponent<Renderer>().material = greenGlowPillar;
+                durchgang.SetActive(false);
+            }
+        }        
     }
 
     private void OnTriggerEnter(Collider other)
