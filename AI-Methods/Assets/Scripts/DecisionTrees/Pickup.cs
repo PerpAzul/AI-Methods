@@ -1,13 +1,42 @@
+using System;
 using UnityEngine;
+using TMPro;
+using UnityEngine.Serialization;
 
 public class Pickup: MonoBehaviour
 {
-    bool canPickup;
-    bool isPickingUp;
+    
+    [Header("UI References")] 
+    [SerializeField] public GameObject infoCanvas;
+    [SerializeField] private TMP_Text infoText;
+    
+    [Header("Attributes")] 
+    public bool isMetal;
+    public bool isDangerous;
+    public bool isBlueEnergy;
+    public bool useful;
+    
+    [Header("Settings")] 
+    [SerializeField] private Vector3 uiOffset = new(0, 0.6f, 0);
+    
+    private bool playerIsClose;
+    private bool isPickingUp;
+    
+    [Header("Player target")]
     public GameObject target;
+    
+    private Camera mainCamera;
+
+    private void Start()
+    {
+        mainCamera = Camera.main;
+        
+        infoCanvas.SetActive(false);
+    }
+    
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && canPickup && !isPickingUp)
+        if (Input.GetKeyDown(KeyCode.F) && playerIsClose && !isPickingUp)
         {
             isPickingUp = true;
             this.transform.parent = target.transform;
@@ -23,13 +52,23 @@ public class Pickup: MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        if (infoCanvas.activeSelf)
+        {
+            infoCanvas.transform.position = transform.position + uiOffset;
+            
+            infoCanvas.transform.rotation = Quaternion.LookRotation(infoCanvas.transform.position - mainCamera.transform.position);
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        canPickup = true;
+        playerIsClose = true;
     }
 
     void OnTriggerExit(Collider other)
     {
-        canPickup = false;
+        playerIsClose = false;
     }
 }

@@ -22,6 +22,7 @@ public class DetectItem : MonoBehaviour
         foreach (var collider in intersects)
         {
             GameObject obj = collider.gameObject;
+            Pickup pickup = obj.GetComponent<Pickup>();
 
             // nur blaue energie
             if (obj.name.StartsWith("decorative_plant"))

@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    /*
+     * Musterlösung: Akzeptiert wird: alles mit blauer Energie, metal + dangerous
+     */
     private bool[] isGood = {true, false, true, false, true, false, true, true};
     private bool[] wasCorrectlyClassified = {false, false, false, false, false, false, false, false};
     [SerializeField] GameObject greenLight;
