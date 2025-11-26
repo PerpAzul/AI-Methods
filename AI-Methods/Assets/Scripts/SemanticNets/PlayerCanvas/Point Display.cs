@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class ScoreSystem : MonoBehaviour
 {
+    [SerializeField]
+    public GameObject parentCanvas;
     public static ScoreSystem Instance;
 
     private int score = 0;
@@ -26,17 +28,11 @@ public class ScoreSystem : MonoBehaviour
     {
         Instance = this;
 
-        GameObject canvasObj = new GameObject("ScoreCanvas");
-        var canvas = canvasObj.AddComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        canvasObj.AddComponent<CanvasScaler>();
-        canvasObj.AddComponent<GraphicRaycaster>();
-
         GameObject textObj = new GameObject("ScoreText");
-        textObj.transform.SetParent(canvasObj.transform);
+        textObj.transform.SetParent(parentCanvas.transform);
 
         scoreText = textObj.AddComponent<TextMeshProUGUI>();
-        scoreText.fontSize = 38;
+        scoreText.fontSize = 30;
         scoreText.alignment = TextAlignmentOptions.TopLeft;
         scoreText.color = baseColor;
         scoreText.text = "Punkte: 0";
@@ -77,9 +73,9 @@ public class ScoreSystem : MonoBehaviour
                         UpdateScoreText();
 
                         // spawn floating +50 above the new line
-                        if (lm.lastAddedNode1 != null && lm.lastAddedNode2 != null)
+                        if (lm.getLastAddedNode1() != null && lm.getLastAddedNode2() != null)
                         {
-                            Vector3 mid = (lm.lastAddedNode1.position + lm.lastAddedNode2.position) / 2f;
+                            Vector3 mid = (lm.getLastAddedNode1().position + lm.getLastAddedNode2().position) / 2f;
                             SpawnFloatingText("+50", new Color(0.3f, 1f, 0.3f), mid);
                         }
                     }
@@ -96,9 +92,9 @@ public class ScoreSystem : MonoBehaviour
             UpdateScoreText();
 
             // spawn -30 above the new incorrect line
-            if (lm.lastAddedNode1 != null && lm.lastAddedNode2 != null)
+            if (lm.getLastAddedNode1() != null && lm.getLastAddedNode2() != null)
             {
-                Vector3 mid = (lm.lastAddedNode1.position + lm.lastAddedNode2.position) / 2f;
+                Vector3 mid = (lm.getLastAddedNode1().position + lm.getLastAddedNode2().position) / 2f;
                 SpawnFloatingText("-30", new Color(1f, 0.3f, 0.3f), mid);
             }
 
