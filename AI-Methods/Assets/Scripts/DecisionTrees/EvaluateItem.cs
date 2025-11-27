@@ -1,131 +1,211 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using DecisionTrees;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class EvaluateItem : MonoBehaviour
 {
     
-    private enum Result
+    private class Result
     {
-        Undefined,
-        Good,
-        Bad
+        public List<string> Path;
+        public bool Useful;
+
+        public Result(List<string> path, bool useful)
+        {
+            Path = path;
+            Useful = useful;
+        }
     }
     
     [Header("Decision Tree Canvas")] public GameObject decisionTree;
+    [Header("Database")] public Database database;
 
-    [Header("Game Manager")] public GameManager gameManager;
-    private void OnTriggerEnter(Collider other)
+    private IEnumerator TestDatabase()
     {
-        if (other.GetComponent<Pickup>() != null)
+        float progress = 0;
+        foreach (Item item in database.ScannedItems)
         {
-            Pickup pickup = other.GetComponent<Pickup>();
-            Debug.Log($"Evaluating: Metal: {pickup.isMetal}, Danger: {pickup.isDangerous}, Blue Energy: {pickup.isBlueEnergy}");
-            Result result = Evaluate(pickup.isMetal, pickup.isDangerous, pickup.isBlueEnergy);
-            switch (result)
+            Result result = Evaluate(item.IsMetal, item.IsDangerous, item.HasBlueEnergy);
+            HighlightPath(result.Path);
+            database.DisplayEvaluate(item, progress/database.ScannedItems.Count);
+            yield return new WaitForSeconds(1);
+            
+            if (!result.Path[^1].StartsWith("toggle"))
             {
-                case Result.Good:
-                    break;
+                database.DisplayResult("?", progress/database.ScannedItems.Count);
+                break;
+            }
+            else if(result.Useful == item.Useful())
+            {
+                progress++;
+                database.DisplayResult("KORREKT", progress/database.ScannedItems.Count);
+                yield return new WaitForSeconds(1);
+            }
+            else
+            {
+                database.DisplayResult("FALSCH", progress/database.ScannedItems.Count);
+                break;
             }
         }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            StartCoroutine(TestDatabase());
+        }
+        
+    }
+
+    private void HighlightPath(List<string> path)
+    {
+        foreach (Image image in decisionTree.GetComponentsInChildren<Image>())
+        {
+            if (image.name.StartsWith("dropzone"))
+            {
+                image.color = path.Any(item => image.name == $"dropzone_{item}") ? new Color(1f, 1f, 1f, 1f) : new Color32(0, 0, 255, 150);
+            }
+
+            if (image.name.StartsWith("yes") || image.name.StartsWith("no"))
+            {
+                image.color = path.Contains(image.name) ? new Color(1f, 1f, 1f, 1f) : new Color(1f, 1f, 1f, 0.1f);
+            }
+        }
+        
     }
 
     private bool metallic, dangerous, blueEnergy;
     private Result Evaluate(bool isMetallic, bool isDangerous, bool hasBlueEnergy)
     {
+        List<string> path = new();
         metallic = isMetallic;
         dangerous = isDangerous;
         blueEnergy = hasBlueEnergy;
+        path.Add("1_1");
         if (FindNodeText("1_1").Equals("?"))
         {
-            return Result.Undefined;
+            return new Result(path, false);
         }
 
         if (AnswerNode("1_1"))
         {
+            path.Add("yes_1");
+            path.Add("2_1");
             if (FindNodeText("2_1") == "?")
             {
-                return Result.Undefined;
+                return new Result(path, false);
             }
 
             if (AnswerNode("2_1"))
             {
+                path.Add("yes_2_1");
+                path.Add("3_1");
                 if (FindNodeText("3_1") == "?")
                 {
-                    return Result.Undefined;
+                    return new Result(path, false);
                 }
 
                 if (AnswerNode("3_1"))
                 {
-                    return GetResultForToggle(1);
+                    path.Add("yes_3_1");
+                    path.Add("toggle_1");
+                    return new Result(path, GetResultForToggle(1));
                 }
                 else
                 {
-                    return GetResultForToggle(2);
+                    path.Add("no_3_1");
+                    path.Add("toggle_2");
+                    return new Result(path, GetResultForToggle(2));
                 }
             }
             else
             {
+                path.Add("no_2_1");
+                path.Add("3_2");
                 if (FindNodeText("3_2") == "?")
                 {
-                    return Result.Undefined;
+                    return new Result(path, false);
                 }
 
                 if (AnswerNode("3_2"))
                 {
-                    return GetResultForToggle(3);
+                    path.Add("yes_3_2");
+                    path.Add("toggle_3");
+                    return new Result(path, GetResultForToggle(3));
                 }
                 else
                 {
-                    return GetResultForToggle(4);
+                    path.Add("no_3_2");
+                    path.Add("toggle_4");
+                    return new Result(path, GetResultForToggle(4));
                 }
                 
             }
         }
         else
         {
+            path.Add("no_1");
+            path.Add("2_2");
             if (FindNodeText("2_2") == "?")
             {
-                return Result.Undefined;
+                return new Result(path, false);
             }
 
             if (AnswerNode("2_2"))
             {
+                path.Add("yes_2_2");
+                path.Add("3_3");
                 if (FindNodeText("3_3") == "?")
                 {
-                    return Result.Undefined;
+                    return new Result(path, false);
                 }
 
                 if (AnswerNode("3_3"))
                 {
-                    return GetResultForToggle(5);
+                    path.Add("yes_3_3");
+                    path.Add("toggle_5");
+                    return new Result(path, GetResultForToggle(5));
                 }
                 else
                 {
-                    return GetResultForToggle(6);
+                    path.Add("no_3_3");
+                    path.Add("toggle_6");
+                    return new Result(path, GetResultForToggle(6));
                 }
             }
             else
             {
+                path.Add("no_2_2");
+                path.Add("3_4");
                 if (FindNodeText("3_4") == "?")
                 {
-                    return Result.Undefined;
+                    return new Result(path, false);
                 }
 
                 if (AnswerNode("3_4"))
                 {
-                    return GetResultForToggle(7);
+                    path.Add("yes_3_4");
+                    path.Add("toggle_7");
+                    return new Result(path, GetResultForToggle(7));
                 }
                 else
                 {
-                    return GetResultForToggle(8);
+                    path.Add("no_3_4");
+                    path.Add("toggle_8");
+                    return new Result(path, GetResultForToggle(8));
                 }
                 
             }
         }
     }
 
-    private Result GetResultForToggle(int number)
+    private bool GetResultForToggle(int number)
     {
         foreach (Button button in decisionTree.GetComponentsInChildren<Button>())
         {
@@ -133,13 +213,13 @@ public class EvaluateItem : MonoBehaviour
             {
                 if (button.GetComponent<ToggleButton>().isOn)
                 {
-                    return Result.Good;
+                    return true;
                 }
-                return Result.Bad;
+                return false;
             }
         }
-        Debug.Log("Weird");
-        return Result.Undefined;
+
+        return false;
     }
 
     private string FindNodeText(string key)
@@ -152,7 +232,7 @@ public class EvaluateItem : MonoBehaviour
             }
         }
 
-        return null;
+        return "";
     }
 
     private bool AnswerNode(string key)

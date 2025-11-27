@@ -14,7 +14,6 @@ public class Pickup: MonoBehaviour
     public bool isMetal;
     public bool isDangerous;
     public bool isBlueEnergy;
-    public bool useful;
     
     [Header("Settings")] 
     [SerializeField] private Vector3 uiOffset = new(0, 0.6f, 0);
@@ -24,6 +23,8 @@ public class Pickup: MonoBehaviour
     
     [Header("Player target")]
     public GameObject target;
+    
+    public RenderTexture texture2d;
     
     private Camera mainCamera;
 
