@@ -8,6 +8,7 @@ public class ScanItem : MonoBehaviour
     {
         if (other.GetComponent<Pickup>() != null)
         {
+            Destroy(other.gameObject);
             Pickup pickup = other.GetComponent<Pickup>();
             Database database = databaseConsole.GetComponent<Database>();
             database.DisplayNewItem(new(pickup.isMetal, pickup.isDangerous, pickup.isBlueEnergy, pickup.texture2d));

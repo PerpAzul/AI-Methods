@@ -150,7 +150,7 @@ public class Database : MonoBehaviour
 
         if (IsPlayerNear && databaseCanvas.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && index > 0)
             {
                 index = (index - 1) % ScannedItems.Count;
                 DisplayDatabase();

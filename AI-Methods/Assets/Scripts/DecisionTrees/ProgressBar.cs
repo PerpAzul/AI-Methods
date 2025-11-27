@@ -1,16 +1,35 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ProgressBar : MonoBehaviour
 {
     public Image filler;
     float max = 8.0f;
     public float curr = 0.0f; 
+    public GameObject levelFinished;
 
     // Update is called once per frame
     void Update()
     {
         setFill();
+        if (curr >= 8.0f)
+        {
+            levelFinished.SetActive(true);
+            Time.timeScale = 0f;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            Button btn = levelFinished.GetComponentInChildren<Button>();
+            btn.onClick.AddListener(() =>
+            {
+                Debug.Log("Click");
+                Time.timeScale = 1f;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                levelFinished.SetActive(false);
+                SceneManager.LoadScene("Lobby");
+            });
+        }
     }
 
     void setFill()

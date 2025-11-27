@@ -24,6 +24,7 @@ public class EvaluateItem : MonoBehaviour
     
     [Header("Decision Tree Canvas")] public GameObject decisionTree;
     [Header("Database")] public Database database;
+    public ProgressBar progressBar;
 
     private IEnumerator TestDatabase()
     {
@@ -43,6 +44,7 @@ public class EvaluateItem : MonoBehaviour
             else if(result.Useful == item.Useful())
             {
                 progress++;
+                progressBar.curr = progress;
                 database.DisplayResult("KORREKT", progress/database.ScannedItems.Count);
                 yield return new WaitForSeconds(1);
             }
@@ -52,6 +54,11 @@ public class EvaluateItem : MonoBehaviour
                 break;
             }
         }
+    }
+
+    private void Start()
+    {
+        progressBar = GameObject.Find("Progress Bar").GetComponent<ProgressBar>();
     }
 
     private void Update()
