@@ -100,7 +100,7 @@ public class LineManager : MonoBehaviour
         } else {
             col.height = 0.1f;
         }
-        col.radius = 0.03f;
+        col.radius = 1f;
         col.transform.localRotation = Quaternion.FromToRotation(Vector3.up, (end - start).normalized);
 
         LineObject lineObjComponent = lineObj.AddComponent<LineObject>();
