@@ -2,29 +2,32 @@ using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    //for FloatScore Text
-    public Transform lastAddedNode1;
-    public Transform lastAddedNode2;
+    [SerializeField]
+    public GameObject panel;
+    [SerializeField]
+    public GameObject canvasToDisable;
 
     public static LevelManager Instance;
     public int currentLevel = 1;
     public List<(string, string)> playerEdges;
     private int correctEdges = 0;
     private int incorrectEdges = 0;
+    private Transform lastAddedNode1; //for FloatScore Text
+    private Transform lastAddedNode2; //for FloatScore Text
 
-    // IMPORTANT: when adding a new level change
-    // 1: maxLevels
-    // 2: getListForLevel()
-    // Naming for new level scenes: "SemanticNets" + level
+    // IMPORTANT: when adding a new level change LevelStorage.cs
+    // Naming for new level scenes: "SemanticNets" + level (otherwise it won't work!)
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         Instance = this;
         playerEdges = new List<(string, string)>();
+        panel.SetActive(false);
     }
 
     // Checks valid connection in terms of if it is conceptually allowed to draw this connection
@@ -117,18 +120,26 @@ public class LevelManager : MonoBehaviour
         checkForLevelCompleteScreen();
     }
 
-    public bool isLevelComplete() {
-        if (correctEdges == LevelStorage.Instance.levels[currentLevel - 1].Count && incorrectEdges == 0) {
-            Debug.Log("Level " + currentLevel + " complete!");
-            return true;
-        }
-        return false;
-    }
-
     public void checkForLevelCompleteScreen() {
-        if (isLevelComplete()) {
+        if (correctEdges == LevelStorage.Instance.levels[currentLevel - 1].Count && incorrectEdges == 0) {
             // logic for any global updates comes here
-            LevelComplete.ShowLevelCompleteScreen(currentLevel);
+
+            panel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Level " + currentLevel + " geschafft!";
+            panel.SetActive(true);
+            canvasToDisable.SetActive(false);
+            Time.timeScale = 0f;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            Button btn = panel.GetComponentInChildren<Button>();
+            btn.onClick.AddListener(() =>
+            {
+                Time.timeScale = 1f;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                loadNextLevel();
+                panel.SetActive(false);
+                canvasToDisable.SetActive(true);
+            });
         }
     }
 
@@ -157,11 +168,22 @@ public class LevelManager : MonoBehaviour
         return currentEdges >= maxEdges;
     }
 
+
+    // Getters
+
     public int getCorrectEdgesCount() {
         return correctEdges;
     }
 
     public int getIncorrectEdgesCount() {
         return incorrectEdges;
+    }
+    
+    public Transform getLastAddedNode1() {
+        return lastAddedNode1;
+    }
+
+    public Transform getLastAddedNode2() {
+        return lastAddedNode2;
     }
 }
