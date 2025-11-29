@@ -15,7 +15,6 @@ public class ArtObject : InteractableI
         }
     }
 
-
     // Update is called once per frame
     void Update()
     {
@@ -25,8 +24,10 @@ public class ArtObject : InteractableI
             promptMessage = originalPrompt;
         }
     }
+
     protected override void Interact()
     {
+        alreadyInteracted = true;
         Debug.Log("Connecting art object to player in semantic net.");
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 

@@ -3,7 +3,8 @@ using UnityEngine;
 public class InteractableI : MonoBehaviour
 {
     public string promptMessage;
-    public bool useEvents; //Add or remove an InteractionEvent component to this gameobject 
+    public bool useEvents; //Add or remove an InteractionEvent component to this gameobject
+    protected bool alreadyInteracted = false;
     
     //This function will be called by our player
     public void BaseInteract()
@@ -19,5 +20,10 @@ public class InteractableI : MonoBehaviour
     {
         //We won't have any code written in this function
         //This is a template function to be overridden by our subclasses
+    }
+
+    public bool hasAlreadyInteracted()
+    {
+        return alreadyInteracted;
     }
 }

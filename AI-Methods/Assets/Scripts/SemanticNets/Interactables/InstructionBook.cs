@@ -8,8 +8,6 @@ public class InstructionBook : InteractableI
     public GameObject panel;
     [SerializeField]
     public GameObject canvasToDisable;
-    [SerializeField]
-    public GameObject floatingArrow;
     private bool active = false;
     private Button buttonForward;
     private Button buttonBackward;
@@ -39,18 +37,10 @@ public class InstructionBook : InteractableI
         pageCountPanel.text = "Seite " + (currentPage + 1) + " von " + pages.Length;
     }
 
-    void Update()
-    {
-        // Sine wave vertical movement
-        if (floatingArrow.activeSelf == false) {
-            return;
-        }
-        float newY = 1.450147f + Mathf.Sin(Time.time * 3f) * 0.3f;
-        floatingArrow.transform.localPosition = new Vector3(0, 0, newY);
-    }
 
     protected override void Interact()
     {
+        alreadyInteracted = true;
         active = !active;
         if (active) {
             Time.timeScale = 0f;
@@ -60,7 +50,6 @@ public class InstructionBook : InteractableI
             Time.timeScale = 1f;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            floatingArrow.SetActive(false);
         }
         currentPage = 0;
         textPanel.text = pages[currentPage];

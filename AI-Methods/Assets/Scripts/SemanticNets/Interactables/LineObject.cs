@@ -36,11 +36,6 @@ public class LineObject : InteractableI
         }
     }
 
-    protected override void Interact()
-    {
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
