@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RootPlatformScript : MonoBehaviour
 {
@@ -15,15 +16,24 @@ public class RootPlatformScript : MonoBehaviour
     /*public ChangeGlowColorScript PlatformEight;
     public ChangeGlowColorScript PlatformNine;
     public ChangeGlowColorScript PlatformTen;*/
+
+    public int numWrongPlatforms;
     void Start()
     {
         PlatformAnswer = false;
         PlatformOne.nextPlatform = true;
+        numWrongPlatforms = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (numWrongPlatforms >= 3)
+        {
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currentSceneName);
+        }
+
         if (PlatformAnswer)
         { 
             PlatformAnswer = false;
