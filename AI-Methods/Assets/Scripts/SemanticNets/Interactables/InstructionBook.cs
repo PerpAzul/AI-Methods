@@ -13,9 +13,9 @@ public class InstructionBook : InteractableI
     private Button buttonBackward;
     private TextMeshProUGUI textPanel;
     private string[] pages = {
-        "Hier wurde einmal das gesamte Wissen der KI gesammelt. Leider sind die Verbindungen verloren gegangen und die KI versteht die Zusammenhänge nicht mehr...",
-        "Hilf der KI, die richtigen Verbidungen herzustellen. Mit der Taste 'E' kannst du mit Objekten interagieren und eine neue Verbindung erstellen. Mit der Taste 'T' kannst du die Minimap öffnen.",
-        "Vorsicht: Falsche Verbindungen werden von der KI als Fehler gewertet und ziehen Punktabzug nach sich! Das Ergebnis des ersten Levels hat eine Baumstruktur!",
+        "Hier wurde einmal das gesamte Wissen der KI gesammelt. Leider sind die Verbindungen verloren gegangen und die KI versteht die Zusammenhänge nicht mehr. Hilf der KI, wieder ein qualitatives Wissen herzustellen!",
+        "Wissen kann in sogenannten semantischen Netzen dargestellt werden. Knoten repräsentieren Konzepte, während Kanten die Beziehungen zwischen diesen Konzepten darstellen.",
+        "Das Ergebnis des ersten Levels hat eine Baumstruktur, mit einem 'Wurzel'-Knoten und mehreren 'Blatt'-Knoten. Vorsicht: Falsche Verbindungen werden von der KI als Fehler gewertet und ziehen Punktabzug nach sich!",
         "Denk daran: Je mehr richtige Verbindungen du herstellst, desto besser versteht die KI die Welt um sie herum! Nur du kannst sie reparieren."
     };
     private int currentPage = 0;
