@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private float? jumpButtonPressedTime;
     
     public CameraRecenter cameraRecenter;
+    [SerializeField] private DialogueManager manager;
 
     // cache animator hashes
     private static readonly int IsMovingHash = Animator.StringToHash("IsMoving");
@@ -135,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
     // New Input System (Player Input → Send Messages)
     public void OnMove(InputValue value)
     {
-        if (Time.timeScale == 0)
+        if (Time.timeScale == 0 || manager.isInDialogue)
         {
             return;
         }
@@ -144,10 +145,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
-        if (Time.timeScale == 0)
+        if (Time.timeScale == 0 || manager.isInDialogue)
         {
             return;
         }
+        
         if (value.isPressed)
         {
             jumpButtonPressedTime = Time.time;
