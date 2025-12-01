@@ -4452,6 +4452,7 @@ MonoBehaviour:
   optionsUI: {fileID: 7004050268935037130}
   backButton: {fileID: 7453847438411485392}
   playerInput: {fileID: 5875986607566073566}
+  isPaused: 0
 --- !u!114 &4018917907918300403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5805,11 +5806,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.209
+      value: 1.23
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.65
+      value: -112.97
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5846,6 +5847,10 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
       propertyPath: m_Name
       value: Jammo_LowPoly
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5973,6 +5978,7 @@ MonoBehaviour:
   groundedOffset: 0.05
   cameraRecenter: {fileID: 0}
   manager: {fileID: 0}
+  pauseMenu: {fileID: 5800839748653046576}
 --- !u!114 &8917793009618421638
 MonoBehaviour:
   m_ObjectHideFlags: 0
