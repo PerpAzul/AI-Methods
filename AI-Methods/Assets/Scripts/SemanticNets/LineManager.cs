@@ -20,11 +20,19 @@ public class LineManager : MonoBehaviour
         // Wenn es eine aktive Linie gibt, ihre Punkte updaten
         if (currentLine != null)
         {
-            if (firstTarget != null)
-                currentLine.SetPosition(0, firstTarget.position);
+            if (firstTarget != null) {
+                if (waitingForSecond) { // we know that secondTarget is the player
+                    Vector3 playerChest = firstTarget.position + Vector3.up * 0.5f;
+                    currentLine.SetPosition(0, playerChest);
+                } else {
+                    currentLine.SetPosition(0, firstTarget.position);
+                }
+            }
 
-            if (secondTarget != null)
+            if (secondTarget != null) {
                 currentLine.SetPosition(1, secondTarget.position);
+            }
+                
         }
     }
 

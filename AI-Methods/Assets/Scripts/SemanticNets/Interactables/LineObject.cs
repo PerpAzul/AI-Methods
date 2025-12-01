@@ -5,6 +5,7 @@ public class LineObject : InteractableI
     private Transform startNode;
     private Transform endNode;
     private string earlierMessage;
+    private bool playerInRange = false;
 
     public void Init(Transform startNode, Transform endNode)
     {
@@ -15,29 +16,40 @@ public class LineObject : InteractableI
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        promptMessage = "Drücke Q zum Löschen";
         earlierMessage = promptMessage;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (LineManager.Instance != null && LineManager.Instance.onPlayer())
-        {
-            promptMessage = "";
-        } else
+        if (LineManager.Instance != null && playerInRange && !LineManager.Instance.onPlayer())
         {
             promptMessage = earlierMessage;
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                LevelManager.Instance.removeEdge(startNode, endNode);
+                Destroy(this.gameObject);
+            }
+        } else {
+            promptMessage = "";
         }
     }
 
-    protected override void Interact()
+    private void OnTriggerEnter(Collider other)
     {
-        if (LineManager.Instance != null && LineManager.Instance.onPlayer())
+        if (other.CompareTag("Player"))
         {
-            return;
+            playerInRange = true;
         }
-        LevelManager.Instance.removeEdge(startNode, endNode);
-        Destroy(this.gameObject);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+        }
     }
 
     public Transform getStartNode()
