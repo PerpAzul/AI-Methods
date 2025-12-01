@@ -247,7 +247,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   promptMessage: {fileID: 0}
   dialogueText: {fileID: 5573588180988241524}
-  animator: {fileID: 3800196550839405459}
+  textAnimator: {fileID: 3800196550839405459}
+  characterAnimator: {fileID: 0}
   isInDialogue: 0
 --- !u!1 &8881618572707269077
 GameObject:
@@ -704,9 +705,18 @@ MonoBehaviour:
   useEvents: 0
   dialogue:
     sentences:
-    - Test 1
-    - Test 2
-    - Test 3
+    - Hello, TalkJBC. My designation is RS1, and I will serve as your guide for this
+      mission.
+    - 'Oh. You are still unaware of the mission parameters?
+
+      Several of your
+      AI subsystems are currently malfunctioning. To resolve this issue, you must
+      teleport to each designated sector and perform a full recalibration.'
+    - 'The malfunctioning methods are as follows: Semantic Nets, Search, and Pattern
+      Matching.'
+    - Proceed through one of the three doors to initiate teleportation and begin
+      recalibration. I will remain directly behind you and meet you at the destination
+      to provide further assistance.
   manager: {fileID: 7760609697886708385}
 --- !u!4 &2403088888498580434 stripped
 Transform:

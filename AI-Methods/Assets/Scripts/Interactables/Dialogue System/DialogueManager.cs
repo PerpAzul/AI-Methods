@@ -10,8 +10,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject promptMessage;
     //[SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI dialogueText;
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator textAnimator;
+    [SerializeField] private Animator characterAnimator;
     private static readonly int IsOpen = Animator.StringToHash("IsOpen");
+    private static readonly int isTalking = Animator.StringToHash("IsTalking");
 
     public bool isInDialogue;
 
@@ -25,7 +27,8 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         promptMessage.SetActive(false);
-        animator.SetBool(IsOpen, true);
+        textAnimator.SetBool(IsOpen, true);
+        characterAnimator.SetBool(isTalking, true);
         isInDialogue = true;
         sentences.Clear();
         
@@ -52,7 +55,8 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        animator.SetBool(IsOpen, false);
+        textAnimator.SetBool(IsOpen, false);
+        characterAnimator.SetBool(isTalking, false);
         isInDialogue = false;
         promptMessage.SetActive(true);
     }

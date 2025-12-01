@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour
 
     private InputAction pauseAction;
     private InputAction cancelAction;
-    private bool isPaused;
+    public bool isPaused;
 
     void Start()
     {

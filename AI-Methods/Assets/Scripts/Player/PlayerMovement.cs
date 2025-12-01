@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     
     public CameraRecenter cameraRecenter;
     [SerializeField] private DialogueManager manager;
+    [SerializeField] private PauseMenu pauseMenu;
 
     // cache animator hashes
     private static readonly int IsMovingHash = Animator.StringToHash("IsMoving");
@@ -136,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
     // New Input System (Player Input → Send Messages)
     public void OnMove(InputValue value)
     {
-        if (Time.timeScale == 0 || manager.isInDialogue)
+        if (Time.timeScale == 0 || manager.isInDialogue || pauseMenu.isPaused)
         {
             return;
         }
@@ -145,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
-        if (Time.timeScale == 0 || manager.isInDialogue)
+        if (Time.timeScale == 0 || manager.isInDialogue || pauseMenu.isPaused)
         {
             return;
         }
@@ -158,7 +159,7 @@ public class PlayerMovement : MonoBehaviour
     
     public void OnRecenter(InputValue value)
     {
-        if (Time.timeScale == 0)
+        if (Time.timeScale == 0 || pauseMenu.isPaused)
         {
             return;
         }
