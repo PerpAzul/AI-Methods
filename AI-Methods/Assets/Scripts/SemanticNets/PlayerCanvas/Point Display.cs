@@ -2,12 +2,14 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
-public class ScoreSystem : MonoBehaviour
+
+public class PointDisplay : MonoBehaviour
 {
     [SerializeField]
     public GameObject parentCanvas;
-    public static ScoreSystem Instance;
+    public static PointDisplay Instance;
 
     private int score = 0;
 
@@ -24,9 +26,15 @@ public class ScoreSystem : MonoBehaviour
     // Tracks correct edges that have already given points
     private HashSet<string> scoredCorrectEdges = new HashSet<string>();
 
-    void Awake()
-    {
+    void Awake() {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
+        DontDestroyOnLoad(gameObject);
 
         GameObject textObj = new GameObject("ScoreText");
         textObj.transform.SetParent(parentCanvas.transform);
@@ -44,6 +52,7 @@ public class ScoreSystem : MonoBehaviour
         rect.anchoredPosition = new Vector2(20, -20);
         rect.sizeDelta = new Vector2(400, 100);
     }
+
 
     void Update()
     {
@@ -136,6 +145,51 @@ public class ScoreSystem : MonoBehaviour
         var floating = go.AddComponent<FloatingScoreText>();
         floating.SetText(text, color);
     }
+
+    void OnEnable() {
+        SceneManager.sceneLoaded += OnSceneLoaded;    
+    }
+
+    void OnDisable() {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        // Find any canvas
+        Canvas newCanvas = FindFirstObjectByType<Canvas>();
+        if (newCanvas != null)
+        {
+            parentCanvas = newCanvas.gameObject;
+            if (scoreText == null)
+            {
+                // Rebuild the text if somehow destroyed
+                GameObject textObj = new GameObject("ScoreText");
+                textObj.transform.SetParent(parentCanvas.transform, false);
+                scoreText = textObj.AddComponent<TextMeshProUGUI>();
+                scoreText.alignment = TextAlignmentOptions.TopLeft;
+                scoreText.color = baseColor;
+            }
+            else
+            {
+                scoreText.transform.SetParent(parentCanvas.transform, false);
+            }
+
+            scoreText.fontSize = 30;
+            RectTransform rect = scoreText.GetComponent<RectTransform>();
+            rect.anchorMin = new Vector2(0f, 1f);
+            rect.anchorMax = new Vector2(0f, 1f);
+            rect.pivot = new Vector2(0f, 1f);
+            rect.anchoredPosition = new Vector2(20f, -20f);
+        }
+        UpdateScoreText(); 
+    }
+
+    public void ResetForNewLevel()
+{
+    lastCorrect = 0;
+    lastIncorrect = 0;
+    scoredCorrectEdges.Clear();
+}
 
     public int GetScore() {
         return score;
