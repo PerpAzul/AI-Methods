@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private DialogueManager manager;
     [SerializeField] private PauseMenu pauseMenu;
     public bool isLoading;
+    public bool isInteracting;
 
     // cache animator hashes
     private static readonly int IsMovingHash = Animator.StringToHash("IsMoving");
@@ -48,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         originalStepOffset = controller.stepOffset;
         OnApplicationFocus(true);
         isLoading = false;
+        isInteracting = false;
     }
 
     void Update()
@@ -144,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
     // New Input System (Player Input → Send Messages)
     public void OnMove(InputValue value)
     {
-        if (Time.timeScale == 0 || manager.isInDialogue || pauseMenu.isPaused || isLoading)
+        if (Time.timeScale == 0 || manager.isInDialogue || pauseMenu.isPaused || isLoading || isInteracting)
         {
             moveInput = Vector2.zero; 
             return;
@@ -154,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
-        if (Time.timeScale == 0 || manager.isInDialogue || pauseMenu.isPaused || isLoading)
+        if (Time.timeScale == 0 || manager.isInDialogue || pauseMenu.isPaused || isLoading || isInteracting)
         {
             return;
         }
@@ -167,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
     
     public void OnRecenter(InputValue value)
     {
-        if (Time.timeScale == 0 || pauseMenu.isPaused || isLoading)
+        if (Time.timeScale == 0 || pauseMenu.isPaused || isLoading || isInteracting)
         {
             return;
         }
