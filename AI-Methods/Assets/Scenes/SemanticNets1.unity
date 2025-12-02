@@ -2407,8 +2407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd1953cd364b4afbae8ce51af262a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 579111044}
-  canvasToDisable: {fileID: 1335931667}
+  panel: {fileID: 0}
   currentLevel: 1
 --- !u!4 &365242892
 Transform:
@@ -3805,11 +3804,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &579111044 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7663487289623225356, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
-  m_PrefabInstance: {fileID: 2553719369372879942}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &615232889
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13006,6 +13000,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6157356134867657159, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
+      propertyPath: m_text
+      value: 'Level 2 geschafft!
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 6985522431857466496, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -13170,11 +13170,11 @@ SceneRoots:
   - {fileID: 709911018}
   - {fileID: 567199291}
   - {fileID: 1269184386}
+  - {fileID: 2553719369372879942}
   - {fileID: 365242892}
   - {fileID: 644827775}
   - {fileID: 5937599}
   - {fileID: 1604486346}
   - {fileID: 165808628}
-  - {fileID: 2553719369372879942}
   - {fileID: 531560681}
   - {fileID: 94524997}

@@ -6,6 +6,8 @@ public class LevelStorage : MonoBehaviour
     public static LevelStorage Instance;
 
     public List<(string, string)> level1Edges;
+    public List<(string, string)> level2Edges;
+
     public List<(string, string)>[] levels;
 
     // IMPORTANT: when adding a new level, add a new list here and initialize is in Awake()
@@ -13,7 +15,14 @@ public class LevelStorage : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        if (Instance != null && Instance != this) {
+            Destroy(gameObject);
+            return;
+        }
+    
         Instance = this;
+        DontDestroyOnLoad(gameObject);
+
         level1Edges = new List<(string, string)> {
             ("Wissenschaft", "Ingenieurswissenschaften"),
             ("Wissenschaft", "Naturwissenschaften"),
@@ -22,10 +31,16 @@ public class LevelStorage : MonoBehaviour
             ("Ingenieurswissenschaften", "Informatik"),
             ("Ingenieurswissenschaften", "Maschinenbau")
         };
-        // more levels to be initialized here
 
-        levels = new List<(string, string)>[1];
+        level2Edges = new List<(string, string)> {
+            ("Informatik", "IT-Sicherheit"),
+            ("Informatik", "Algorithmen")
+        };
+
+        // more levels to be initialized here
+        levels = new List<(string, string)>[2];
         levels[0] = level1Edges;
+        levels[1] = level2Edges;
         // put more levels into the array (used for easier access)
     }
 

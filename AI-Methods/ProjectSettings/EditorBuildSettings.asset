@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/SemanticNets1.unity
+    guid: 4fa3ca681399146b590fccb475cea4c0
+  - enabled: 1
+    path: Assets/Scenes/SemanticNets2.unity
+    guid: 3931e0c76566d264faf8ddae9c672e52
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
   m_UseUCBPForAssetBundles: 0
