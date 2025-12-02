@@ -11,16 +11,24 @@ public class infoScreenButtonScript : MonoBehaviour
 
     void Start()
     {
-        button.onClick.AddListener(TaskOnClick);
+        //button.onClick.AddListener(TaskOnClick);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (!finalScreen)
+            {
+                nextScreen.SetActive(true);
+            }
+
+            thisScreen.SetActive(false);
+        }
     }
 
-    void TaskOnClick()
+    /*void TaskOnClick()
     {
         if (!finalScreen)
         {
@@ -28,5 +36,5 @@ public class infoScreenButtonScript : MonoBehaviour
         }
         
         thisScreen.SetActive(false);
-    }
+    }*/
 }
