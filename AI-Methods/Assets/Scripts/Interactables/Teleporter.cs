@@ -13,6 +13,9 @@ public class Teleporter : InteractableI
             return;
         }
         
+        var controller = player.GetComponent<CharacterController>();
+        controller.enabled = false;
         player.transform.position = teleport.transform.position;
+        controller.enabled = true;
     }
 }
