@@ -18,6 +18,8 @@ public class LevelManager : MonoBehaviour
     private Transform lastAddedNode1; // for FloatScore text
     private Transform lastAddedNode2; // for FloatScore text
 
+    private TMP_Text titleText;   // "Level X geschafft!"
+    private TMP_Text scoreText;
     // IMPORTANT: When adding a new level, change LevelStorage.cs
     // Naming for new level scenes: "SemanticNets" + level
 
@@ -168,14 +170,24 @@ public void checkForLevelCompleteScreen()
         if (!EnsurePanel())
             return; // error already logged
 
-        TMP_Text label = panel.GetComponentInChildren<TMP_Text>(true);
-        if (label == null)
+        // Set the big title text
+        if (titleText != null)
         {
-            Debug.LogError("LevelManager: No TMP_Text found under " + panel.name);
-            return;
+            titleText.text = "Level " + currentLevel + " geschafft!";
         }
 
-        label.text = "Level " + currentLevel + " geschafft!";
+        // Set the score text from your point system
+        if (scoreText != null)
+        {
+            int currentScore = 0;
+
+            // TODO: use whatever your point-display script exposes.
+            // Example if you have PointDisplay.Instance.GetCurrentScore():
+            if (PointDisplay.Instance != null)
+                currentScore = PointDisplay.Instance.GetScore();
+
+            scoreText.text = "Punkte: " + (currentScore+50);
+        }
 
         panel.SetActive(true);
         Time.timeScale = 0f;
@@ -183,6 +195,7 @@ public void checkForLevelCompleteScreen()
         Cursor.lockState = CursorLockMode.None;
     }
 }
+
 
 
     // Load next level after pressing continue button
@@ -268,11 +281,32 @@ private bool EnsurePanel()
         btn.onClick.AddListener(OnContinueButton);
     }
 
+    // find the title & score texts under this panel 
+
+    titleText = null;
+    scoreText = null;
+
+    TMP_Text[] texts = panel.GetComponentsInChildren<TMP_Text>(true);
+    foreach (var t in texts)
+    {
+        if (t.gameObject.name == "Text (TMP)")
+            titleText = t;
+        else if (t.gameObject.name == "ScoreText")
+            scoreText = t;
+    }
+
+    if (titleText == null)
+        Debug.LogError("LevelManager: Could not find title TMP_Text under LevelCompleteCanvas.");
+
+    if (scoreText == null)
+        Debug.LogError("LevelManager: Could not find ScoreText TMP_Text under LevelCompleteCanvas.");
+
     return true;
 }
 
 
-    // --- GETTERS --------------------------------------------------------------
+
+    // --- GETTERS 
 
     public int getCorrectEdgesCount() => correctEdges;
     public int getIncorrectEdgesCount() => incorrectEdges;
