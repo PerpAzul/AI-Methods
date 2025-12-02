@@ -3356,19 +3356,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2403088888498580434, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.3592054
       objectReference: {fileID: 0}
     - target: {fileID: 2403088888498580434, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2403088888498580434, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0.9332586
       objectReference: {fileID: 0}
     - target: {fileID: 2403088888498580434, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2403088888498580434, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3376,7 +3376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2403088888498580434, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 137.897
       objectReference: {fileID: 0}
     - target: {fileID: 2403088888498580434, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -3393,19 +3393,88 @@ PrefabInstance:
     - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: pauseMenu
       value: 
+      objectReference: {fileID: 288530560}
+    - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: useEvents
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: promptMessage
+      value: Rede mit RS1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: 'dialogue.sentences.Array.data[0]'
+      value: "Hier in diesem Schrottplatz musst du lernen, wie man entscheidet, welche
+        Gegenst\xE4nde n\xFCtzlich und nicht n\xFCtzlich sind, um die Welt wieder
+        aufzubauen!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: 'dialogue.sentences.Array.data[1]'
+      value: "Daf\xFCr verwenden wir Entscheidungsb\xE4ume. An jedem Knoten wird
+        eine Eigenschaft des Gegenstands gepr\xFCft. Wir durchlaufen den Pfad mit
+        den geltenden Eigenschaften bis zum Ende, wo dann die Entscheidung, n\xFCtzlich
+        oder nicht, getroffen wird."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: 'dialogue.sentences.Array.data[2]'
+      value: "Entscheidungsb\xE4ume sind eine wichtige Methode zur Klassifikation
+        im Bereich Machine Learning. Wir benutzen diese Eigenschaftspfade, um einem
+        Datenpunkt eine Klasse zuzuordnen. In der Praxis werden Entscheidungsb\xE4ume
+        mit Stichproben und Wahrscheinlichkeitsrechnung approximiert."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: 'dialogue.sentences.Array.data[3]'
+      value: "Hier entwirfst du deinen eigenen Entscheidungsbaum, der anhand der
+        Eigenschaften eines Gegenstands auswertet, ob dieser n\xFCtzlich ist oder
+        nicht. Du kannst du an der Maschine nebenan \"E\" dr\xFCcken, um deinen Baum
+        zu bauen!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: 'dialogue.sentences.Array.data[4]'
+      value: "Um zu wissen, welche Eigenschaften n\xFCtzlich sind, musst du 3 B\xFCcher
+        finden, welche in dem Schrottplatz liegen. Mit der Taste \"E\" kannst du
+        diese sammeln. Danach kannst du mit der Taste \"B\" den Inhalt jederzeit
+        aufrufen. Zum Schlie\xDFen der B\xFCcher dr\xFCckst du nochmal \"E\"."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: 'dialogue.sentences.Array.data[5]'
+      value: "Damit du deinen Baum testen kannst, musst du 8 Gegenst\xE4nde aufnehmen,
+        die im Raum herumliegen. Welche das sind, steht in den B\xFCchern. Das Aufnehmen
+        erfolgt mit der Taste \"F\", wenn du dich nah genug am Gegenstand befindest.
+        Loslassen kannst du ihn, indem du nochmal \"F\" dr\xFCckst. Aufgenommene
+        Gegenst\xE4nde kannst du an der Maschine einscannen (rotes Licht) und angeben,
+        ob sie n\xFCtzlich sind oder nicht. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: 'dialogue.sentences.Array.data[6]'
+      value: "Die Gegenst\xE4nde werden dann in die Datenbank aufgenommen. Indem
+        du an der Maschine \"T\" dr\xFCckst, testest du die Entscheidungen zu allen
+        dort gespeicherten Gegenst\xE4nden f\xFCr deinen Entscheidungsbaum."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: 'dialogue.sentences.Array.data[7]'
+      value: "Wenn alle 8 Gegenst\xE4nde richtig klassifiziert werden, hast du einen
+        richtigen Baum gefunden und gewonnen! Viel Spa\xDF!"
       objectReference: {fileID: 0}
     - target: {fileID: 7760609697886708385, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: promptMessage
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 288530561}
     - target: {fileID: 7760609697886708385, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: characterAnimator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 288530562}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2403088888498419250, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 141753848}
   m_SourcePrefab: {fileID: 100100000, guid: bcded6983318aed4994647bf0c941975, type: 3}
 --- !u!114 &141753846 stripped
 MonoBehaviour:
@@ -3418,6 +3487,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20b74776e390a134197caf2aa5071275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &141753847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2403088888498419250, guid: bcded6983318aed4994647bf0c941975, type: 3}
+  m_PrefabInstance: {fileID: 141753845}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &141753848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141753847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b20cea166b3364cbb8ddebbfebddd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &151490314
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7834,6 +7923,27 @@ PrefabInstance:
 --- !u!4 &288530559 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4016920198165294852, guid: 7606ab0833cb1c44c9f695b1aca6b373, type: 3}
+  m_PrefabInstance: {fileID: 288530558}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &288530560 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5800839748653046576, guid: 7606ab0833cb1c44c9f695b1aca6b373, type: 3}
+  m_PrefabInstance: {fileID: 288530558}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbeca77fbd4279c4d92e8dc618176795, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &288530561 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7922969235697876407, guid: 7606ab0833cb1c44c9f695b1aca6b373, type: 3}
+  m_PrefabInstance: {fileID: 288530558}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &288530562 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7529638894242607193, guid: 7606ab0833cb1c44c9f695b1aca6b373, type: 3}
   m_PrefabInstance: {fileID: 288530558}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &291230983
