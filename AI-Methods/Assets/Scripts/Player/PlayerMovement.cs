@@ -50,6 +50,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0 || manager.isInDialogue || pauseMenu.isPaused)
+        {
+            moveInput = Vector2.zero; 
+        }
+        
         // 1) Camera-relative XZ movement
         Vector3 moveDir = new Vector3(moveInput.x, 0f, moveInput.y);
         float inputMag = Mathf.Clamp01(moveDir.magnitude);
@@ -139,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Time.timeScale == 0 || manager.isInDialogue || pauseMenu.isPaused)
         {
+            moveInput = Vector2.zero; 
             return;
         }
         moveInput = value.Get<Vector2>();
