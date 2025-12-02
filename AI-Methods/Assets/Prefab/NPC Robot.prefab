@@ -662,6 +662,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100126, guid: 52ad55bee0260b64da664da407ed38b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6962799452232891366}
+    - targetCorrespondingSourceObject: {fileID: 100126, guid: 52ad55bee0260b64da664da407ed38b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7807355785629471917}
   m_SourcePrefab: {fileID: 100100000, guid: 52ad55bee0260b64da664da407ed38b4, type: 3}
 --- !u!1 &2403088888498419250 stripped
 GameObject:
@@ -702,7 +705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Talk with RS1
-  useEvents: 0
+  useEvents: 1
   dialogue:
     sentences:
     - Hello, TalkJBC. My designation is RS1, and I will serve as your guide for this
@@ -718,6 +721,58 @@ MonoBehaviour:
       recalibration. I will remain directly behind you and meet you at the destination
       to provide further assistance.
   manager: {fileID: 7760609697886708385}
+  pauseMenu: {fileID: 0}
+--- !u!114 &7807355785629471917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2403088888498419250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b20cea166b3364cbb8ddebbfebddd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.MeshCollider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.MeshCollider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.MeshCollider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!4 &2403088888498580434 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400126, guid: 52ad55bee0260b64da664da407ed38b4, type: 3}

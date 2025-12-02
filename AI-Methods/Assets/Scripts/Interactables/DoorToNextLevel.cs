@@ -5,14 +5,31 @@ public class DoorToNextLevel : InteractableI
 {
     [SerializeField] private PauseMenu pauseMenu;
     [SerializeField] private string nextSceneName;
+    [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private PlayerMovement player;
     
     protected override void Interact()
     {
-        if (pauseMenu.isPaused)
+        if (pauseMenu.isPaused || player.isLoading)
         {
             return;
         }
+
+        player.isLoading = true;
+        StartCoroutine(LoadSceneRoutine(nextSceneName));
+    }
+    
+    private System.Collections.IEnumerator LoadSceneRoutine(string nextSceneName)
+    {
+        loadingScreen.SetActive(true);
+        yield return null;
         
-        SceneManager.LoadScene(nextSceneName);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(nextSceneName);
+        //operation.allowSceneActivation = false;
+        
+        while (!operation.isDone)
+        {
+            yield return null;
+        }
     }
 }

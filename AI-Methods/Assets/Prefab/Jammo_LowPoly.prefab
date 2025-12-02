@@ -4359,7 +4359,7 @@ GameObject:
   - component: {fileID: 8290638918373908956}
   - component: {fileID: 5357047949745110739}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: Player Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6253,6 +6253,7 @@ MonoBehaviour:
   cameraRecenter: {fileID: 0}
   manager: {fileID: 0}
   pauseMenu: {fileID: 5800839748653046576}
+  isLoading: 0
 --- !u!114 &8917793009618421638
 MonoBehaviour:
   m_ObjectHideFlags: 0

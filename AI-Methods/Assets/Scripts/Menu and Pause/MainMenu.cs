@@ -9,6 +9,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject optionsUI;
     [SerializeField] private Button backButton; // Back button from Options menu
     
+    [SerializeField] private string nextSceneName;
+    [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private GameObject menuCanvas;
+    
     private InputAction cancelAction;
 
     void Start()
@@ -42,7 +46,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(LoadSceneRoutine(nextSceneName));
     }
 
     public void ExitGame()
@@ -71,5 +75,20 @@ public class MainMenu : MonoBehaviour
         // Only react if Options menu is currently open
         if (optionsUI.activeSelf)
             BackToPauseMenu();
+    }
+    
+    private System.Collections.IEnumerator LoadSceneRoutine(string nextSceneName)
+    {
+        loadingScreen.SetActive(true);
+        menuCanvas.SetActive(false);
+        yield return null;
+        
+        AsyncOperation operation = SceneManager.LoadSceneAsync(nextSceneName);
+        //operation.allowSceneActivation = false;
+        
+        while (!operation.isDone)
+        {
+            yield return null;
+        }
     }
 }
