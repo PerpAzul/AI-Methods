@@ -14,7 +14,6 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
 
     private Text myText;
     private Image myImage;
-    private GameManager gameManager;
     void Awake()
     {
         canvas = GetComponentInParent<Canvas>();
@@ -24,11 +23,6 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
         }
         myText = GetComponentInChildren<Text>();
         myImage = GetComponent<Image>();
-    }
-
-    void Start()
-    {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -101,7 +95,6 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
             var targetImage = r.gameObject.GetComponentInParent<Image>();
             targetImage.color = new Color32(255, 255, 255, 255);
 
-            gameManager.resetProgress();
             break;
         }
     }

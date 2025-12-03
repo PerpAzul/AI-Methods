@@ -9,7 +9,6 @@ public class ToggleButton : MonoBehaviour
     public Image targetImage;
 
     private Button myButton;
-    private GameManager gameManager;
 
     void Awake()
     {
@@ -20,15 +19,10 @@ public class ToggleButton : MonoBehaviour
         UpdateVisual();
     }
 
-    void Start()
-    {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-    }
 
     private void ToggleState()
     {
         isOn = !isOn;
-        gameManager.resetProgress();
         UpdateVisual();
     }
 
