@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &5570510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6374133829702512905, guid: bcded6983318aed4994647bf0c941975, type: 3}
+  m_PrefabInstance: {fileID: 446290200}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5815695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -228,7 +233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &5937596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2023,7 +2028,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2403088888498580434, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.9205627
+      value: 7.8
       objectReference: {fileID: 0}
     - target: {fileID: 2403088888498580434, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2031,11 +2036,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2403088888498580434, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.602715
+      value: -19.49
       objectReference: {fileID: 0}
     - target: {fileID: 2403088888498580434, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.94832367
       objectReference: {fileID: 0}
     - target: {fileID: 2403088888498580434, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2043,7 +2048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2403088888498580434, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0.31730464
       objectReference: {fileID: 0}
     - target: {fileID: 2403088888498580434, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: m_LocalRotation.z
@@ -2055,7 +2060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2403088888498580434, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 2403088888498580434, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -2074,7 +2079,7 @@ PrefabInstance:
       value: "Hallo Spieler! In dieser Bibliothek wurde einmal das gesamte Wissen
         der KI gesammelt. Leider sind die Verbindungen verloren gegangen und die
         KI versteht die Zusammenh\xE4nge nicht mehr. Hilf der KI, wieder ein qualitatives
-        Wissen herzustellen!\n\n(weiter: 'E')"
+        Wissen herzustellen!\n\nWeiter: 'E'"
       objectReference: {fileID: 0}
     - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: 'dialogue.sentences.Array.data[1]'
@@ -2092,6 +2097,10 @@ PrefabInstance:
       propertyPath: 'dialogue.sentences.Array.data[3]'
       value: 'Denk daran: Je mehr richtige Verbindungen du herstellst, desto besser
         versteht die KI die Welt um sie herum! Nur du kannst sie reparieren.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7760609697886708385, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: isInDialogue
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7760609697886708385, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: promptMessage
@@ -2489,7 +2498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e9b7356cdcf4b44b1a80383310bc08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target0: {fileID: 35782338}
+  target0: {fileID: 5570510}
   target1: {fileID: 2056949272}
   target2: {fileID: 1605137960}
   interactionCanvas: {fileID: 1381926372}
@@ -3542,7 +3551,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7760609697886708385, guid: bcded6983318aed4994647bf0c941975, type: 3}
   m_PrefabInstance: {fileID: 446290200}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 5570510}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20b74776e390a134197caf2aa5071275, type: 3}
@@ -6645,6 +6654,10 @@ PrefabInstance:
     - target: {fileID: 169080, guid: 48f0889733d556d4a927a13a99a7f434, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 169080, guid: 48f0889733d556d4a927a13a99a7f434, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 439064, guid: 48f0889733d556d4a927a13a99a7f434, type: 3}
       propertyPath: m_LocalScale.x
