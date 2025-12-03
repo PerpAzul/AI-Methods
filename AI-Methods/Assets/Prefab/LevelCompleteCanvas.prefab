@@ -602,7 +602,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level 1 geschafft!
+  m_text: 'Level 2 geschafft!!
 
 '
   m_isRightToLeft: 0

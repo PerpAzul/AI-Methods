@@ -1,17 +1,16 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
-
 
 public class PointDisplay : MonoBehaviour
 {
     [SerializeField]
     public GameObject parentCanvas;
+
     public static PointDisplay Instance;
 
-    private int score = 0;
+    // Score should persist across scenes
+    private static int score = 0;
 
     private int lastCorrect = 0;
     private int lastIncorrect = 0;
@@ -26,7 +25,8 @@ public class PointDisplay : MonoBehaviour
     // Tracks correct edges that have already given points
     private HashSet<string> scoredCorrectEdges = new HashSet<string>();
 
-    void Awake() {
+    void Awake()
+    {
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -34,32 +34,40 @@ public class PointDisplay : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
 
+        // If not set in Inspector, grab first Canvas in the scene
+        if (parentCanvas == null)
+        {
+            Canvas c = FindFirstObjectByType<Canvas>();
+            if (c != null)
+                parentCanvas = c.gameObject;
+        }
+
+        // Create the score text under this scene's canvas
         GameObject textObj = new GameObject("ScoreText");
-        textObj.transform.SetParent(parentCanvas.transform);
+        textObj.transform.SetParent(parentCanvas.transform, false);
 
         scoreText = textObj.AddComponent<TextMeshProUGUI>();
-        scoreText.fontSize = 30;
+        scoreText.fontSize = 50;
         scoreText.alignment = TextAlignmentOptions.TopLeft;
         scoreText.color = baseColor;
-        scoreText.text = "Punkte: 0";
 
         RectTransform rect = scoreText.GetComponent<RectTransform>();
         rect.anchorMin = new Vector2(0, 1);
         rect.anchorMax = new Vector2(0, 1);
-        rect.pivot = new Vector2(0, 1);
+        rect.pivot     = new Vector2(0, 1);
         rect.anchoredPosition = new Vector2(20, -20);
         rect.sizeDelta = new Vector2(400, 100);
-    }
 
+        UpdateScoreText();
+    }
 
     void Update()
     {
         var lm = LevelManager.Instance;
         if (lm == null) return;
 
-        int currentCorrect = lm.getCorrectEdgesCount();
+        int currentCorrect   = lm.getCorrectEdgesCount();
         int currentIncorrect = lm.getIncorrectEdgesCount();
 
         // New correct edges
@@ -106,10 +114,9 @@ public class PointDisplay : MonoBehaviour
                 Vector3 mid = (lm.getLastAddedNode1().position + lm.getLastAddedNode2().position) / 2f;
                 SpawnFloatingText("-30", new Color(1f, 0.3f, 0.3f), mid);
             }
-
         }
 
-        lastCorrect = currentCorrect;
+        lastCorrect   = currentCorrect;
         lastIncorrect = currentIncorrect;
 
         // Fade color back to white
@@ -138,7 +145,8 @@ public class PointDisplay : MonoBehaviour
         scoreText.text = "Punkte: " + score;
     }
 
-    private void SpawnFloatingText(string text, Color color, Vector3 worldPosition) {
+    private void SpawnFloatingText(string text, Color color, Vector3 worldPosition)
+    {
         GameObject go = new GameObject("FloatingScoreText");
         go.transform.position = worldPosition;
 
@@ -146,53 +154,16 @@ public class PointDisplay : MonoBehaviour
         floating.SetText(text, color);
     }
 
-    void OnEnable() {
-        SceneManager.sceneLoaded += OnSceneLoaded;    
-    }
-
-    void OnDisable() {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-        // Find any canvas
-        Canvas newCanvas = FindFirstObjectByType<Canvas>();
-        if (newCanvas != null)
-        {
-            parentCanvas = newCanvas.gameObject;
-            if (scoreText == null)
-            {
-                // Rebuild the text if somehow destroyed
-                GameObject textObj = new GameObject("ScoreText");
-                textObj.transform.SetParent(parentCanvas.transform, false);
-                scoreText = textObj.AddComponent<TextMeshProUGUI>();
-                scoreText.alignment = TextAlignmentOptions.TopLeft;
-                scoreText.color = baseColor;
-            }
-            else
-            {
-                scoreText.transform.SetParent(parentCanvas.transform, false);
-            }
-
-            scoreText.fontSize = 30;
-            RectTransform rect = scoreText.GetComponent<RectTransform>();
-            rect.anchorMin = new Vector2(0f, 1f);
-            rect.anchorMax = new Vector2(0f, 1f);
-            rect.pivot = new Vector2(0f, 1f);
-            rect.anchoredPosition = new Vector2(20f, -20f);
-        }
-        UpdateScoreText(); 
-    }
-
+    // Called by LevelManager when starting a new level
     public void ResetForNewLevel()
-{
-    lastCorrect = 0;
-    lastIncorrect = 0;
-    scoredCorrectEdges.Clear();
-}
+    {
+        lastCorrect = 0;
+        lastIncorrect = 0;
+        scoredCorrectEdges.Clear();
+    }
 
-    public int GetScore() {
+    public int GetScore()
+    {
         return score;
     }
-
 }
