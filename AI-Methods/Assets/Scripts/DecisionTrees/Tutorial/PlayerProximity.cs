@@ -17,7 +17,6 @@ public class PlayerProximity : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
         current = other.GetComponent<HintDisplayer>();
     }
 
@@ -30,19 +29,20 @@ public class PlayerProximity : MonoBehaviour
         }
     }
 
+    public void Hide()
+    {
+        current = null;
+    }
+
     void Update()
     {
         if (current)
         {
             interactionText.text = current.message;
             worldSpaceCanvas.enabled = true;
-            // Follow the object
             worldSpaceCanvas.transform.position =
                 current.transform.position + current.uiOffset;
 
-            // Look at the player camera
-            Transform cam = myCamera.transform;
-            worldSpaceCanvas.transform.LookAt(worldSpaceCanvas.transform.position + cam.forward);
         }
     }
 }

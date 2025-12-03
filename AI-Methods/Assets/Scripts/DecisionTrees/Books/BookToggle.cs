@@ -8,16 +8,24 @@ public class BookToggle : MonoBehaviour
     public CinemachineCamera myCamera;
     BookUntoggle bookUntoggle;
     public GameObject locked; 
+    
+    public PlayerProximity playerProximity;
 
     private bool isNear;
     void OnTriggerEnter(Collider other)
     {
-        isNear = true;
+        if (other.CompareTag("Player"))
+        {
+            isNear = true;
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
-        isNear = false;
+        if (other.CompareTag("Player"))
+        {
+            isNear = false;
+        }
     }
     
     void Start()
@@ -30,6 +38,7 @@ public class BookToggle : MonoBehaviour
     {
         if (isNear && Input.GetKeyDown(KeyCode.E))
         {
+            playerProximity.Hide();
             locked.SetActive(false);
             bookUntoggle.isUnlocked = true;
             fullscreenCanvas.gameObject.SetActive(true);

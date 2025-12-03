@@ -11,7 +11,7 @@ public class ScanItem : MonoBehaviour
             Destroy(other.gameObject);
             Pickup pickup = other.GetComponent<Pickup>();
             Database database = databaseConsole.GetComponent<Database>();
-            database.DisplayNewItem(new(pickup.isMetal, pickup.isDangerous, pickup.isBlueEnergy, pickup.texture2d));
+            database.AddNewItem(new(pickup.isMetal, pickup.isDangerous, pickup.isBlueEnergy, pickup.texture2d));
         }
     }
 }
