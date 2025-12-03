@@ -3,20 +3,12 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Serialization;
 
-public class Pickup: MonoBehaviour
+public class Pickup: HintDisplayer
 {
-    
-    [Header("UI References")] 
-    [SerializeField] public GameObject infoCanvas;
-    [SerializeField] private TMP_Text infoText;
-    
     [Header("Attributes")] 
     public bool isMetal;
     public bool isDangerous;
     public bool isBlueEnergy;
-    
-    [Header("Settings")] 
-    [SerializeField] private Vector3 uiOffset = new(0, 0.6f, 0);
     
     private bool playerIsClose;
     private bool isPickingUp;
@@ -26,13 +18,9 @@ public class Pickup: MonoBehaviour
     
     public RenderTexture texture2d;
     
-    private Camera mainCamera;
-
     private void Start()
     {
-        mainCamera = Camera.main;
-        
-        infoCanvas.SetActive(false);
+        message = "Drücke [F] zum Aufnehmen";
     }
     
     void Update()
@@ -42,6 +30,7 @@ public class Pickup: MonoBehaviour
             isPickingUp = true;
             this.transform.parent = target.transform;
             this.transform.localEulerAngles = Vector3.zero;
+            message = "Drücke [F] zum Ablegen";
             this.GetComponent<Rigidbody>().isKinematic = true;
         }
 
@@ -49,19 +38,11 @@ public class Pickup: MonoBehaviour
         {
             isPickingUp = false;
             this.transform.parent = null;
+            message = "Drücke [F] zum Aufnehmen";
             this.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 
-    private void LateUpdate()
-    {
-        if (infoCanvas.activeSelf)
-        {
-            infoCanvas.transform.position = transform.position + uiOffset;
-            
-            infoCanvas.transform.rotation = Quaternion.LookRotation(infoCanvas.transform.position - mainCamera.transform.position);
-        }
-    }
 
     void OnTriggerEnter(Collider other)
     {

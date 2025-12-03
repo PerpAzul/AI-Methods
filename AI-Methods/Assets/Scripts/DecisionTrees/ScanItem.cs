@@ -14,13 +14,4 @@ public class ScanItem : MonoBehaviour
             database.DisplayNewItem(new(pickup.isMetal, pickup.isDangerous, pickup.isBlueEnergy, pickup.texture2d));
         }
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.GetComponent<Pickup>() != null)
-        {
-            Pickup pickup = other.GetComponent<Pickup>();
-            // pickup.infoCanvas.SetActive(false);
-        }
-    }
 }
