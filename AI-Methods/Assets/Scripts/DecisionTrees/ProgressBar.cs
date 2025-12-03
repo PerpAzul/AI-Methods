@@ -9,6 +9,11 @@ public class ProgressBar : MonoBehaviour
     public float curr = 0.0f; 
     public GameObject levelFinished;
 
+    void Awake()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -19,16 +24,6 @@ public class ProgressBar : MonoBehaviour
             Time.timeScale = 0f;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            Button btn = levelFinished.GetComponentInChildren<Button>();
-            btn.onClick.AddListener(() =>
-            {
-                Debug.Log("Click");
-                Time.timeScale = 1f;
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                levelFinished.SetActive(false);
-                SceneManager.LoadScene("Lobby");
-            });
         }
     }
 
@@ -37,5 +32,10 @@ public class ProgressBar : MonoBehaviour
         Vector3 newScale = filler.rectTransform.localScale;
         newScale.x = curr / max;
         filler.rectTransform.localScale = newScale;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+    Time.timeScale = 1f;
     }
 }

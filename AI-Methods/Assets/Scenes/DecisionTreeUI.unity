@@ -3163,11 +3163,15 @@ PrefabInstance:
     - target: {fileID: 5573588180988241524, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
     - target: {fileID: 5573588180988241524, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 5813618495108259790, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
+    - target: {fileID: 5573588180988241524, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: pauseMenu
       value: 
@@ -3307,7 +3311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96909e665a6c5f81fa06f69747fd2e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: "Dr\xFCcke [E] um mit mir zu sprechen"
+  message: "Dr\xFCcke [E], um mit mir zu sprechen"
   uiOffset: {x: 0, y: 0.8, z: 0}
 --- !u!54 &141753860
 Rigidbody:
@@ -3393,9 +3397,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[T] um die Datenbank zu testen
+  m_text: '[T], um die Datenbank zu testen
 
-    [E] um den Entscheidungsbaum zu bearbeiten'
+    [E], um den Entscheidungsbaum zu
+    bearbeiten'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
   m_sharedMaterial: {fileID: 5813618495108259790, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
@@ -59690,14 +59695,14 @@ PrefabInstance:
     - target: {fileID: 2890022948502039324, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1986377435}
     - target: {fileID: 2890022948502039324, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2890022948502039324, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NextLevel
+      value: finishLevel
       objectReference: {fileID: 0}
     - target: {fileID: 2890022948502039324, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -59798,8 +59803,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8326659491630515104, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1986377435}
   m_SourcePrefab: {fileID: 100100000, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
+--- !u!1 &1986377434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8326659491630515104, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
+  m_PrefabInstance: {fileID: 1986377433}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1986377435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986377434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763aa956c61e84e1a92b4c5aba435f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1986425756
 GameObject:
   m_ObjectHideFlags: 0
