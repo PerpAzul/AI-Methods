@@ -21,12 +21,15 @@ public class TutorialArrow : MonoBehaviour
     private int idxTarget = 0;
     private Coroutine showCanvasRoutine;
     private bool lastInteractionActive = false;
+    private bool[] hasAlreadyInteracted = new bool[] { false, false, false };
+    private bool playerInRange = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         targets = new GameObject[] { target0, target1, target2 };
         interactionCanvas.enabled = false;
+        SetArrowRotation(); // set initial arrow rotation
     }
 
     // Update is called once per frame
@@ -37,7 +40,12 @@ public class TutorialArrow : MonoBehaviour
         }
 
         // check if player already interacted with that target
-        if (targets[idxTarget].GetComponent<InteractableI>().hasAlreadyInteracted()) {
+        if (targets[idxTarget].GetComponent<InteractableI>() != null) {
+            hasAlreadyInteracted[idxTarget] = targets[idxTarget].GetComponent<InteractableI>().hasAlreadyInteracted();
+        } else if (playerInRange && Input.GetKeyDown(KeyCode.E)) {
+            hasAlreadyInteracted[idxTarget] = true; // player interacted with target
+        }
+        if (hasAlreadyInteracted[idxTarget]) {
             interactionCanvas.enabled = false; // hide as soon as interacted
             idxTarget++; // move to next target
             StartCoroutine(showTutorialPrompt()); // show prompt between two targets
@@ -46,12 +54,8 @@ public class TutorialArrow : MonoBehaviour
                 this.GetComponent<Canvas>().enabled = false; // hide arrow without deactivating script
                 return;
             }
-            // let the arrow face the player
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            Vector3 dir = (targets[idxTarget].transform.position - player.transform.position).normalized;
-            this.transform.localRotation = Quaternion.LookRotation(new Vector3(dir.x, dir.y, dir.z));
-            Vector3 angles = this.transform.localEulerAngles;
-            this.transform.localEulerAngles = new Vector3(0f, angles.y, -90f);
+            
+            SetArrowRotation(); // update arrow position to next target
         }
         
         // floating arrow animation
@@ -61,7 +65,10 @@ public class TutorialArrow : MonoBehaviour
 
     private IEnumerator showTutorialPrompt()
     {
-        Debug.Log("Showing tutorial prompt");
+        while (targets[idxTarget - 1].GetComponent<DialogueManager>() != null 
+                && targets[idxTarget - 1].GetComponent<DialogueManager>().isInDialogue) {
+            yield return null;
+        }
         yield return ShowCanvasDelayed(prompts[idxTarget - 1]);
         if (idxTarget <= 2) {
             yield return WaitForW();
@@ -75,12 +82,14 @@ public class TutorialArrow : MonoBehaviour
     // logic for Entering and Exiting arrow collider
     public void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Player") && !lastInteractionActive) {
+            playerInRange = true;
             showCanvasRoutine = StartCoroutine(ShowCanvasDelayed("Drücke 'E' zum Interagieren"));
         }
     }
 
     public void OnTriggerExit(Collider other) {
         if (other.gameObject.CompareTag("Player") && !lastInteractionActive) {
+            playerInRange = false;
             if (showCanvasRoutine != null) {
                 StopCoroutine(showCanvasRoutine);
             }
@@ -113,5 +122,14 @@ public class TutorialArrow : MonoBehaviour
             yield return null;
         }
         interactionCanvas.enabled = false;
+    }
+
+    private void SetArrowRotation() {
+        // let the arrow face the player
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Vector3 dir = (targets[idxTarget].transform.position - player.transform.position).normalized;
+        this.transform.localRotation = Quaternion.LookRotation(new Vector3(dir.x, dir.y, dir.z));
+        Vector3 angles = this.transform.localEulerAngles;
+        this.transform.localEulerAngles = new Vector3(0f, angles.y, -90f);
     }
 }
