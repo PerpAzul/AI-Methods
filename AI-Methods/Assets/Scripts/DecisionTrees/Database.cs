@@ -8,9 +8,6 @@ using UnityEngine.UI;
 
 public class Database : MonoBehaviour
 {
-    [Header("Neues Item")] 
-    public GameObject newItemCanvas;
-
     [Header("Database")] 
     public GameObject databaseCanvas;
 
@@ -34,8 +31,8 @@ public class Database : MonoBehaviour
     public Sprite spriteGray;
     public TextMeshProUGUI evaluateResultText;
 
-    private Item newItem;
-    
+    public ParticleSystem newItemParticles;
+
     public List<Item> ScannedItems = new();
     public int index;
 
@@ -49,7 +46,6 @@ public class Database : MonoBehaviour
 
     public void DisplayDatabase()
     {
-        newItemCanvas.SetActive(false);
         databaseCanvas.SetActive(true);
         if (ScannedItems.Count > 0)
         {
@@ -84,7 +80,6 @@ public class Database : MonoBehaviour
     public void DisplayEvaluate(Item item, float progress)
     {
         progressBar.fillAmount = progress;
-        newItemCanvas.SetActive(false);
         databaseCanvas.SetActive(false);
         evaluateCanvas.SetActive(true);
         evaluateResult.gameObject.SetActive(false);
@@ -111,43 +106,16 @@ public class Database : MonoBehaviour
         }
     }
 
-    public void DisplayNewItem(Item item)
+    public void AddNewItem(Item item)
     {
-        newItemCanvas.SetActive(true);
-        databaseCanvas.SetActive(false);
-        evaluateCanvas.SetActive(false);
-        newItem = item;
-        foreach (Toggle toggle in newItemCanvas.GetComponentsInChildren<Toggle>())
-        {
-            if (toggle.name == "metal_toggle")
-            {
-                toggle.isOn = newItem.IsMetal;
-            }
-
-            if (toggle.name == "danger_toggle")
-            {
-                toggle.isOn = newItem.IsDangerous;
-            }
-
-            if (toggle.name == "blue_energy_toggle")
-            {
-                toggle.isOn = newItem.HasBlueEnergy;
-            }
-        }
-
-        newItemCanvas.GetComponentInChildren<RawImage>().texture = newItem.Texture;
+        ScannedItems.Add(item);
+        index = ScannedItems.Count - 1;
+        newItemParticles.Play();
+        DisplayDatabase();
     }
 
     private void Update()
     {
-        if (IsPlayerNear && Input.GetKeyDown(KeyCode.J) && newItemCanvas.activeSelf && newItem.Useful() ||
-            IsPlayerNear && Input.GetKeyDown(KeyCode.N) && newItemCanvas.activeSelf && !newItem.Useful())
-        {
-            Debug.Log($"Adding {newItem}");
-            ScannedItems.Add(newItem);
-            DisplayDatabase();
-        }
-
         if (IsPlayerNear && databaseCanvas.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow) && index > 0)
