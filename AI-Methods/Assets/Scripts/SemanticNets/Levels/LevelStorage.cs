@@ -5,6 +5,7 @@ public class LevelStorage : MonoBehaviour
 {
     public static LevelStorage Instance;
 
+    public List<(string, string)> level0Edges;
     public List<(string, string)> level1Edges;
     public List<(string, string)> level2Edges;
 
@@ -23,6 +24,11 @@ public class LevelStorage : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
+        level0Edges = new List<(string, string)> {
+            ("Sprache", "Deutsch"),
+            ("Sprache", "Englisch")
+        };
+
         level1Edges = new List<(string, string)> {
             ("Wissenschaft", "Ingenieurswissenschaften"),
             ("Wissenschaft", "Naturwissenschaften"),
@@ -38,14 +44,16 @@ public class LevelStorage : MonoBehaviour
         };
 
         // more levels to be initialized here
-        levels = new List<(string, string)>[2];
-        levels[0] = level1Edges;
-        levels[1] = level2Edges;
+        levels = new List<(string, string)>[]{
+            level0Edges,
+            level1Edges,
+            level2Edges
+        };
         // put more levels into the array (used for easier access)
     }
 
     public bool containsEdge(string node1, string node2, int level) {
-        List<(string, string)> correctEdges = levels[level-1];
+        List<(string, string)> correctEdges = levels[level];
         foreach (var edge in correctEdges) {
             if ((edge.Item1 == node1 && edge.Item2 == node2) || (edge.Item1 == node2 && edge.Item2 == node1)) {
                 return true;

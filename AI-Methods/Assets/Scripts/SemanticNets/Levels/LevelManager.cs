@@ -169,7 +169,7 @@ public class LevelManager : MonoBehaviour
     // Level completion
     public void checkForLevelCompleteScreen()
     {
-        bool allCorrect  = correctEdges == LevelStorage.Instance.levels[currentLevel - 1].Count;
+        bool allCorrect  = correctEdges == LevelStorage.Instance.levels[currentLevel].Count;
         bool noIncorrect = incorrectEdges == 0;
 
         if (!allCorrect || !noIncorrect)
@@ -188,6 +188,8 @@ public class LevelManager : MonoBehaviour
         {
             int currentScore = PointDisplay.Instance.GetScore();
             scoreText.text = "Punkte: " + (currentScore+50);
+        } else {
+            scoreText.text = "";
         }
 
         if (levelCompletePanel != null)
@@ -239,7 +241,7 @@ public class LevelManager : MonoBehaviour
         if (currentLevel > LevelStorage.Instance.levels.Length)
             return false;
 
-        int maxEdges     = LevelStorage.Instance.levels[currentLevel - 1].Count;
+        int maxEdges     = LevelStorage.Instance.levels[currentLevel].Count;
         int currentEdges = correctEdges + incorrectEdges;
         return currentEdges >= maxEdges;
     }
