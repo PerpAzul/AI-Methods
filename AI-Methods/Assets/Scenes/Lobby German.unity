@@ -547,7 +547,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Search:'
+  m_text: 'Suche:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
   m_sharedMaterial: {fileID: 5813618495108259790, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
@@ -683,7 +683,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Semantic Nets:'
+  m_text: 'Semantische Netze:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
   m_sharedMaterial: {fileID: 5813618495108259790, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
@@ -1313,7 +1313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9d4fb45d94a3541ae9e97e34a9a762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: Semantic Nets
+  promptMessage: Semantische Netze
   useEvents: 1
   pauseMenu: {fileID: 3345539542530430290}
   nextSceneName: SemanticNets1
@@ -1485,14 +1485,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Use WASD to move
+  m_text: 'Mit WASD bewegen
 
-    Use the mouse to look around
+    Mit der Maus umsehen
 
-    Use Escape to
-    pause
+    Mit Escape pausieren
 
-    Use Tab to recenter the camera'
+    Mit
+    Tab die Kamera zentrieren'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2294,7 +2294,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Use E to interact
+  m_text: Mit E interagieren
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
   m_sharedMaterial: {fileID: 5813618495108259790, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
@@ -2982,7 +2982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc65e5baf5bf9ce499fbd1e37e35ae75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: Interact
+  promptMessage: 'Interagieren [E]'
   useEvents: 1
   pauseMenu: {fileID: 3345539542530430290}
   teleport: {fileID: 1343414018}
@@ -3378,7 +3378,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Scoreboard
+  m_text: Anzeigetafel
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
   m_sharedMaterial: {fileID: 5813618495108259790, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
@@ -4330,7 +4330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce1787ad63378c489808d92693cc250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: Scoreboard Station
+  promptMessage: Anzeigetafel-Station
   useEvents: 0
   semanticTimeText: {fileID: 414938384}
   searchTimeText: {fileID: 413810365}
@@ -4529,7 +4529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9d4fb45d94a3541ae9e97e34a9a762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: Pattern Matching
+  promptMessage: Musterabgleich
   useEvents: 1
   pauseMenu: {fileID: 3345539542530430290}
   nextSceneName: DecisionTreeUI
@@ -4867,7 +4867,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Pattern Matching: '
+  m_text: 'Musterabgleich:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
   m_sharedMaterial: {fileID: 5813618495108259790, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
@@ -5008,7 +5008,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Use Space to jump
+  m_text: Mit Leertaste springen
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
   m_sharedMaterial: {fileID: 5813618495108259790, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
@@ -5383,7 +5383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9d4fb45d94a3541ae9e97e34a9a762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: Search
+  promptMessage: Suche
   useEvents: 1
   pauseMenu: {fileID: 3345539542530430290}
   nextSceneName: 01-Tiefensuche
@@ -5654,6 +5654,33 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 3345539542530430290}
+    - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: promptMessage
+      value: Mit RS1 sprechen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: 'dialogue.sentences.Array.data[0]'
+      value: "Hallo, TalkJBC. Meine Bezeichnung lautet RS1, und ich werde dir bei
+        dieser Mission als dein F\xFChrungsmodul dienen."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: 'dialogue.sentences.Array.data[1]'
+      value: "Oh. Du bist noch nicht \xFCber die Missionsparameter informiert?\nMehrere
+        deiner KI-Subsysteme funktionieren derzeit fehlerhaft. Um dieses Problem
+        zu beheben, musst du in jeden zugewiesenen Sektor teleportieren und eine
+        vollst\xE4ndige Rekalibrierung durchf\xFChren."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: 'dialogue.sentences.Array.data[2]'
+      value: 'Die fehlerhaften Methoden lauten wie folgt: Semantische Netze, Suche
+        und Musterabgleich.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: 'dialogue.sentences.Array.data[3]'
+      value: "Gehe durch eine der drei T\xFCren, um die Teleportation zu starten
+        und mit der Rekalibrierung zu beginnen. Ich werde mich direkt hinter dir
+        halten und dich am Zielort treffen, um weitere Unterst\xFCtzung bereitzustellen."
+      objectReference: {fileID: 0}
     - target: {fileID: 7760609697886708385, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: promptMessage
       value: 

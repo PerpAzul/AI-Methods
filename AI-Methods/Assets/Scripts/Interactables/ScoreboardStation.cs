@@ -33,35 +33,29 @@ public class ScoreboardStation : InteractableI
 
             if (float.IsPositiveInfinity(semanticBest))
             {
-                semanticTimeText.text = "Semantic Nets: --:--";  // no record yet
+                semanticTimeText.text = "Semantische Netze: -";  // no record yet
             }
             else
             {
-                int minutes = Mathf.FloorToInt(semanticBest / 60f);
-                int seconds = Mathf.FloorToInt(semanticBest % 60f);
-                semanticTimeText.text = $"Semantic Nets: {minutes:00}:{seconds:00}";
+                semanticTimeText.text = "Semantische Netze: " + semanticBest;
             }
             
             if (float.IsPositiveInfinity(searchBest))
             {
-                searchTimeText.text = "Search: --:--";  // no record yet
+                searchTimeText.text = "Suche: -";  // no record yet
             }
             else
             {
-                int minutes = Mathf.FloorToInt(searchBest / 60f);
-                int seconds = Mathf.FloorToInt(searchBest % 60f);
-                searchTimeText.text = $"Search: {minutes:00}:{seconds:00}";
+                searchTimeText.text = "Suche: " + searchBest;
             }
             
             if (float.IsPositiveInfinity(patternBest))
             {
-                patternTimeText.text = "Pattern Matching: --:--";  // no record yet
+                patternTimeText.text = "Musterabgleich: -";  // no record yet
             }
             else
             {
-                int minutes = Mathf.FloorToInt(patternBest / 60f);
-                int seconds = Mathf.FloorToInt(patternBest % 60f);
-                patternTimeText.text = $"Pattern Matching: {minutes:00}:{seconds:00}";
+                patternTimeText.text = "Musterabgleich: " + patternBest;
             }
         }
     }
