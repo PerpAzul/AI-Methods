@@ -8,7 +8,7 @@ public class ToggleBookButtonUI : MonoBehaviour
     [SerializeField] CinemachineCamera cam;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B) && isActive)
+        if (Input.GetKeyDown(KeyCode.Q) && isActive)
         {
             cam.gameObject.SetActive(true);
             Cursor.visible = false;
@@ -18,7 +18,7 @@ public class ToggleBookButtonUI : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.B) && !isActive)
+        if (Input.GetKeyDown(KeyCode.Q) && !isActive)
         {
             cam.gameObject.SetActive(false);
             Cursor.visible = true;
