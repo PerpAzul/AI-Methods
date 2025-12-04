@@ -15,6 +15,8 @@ public class LevelManager : MonoBehaviour
     [Tooltip("Scene to load when this level is completed")]
     [SerializeField] private string nextSceneName = "SemanticNets2";
 
+    [SerializeField] private GameObject loadingScreen;
+
     [Header("UI – Level Complete")]
     [SerializeField] private GameObject levelCompletePanel; // LevelCompleteCanvas root
     [SerializeField] private TMP_Text titleText;            // big 'Level X geschafft!'
@@ -226,12 +228,12 @@ public class LevelManager : MonoBehaviour
 
         if (!string.IsNullOrEmpty(nextSceneName))
         {
-            SceneManager.LoadScene(nextSceneName);
+            StartCoroutine(LoadSceneRoutine(nextSceneName));
         }
         else
         {
             // fallback – go back to lobby or something
-            SceneManager.LoadScene("Lobby");
+            StartCoroutine(LoadSceneRoutine("Lobby"));
         }
     }
 
@@ -244,6 +246,19 @@ public class LevelManager : MonoBehaviour
         int maxEdges     = LevelStorage.Instance.levels[currentLevel].Count;
         int currentEdges = correctEdges + incorrectEdges;
         return currentEdges >= maxEdges;
+    }
+
+    private System.Collections.IEnumerator LoadSceneRoutine(string nextSceneName)
+    {
+        loadingScreen.SetActive(true);
+        yield return null;
+        
+        AsyncOperation operation = SceneManager.LoadSceneAsync(nextSceneName);
+        
+        while (!operation.isDone)
+        {
+            yield return null;
+        }
     }
 
     // Getters
