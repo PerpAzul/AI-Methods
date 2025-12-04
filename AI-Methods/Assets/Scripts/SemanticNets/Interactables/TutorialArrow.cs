@@ -28,6 +28,7 @@ public class TutorialArrow : MonoBehaviour
     void Start()
     {
         targets = new GameObject[] { target0, target1, target2 };
+        interactionCanvas.enabled = false;
         SetArrowRotation(); // set initial arrow rotation
     }
 
