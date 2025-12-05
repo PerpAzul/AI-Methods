@@ -6,6 +6,7 @@ public class LineObject : InteractableI
     private Transform endNode;
     private string earlierMessage;
     private bool playerInRange = false;
+    private bool correctEdge;
 
     public void Init(Transform startNode, Transform endNode)
     {
@@ -16,7 +17,12 @@ public class LineObject : InteractableI
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        promptMessage = "<size=50%>Löschen (Q)</size>";
+        correctEdge = LevelManager.Instance.isCorrectConnection(startNode, endNode);
+        if (correctEdge) {
+            promptMessage = "";
+        } else {
+            promptMessage = "<size=50%>Löschen (Q)</size>";
+        }
         earlierMessage = promptMessage;
     }
 
@@ -28,8 +34,10 @@ public class LineObject : InteractableI
             promptMessage = earlierMessage;
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                LevelManager.Instance.removeEdge(startNode, endNode);
-                Destroy(this.gameObject);
+                if (!correctEdge) {
+                    LevelManager.Instance.removeEdge(startNode, endNode);
+                    Destroy(this.gameObject);
+                }
             }
         } else {
             promptMessage = "";

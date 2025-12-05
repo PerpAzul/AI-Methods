@@ -242,7 +242,7 @@ public class LevelManager : MonoBehaviour
         else
         {
             // fallback – go back to lobby or something
-            StartCoroutine(LoadSceneRoutine("Lobby"));
+            StartCoroutine(LoadSceneRoutine("Lobby German"));
         }
     }
 
