@@ -1343,7 +1343,7 @@ MonoBehaviour:
   promptMessage: Semantic Nets
   useEvents: 1
   pauseMenu: {fileID: 419194773}
-  nextSceneName: SemanticNets1
+  nextSceneName: SemanticNets0
   loadingScreen: {fileID: 1337076900}
   player: {fileID: 16237019}
 --- !u!64 &527254657 stripped
