@@ -36,6 +36,13 @@ public class BookToggle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // make sure you can still interact with ui after pausing
+        if (fullscreenCanvas.gameObject.activeSelf)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        
         if (isNear && Input.GetKeyDown(KeyCode.E))
         {
             playerProximity.Hide();

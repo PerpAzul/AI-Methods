@@ -35,6 +35,13 @@ public class CanvasToggle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // make sure you can still interact with ui after pausing
+        if (fullscreenCanvas.gameObject.activeSelf)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
         if (isPlayerNear && Input.GetKeyDown(KeyCode.E) && !fullscreenCanvas.gameObject.activeSelf)
         {
             uiTree.SetParent(overlayPanelParent);
