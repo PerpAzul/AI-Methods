@@ -3,10 +3,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
-
 public class NPCGuide : MonoBehaviour
 {
     private static readonly int RollAnim = Animator.StringToHash("Walk_Anim");
+    
     [Header("The Action List")]
     public List<NPCAction> helpActions;
 
@@ -17,7 +17,7 @@ public class NPCGuide : MonoBehaviour
     public TextMeshProUGUI textE;
     public GameObject arrowCanvas;
 
-    [Header("Einstellungen")]
+    [Header("Settings")]
     public float warteAbstand = 4.0f;
 
     private int currentActionIndex = 0;
@@ -38,9 +38,11 @@ public class NPCGuide : MonoBehaviour
     void Update()
     {
         if (currentActionIndex >= helpActions.Count) return;
+        
         playerDistance = Vector3.Distance(transform.position, player.position);
         
         NPCAction currentAction = helpActions[currentActionIndex];
+        
         switch (currentAction.type)
         {
             case ActionType.ShowMessageWithE:
@@ -53,46 +55,65 @@ public class NPCGuide : MonoBehaviour
         }
     }
 
+    public void ContinueIfCurrentActionEquals(string actionName)
+    {
+        if (helpActions[currentActionIndex].actionName == actionName)
+        {
+            StartNextAction();
+        }
+    }
+
     private void StartNextAction()
     {
-        Debug.Log("starteda;");
         currentActionIndex++;
         StartCurrentAction();
     }
 
     private void StartCurrentAction()
     {
+        // Check if we finished all actions
+        if (currentActionIndex >= helpActions.Count) return;
+
         NPCAction currentAction = helpActions[currentActionIndex];
+        arrived = false; // Reset arrival state
+
         if (currentAction.type == ActionType.LeadToTarget)
         {
-            agent.ResetPath();
+            agent.ResetPath(); // Clear old path
             messageCanvas.SetActive(false);
             arrowCanvas.SetActive(false);
+            
             agent.isStopped = false;
-            agent.SetDestination(currentAction.targetObject.position);
-            arrived = false;
+            // Validate target exists to prevent crash
+            if(currentAction.targetObject)
+                agent.SetDestination(currentAction.targetObject.position);
         }
         else
         {
+            // Setup UI
             textE.gameObject.SetActive(currentAction.type == ActionType.ShowMessageWithE);
             messageTextMesh.text = currentAction.message;
             messageCanvas.SetActive(true);
+            arrowCanvas.SetActive(false);
             
             agent.isStopped = true;
             animator.SetBool(RollAnim, false);
         }
     }
     
-    private void Guide() {
-        if (arrived)
-        {
-            return;
-        }
+    private void Guide() 
+    {
+        if (arrived) return;
+        
+        NPCAction currentAction = helpActions[currentActionIndex];
+
+        // 1. MOVEMENT LOGIC (Follow/Wait)
         if (playerDistance < warteAbstand)
         {
             arrowCanvas.SetActive(false);
             agent.isStopped = false;
-            agent.SetDestination(helpActions[currentActionIndex].targetObject.position); 
+            // Ensure we keep target updated
+            agent.SetDestination(currentAction.targetObject.position); 
         }
         else
         {
@@ -100,32 +121,55 @@ public class NPCGuide : MonoBehaviour
             arrowCanvas.SetActive(true);
         }
 
+        // Animation
         var isMoving = agent.velocity.magnitude > 0.1f;
         animator.SetBool(RollAnim, isMoving);
         
-        if (!agent.isStopped && !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        // 2. ARRIVAL LOGIC (The Fixed Version)
+        // Safety: Don't check if we are still calculating path
+        if (agent.pathPending) return;
+
+        // Check if NavMesh thinks we are close
+        if (agent.remainingDistance <= agent.stoppingDistance)
         {
-            if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f && !arrived)
+            // DOUBLE CHECK: Physical Distance
+            // This prevents the "Ghost Arrival" where ResetPath() triggers a skip
+            float distToTarget = Vector3.Distance(transform.position, currentAction.targetObject.position);
+            
+            // Only finish if we are physically close (e.g. 2.0 units)
+            if (distToTarget < 2.0f) 
             {
-                arrived = true;
-                StartNextAction(); // We arrived!
+                if (!arrived)
+                {
+                    arrived = true;
+                    StartNextAction();
+                }
             }
         }
     }
 
     private void Dialog()
     {
-        if (playerDistance < 2)
+        // Only show UI if player is close
+        if (playerDistance < 2.0f) 
         {
             messageCanvas.SetActive(true);
             arrowCanvas.SetActive(false);
-            if (Input.GetKeyDown(KeyCode.E) && helpActions[currentActionIndex].type == ActionType.ShowMessageWithE)
+
+            NPCAction currentAction = helpActions[currentActionIndex];
+
+            if (currentAction.type == ActionType.ShowMessageWithE)
             {
-                StartNextAction();   
+                // Wait for Input
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    StartNextAction();   
+                }
             }
         }
         else
         {
+            // Hide UI if player walks away
             messageCanvas.SetActive(false);
             arrowCanvas.SetActive(true);
         }

@@ -11,6 +11,7 @@ public enum ActionType
 public class NPCAction
 {
     public ActionType type;
+    public string actionName;
     
     [Header("If Type is ShowMessage")]
     [TextArea] public string message; // The text to display

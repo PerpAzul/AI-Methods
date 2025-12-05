@@ -713,7 +713,6 @@ GameObject:
   - component: {fileID: 4668443037059085953}
   - component: {fileID: 8068086317876377138}
   - component: {fileID: 9173863561123644504}
-  - component: {fileID: 7585859777673006138}
   m_Layer: 5
   m_Name: Decision Tree Interface
   m_TagString: Untagged
@@ -804,20 +803,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7585859777673006138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 903006908223883341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1efa5e3004314268cb1af609435b41a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fullscreenCanvas: {fileID: 4668443037059085953}
-  myCamera: {fileID: 0}
 --- !u!1 &1020861647219258819
 GameObject:
   m_ObjectHideFlags: 0

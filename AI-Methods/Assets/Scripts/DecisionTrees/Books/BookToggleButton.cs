@@ -8,6 +8,8 @@ public class BookToggleButton : MonoBehaviour
     ToggleBookButtonUI bookButtonUI;
     BookUntoggle bookUntoggle;
 
+    public NPCGuide guide;
+
     // Update is called once per frame
     void Start()
     {
@@ -18,6 +20,7 @@ public class BookToggleButton : MonoBehaviour
     {
         if (bookUntoggle.isUnlocked)
         {
+            if(guide) guide.ContinueIfCurrentActionEquals("book_q");
             bookButtonUI.isActive = false;
             bookButtonUI.buttonUI.SetActive(false);
             bookui.SetActive(true);

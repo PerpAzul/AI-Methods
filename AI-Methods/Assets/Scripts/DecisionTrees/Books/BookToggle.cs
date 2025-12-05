@@ -7,7 +7,9 @@ public class BookToggle : MonoBehaviour
     public Canvas fullscreenCanvas;
     public CinemachineCamera myCamera;
     BookUntoggle bookUntoggle;
-    public GameObject locked; 
+    public GameObject locked;
+
+    public NPCGuide guide;
     
     public PlayerProximity playerProximity;
 
@@ -45,6 +47,7 @@ public class BookToggle : MonoBehaviour
         
         if (isNear && Input.GetKeyDown(KeyCode.E))
         {
+            if(guide) guide.ContinueIfCurrentActionEquals("book_e");
             playerProximity.Hide();
             locked.SetActive(false);
             bookUntoggle.isUnlocked = true;
