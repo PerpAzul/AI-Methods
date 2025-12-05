@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private string nextSceneName = "SemanticNets2";
 
     [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private FloatingExplanationText floatingExplanationText;
 
     [Header("UI – Level Complete")]
     [SerializeField] private GameObject levelCompletePanel; // LevelCompleteCanvas root
@@ -120,10 +121,11 @@ public class LevelManager : MonoBehaviour
         if (!isValidConnection(node1, node2))
             return;
 
-        if (isCorrectConnection(node1, node2))
+        if (isCorrectConnection(node1, node2)) {
             correctEdges++;
-        else
+        } else {
             incorrectEdges++;
+        }
 
         TMP_Text tmpStart = node1.GetChild(0).GetComponent<TextMeshPro>();
         TMP_Text tmpEnd   = node2.GetChild(0).GetComponent<TextMeshPro>();
@@ -132,6 +134,13 @@ public class LevelManager : MonoBehaviour
         string node2Text = tmpEnd.text;
 
         playerEdges.Add((node1Text, node2Text));
+
+        var pair = LevelStorage.Instance.getPair(node1Text, node2Text, currentLevel);
+        if (pair.HasValue)
+        {
+            if (floatingExplanationText != null)
+                floatingExplanationText.TriggerText($"<size=70%>Logische Verbindung:</size>\n{pair.Value.Item2} ist {pair.Value.Item1}");
+        }
 
         lastAddedNode1 = node1;
         lastAddedNode2 = node2;
@@ -264,6 +273,7 @@ public class LevelManager : MonoBehaviour
     // Getters
     public int getCorrectEdgesCount() => correctEdges;
     public int getIncorrectEdgesCount() => incorrectEdges;
+    public int getMaxEdgesCount() => LevelStorage.Instance.levels[currentLevel].Count;
     public Transform getLastAddedNode1() => lastAddedNode1;
     public Transform getLastAddedNode2() => lastAddedNode2;
 }

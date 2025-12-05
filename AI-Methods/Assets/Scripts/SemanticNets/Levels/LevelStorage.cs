@@ -61,4 +61,17 @@ public class LevelStorage : MonoBehaviour
         }
         return false;
     }
+
+    public (string, string)? getPair(string node1, string node2, int level) {
+        List<(string, string)> correctEdges = levels[level];
+        foreach (var edge in correctEdges) {
+            if (edge.Item1 == node1 && edge.Item2 == node2) {
+                return (node1, node2);
+            }
+            if  (edge.Item1 == node2 && edge.Item2 == node1) {
+                return (node2, node1);
+            }
+        }
+        return null;
+    }
 }

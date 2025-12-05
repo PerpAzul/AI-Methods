@@ -16,7 +16,7 @@ public class LineObject : InteractableI
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        promptMessage = "Drücke Q zum Löschen";
+        promptMessage = "<size=50%>Löschen (Q)</size>";
         earlierMessage = promptMessage;
     }
 
