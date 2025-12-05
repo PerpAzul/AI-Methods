@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Lobby.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/01-Tiefensuche.unity
+    path: Assets/Scenes/00-Tiefensuche.unity
     guid: 94ec195f342a90c4892a44a262029a38
   - enabled: 1
     path: Assets/Scenes/02-Tiefensuche.unity
