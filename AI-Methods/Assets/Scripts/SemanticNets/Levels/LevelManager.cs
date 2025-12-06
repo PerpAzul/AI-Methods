@@ -73,8 +73,9 @@ public class LevelManager : MonoBehaviour
         TMP_Text tmpStart = node1.GetChild(0).GetComponent<TextMeshPro>();
         TMP_Text tmpEnd   = node2.GetChild(0).GetComponent<TextMeshPro>();
 
-        string node1Text = tmpStart.text;
-        string node2Text = tmpEnd.text;
+        string node1Text = Normalize(tmpStart.text);
+        string node2Text = Normalize(tmpEnd.text);
+
 
         foreach (var edge in playerEdges)
         {
@@ -130,8 +131,8 @@ public class LevelManager : MonoBehaviour
         TMP_Text tmpStart = node1.GetChild(0).GetComponent<TextMeshPro>();
         TMP_Text tmpEnd   = node2.GetChild(0).GetComponent<TextMeshPro>();
 
-        string node1Text = tmpStart.text;
-        string node2Text = tmpEnd.text;
+        string node1Text = Normalize(tmpStart.text);
+        string node2Text = Normalize(tmpEnd.text);
 
         playerEdges.Add((node1Text, node2Text));
 
@@ -153,8 +154,9 @@ public class LevelManager : MonoBehaviour
         TMP_Text tmpStart = node1.GetChild(0).GetComponent<TextMeshPro>();
         TMP_Text tmpEnd   = node2.GetChild(0).GetComponent<TextMeshPro>();
 
-        string node1Text = tmpStart.text;
-        string node2Text = tmpEnd.text;
+    string node1Text = Normalize(tmpStart.text);
+    string node2Text = Normalize(tmpEnd.text);
+
 
         for (int i = 0; i < playerEdges.Count; i++)
         {
@@ -269,6 +271,13 @@ public class LevelManager : MonoBehaviour
             yield return null;
         }
     }
+
+    //Normalize Text to recognize Strings that aren't exactly equal
+        private string Normalize(string s)
+    {
+        return s.Normalize(System.Text.NormalizationForm.FormC).Trim();
+    }
+
 
     // Getters
     public int getCorrectEdgesCount() => correctEdges;

@@ -12,8 +12,8 @@ RenderTexture:
     Hash: 00000000000000000000000000000000
   m_IsAlphaChannelOptional: 0
   serializedVersion: 6
-  m_Width: 577
-  m_Height: 577
+  m_Width: 380
+  m_Height: 380
   m_AntiAliasing: 1
   m_MipCount: -1
   m_DepthStencilFormat: 94

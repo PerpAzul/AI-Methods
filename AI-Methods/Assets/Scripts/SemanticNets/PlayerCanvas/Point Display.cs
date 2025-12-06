@@ -63,70 +63,79 @@ public class PointDisplay : MonoBehaviour
     }
 
     void Update()
+{
+    var lm = LevelManager.Instance;
+    if (lm == null) return;
+
+    int currentCorrect   = lm.getCorrectEdgesCount();
+    int currentIncorrect = lm.getIncorrectEdgesCount();
+
+    // we need level edge count for scoring
+    int level = lm.currentLevel;
+    int edgeCount = LevelStorage.Instance.levels[level].Count;
+
+    // ---- correct scoring values ----
+    float correctP   = 150f / edgeCount;      
+    // ---- incorrect scoring values ----
+    float incorrectP = (-150f / edgeCount) + 5f;
+
+    // ----------------- correct edges -----------------
+    if (currentCorrect > lastCorrect)
     {
-        var lm = LevelManager.Instance;
-        if (lm == null) return;
-
-        int currentCorrect   = lm.getCorrectEdgesCount();
-        int currentIncorrect = lm.getIncorrectEdgesCount();
-
-        // New correct edges
-        if (currentCorrect > lastCorrect)
+        foreach (var edge in lm.playerEdges)
         {
-            int diff = currentCorrect - lastCorrect;
-
-            // Check which correct edges are new by scanning playerEdges
-            foreach (var edge in lm.playerEdges)
+            if (LevelStorage.Instance.containsEdge(edge.Item1, edge.Item2, lm.currentLevel))
             {
-                if (LevelStorage.Instance.containsEdge(edge.Item1, edge.Item2, lm.currentLevel))
+                string key = NormalizeEdge(edge.Item1, edge.Item2);
+
+                if (!scoredCorrectEdges.Contains(key))
                 {
-                    string key = NormalizeEdge(edge.Item1, edge.Item2);
+                    scoredCorrectEdges.Add(key);
 
-                    if (!scoredCorrectEdges.Contains(key))
+                    int add = Mathf.RoundToInt(correctP);
+                    score += add;
+
+                    FlashColor(new Color(0.3f, 1f, 0.3f));
+                    UpdateScoreText();
+
+                    if (lm.getLastAddedNode1() != null && lm.getLastAddedNode2() != null)
                     {
-                        scoredCorrectEdges.Add(key);
-                        score += 50;
-                        FlashColor(new Color(0.3f, 1f, 0.3f));
-                        UpdateScoreText();
-
-                        // spawn floating +50 above the new line
-                        if (lm.getLastAddedNode1() != null && lm.getLastAddedNode2() != null)
-                        {
-                            Vector3 mid = (lm.getLastAddedNode1().position + lm.getLastAddedNode2().position) / 2f;
-                            SpawnFloatingText("+50", new Color(0.3f, 1f, 0.3f), mid);
-                        }
+                        Vector3 mid = (lm.getLastAddedNode1().position + lm.getLastAddedNode2().position) / 2f;
+                        SpawnFloatingText("+" + add, new Color(0.3f, 1f, 0.3f), mid);
                     }
                 }
             }
         }
+    }
 
-        // New incorrect edges
-        if (currentIncorrect > lastIncorrect)
+    // ----------------- incorrect edges -----------------
+    if (currentIncorrect > lastIncorrect)
+    {
+        int add = Mathf.RoundToInt(incorrectP);
+        score += add;
+
+        FlashColor(new Color(1f, 0.3f, 0.3f));
+        UpdateScoreText();
+
+        if (lm.getLastAddedNode1() != null && lm.getLastAddedNode2() != null)
         {
-            int diff = currentIncorrect - lastIncorrect;
-            score -= diff * 30;
-            FlashColor(new Color(1f, 0.3f, 0.3f));
-            UpdateScoreText();
-
-            // spawn -30 above the new incorrect line
-            if (lm.getLastAddedNode1() != null && lm.getLastAddedNode2() != null)
-            {
-                Vector3 mid = (lm.getLastAddedNode1().position + lm.getLastAddedNode2().position) / 2f;
-                SpawnFloatingText("-30", new Color(1f, 0.3f, 0.3f), mid);
-            }
-        }
-
-        lastCorrect   = currentCorrect;
-        lastIncorrect = currentIncorrect;
-
-        // Fade color back to white
-        if (flashTimer > 0)
-        {
-            flashTimer -= Time.deltaTime;
-            float t = 1f - (flashTimer / flashDuration);
-            scoreText.color = Color.Lerp(targetColor, baseColor, t);
+            Vector3 mid = (lm.getLastAddedNode1().position + lm.getLastAddedNode2().position) / 2f;
+            SpawnFloatingText(add.ToString(), new Color(1f, 0.3f, 0.3f), mid);
         }
     }
+
+    lastCorrect   = currentCorrect;
+    lastIncorrect = currentIncorrect;
+
+    // fade score color back
+    if (flashTimer > 0)
+    {
+        flashTimer -= Time.deltaTime;
+        float t = 1f - (flashTimer / flashDuration);
+        scoreText.color = Color.Lerp(targetColor, baseColor, t);
+    }
+}
+
 
     private string NormalizeEdge(string a, string b)
     {
