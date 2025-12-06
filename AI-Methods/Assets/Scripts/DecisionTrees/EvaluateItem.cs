@@ -25,6 +25,7 @@ public class EvaluateItem : MonoBehaviour
     [Header("Decision Tree Canvas")] public GameObject decisionTree;
     [Header("Database")] public Database database;
     public ProgressBar progressBar;
+    public NPCGuide guide; 
 
     private IEnumerator TestDatabase()
     {
@@ -43,6 +44,10 @@ public class EvaluateItem : MonoBehaviour
             }
             else if(result.Useful == item.Useful())
             {
+                if (item.IsDangerous && item.HasBlueEnergy && item.IsMetal)
+                {
+                    if (guide) guide.ContinueIfCurrentActionEquals("machine_t_correct");
+                }
                 progress++;
                 progressBar.curr = progress;
                 database.DisplayResult("KORREKT", progress/database.ScannedItems.Count);

@@ -17,6 +17,7 @@ public class Pickup: HintDisplayer
     public GameObject target;
     
     public RenderTexture texture2d;
+    public NPCGuide guide;
     
     private void Start()
     {
@@ -27,6 +28,10 @@ public class Pickup: HintDisplayer
     {
         if (Input.GetKeyDown(KeyCode.F) && playerIsClose && !isPickingUp)
         {
+            if (this.name.Equals("crystal_17_2"))
+            {
+                if (guide) guide.ContinueIfCurrentActionEquals("crystal_f");
+            }
             isPickingUp = true;
             this.transform.parent = target.transform;
             this.transform.localEulerAngles = Vector3.zero;

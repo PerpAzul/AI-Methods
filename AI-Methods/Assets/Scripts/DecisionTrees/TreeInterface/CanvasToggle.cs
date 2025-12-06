@@ -9,6 +9,8 @@ public class CanvasToggle : MonoBehaviour
     public Transform overlayPanelParent;
     public RectTransform uiTree;
     public CinemachineCamera myCamera;
+    public NPCGuide guide;
+    
 
     private bool isPlayerNear;
 
@@ -44,6 +46,7 @@ public class CanvasToggle : MonoBehaviour
 
         if (isPlayerNear && Input.GetKeyDown(KeyCode.E) && !fullscreenCanvas.gameObject.activeSelf)
         {
+            if (guide) guide.ContinueIfCurrentActionEquals("dtui_e");
             uiTree.SetParent(overlayPanelParent);
             uiTree.anchoredPosition = Vector2.zero;
             uiTree.localRotation = Quaternion.identity;
