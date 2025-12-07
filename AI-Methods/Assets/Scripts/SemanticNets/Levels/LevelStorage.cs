@@ -22,7 +22,6 @@ public class LevelStorage : MonoBehaviour
         }
     
         Instance = this;
-        DontDestroyOnLoad(gameObject);
 
         level0Edges = new List<(string, string)> {
             ("Sprache", "Deutsch"),
@@ -47,7 +46,7 @@ public class LevelStorage : MonoBehaviour
             ("Wirbeltiere", "Amphibien"),
             ("Insekten", "Käfer"),
             ("Weichtiere", "Muscheln"),
-            ("Fische", "Tuna"),
+            ("Fische", "Lachs"),
             ("Amphibien", "Frösche")
         };
 
@@ -60,22 +59,20 @@ public class LevelStorage : MonoBehaviour
     }
 
     public bool containsEdge(string node1, string node2, int level) {
-    node1 = Normalize(node1);
-    node2 = Normalize(node2);
+        node1 = Normalize(node1);
+        node2 = Normalize(node2);
 
-    foreach (var edge in levels[level]) {
-        if (Normalize(edge.Item1) == node1 && Normalize(edge.Item2) == node2) 
-            return true;
-        if (Normalize(edge.Item2) == node1 && Normalize(edge.Item1) == node2)
-            return true;
+        foreach (var edge in levels[level]) {
+            if (Normalize(edge.Item1) == node1 && Normalize(edge.Item2) == node2) 
+                return true;
+            if (Normalize(edge.Item2) == node1 && Normalize(edge.Item1) == node2)
+                return true;
+        }
+        return false;
     }
-    return false;
-}
 
-string Normalize(string s) =>
-    s.Normalize(System.Text.NormalizationForm.FormC).Trim();
-
-
+    string Normalize(string s) =>
+        s.Normalize(System.Text.NormalizationForm.FormC).Trim();
 
     public (string, string)? getPair(string node1, string node2, int level) {
         List<(string, string)> correctEdges = levels[level];

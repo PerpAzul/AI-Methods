@@ -23,7 +23,7 @@ public class SceneFonts : MonoBehaviour
 
     void ApplyFontToScene()
     {
-        TMP_Text[] allTexts = FindObjectsOfType<TMP_Text>(true);
+        TMP_Text[] allTexts = FindObjectsByType<TMP_Text>(FindObjectsSortMode.None);
 
         foreach (var t in allTexts)
         {

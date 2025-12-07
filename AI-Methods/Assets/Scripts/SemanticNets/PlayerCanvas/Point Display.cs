@@ -25,6 +25,8 @@ public class PointDisplay : MonoBehaviour
     // Tracks correct edges that have already given points
     private HashSet<string> scoredCorrectEdges = new HashSet<string>();
 
+    private int add = 0;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -63,78 +65,79 @@ public class PointDisplay : MonoBehaviour
     }
 
     void Update()
-{
-    var lm = LevelManager.Instance;
-    if (lm == null) return;
-
-    int currentCorrect   = lm.getCorrectEdgesCount();
-    int currentIncorrect = lm.getIncorrectEdgesCount();
-
-    // we need level edge count for scoring
-    int level = lm.currentLevel;
-    int edgeCount = LevelStorage.Instance.levels[level].Count;
-
-    // ---- correct scoring values ----
-    float correctP   = 150f / edgeCount;      
-    // ---- incorrect scoring values ----
-    float incorrectP = (-150f / edgeCount) + 5f;
-
-    // ----------------- correct edges -----------------
-    if (currentCorrect > lastCorrect)
     {
-        foreach (var edge in lm.playerEdges)
+        var lm = LevelManager.Instance;
+        if (lm == null) return;
+
+        int currentCorrect   = lm.getCorrectEdgesCount();
+        int currentIncorrect = lm.getIncorrectEdgesCount();
+
+        // we need level edge count for scoring
+        int level = lm.currentLevel;
+        int edgeCount = LevelStorage.Instance.levels[level].Count;
+
+        // ---- correct scoring values ----
+        float correctP   = 150f / edgeCount;      
+        // ---- incorrect scoring values ----
+        float incorrectP = (-150f / edgeCount) + 5f;
+
+        // ----------------- correct edges -----------------
+        if (currentCorrect > lastCorrect)
         {
-            if (LevelStorage.Instance.containsEdge(edge.Item1, edge.Item2, lm.currentLevel))
+            foreach (var edge in lm.playerEdges)
             {
-                string key = NormalizeEdge(edge.Item1, edge.Item2);
-
-                if (!scoredCorrectEdges.Contains(key))
+                if (LevelStorage.Instance.containsEdge(edge.Item1, edge.Item2, lm.currentLevel))
                 {
-                    scoredCorrectEdges.Add(key);
+                    string key = NormalizeEdge(edge.Item1, edge.Item2);
 
-                    int add = Mathf.RoundToInt(correctP);
-                    score += add;
-
-                    FlashColor(new Color(0.3f, 1f, 0.3f));
-                    UpdateScoreText();
-
-                    if (lm.getLastAddedNode1() != null && lm.getLastAddedNode2() != null)
+                    if (!scoredCorrectEdges.Contains(key))
                     {
-                        Vector3 mid = (lm.getLastAddedNode1().position + lm.getLastAddedNode2().position) / 2f;
-                        SpawnFloatingText("+" + add, new Color(0.3f, 1f, 0.3f), mid);
+                        scoredCorrectEdges.Add(key);
+
+                        add = Mathf.RoundToInt(correctP);
+                        score += add;
+                        Debug.Log("Updated score: " + score);
+
+                        FlashColor(new Color(0.3f, 1f, 0.3f));
+                        UpdateScoreText();
+
+                        if (lm.getLastAddedNode1() != null && lm.getLastAddedNode2() != null)
+                        {
+                            Vector3 mid = (lm.getLastAddedNode1().position + lm.getLastAddedNode2().position) / 2f;
+                            SpawnFloatingText("+" + add, new Color(0.3f, 1f, 0.3f), mid);
+                        }
                     }
                 }
             }
         }
-    }
 
-    // ----------------- incorrect edges -----------------
-    if (currentIncorrect > lastIncorrect)
-    {
-        int add = Mathf.RoundToInt(incorrectP);
-        score += add;
-
-        FlashColor(new Color(1f, 0.3f, 0.3f));
-        UpdateScoreText();
-
-        if (lm.getLastAddedNode1() != null && lm.getLastAddedNode2() != null)
+        // ----------------- incorrect edges -----------------
+        if (currentIncorrect > lastIncorrect)
         {
-            Vector3 mid = (lm.getLastAddedNode1().position + lm.getLastAddedNode2().position) / 2f;
-            SpawnFloatingText(add.ToString(), new Color(1f, 0.3f, 0.3f), mid);
+            int add = Mathf.RoundToInt(incorrectP);
+            score += add;
+
+            FlashColor(new Color(1f, 0.3f, 0.3f));
+            UpdateScoreText();
+
+            if (lm.getLastAddedNode1() != null && lm.getLastAddedNode2() != null)
+            {
+                Vector3 mid = (lm.getLastAddedNode1().position + lm.getLastAddedNode2().position) / 2f;
+                SpawnFloatingText(add.ToString(), new Color(1f, 0.3f, 0.3f), mid);
+            }
+        }
+
+        lastCorrect   = currentCorrect;
+        lastIncorrect = currentIncorrect;
+
+        // fade score color back
+        if (flashTimer > 0)
+        {
+            flashTimer -= Time.deltaTime;
+            float t = 1f - (flashTimer / flashDuration);
+            scoreText.color = Color.Lerp(targetColor, baseColor, t);
         }
     }
-
-    lastCorrect   = currentCorrect;
-    lastIncorrect = currentIncorrect;
-
-    // fade score color back
-    if (flashTimer > 0)
-    {
-        flashTimer -= Time.deltaTime;
-        float t = 1f - (flashTimer / flashDuration);
-        scoreText.color = Color.Lerp(targetColor, baseColor, t);
-    }
-}
 
 
     private string NormalizeEdge(string a, string b)
@@ -174,5 +177,11 @@ public class PointDisplay : MonoBehaviour
     public int GetScore()
     {
         return score;
+    }
+
+    // important for obtaining what was added because score gets updated later than the actual level complete canvas in levelmanager
+    public int GetAdd()
+    {
+        return add;
     }
 }

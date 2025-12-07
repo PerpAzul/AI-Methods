@@ -10,6 +10,12 @@ public class FloatingExplanationText : MonoBehaviour
     public Vector3 startOffset = new Vector3(0, -200, 0);
     public Vector3 endOffset = new Vector3(0, 0, 0);
 
+    private Vector2 initialAnchoredPosition;
+
+    public void Awake() {
+        initialAnchoredPosition = this.GetComponent<TextMeshProUGUI>().GetComponent<RectTransform>().anchoredPosition;
+    }
+
     public void TriggerText(string message)
     {
         text = this.GetComponent<TextMeshProUGUI>();
@@ -29,8 +35,8 @@ public class FloatingExplanationText : MonoBehaviour
         text.color = color;
 
         RectTransform rt = text.GetComponent<RectTransform>();
-        Vector3 startPos = rt.anchoredPosition + (Vector2) startOffset;
-        Vector3 endPos = rt.anchoredPosition + (Vector2) endOffset;
+        Vector3 startPos = initialAnchoredPosition + (Vector2) startOffset;
+        Vector3 endPos = initialAnchoredPosition + (Vector2) endOffset;
 
         rt.anchoredPosition = startPos;
 

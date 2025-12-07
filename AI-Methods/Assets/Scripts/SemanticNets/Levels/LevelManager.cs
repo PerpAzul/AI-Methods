@@ -154,8 +154,8 @@ public class LevelManager : MonoBehaviour
         TMP_Text tmpStart = node1.GetChild(0).GetComponent<TextMeshPro>();
         TMP_Text tmpEnd   = node2.GetChild(0).GetComponent<TextMeshPro>();
 
-    string node1Text = Normalize(tmpStart.text);
-    string node2Text = Normalize(tmpEnd.text);
+        string node1Text = Normalize(tmpStart.text);
+        string node2Text = Normalize(tmpEnd.text);
 
 
         for (int i = 0; i < playerEdges.Count; i++)
@@ -200,7 +200,7 @@ public class LevelManager : MonoBehaviour
         if (scoreText != null && PointDisplay.Instance != null)
         {
             int currentScore = PointDisplay.Instance.GetScore();
-            scoreText.text = "Punkte: " + (currentScore+50);
+            scoreText.text = "Punkte: " + (currentScore + PointDisplay.Instance.GetAdd());
         } else {
             scoreText.text = "";
         }
