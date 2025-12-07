@@ -12,6 +12,7 @@ public class BookToggle : MonoBehaviour
     public NPCGuide guide;
     
     public PlayerProximity playerProximity;
+    private FindHelper findHelper;
 
     private bool isNear;
     void OnTriggerEnter(Collider other)
@@ -33,6 +34,7 @@ public class BookToggle : MonoBehaviour
     void Start()
     {
         bookUntoggle = GameObject.Find("Book UIs").transform.Find(fullscreenCanvas.name).GetComponent<BookUntoggle>();
+        findHelper = GameObject.Find("GameManager").GetComponent<FindHelper>();
     }
 
     // Update is called once per frame
@@ -47,6 +49,15 @@ public class BookToggle : MonoBehaviour
         
         if (isNear && Input.GetKeyDown(KeyCode.E))
         {
+            if (this.name.Equals("book_0001b"))
+            {
+                findHelper.find(0);
+            }
+            if (this.name.Equals("book_0001d"))
+            {
+                findHelper.find(1);
+            }
+
             if(guide) guide.ContinueIfCurrentActionEquals("book_e");
             playerProximity.Hide();
             locked.SetActive(false);

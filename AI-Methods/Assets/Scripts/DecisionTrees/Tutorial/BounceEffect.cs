@@ -6,7 +6,7 @@ public class BounceEffect : MonoBehaviour
     public float amplitude = 0.5f;   // How high it bounces
     public float frequency = 1f;     // How fast it bounces
 
-    private Vector3 startPos;
+    public Vector3 startPos;
 
     void Start()
     {

@@ -37,7 +37,12 @@ public class NPCGuide : MonoBehaviour
 
     void Update()
     {
-        if (currentActionIndex >= helpActions.Count) return;
+        if (currentActionIndex >= helpActions.Count) {
+            // disable robot when tutorial is done
+            messageCanvas.SetActive(false);
+            arrowCanvas.SetActive(false);
+            return;
+        }
         
         playerDistance = Vector3.Distance(transform.position, player.position);
         
@@ -57,6 +62,7 @@ public class NPCGuide : MonoBehaviour
 
     public void ContinueIfCurrentActionEquals(string actionName)
     {
+        if (currentActionIndex >= helpActions.Count) return;
         if (helpActions[currentActionIndex].actionName == actionName)
         {
             StartNextAction();

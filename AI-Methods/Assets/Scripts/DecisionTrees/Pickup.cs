@@ -18,20 +18,48 @@ public class Pickup: HintDisplayer
     
     public RenderTexture texture2d;
     public NPCGuide guide;
+    private FindHelper findHelper;
     
     private void Start()
     {
         message = "Drücke [F] zum Aufnehmen";
+        findHelper = GameObject.Find("GameManager").GetComponent<FindHelper>();
     }
     
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && playerIsClose && !isPickingUp)
         {
-            if (this.name.Equals("crystal_17_2"))
+            switch(this.name)
             {
-                if (guide) guide.ContinueIfCurrentActionEquals("crystal_f");
+                case "crystal_17_2":
+                    if (guide) guide.ContinueIfCurrentActionEquals("crystal_f");
+                    break;
+                case "decorative_plant":
+                    findHelper.find(2);
+                    break;
+                case "Crate Short":
+                    findHelper.find(3);
+                    break;
+                case "TrashbinRed":
+                    findHelper.find(4);
+                    break;
+                case "OilDrum":
+                    findHelper.find(5);
+                    break;
+                case "Barrel":
+                    findHelper.find(6);
+                    break;
+                case "FuelTank (2)":
+                    findHelper.find(7);
+                    break;
+                case "Beer Can Blue":
+                    findHelper.find(8);
+                    break;
+                default:
+                    break;
             }
+            
             isPickingUp = true;
             this.transform.parent = target.transform;
             this.transform.localEulerAngles = Vector3.zero;
