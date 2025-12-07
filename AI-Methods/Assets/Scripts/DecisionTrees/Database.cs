@@ -49,6 +49,7 @@ public class Database : MonoBehaviour
         databaseCanvas.SetActive(true);
         if (ScannedItems.Count > 0)
         {
+            evaluateCanvas.SetActive(false);
             items.SetActive(true);
             empty.SetActive(false);
             indexText.text =
