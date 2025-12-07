@@ -13,6 +13,7 @@ public class BookToggle : MonoBehaviour
     
     public PlayerProximity playerProximity;
     private FindHelper findHelper;
+    private GameObject hintCanvas;
 
     private bool isNear;
     void OnTriggerEnter(Collider other)
@@ -35,6 +36,7 @@ public class BookToggle : MonoBehaviour
     {
         bookUntoggle = GameObject.Find("Book UIs").transform.Find(fullscreenCanvas.name).GetComponent<BookUntoggle>();
         findHelper = GameObject.Find("GameManager").GetComponent<FindHelper>();
+        hintCanvas = GameObject.Find("HintCanvas");
     }
 
     // Update is called once per frame
@@ -57,7 +59,6 @@ public class BookToggle : MonoBehaviour
             {
                 findHelper.find(1);
             }
-
             if(guide) guide.ContinueIfCurrentActionEquals("book_e");
             playerProximity.Hide();
             locked.SetActive(false);
@@ -66,6 +67,7 @@ public class BookToggle : MonoBehaviour
             myCamera.gameObject.SetActive(false);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            hintCanvas.GetComponent<Canvas>().enabled = false;
             Destroy(gameObject);
         }
     }
