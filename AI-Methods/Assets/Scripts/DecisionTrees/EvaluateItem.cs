@@ -5,6 +5,7 @@ using System.Linq;
 using DecisionTrees;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class EvaluateItem : MonoBehaviour
@@ -25,10 +26,16 @@ public class EvaluateItem : MonoBehaviour
     [Header("Decision Tree Canvas")] public GameObject decisionTree;
     [Header("Database")] public Database database;
     public ProgressBar progressBar;
-    public NPCGuide guide; 
+    public NPCGuide guide;
+
+    public RectTransform warning;
+
 
     private IEnumerator TestDatabase()
     {
+        if(guide) guide.ContinueIfCurrentActionEquals("first_test");
+        if(guide) guide.ContinueIfCurrentActionEquals("second_test");
+        warning.gameObject.SetActive(false);
         float progress = 0;
         foreach (Item item in database.ScannedItems)
         {
@@ -36,9 +43,15 @@ public class EvaluateItem : MonoBehaviour
             HighlightPath(result.Path);
             database.DisplayEvaluate(item, progress/database.ScannedItems.Count);
             yield return new WaitForSeconds(1);
+
+            if (guide && result.Path[^1] == "toggle_1")
+            {
+                guide.ContinueIfCurrentActionEquals("third_test");
+            }
             
             if (!result.Path[^1].StartsWith("toggle"))
             {
+                DisplayPathWarning(result.Path[^1]);
                 database.DisplayResult("?", progress/database.ScannedItems.Count);
                 break;
             }
@@ -56,6 +69,7 @@ public class EvaluateItem : MonoBehaviour
             else
             {
                 database.DisplayResult("FALSCH", progress/database.ScannedItems.Count);
+                DisplayResultError(result.Path[^1]);
                 break;
             }
         }
@@ -89,7 +103,26 @@ public class EvaluateItem : MonoBehaviour
                 image.color = path.Contains(image.name) ? new Color(1f, 1f, 1f, 1f) : new Color(1f, 1f, 1f, 0.1f);
             }
         }
-        
+    }
+
+    private void DisplayPathWarning(string where)
+    {
+        Transform parent = GameObject.Find($"dropzone_{where}").transform;
+        warning.SetParent(parent);
+        warning.anchoredPosition = new Vector2(0, 50);
+        warning.localRotation = Quaternion.identity;
+        warning.localScale = Vector3.one;
+        warning.gameObject.SetActive(true);
+    }
+
+    private void DisplayResultError(string where)
+    {
+        Transform parent = GameObject.Find(where).transform;
+        warning.SetParent(parent);
+        warning.anchoredPosition = new Vector2(100, -45);
+        warning.localRotation = Quaternion.identity;
+        warning.localScale = Vector3.one;
+        warning.gameObject.SetActive(true);
     }
 
     private bool metallic, dangerous, blueEnergy;

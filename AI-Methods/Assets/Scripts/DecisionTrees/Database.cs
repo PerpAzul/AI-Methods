@@ -49,7 +49,6 @@ public class Database : MonoBehaviour
         databaseCanvas.SetActive(true);
         if (ScannedItems.Count > 0)
         {
-            evaluateCanvas.SetActive(false);
             items.SetActive(true);
             empty.SetActive(false);
             indexText.text =
@@ -58,12 +57,12 @@ public class Database : MonoBehaviour
             if (ScannedItems[index].Useful())
             {
                 useful.text = "Nützlicher Gegenstand";
-                useful.color = new Color(34, 255, 0, 255);
+                useful.color = new Color32(34, 255, 0, 255);
             }
             else
             {
                 useful.text = "Unnötiger Gegenstand";
-                useful.color = new Color(255, 0, 0, 255);
+                useful.color = new Color32(255, 0, 0, 255);
             }
 
             metalToggle.isOn = ScannedItems[index].IsMetal;
@@ -81,7 +80,6 @@ public class Database : MonoBehaviour
     public void DisplayEvaluate(Item item, float progress)
     {
         progressBar.fillAmount = progress;
-        databaseCanvas.SetActive(false);
         evaluateCanvas.SetActive(true);
         evaluateResult.gameObject.SetActive(false);
         
@@ -117,13 +115,14 @@ public class Database : MonoBehaviour
 
     private void Update()
     {
-        if (IsPlayerNear && databaseCanvas.activeSelf)
+        float scrollInput = Input.GetAxis("Mouse ScrollWheel");
+        if (IsPlayerNear && databaseCanvas.activeSelf && ScannedItems.Count > 0)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && index > 0)
+            if (scrollInput > 0)
             {
-                index = (index - 1) % ScannedItems.Count;
+                index = (index - 1 + ScannedItems.Count) % ScannedItems.Count;
                 DisplayDatabase();
-            } else if (Input.GetKeyDown(KeyCode.RightArrow))
+            } else if (scrollInput < 0)
             {
                 index = (index + 1) % ScannedItems.Count;
                 DisplayDatabase();

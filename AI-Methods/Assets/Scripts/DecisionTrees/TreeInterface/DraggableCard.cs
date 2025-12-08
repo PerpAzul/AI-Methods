@@ -4,16 +4,20 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public bool ClearMe;
 
     private GameObject currentClone;
     private RectTransform cloneRect;
     private Canvas canvas;
+    public Texture2D hoverCursor;
+
+    public NPCGuide guide;
 
     private Text myText;
     private Image myImage;
+
     void Awake()
     {
         canvas = GetComponentInParent<Canvas>();
@@ -31,6 +35,7 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
         {
             return;
         }
+        
 
         CreateClone(eventData);
 
@@ -94,8 +99,24 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
 
             var targetImage = r.gameObject.GetComponentInParent<Image>();
             targetImage.color = new Color32(255, 255, 255, 255);
+            if(guide && targetText.text.Contains("Metall") && r.gameObject.name == "?_1_1") guide.ContinueIfCurrentActionEquals("metal_card");
+            if(guide && targetText.text.Contains("Schädlich") && r.gameObject.name == "?_2_1") guide.ContinueIfCurrentActionEquals("danger_card");
 
             break;
         }
     }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (myText.text != "?")
+        {
+            Cursor.SetCursor(hoverCursor, Vector2.zero, CursorMode.Auto);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+    }
+
 }
