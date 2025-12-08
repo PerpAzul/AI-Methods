@@ -29,25 +29,25 @@ public class LevelStorage : MonoBehaviour
         };
 
         level1Edges = new List<(string, string)> {
-            ("Wissenschaft", "Ingenieurswissenschaften"),
-            ("Wissenschaft", "Naturwissenschaften"),
-            ("Naturwissenschaften", "Physik"),
-            ("Naturwissenschaften", "Chemie"),
-            ("Ingenieurswissenschaften", "Informatik"),
-            ("Ingenieurswissenschaften", "Maschinenbau")
+            ("Wissenschaft", "Ingenieurwissenschaft"),
+            ("Wissenschaft", "Naturwissenschaft"),
+            ("Naturwissenschaft", "Physik"),
+            ("Naturwissenschaft", "Chemie"),
+            ("Ingenieurwissenschaft", "Informatik"),
+            ("Ingenieurwissenschaft", "Maschinenbau")
         };
 
         level2Edges = new List<(string, string)> {
-            ("Tiere", "Wirbellose"),
-            ("Tiere", "Wirbeltiere"),
-            ("Wirbellose", "Insekten"),
-            ("Wirbellose", "Weichtiere"),
-            ("Wirbeltiere", "Fische"),
-            ("Wirbeltiere", "Amphibien"),
-            ("Insekten", "Käfer"),
-            ("Weichtiere", "Muscheln"),
-            ("Fische", "Lachs"),
-            ("Amphibien", "Frösche")
+            ("Tier", "Wirbellose"),
+            ("Tier", "Wirbeltier"),
+            ("Wirbellose", "Insekt"),
+            ("Wirbellose", "Weichtier"),
+            ("Wirbeltier", "Fisch"),
+            ("Wirbeltier", "Amphibie"),
+            ("Insekt", "Käfer"),
+            ("Weichtier", "Muschel"),
+            ("Fisch", "Lachs"),
+            ("Amphibie", "Frosch")
         };
 
         // more levels to be initialized here
