@@ -96,7 +96,6 @@ public class PointDisplay : MonoBehaviour
 
                         add = Mathf.RoundToInt(correctP);
                         score += add;
-                        Debug.Log("Updated score: " + score);
 
                         FlashColor(new Color(0.3f, 1f, 0.3f));
                         UpdateScoreText();
