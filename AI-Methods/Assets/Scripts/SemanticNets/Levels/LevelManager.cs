@@ -215,14 +215,17 @@ public class LevelManager : MonoBehaviour
 
     private void OnContinueButton()
     {
-        Time.timeScale = 1f;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-
         if (levelCompletePanel != null)
             levelCompletePanel.SetActive(false);
 
-        loadNextLevel();
+        if (MinimapController.Instance != null) {
+            MinimapController.Instance.ShowLargeMinimap(); // minimap controller will handle loading of next level
+        } else {
+            Time.timeScale = 1f;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            loadNextLevel();
+        }  
     }
 
 
