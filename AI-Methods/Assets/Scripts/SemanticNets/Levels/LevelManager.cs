@@ -108,6 +108,8 @@ public class LevelManager : MonoBehaviour
         string node1Text = tmpStart.text;
         string node2Text = tmpEnd.text;
 
+        // TODO: also update trasitive edges as yellow
+        // important: transitive edges are correct edges but correct edges are not transitive
         return LevelStorage.Instance.containsEdge(node1Text, node2Text, currentLevel)
             ? Color.green
             : Color.red;
@@ -122,6 +124,8 @@ public class LevelManager : MonoBehaviour
         if (!isValidConnection(node1, node2))
             return;
 
+        // TODO: also check for trasitive connection here and update a neutral edge counter -> no points will be subtracted
+        // TODO: also update the maxEdgesReached() method
         if (isCorrectConnection(node1, node2)) {
             correctEdges++;
         } else {
