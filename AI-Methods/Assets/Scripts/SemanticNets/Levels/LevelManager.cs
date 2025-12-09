@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 
 public class LevelManager : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class LevelManager : MonoBehaviour
 
     private int correctEdges = 0;
     private int incorrectEdges = 0;
+    private int neutralEdges = 0;
 
     private Transform lastAddedNode1;
     private Transform lastAddedNode2;
@@ -100,19 +102,25 @@ public class LevelManager : MonoBehaviour
         return LevelStorage.Instance.containsEdge(node1Text, node2Text, currentLevel);
     }
 
-    public Color GetLineColor(Transform node1, Transform node2)
-    {
+    public bool isNeutralConnection(Transform node1, Transform node2) {
         TMP_Text tmpStart = node1.GetChild(0).GetComponent<TextMeshPro>();
         TMP_Text tmpEnd   = node2.GetChild(0).GetComponent<TextMeshPro>();
 
         string node1Text = tmpStart.text;
         string node2Text = tmpEnd.text;
 
-        // TODO: also update trasitive edges as yellow
-        // important: transitive edges are correct edges but correct edges are not transitive
-        return LevelStorage.Instance.containsEdge(node1Text, node2Text, currentLevel)
-            ? Color.green
-            : Color.red;
+        return LevelStorage.Instance.containsTransitiveEdge(node1Text, node2Text, currentLevel);
+    }
+
+    public Color GetLineColor(Transform node1, Transform node2)
+    {
+        if (isCorrectConnection(node1, node2)) {
+            return Color.green;
+        }
+        if (isNeutralConnection(node1, node2)) {
+            return Color.yellow;
+        }
+        return Color.red;
     }
 
     // Edge management
@@ -128,6 +136,8 @@ public class LevelManager : MonoBehaviour
         // TODO: also update the maxEdgesReached() method
         if (isCorrectConnection(node1, node2)) {
             correctEdges++;
+        } else if (isNeutralConnection(node1, node2)){
+            neutralEdges++;
         } else {
             incorrectEdges++;
         }
@@ -171,11 +181,13 @@ public class LevelManager : MonoBehaviour
             {
                 playerEdges.RemoveAt(i);
 
-                if (isCorrectConnection(node1, node2))
+                if (isCorrectConnection(node1, node2)) {
                     correctEdges--;
-                else
+                } else if (isNeutralConnection(node1, node2)) {
+                    neutralEdges--;
+                } else { 
                     incorrectEdges--;
-
+                }
                 break;
             }
         }
@@ -262,11 +274,12 @@ public class LevelManager : MonoBehaviour
             return false;
 
         int maxEdges     = LevelStorage.Instance.levels[currentLevel].Count;
-        int currentEdges = correctEdges + incorrectEdges;
+        int currentEdges = correctEdges + neutralEdges + incorrectEdges;
         return currentEdges >= maxEdges;
     }
 
-    private System.Collections.IEnumerator LoadSceneRoutine(string nextSceneName)
+    // Loading Screen for Scene
+    private IEnumerator LoadSceneRoutine(string nextSceneName)
     {
         loadingScreen.SetActive(true);
         yield return null;

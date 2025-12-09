@@ -10,9 +10,15 @@ public class LineManager : MonoBehaviour
     private Transform secondTarget;
     private bool waitingForSecond = false;
 
+    [Header("UI for Line")]
+    [SerializeField] private GameObject infoCanvas;
+
     void Awake()
     {
         Instance = this;
+        if (infoCanvas != null) {
+            infoCanvas.SetActive(false);
+        }
     }
 
     void Update()
@@ -112,8 +118,10 @@ public class LineManager : MonoBehaviour
         col.transform.localRotation = Quaternion.FromToRotation(Vector3.up, (end - start).normalized);
 
         LineObject lineObjComponent = lineObj.AddComponent<LineObject>();
-        lineObjComponent.promptMessage = "Drücke E zum Löschen";
         lineObjComponent.Init(startNode, endNode);
+        if (infoCanvas != null) {
+            lineObjComponent.infoCanvas = infoCanvas;
+        }
     }
 
     public bool onPlayer()
