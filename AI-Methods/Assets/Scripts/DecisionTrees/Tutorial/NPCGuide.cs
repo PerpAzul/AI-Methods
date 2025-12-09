@@ -26,6 +26,8 @@ public class NPCGuide : MonoBehaviour
     
     private float playerDistance;
     private bool arrived;
+    public bool canPickupTutorial = false;
+    public bool canScanTutorial = false;
 
     void Start()
     {
@@ -82,6 +84,16 @@ public class NPCGuide : MonoBehaviour
 
         NPCAction currentAction = helpActions[currentActionIndex];
         arrived = false; // Reset arrival state
+
+        if (currentAction.actionName.Equals("crystal_f"))
+        {
+            canPickupTutorial = true;
+        }
+
+        if (currentAction.actionName.Equals("scan"))
+        {
+            canScanTutorial = true;
+        }
 
         if (currentAction.type == ActionType.LeadToTarget)
         {

@@ -11,10 +11,16 @@ public class ScanItem : MonoBehaviour
         {
             if (other.gameObject.name.Equals("crystal_17_2"))
             {
+                if (!guide.canScanTutorial)
+                {
+                    return;
+                }
                 if (guide) guide.ContinueIfCurrentActionEquals("scan");
             }
-            Destroy(other.gameObject);
             Pickup pickup = other.GetComponent<Pickup>();
+            pickup.message = "";
+            pickup.isEnabled = false;
+            Destroy(other.gameObject);
             Database database = databaseConsole.GetComponent<Database>();
             database.AddNewItem(new(pickup.isMetal, pickup.isDangerous, pickup.isBlueEnergy, pickup.texture2d));
         }

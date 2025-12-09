@@ -9,6 +9,7 @@ public class PlayerProximity : MonoBehaviour
     private HintDisplayer current;
 
     private Camera myCamera;
+    private bool isActive = false;
     void Start()
     {
         worldSpaceCanvas.enabled = false;
@@ -17,13 +18,18 @@ public class PlayerProximity : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        current = other.GetComponent<HintDisplayer>();
+        if (!isActive)
+        {
+            current = other.GetComponent<HintDisplayer>();
+            isActive = true;
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
         if (other.GetComponent<HintDisplayer>() == current)
         {
+            isActive = false;
             current = null;
             worldSpaceCanvas.enabled = false;
         }
@@ -38,11 +44,21 @@ public class PlayerProximity : MonoBehaviour
     {
         if (current)
         {
-            interactionText.text = current.message;
-            worldSpaceCanvas.enabled = true;
-            worldSpaceCanvas.transform.position =
+            if (current.isEnabled)
+            {
+                isActive = true;
+                interactionText.text = current.message;
+                worldSpaceCanvas.enabled = true;
+                worldSpaceCanvas.transform.position =
                 current.transform.position + current.uiOffset;
+            } 
 
+        } 
+        else
+        {
+            current = null;
+            isActive = false;
+            worldSpaceCanvas.enabled = false;
         }
     }
 }

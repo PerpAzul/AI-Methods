@@ -4077,6 +4077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: "Dr\xFCcke [E], um mit mir zu sprechen"
   uiOffset: {x: 0, y: 0.8, z: 0}
+  isEnabled: 0
 --- !u!54 &141753860
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8302,12 +8303,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Pickup
   message: 
   uiOffset: {x: 0, y: 1.5, z: 0}
+  isEnabled: 0
   isMetal: 0
   isDangerous: 0
   isBlueEnergy: 0
+  isPickingUp: 0
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 6a42efb98a886404c8c4332b5d4caa50, type: 2}
-  guide: {fileID: 0}
+  guide: {fileID: 892591497}
+  player: {fileID: 653160694}
 --- !u!54 &272504148
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8316,7 +8320,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272504142}
   serializedVersion: 4
-  m_Mass: 45
+  m_Mass: 30
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -19003,6 +19007,7 @@ MonoBehaviour:
   buttonUI: {fileID: 1203582657}
   isActive: 0
   cam: {fileID: 199732293}
+  bookOpen: 0
 --- !u!1001 &467709715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24334,6 +24339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: "Dr\xFCcke [E] um das Buch zu sammeln"
   uiOffset: {x: 0, y: 0.4, z: 0}
+  isEnabled: 1
 --- !u!54 &662259809
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25685,12 +25691,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: 
   uiOffset: {x: 0, y: 0.7, z: 0}
+  isEnabled: 0
   isMetal: 1
   isDangerous: 1
   isBlueEnergy: 1
+  isPickingUp: 0
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: a21ac4b33a1994e33911f4d849ce05f7, type: 2}
   guide: {fileID: 892591497}
+  player: {fileID: 653160694}
 --- !u!65 &717988936
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31326,7 +31335,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887023746}
   serializedVersion: 4
-  m_Mass: 90
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -31364,12 +31373,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: 
   uiOffset: {x: 0, y: 1.2, z: 0}
+  isEnabled: 0
   isMetal: 1
   isDangerous: 1
   isBlueEnergy: 0
+  isPickingUp: 0
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 832b58c75e5ea46c9852e05fa54f015c, type: 2}
   guide: {fileID: 892591497}
+  player: {fileID: 653160694}
 --- !u!1001 &891121578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31507,7 +31519,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892591490}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 200
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -31693,6 +31705,8 @@ MonoBehaviour:
   textE: {fileID: 678417125}
   arrowCanvas: {fileID: 1212993716}
   warteAbstand: 4
+  canPickupTutorial: 0
+  canScanTutorial: 0
 --- !u!195 &892591498
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -32670,7 +32684,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77039643}
   serializedVersion: 4
-  m_Mass: 120
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -32703,12 +32717,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: 
   uiOffset: {x: 0, y: 0.7, z: -0.5}
+  isEnabled: 0
   isMetal: 0
   isDangerous: 1
   isBlueEnergy: 0
+  isPickingUp: 0
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
-  guide: {fileID: 0}
+  guide: {fileID: 892591497}
+  player: {fileID: 653160694}
 --- !u!65 &955955704
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33203,12 +33220,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: 
   uiOffset: {x: 0.4, y: 0.8, z: 0}
+  isEnabled: 0
   isMetal: 1
   isDangerous: 0
   isBlueEnergy: 0
+  isPickingUp: 0
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 81b7e328b0f8443e6ababc2c2d8d64e6, type: 2}
-  guide: {fileID: 0}
+  guide: {fileID: 892591497}
+  player: {fileID: 653160694}
 --- !u!1001 &967553501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50807,6 +50827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: "Dr\xFCcke [E] um das Buch zu sammeln"
   uiOffset: {x: 0, y: 0.5, z: 0}
+  isEnabled: 1
 --- !u!54 &1521767746
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -53282,6 +53303,14 @@ PrefabInstance:
     - target: {fileID: 464268, guid: 83a919b0e630c394780833b59a51ab4f, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583746, guid: 83a919b0e630c394780833b59a51ab4f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583746, guid: 83a919b0e630c394780833b59a51ab4f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -59255,12 +59284,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: 
   uiOffset: {x: 0, y: 0.5, z: 0}
+  isEnabled: 0
   isMetal: 0
   isDangerous: 1
   isBlueEnergy: 1
+  isPickingUp: 0
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: e4435d0c3cbda4d4c9f9072fbf65ef58, type: 2}
-  guide: {fileID: 0}
+  guide: {fileID: 892591497}
+  player: {fileID: 653160694}
 --- !u!1001 &1800808197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59884,7 +59916,7 @@ Transform:
   m_GameObject: {fileID: 1831609655}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.26, y: -4.744, z: 48.71}
+  m_LocalPosition: {x: -32.108, y: -4.744, z: 46.438}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -60411,12 +60443,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: 
   uiOffset: {x: 0, y: 0.3, z: 0}
+  isEnabled: 0
   isMetal: 1
   isDangerous: 0
   isBlueEnergy: 1
+  isPickingUp: 0
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 8b48a435bf33943729e213f4df9fd646, type: 2}
-  guide: {fileID: 0}
+  guide: {fileID: 892591497}
+  player: {fileID: 653160694}
 --- !u!1001 &1842954310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60654,12 +60689,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Pickup
   message: 
   uiOffset: {x: 0, y: 1, z: 0}
+  isEnabled: 0
   isMetal: 0
   isDangerous: 0
   isBlueEnergy: 1
+  isPickingUp: 0
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 605e896b18d2aecc69bce373b536952f, type: 2}
-  guide: {fileID: 0}
+  guide: {fileID: 892591497}
+  player: {fileID: 653160694}
 --- !u!208 &1846502051
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -64140,6 +64178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: "Dr\xFCcke [E] um das Buch zu sammeln"
   uiOffset: {x: 0, y: 0.5, z: 0}
+  isEnabled: 1
 --- !u!54 &1940836731
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -5,4 +5,5 @@ public class HintDisplayer : MonoBehaviour
     [Header("Hint message")] 
     public string message;
     public Vector3 uiOffset = new(0, 1, 0);
+    public bool isEnabled = true;
 }

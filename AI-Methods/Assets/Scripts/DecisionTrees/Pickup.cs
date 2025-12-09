@@ -1,7 +1,4 @@
-using System;
 using UnityEngine;
-using TMPro;
-using UnityEngine.Serialization;
 
 public class Pickup: HintDisplayer
 {
@@ -11,7 +8,7 @@ public class Pickup: HintDisplayer
     public bool isBlueEnergy;
     
     private bool playerIsClose;
-    private bool isPickingUp;
+    public bool isPickingUp;
     
     [Header("Player target")]
     public GameObject target;
@@ -19,21 +16,34 @@ public class Pickup: HintDisplayer
     public RenderTexture texture2d;
     public NPCGuide guide;
     private FindHelper findHelper;
-    
+    [SerializeField] private Transform player;
+
     private void Start()
     {
         message = "Drücke [F] zum Aufnehmen";
+        isEnabled = false;
         findHelper = GameObject.Find("GameManager").GetComponent<FindHelper>();
     }
     
     void Update()
     {
+        if (guide && guide.canPickupTutorial && !isEnabled)
+        {
+            isEnabled = true;
+        }
+
         if (Input.GetKeyDown(KeyCode.F) && playerIsClose && !isPickingUp)
         {
+            if (!guide.canPickupTutorial)
+            {
+                return;
+            }
             switch(this.name)
             {
                 case "crystal_17_2":
-                    if (guide) guide.ContinueIfCurrentActionEquals("crystal_f");
+                    if (guide) {
+                        guide.ContinueIfCurrentActionEquals("crystal_f");
+                    }
                     break;
                 case "decorative_plant":
                     findHelper.find(2);
@@ -61,8 +71,8 @@ public class Pickup: HintDisplayer
             }
             
             isPickingUp = true;
+            this.transform.position = new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z);
             this.transform.parent = target.transform;
-            this.transform.localEulerAngles = Vector3.zero;
             message = "Drücke [F] zum Ablegen";
             this.GetComponent<Rigidbody>().isKinematic = true;
         }
@@ -70,8 +80,8 @@ public class Pickup: HintDisplayer
         else if (Input.GetKeyDown(KeyCode.F) && isPickingUp)
         {
             isPickingUp = false;
-            this.transform.parent = null;
             message = "Drücke [F] zum Aufnehmen";
+            this.transform.parent = null;
             this.GetComponent<Rigidbody>().isKinematic = false;
         }
     }

@@ -21,6 +21,7 @@ public class BookToggleButton : MonoBehaviour
         if (bookUntoggle.isUnlocked)
         {
             if(guide) guide.ContinueIfCurrentActionEquals("book_q");
+            bookButtonUI.bookOpen = true;
             bookButtonUI.isActive = false;
             bookButtonUI.buttonUI.SetActive(false);
             bookui.SetActive(true);

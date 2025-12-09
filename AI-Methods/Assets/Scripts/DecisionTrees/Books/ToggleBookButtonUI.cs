@@ -6,6 +6,7 @@ public class ToggleBookButtonUI : MonoBehaviour
     public GameObject buttonUI;
     public bool isActive = false;
     [SerializeField] CinemachineCamera cam;
+    public bool bookOpen = false;
     void Update()
     {
         // make sure you can still interact with ui after pausing
@@ -25,7 +26,7 @@ public class ToggleBookButtonUI : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && !isActive)
+        if (Input.GetKeyDown(KeyCode.Q) && !bookOpen && !isActive)
         {
             cam.gameObject.SetActive(false);
             Cursor.visible = true;

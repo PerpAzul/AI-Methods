@@ -7,7 +7,6 @@ public class FindHelper : MonoBehaviour
     [SerializeField] private GameObject arrowCanvas;
     private BounceEffect bounceEffect;
     private Vector3[] arrowTransforms = {new Vector3(49.6f, 7.9f, -13.6f), new Vector3(-22.7f, 4f, -4.1f), new Vector3(3.1f, 4, -1.5f), new Vector3(9.5f, 4, -0.5f), new Vector3(-6.6f, 4, 9.4f), new Vector3(16.4f, 4, 3.9f), new Vector3(8.5f, 4, 0.7f), new Vector3(9.9f, 4, 6.3f), new Vector3(1.1f, 4, -13.9f)};
-    
     void Start()
     {
         
