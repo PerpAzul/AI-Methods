@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class animationButtonScript : MonoBehaviour
     public GameObject nextScreen;
     public GameObject thisScreen;
     //public Button button;
+    public Boolean finalScreen;
 
     void Start()
     {
@@ -16,9 +18,12 @@ public class animationButtonScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            nextScreen.SetActive(true);
+            if (!finalScreen)
+            {
+                nextScreen.SetActive(true);
+            }
             thisScreen.SetActive(false);
         }
     }

@@ -42,6 +42,6 @@ public class tiefensucheInfotafelScript : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        firstInfoScreen.SetActive(true);
+        animationOne.SetActive(true);
     }
 }

@@ -25,7 +25,7 @@ public class CollectBauteilScript : MonoBehaviour
     {
         if (bauteilPlatformScript.nextPlatform)
         {
-            Debug.Log("found Bauteil!!");
+            //Debug.Log("found Bauteil!!");
             geschafftScreen.SetActive(true);
             //put "win screen"
         }
