@@ -22,6 +22,12 @@ public class RootPlatformScript : MonoBehaviour
     {
         PlatformAnswer = false;
         PlatformOne.nextPlatform = true;
+        PlatformTwo.nextPlatform = false;
+        PlatformThree.nextPlatform = false;
+        PlatformFour.nextPlatform = false;
+        PlatformFive.nextPlatform = false;
+        PlatformSix.nextPlatform = false;
+        PlatformSeven.nextPlatform = false;
         numWrongPlatforms = 0;
     }
 
