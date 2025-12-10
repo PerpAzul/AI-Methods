@@ -25,8 +25,9 @@ public class LevelStorage : MonoBehaviour
         Instance = this;
 
         level0Edges = new List<(string, string)> {
-            ("Sprache", "Deutsch"),
-            ("Sprache", "Englisch")
+            ("Essen", "Obst"),
+            ("Essen", "Gemüse"),
+            ("Obst", "Apfel")
         };
 
         level1Edges = new List<(string, string)> {
