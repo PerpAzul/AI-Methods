@@ -16,6 +16,7 @@ public class Pickup: HintDisplayer
     public RenderTexture texture2d;
     public NPCGuide guide;
     private FindHelper findHelper;
+    public Database database;
     [SerializeField] private Transform player;
 
     private void Start()
@@ -27,14 +28,22 @@ public class Pickup: HintDisplayer
     
     void Update()
     {
-        if (guide && guide.canPickupTutorial && !isEnabled)
+        if (guide && guide.canPickupTutorial)
         {
-            isEnabled = true;
+            // only show hint when item not already in database
+            if (!isEnabled && !database.ContainsPickup(this))
+            {
+                isEnabled = true;
+            } else if (isEnabled && database.ContainsPickup(this))
+            {
+                isEnabled = false;
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.F) && playerIsClose && !isPickingUp)
+        // only pick up when item not already in database
+        if (Input.GetKeyDown(KeyCode.F) && playerIsClose && !isPickingUp && !database.ContainsPickup(this))
         {
-            if (!guide.canPickupTutorial)
+            if (guide && !guide.canPickupTutorial)
             {
                 return;
             }
@@ -89,11 +98,17 @@ public class Pickup: HintDisplayer
 
     void OnTriggerEnter(Collider other)
     {
-        playerIsClose = true;
+        if (other.CompareTag("Player"))
+        {
+            playerIsClose = true;
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
-        playerIsClose = false;
+        if (other.CompareTag("Player"))
+        {
+            playerIsClose = false;
+        }
     }
 }
