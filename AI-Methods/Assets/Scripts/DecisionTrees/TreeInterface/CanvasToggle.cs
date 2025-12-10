@@ -10,7 +10,7 @@ public class CanvasToggle : MonoBehaviour
     public RectTransform uiTree;
     public CinemachineCamera myCamera;
     public NPCGuide guide;
-    
+    private ToggleBookButtonUI toggleBookButtonUI;
 
     private bool isPlayerNear;
 
@@ -20,6 +20,7 @@ public class CanvasToggle : MonoBehaviour
         uiTree.anchoredPosition = Vector2.zero;
         uiTree.localRotation = Quaternion.identity;
         uiTree.localScale = Vector3.one;
+        toggleBookButtonUI = GameObject.Find("Book UIs").GetComponent<ToggleBookButtonUI>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -47,6 +48,7 @@ public class CanvasToggle : MonoBehaviour
         if (isPlayerNear && Input.GetKeyDown(KeyCode.E) && !fullscreenCanvas.gameObject.activeSelf)
         {
             if (guide) guide.ContinueIfCurrentActionEquals("dtui_e");
+            toggleBookButtonUI.treeOpen = true;
             uiTree.SetParent(overlayPanelParent);
             uiTree.anchoredPosition = Vector2.zero;
             uiTree.localRotation = Quaternion.identity;
@@ -58,6 +60,7 @@ public class CanvasToggle : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         } else if (Input.GetKeyDown(KeyCode.E) && fullscreenCanvas.gameObject.activeSelf)
         {
+            toggleBookButtonUI.treeOpen = false;
             uiTree.SetParent((worldPanelParent));
             uiTree.anchoredPosition = Vector2.zero;
             uiTree.localRotation = Quaternion.identity;
