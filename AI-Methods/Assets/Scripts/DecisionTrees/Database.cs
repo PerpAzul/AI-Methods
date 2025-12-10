@@ -77,6 +77,21 @@ public class Database : MonoBehaviour
         }
     }
 
+    public bool ContainsPickup(Pickup pickup)
+    {
+        foreach (var scannedItem in ScannedItems)
+        {
+            if (scannedItem.HasBlueEnergy == pickup.isBlueEnergy
+                && scannedItem.IsDangerous == pickup.isDangerous
+                && scannedItem.IsMetal == pickup.isMetal)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public void DisplayEvaluate(Item item, float progress)
     {
         progressBar.fillAmount = progress;
@@ -107,6 +122,16 @@ public class Database : MonoBehaviour
 
     public void AddNewItem(Item item)
     {
+        // Don't add item twice
+        foreach (var scannedItem in ScannedItems)
+        {
+            if (scannedItem.HasBlueEnergy == item.HasBlueEnergy
+                && scannedItem.IsDangerous == item.IsDangerous
+                && scannedItem.IsMetal == item.IsMetal)
+            {
+                return;
+            }
+        }
         ScannedItems.Add(item);
         index = ScannedItems.Count - 1;
         newItemParticles.Play();
