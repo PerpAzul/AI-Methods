@@ -9724,7 +9724,7 @@ MonoBehaviour:
   button: {fileID: 310340995}
   explanationText:
   - Semantisches Netz erfolgreich kalibiriert!
-  - "Die KI hat jetzt logische Verbindungen im Bereich Tierwelt. Die KI hat nur ein
+  - "Die KI hat jetzt logische Verbindungen im Bereich Tierwelt. Die KI hat nun ein
     solide verkn\xFCpftes Wissen."
   - "Durch Algorithmen wie beispielsweise Tiefensuche, k\xF6nnen bestimmte Themen
     in diesem Netz gefunden werden. Au\xDFerdem werden dazu alle Zusammenh\xE4nge
