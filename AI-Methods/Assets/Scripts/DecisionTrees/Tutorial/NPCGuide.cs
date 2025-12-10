@@ -20,6 +20,9 @@ public class NPCGuide : MonoBehaviour
     [Header("Settings")]
     public float warteAbstand = 4.0f;
 
+    // This is a list of help actions that will be skipped immediately
+    private List<string> alreadyDoneActions;
+
     private int currentActionIndex = 0;
     private NavMeshAgent agent;
     private Animator animator;
@@ -32,7 +35,8 @@ public class NPCGuide : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>(); 
+        animator = GetComponent<Animator>();
+        alreadyDoneActions = new List<string>();
         
         StartCurrentAction();
     }
@@ -64,6 +68,7 @@ public class NPCGuide : MonoBehaviour
 
     public void ContinueIfCurrentActionEquals(string actionName)
     {
+        alreadyDoneActions.Add(actionName);
         if (currentActionIndex >= helpActions.Count) return;
         if (helpActions[currentActionIndex].actionName == actionName)
         {
@@ -83,6 +88,11 @@ public class NPCGuide : MonoBehaviour
         if (currentActionIndex >= helpActions.Count) return;
 
         NPCAction currentAction = helpActions[currentActionIndex];
+        if (alreadyDoneActions.Contains(currentAction.actionName))
+        {
+            StartNextAction();
+            return;
+        }
         arrived = false; // Reset arrival state
 
         if (currentAction.actionName.Equals("crystal_f"))
@@ -124,6 +134,11 @@ public class NPCGuide : MonoBehaviour
         if (arrived) return;
         
         NPCAction currentAction = helpActions[currentActionIndex];
+        if (!currentAction.targetObject)
+        {
+            StartNextAction();
+            return;
+        }
 
         // 1. MOVEMENT LOGIC (Follow/Wait)
         if (playerDistance < warteAbstand)
