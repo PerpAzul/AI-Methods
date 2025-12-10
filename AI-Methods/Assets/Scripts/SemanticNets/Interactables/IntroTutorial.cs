@@ -7,7 +7,7 @@ public class IntroTutorial : MonoBehaviour
     [SerializeField] public GameObject target1;   // Essen
     [SerializeField] public GameObject target2;   // Obst
     [SerializeField] public GameObject target3;   // Apfel
-    [SerializeField] public GameObject target4;   // unused here (can stay assigned)
+    [SerializeField] public GameObject target4;   // Essen (arrow target after Apfel)
     [SerializeField] public GameObject target5;   // second-to-last tutorial target
     [SerializeField] public GameObject target6;   // last tutorial target
     [SerializeField] public Canvas interactionCanvas;
@@ -21,40 +21,33 @@ public class IntroTutorial : MonoBehaviour
     // 5: immediately after 4: instruction to delete yellow line
     // 6: once that line is deleted
     // 7: once Apfel–Obst is created (minimap)
-    // 8: when interacting with second-to-last new target (target5)
+    // 8: final instruction about last connection
     private string[] prompts = new string[]
     {
-        // 0 – after dialogue manager
         "Schaue dich um und finde das nächste Ziel.",
-        // 1 – after essen
         "Laufe zum nächsten Ziel und stelle eine Verbindung her.",
-        // 2 – after obst
         "Pass gut auf! Verbinde „Apfel“ zu „Essen“",
-        // 3 – after apfel
         "Pass gut auf! Verbinde „Apfel“ zu „Essen“",
-        // 4 – once Apfel–Essen line exists (explanation only)
         "„Apfel“ ist zwar „Essen“, aber am treffendsten ist „Apfel“ als „Obst“ beschrieben.\n Ungenaue Verbindungen bringen keine Punkte!",
-        // 5 – separate instruction to delete yellow line
         "Lösche die gelbe, ungenaue Linie mit 'Q'",
-        // 6 – once the Apfel–Essen line is deleted
         "Gut gemacht! Bilde jetzt die richtige Verbindung",
-        // 7 – once Apfel–Obst line exists
         "Drücke und halte 'T' zum Anzeigen der Minimap.",
-        // 8 – when interacting with second-to-last new target
         "Erstelle die letzte Verbindung, um zum nächsten Level zu gelangen."
     };
 
     // state machine:
-    // 0: arrow -> target0, E to interact
-    // 2: arrow -> target1, E
-    // 4: arrow -> target2, E
-    // 6: arrow -> target3, E
-    // 8: wait until Apfel–Essen edge exists -> show prompts[4] and [5], then go 9
-    // 9: wait until Apfel–Essen edge is deleted -> show prompts[6], then go 10
-    // 10: wait until Apfel–Obst edge exists -> show prompts[7] and wait for T -> step 11
-    // 11: arrow -> target5 (second-to-last), E shows prompts[8], arrow -> target6, step 13
-    // 13: arrow -> target6 (last); E ends tutorial
-    // 14+: finished
+    //  0: arrow -> target0, E to interact
+    //  2: arrow -> target1, E
+    //  4: arrow -> target2, E
+    //  6: arrow -> target3, E
+    //  8: arrow -> target4, wait until Apfel–Essen exists -> show prompts[4] & [5], then go 9
+    //  9: wait until Apfel–Essen is deleted -> show prompts[6], then go 10
+    // 10: arrow -> target3 (Apfel); E moves arrow to Obst -> step 11
+    // 11: arrow -> target2 (Obst), wait until Apfel–Obst exists -> start minimap coroutine, step 12
+    // 12: minimap prompt active, waiting for T (no arrow)
+    // 13: after T: arrow -> target5, prompt[8] shown
+    // 15: arrow -> target6, E ends tutorial
+    // 16+: finished
     private int step = 0;
 
     private bool playerInRange = false;
@@ -77,7 +70,7 @@ public class IntroTutorial : MonoBehaviour
 
     void Update()
     {
-        if (step >= 14)
+        if (step >= 16)
             return;
 
         // ---------- Arrow position / rotation ----------
@@ -140,17 +133,16 @@ public class IntroTutorial : MonoBehaviour
                 if (playerInRange && Input.GetKeyDown(KeyCode.E))
                 {
                     StopHintIfRunning();
-                    step = 8; // now we wait for the Apfel–Essen line
+                    step = 8; // now we wait for the Apfel–Essen line (arrow goes to target4)
                     StartCoroutine(AfterTargetRoutine(prompts[3], target3));
                 }
                 break;
 
-            // wait until Apfel–Essen connection exists
+            // wait until Apfel–Essen connection exists (arrow on target4)
             case 8:
                 if (HasApfelEssenEdge())
                 {
                     step = 9;
-                    // show explanation + delete-instruction sequentially
                     StartCoroutine(ApplerEssenCreatedRoutine());
                 }
                 break;
@@ -160,41 +152,52 @@ public class IntroTutorial : MonoBehaviour
                 if (!HasApfelEssenEdge())
                 {
                     step = 10;
-                    // show "Gut gemacht! Bilde jetzt die richtige Verbindung"
                     StartCoroutine(ShowShortPrompt(prompts[6]));
                 }
                 break;
 
-            // wait until Apfel–Obst connection exists
+            // arrow -> Apfel, require E before moving arrow to Obst
             case 10:
+                if (playerInRange && Input.GetKeyDown(KeyCode.E))
+                {
+                    StopHintIfRunning();
+                    step = 11; // arrow will move to Obst
+                }
+                break;
+
+            // arrow -> Obst, wait for Apfel–Obst connection
+            case 11:
                 if (HasApfelObstEdge())
                 {
-                    step = 11;
-                    // show minimap hint & wait for T
+                    // start minimap prompt, hide arrow while waiting for T
+                    step = 12;
                     StartCoroutine(MinimapPromptRoutine());
                 }
                 break;
 
-            // arrow -> second-to-last new target (target5)
-            case 11:
-                if (playerInRange && Input.GetKeyDown(KeyCode.E))
-                {
-                    StopHintIfRunning();
-                    // show "Erstelle die letzte Verbindung..." and move arrow to last target
-                    step = 13;
-                    StartCoroutine(AfterTargetRoutine(prompts[8], target5));
-                }
+            // step 12: handled entirely by MinimapPromptRoutine (no arrow here)
+            case 12:
+                // nothing in Update; coroutine will set step = 13 after T
                 break;
 
-            // arrow -> last new target (target6)
+            // arrow -> second-to-last new target (target5)
             case 13:
                 if (playerInRange && Input.GetKeyDown(KeyCode.E))
                 {
                     StopHintIfRunning();
-                    // final interaction: end tutorial, arrow disappears and canvas hides
+                    // keep current prompt (prompts[8]), just move arrow to last target
+                    step = 15;
+                }
+                break;
+
+            // arrow -> last new target (target6)
+            case 15:
+                if (playerInRange && Input.GetKeyDown(KeyCode.E))
+                {
+                    StopHintIfRunning();
                     interactionCanvas.enabled = false;
                     currentPromptMode = PromptMode.None;
-                    step = 14;
+                    step = 16;
                     gameObject.SetActive(false);
                 }
                 break;
@@ -226,7 +229,6 @@ public class IntroTutorial : MonoBehaviour
 
     // ---------- Prompt helpers ----------
 
-    // main tutorial prompts: persist until replaced by another tutorial prompt
     private void ShowTutorialPrompt(string text)
     {
         currentPromptMode = PromptMode.Tutorial;
@@ -234,7 +236,6 @@ public class IntroTutorial : MonoBehaviour
         interactionCanvas.enabled = true;
     }
 
-    // "Press E" hint: appears after 1s, hidden on trigger exit, doesn't overwrite tutorial prompts
     private IEnumerator ShowHintDelayed(string text)
     {
         currentPromptMode = PromptMode.Hint;
@@ -250,14 +251,12 @@ public class IntroTutorial : MonoBehaviour
             StopCoroutine(showCanvasRoutine);
             showCanvasRoutine = null;
         }
-        // don't hide here – tutorial prompt will overwrite the text
     }
 
     // ---------- Prompt coroutines ----------
 
     private IEnumerator AfterTargetRoutine(string text, GameObject finishedTarget)
     {
-        // wait for dialogue on that target (if any)
         if (finishedTarget != null)
         {
             DialogueManager dm = finishedTarget.GetComponent<DialogueManager>();
@@ -265,46 +264,43 @@ public class IntroTutorial : MonoBehaviour
                 yield return null;
         }
 
-        // show tutorial prompt and leave it until the next tutorial prompt replaces it
         ShowTutorialPrompt(text);
     }
 
     // Show prompts[4] then prompts[5] when Apfel–Essen is first created
     private IEnumerator ApplerEssenCreatedRoutine()
     {
-        // explanation
         ShowTutorialPrompt(prompts[4]);
-        yield return new WaitForSeconds(3f); // just delay before the next prompt
+        yield return new WaitForSeconds(6f); // doubled duration
 
-        // delete instruction
         ShowTutorialPrompt(prompts[5]);
-        // persists until the player actually deletes the line and we show prompts[6]
+        // stays until deletion and prompt[6] overwrites it
     }
 
-    // short one-off tutorial prompt that persists until next one
     private IEnumerator ShowShortPrompt(string text)
     {
         ShowTutorialPrompt(text);
         yield break;
     }
 
+    // minimap prompt: after Apfel–Obst is connected
     private IEnumerator MinimapPromptRoutine()
     {
-        // after Apfel–Obst is connected
+        // step is 12 while this runs, so no arrow is shown
         ShowTutorialPrompt(prompts[7]);
 
-        // wait for T (minimap hint)
         while (!Input.GetKeyDown(KeyCode.T))
             yield return null;
 
-        // do NOT hide the canvas here – prompt stays until the next one (on target5) overwrites it
-        // tutorial continues with step 11 (final two targets)
+        // After T: advance prompt AND then arrow will appear on target5 (step 13)
+        ShowTutorialPrompt(prompts[8]);
+        step = 13;
     }
 
     // ---------- Collider: "Press E" hint ----------
 
     private bool IsArrowStep(int s) =>
-        (s == 0 || s == 2 || s == 4 || s == 6 || s == 11 || s == 13);
+        (s == 0 || s == 2 || s == 4 || s == 6 || s == 10 || s == 11 || s == 13 || s == 15);
 
     public void OnTriggerEnter(Collider other)
     {
@@ -314,7 +310,6 @@ public class IntroTutorial : MonoBehaviour
         {
             playerInRange = true;
 
-            // only show "Press E" hint if no tutorial prompt is currently active
             if (currentPromptMode != PromptMode.Tutorial)
             {
                 showCanvasRoutine = StartCoroutine(ShowHintDelayed("Drücke 'E' zum Interagieren"));
@@ -336,8 +331,6 @@ public class IntroTutorial : MonoBehaviour
                 showCanvasRoutine = null;
             }
 
-            // Only hide the canvas automatically if we were showing a hint.
-            // Tutorial prompts stay visible until replaced by the next one.
             if (currentPromptMode == PromptMode.Hint)
             {
                 interactionCanvas.enabled = false;
@@ -356,9 +349,12 @@ public class IntroTutorial : MonoBehaviour
             case 2:  return target1;
             case 4:  return target2;
             case 6:  return target3;
-            case 11: return target5; // second-to-last new target
-            case 13: return target6; // last new target
-            default: return null;    // no arrow during edge-waiting / minimap prompt
+            case 8:  return target4; // waiting for Apfel–Essen
+            case 10: return target3; // after deletion, arrow back to Apfel
+            case 11: return target2; // after interacting with Apfel, arrow to Obst
+            case 13: return target5; // AFTER T, arrow to second-to-last new target
+            case 15: return target6; // last new target
+            default: return null;
         }
     }
 
