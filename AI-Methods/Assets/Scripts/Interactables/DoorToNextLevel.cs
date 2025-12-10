@@ -21,6 +21,9 @@ public class DoorToNextLevel : InteractableI
     
     private System.Collections.IEnumerator LoadSceneRoutine(string nextSceneName)
     {
+        // set last player position for respawn
+        PlayerPositionMemory.lastPosition = player.transform.position;
+
         loadingScreen.SetActive(true);
         yield return null;
         

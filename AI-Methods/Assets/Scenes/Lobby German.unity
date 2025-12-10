@@ -1428,6 +1428,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20a37f90760425a44ad7a8650eecc7b7, type: 3}
+--- !u!1 &630162807
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 630162809}
+  - component: {fileID: 630162808}
+  m_Layer: 0
+  m_Name: PositionMemory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &630162808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630162807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec7b2c443d353453894343f0b96f5694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &630162809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630162807}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.0773735, y: 5.739189, z: -14.070903}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &630903822
 GameObject:
   m_ObjectHideFlags: 0
@@ -5386,7 +5430,7 @@ MonoBehaviour:
   promptMessage: Suche
   useEvents: 1
   pauseMenu: {fileID: 3345539542530430290}
-  nextSceneName: 01-Tiefensuche
+  nextSceneName: 00-Tiefensuche
   loadingScreen: {fileID: 1337076900}
   player: {fileID: 5816971818265893251}
 --- !u!64 &2106498791 stripped
@@ -5509,7 +5553,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3552347224337948771, guid: 9edd3e6702368424cbe518a3c9ef137d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5816971818265893254}
   m_SourcePrefab: {fileID: 100100000, guid: 9edd3e6702368424cbe518a3c9ef137d, type: 3}
 --- !u!4 &5283831608428274022 stripped
 Transform:
@@ -5525,6 +5572,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f08e657de56b44146ad96b63d23e1084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5816971818265893254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16237004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0862a3cf3234ad1bd754542fc306aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6388669561821119616
@@ -5656,7 +5715,7 @@ PrefabInstance:
       objectReference: {fileID: 3345539542530430290}
     - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: promptMessage
-      value: Mit RS1 sprechen
+      value: 'Sprechen [E]'
       objectReference: {fileID: 0}
     - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: 'dialogue.sentences.Array.data[0]'
@@ -5722,3 +5781,4 @@ SceneRoots:
   - {fileID: 445102954}
   - {fileID: 1219262143}
   - {fileID: 6388669561821119616}
+  - {fileID: 630162809}
