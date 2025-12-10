@@ -7342,7 +7342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3610d6e7acecb9a3ac3827abd9dacd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOn: 1
+  isOn: 0
   PositiveSprite: {fileID: 21300000, guid: a38d763eb32ea12439af1cd4b07db735, type: 3}
   NegativeSprite: {fileID: 21300000, guid: 44f10997f36483b40926d06c92414351, type: 3}
   targetImage: {fileID: 1347128554}
@@ -14425,13 +14425,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4619401555634764, guid: f3de6c932859d8940b5ba1d50fb8035b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1776707055}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1339757149798516, guid: f3de6c932859d8940b5ba1d50fb8035b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 603945658}
-    - targetCorrespondingSourceObject: {fileID: 1339757149798516, guid: f3de6c932859d8940b5ba1d50fb8035b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 603945662}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3de6c932859d8940b5ba1d50fb8035b, type: 3}
 --- !u!4 &438757970 stripped
 Transform:
@@ -23374,62 +23368,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c0b2264371dda4d46b1b0a11ea4d5f03, type: 3}
   m_PrefabInstance: {fileID: 602594802}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &603945654 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1339757149798516, guid: f3de6c932859d8940b5ba1d50fb8035b, type: 3}
-  m_PrefabInstance: {fileID: 438757969}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &603945658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603945654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 168b82f41358f4b378dffc9487666eab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: 
-  uiOffset: {x: 0, y: 0.5, z: 0}
-  isEnabled: 0
-  isMetal: 0
-  isDangerous: 1
-  isBlueEnergy: 1
-  isPickingUp: 0
-  target: {fileID: 1864486957}
-  texture2d: {fileID: 8400000, guid: e4435d0c3cbda4d4c9f9072fbf65ef58, type: 2}
-  guide: {fileID: 892591497}
-  database: {fileID: 1717067175}
-  player: {fileID: 653160694}
---- !u!54 &603945662
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603945654}
-  serializedVersion: 4
-  m_Mass: 50
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &603969125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27761,7 +27699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3610d6e7acecb9a3ac3827abd9dacd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOn: 1
+  isOn: 0
   PositiveSprite: {fileID: 21300000, guid: a38d763eb32ea12439af1cd4b07db735, type: 3}
   NegativeSprite: {fileID: 21300000, guid: 44f10997f36483b40926d06c92414351, type: 3}
   targetImage: {fileID: 1809792539}
@@ -39670,7 +39608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3610d6e7acecb9a3ac3827abd9dacd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOn: 0
+  isOn: 1
   PositiveSprite: {fileID: 21300000, guid: a38d763eb32ea12439af1cd4b07db735, type: 3}
   NegativeSprite: {fileID: 21300000, guid: 44f10997f36483b40926d06c92414351, type: 3}
   targetImage: {fileID: 1799956840}
@@ -41459,7 +41397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3610d6e7acecb9a3ac3827abd9dacd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOn: 1
+  isOn: 0
   PositiveSprite: {fileID: 21300000, guid: a38d763eb32ea12439af1cd4b07db735, type: 3}
   NegativeSprite: {fileID: 21300000, guid: 44f10997f36483b40926d06c92414351, type: 3}
   targetImage: {fileID: 1514942719}
@@ -45171,7 +45109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3610d6e7acecb9a3ac3827abd9dacd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOn: 0
+  isOn: 1
   PositiveSprite: {fileID: 21300000, guid: a38d763eb32ea12439af1cd4b07db735, type: 3}
   NegativeSprite: {fileID: 21300000, guid: 44f10997f36483b40926d06c92414351, type: 3}
   targetImage: {fileID: 2038784441}
@@ -48041,7 +47979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3610d6e7acecb9a3ac3827abd9dacd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOn: 0
+  isOn: 1
   PositiveSprite: {fileID: 21300000, guid: a38d763eb32ea12439af1cd4b07db735, type: 3}
   NegativeSprite: {fileID: 21300000, guid: 44f10997f36483b40926d06c92414351, type: 3}
   targetImage: {fileID: 367675733}

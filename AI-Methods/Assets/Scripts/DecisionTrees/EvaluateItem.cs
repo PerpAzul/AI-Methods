@@ -42,7 +42,7 @@ public class EvaluateItem : MonoBehaviour
             Result result = Evaluate(item.IsMetal, item.IsDangerous, item.HasBlueEnergy);
             HighlightPath(result.Path);
             database.DisplayEvaluate(item, progress/database.ScannedItems.Count);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
 
             if (guide && result.Path[^1] == "toggle_1")
             {
