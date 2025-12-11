@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ChangeGlowColorScript : MonoBehaviour
@@ -15,11 +16,18 @@ public class ChangeGlowColorScript : MonoBehaviour
     public Material redGlow;
 
     public RootPlatformScript PlatformRoot;
+    [SerializeField] private int platformNumber;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //nextPlatform = false;
+        ResetPlatform();
+    }
+
+    public void ResetPlatform()
+    {
+        nextPlatform = false;
         center.GetComponent<Renderer>().material = blueGlow;
         cornerOne.GetComponent<Renderer>().material = blueGlow;
         cornerTwo.GetComponent<Renderer>().material = blueGlow;
@@ -43,6 +51,7 @@ public class ChangeGlowColorScript : MonoBehaviour
             cornerThree.GetComponent<Renderer>().material = greenGlow;
             cornerFour.GetComponent<Renderer>().material = greenGlow;
             PlatformRoot.PlatformAnswer = true;
+            PlatformRoot.whichPlatform = platformNumber;
         }
         else
         {
@@ -52,7 +61,7 @@ public class ChangeGlowColorScript : MonoBehaviour
             cornerThree.GetComponent<Renderer>().material = redGlow;
             cornerFour.GetComponent<Renderer>().material = redGlow;
 
-            PlatformRoot.numWrongPlatforms++;
+            PlatformRoot.ResetSceneFail();
         }
     }
 }
