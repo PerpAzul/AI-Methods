@@ -35,7 +35,7 @@ public class ProgressBar : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.M))
         {
             reset.SetActive(true);
             Time.timeScale = 0f;
