@@ -47,36 +47,41 @@ public class Pickup: HintDisplayer
             {
                 return;
             }
-            switch(this.name)
-            {
-                case "crystal_17_2":
-                    if (guide) {
-                        guide.ContinueIfCurrentActionEquals("crystal_f");
-                    }
-                    break;
-                case "decorative_plant":
+            if (this.name.Equals("crystal_17_2")) {
+                if (guide) {
+                    guide.ContinueIfCurrentActionEquals("crystal_f");
+                }
+            }
+            
+            if (!database.ContainsPickup(this)) {
+                if (isBlueEnergy && !isMetal && !isDangerous)
+                {
                     findHelper.find(2);
-                    break;
-                case "Crate Short":
+                }
+                if (!isBlueEnergy && isMetal && !isDangerous)
+                {
                     findHelper.find(3);
-                    break;
-                case "TrashbinRed":
+                }
+                if (!isBlueEnergy && !isMetal && !isDangerous)
+                {
                     findHelper.find(4);
-                    break;
-                case "OilDrum":
+                }
+                if (!isBlueEnergy && isMetal && isDangerous)
+                {
                     findHelper.find(5);
-                    break;
-                case "Barrel":
+                }
+                if (!isBlueEnergy && !isMetal && isDangerous)
+                {
                     findHelper.find(6);
-                    break;
-                case "FuelTank (2)":
+                }
+                if (isBlueEnergy && !isMetal && isDangerous)
+                {
                     findHelper.find(7);
-                    break;
-                case "Beer Can Blue":
+                }
+                if (isBlueEnergy && isMetal && !isDangerous)
+                {
                     findHelper.find(8);
-                    break;
-                default:
-                    break;
+                }
             }
             
             isPickingUp = true;

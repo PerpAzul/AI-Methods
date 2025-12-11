@@ -29,10 +29,12 @@ public class EvaluateItem : MonoBehaviour
     public NPCGuide guide;
 
     public RectTransform warning;
+    private bool isTesting = false;
 
 
     private IEnumerator TestDatabase()
     {
+        isTesting = true;
         if(guide) guide.ContinueIfCurrentActionEquals("first_test");
         if(guide) guide.ContinueIfCurrentActionEquals("second_test");
         warning.gameObject.SetActive(false);
@@ -73,6 +75,7 @@ public class EvaluateItem : MonoBehaviour
                 break;
             }
         }
+        isTesting = false;
     }
 
     private void Start()
@@ -84,7 +87,10 @@ public class EvaluateItem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            StartCoroutine(TestDatabase());
+            if (!isTesting)
+            {
+                StartCoroutine(TestDatabase());
+            }
         }
         
     }
