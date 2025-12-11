@@ -56,12 +56,12 @@ public class Database : MonoBehaviour
             
             if (ScannedItems[index].Useful())
             {
-                useful.text = "Nützlicher Gegenstand";
+                useful.text = "Guter Gegenstand";
                 useful.color = new Color32(34, 255, 0, 255);
             }
             else
             {
-                useful.text = "Unnötiger Gegenstand";
+                useful.text = "Schlechter Gegenstand";
                 useful.color = new Color32(255, 0, 0, 255);
             }
 

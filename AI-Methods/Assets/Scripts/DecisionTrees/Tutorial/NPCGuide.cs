@@ -194,7 +194,7 @@ public class NPCGuide : MonoBehaviour
             if (currentAction.type == ActionType.ShowMessageWithE)
             {
                 // Wait for Input
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.G))
                 {
                     StartNextAction();   
                 }

@@ -87,7 +87,6 @@ public class LineManager : MonoBehaviour
         currentLine.positionCount = 2;
         currentLine.startWidth = 0.05f;
         currentLine.endWidth = 0.05f;
-        currentLine.material = new Material(Shader.Find("Unlit/Color"));
 
         if (waitingForSecond) {
             currentLine.material.color = Color.cyan;
