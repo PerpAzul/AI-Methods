@@ -1535,8 +1535,7 @@ MonoBehaviour:
 
     Mit Escape pausieren
 
-    Mit
-    Tab die Kamera zentrieren'
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4573,7 +4572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9d4fb45d94a3541ae9e97e34a9a762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: Musterabgleich
+  promptMessage: "Entscheidungsb\xE4ume"
   useEvents: 1
   pauseMenu: {fileID: 3345539542530430290}
   nextSceneName: DecisionTreeUI
@@ -5430,7 +5429,7 @@ MonoBehaviour:
   promptMessage: Suche
   useEvents: 1
   pauseMenu: {fileID: 3345539542530430290}
-  nextSceneName: 00-Tiefensuche
+  nextSceneName: 01-Tiefensuche
   loadingScreen: {fileID: 1337076900}
   player: {fileID: 5816971818265893251}
 --- !u!64 &2106498791 stripped
@@ -5719,7 +5718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: 'dialogue.sentences.Array.data[0]'
-      value: "Hallo, TalkJBC. Meine Bezeichnung lautet RS1, und ich werde dir bei
+      value: "Hallo, Spieler. Meine Bezeichnung lautet RS1, und ich werde dir bei
         dieser Mission als dein F\xFChrungsmodul dienen."
       objectReference: {fileID: 0}
     - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
@@ -5731,8 +5730,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: 'dialogue.sentences.Array.data[2]'
-      value: 'Die fehlerhaften Methoden lauten wie folgt: Semantische Netze, Suche
-        und Musterabgleich.'
+      value: "Die fehlerhaften Methoden lauten wie folgt: Semantische Netze, Suche
+        und Entscheidungsb\xE4ume."
       objectReference: {fileID: 0}
     - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: 'dialogue.sentences.Array.data[3]'
