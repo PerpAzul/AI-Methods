@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,7 @@ public class ProgressBar : MonoBehaviour
     public float curr = 0.0f; 
     public GameObject levelFinished;
     public GameObject reset;
+    public TextMeshProUGUI fillText;
 
     void Awake()
     {
@@ -49,6 +51,10 @@ public class ProgressBar : MonoBehaviour
         Vector3 newScale = filler.rectTransform.localScale;
         newScale.x = curr / max;
         filler.rectTransform.localScale = newScale;
+        if (fillText)
+        {
+            fillText.text = $"{curr}/8";
+        }
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)

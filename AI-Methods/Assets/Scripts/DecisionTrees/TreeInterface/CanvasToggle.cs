@@ -50,9 +50,9 @@ public class CanvasToggle : MonoBehaviour
             if (guide) guide.ContinueIfCurrentActionEquals("dtui_e");
             toggleBookButtonUI.treeOpen = true;
             uiTree.SetParent(overlayPanelParent);
-            uiTree.anchoredPosition = Vector2.zero;
             uiTree.localRotation = Quaternion.identity;
             uiTree.localScale = Vector3.one;
+            uiTree.anchoredPosition = new Vector2(0, -40);
             
             fullscreenCanvas.gameObject.SetActive(true);
             myCamera.gameObject.SetActive(false);

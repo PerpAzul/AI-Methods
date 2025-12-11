@@ -52,7 +52,7 @@ public class Database : MonoBehaviour
             items.SetActive(true);
             empty.SetActive(false);
             indexText.text =
-                $"{index + 1}/{ScannedItems.Count}";
+                $"{index + 1}/8";
             
             if (ScannedItems[index].Useful())
             {
