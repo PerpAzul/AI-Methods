@@ -267,15 +267,21 @@ public class IntroTutorial : MonoBehaviour
         ShowTutorialPrompt(text);
     }
 
-    // Show prompts[4] then prompts[5] when Apfel–Essen is first created
-    private IEnumerator ApplerEssenCreatedRoutine()
-    {
-        ShowTutorialPrompt(prompts[4]);
-        yield return new WaitForSeconds(6f); // doubled duration
+private IEnumerator ApplerEssenCreatedRoutine()
+{
+    // explanation + continue hint
+    ShowTutorialPrompt(
+        prompts[4] + "\n\n<size=70%>(1/2) Weiterlesen mit 'R'</size>"
+    );
 
-        ShowTutorialPrompt(prompts[5]);
-        // stays until deletion and prompt[6] overwrites it
-    }
+    // wait until player presses R
+    while (!Input.GetKeyDown(KeyCode.R))
+        yield return null;
+
+    // now show delete instruction
+    ShowTutorialPrompt(prompts[5]);
+    // stays until the player deletes the line and prompt[6] overwrites it
+}
 
     private IEnumerator ShowShortPrompt(string text)
     {
