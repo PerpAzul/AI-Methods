@@ -5,6 +5,7 @@ public class LineManager : MonoBehaviour
 {
     public static LineManager Instance;  // Singleton für einfachen Zugriff
 
+    [SerializeField] private Material lineMaterial;
     private LineRenderer currentLine;
     private Transform firstTarget;
     private Transform secondTarget;
@@ -87,6 +88,9 @@ public class LineManager : MonoBehaviour
         currentLine.positionCount = 2;
         currentLine.startWidth = 0.05f;
         currentLine.endWidth = 0.05f;
+        if (lineMaterial != null) {
+            currentLine.material = lineMaterial;
+        }
 
         if (waitingForSecond) {
             currentLine.material.color = Color.cyan;

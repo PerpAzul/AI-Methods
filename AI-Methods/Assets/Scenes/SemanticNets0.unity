@@ -7645,6 +7645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1892231b7dfc4a7781b9f11d3aedf8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LineManager
+  lineMaterial: {fileID: 2100000, guid: 35f9638b2da8841f9952340bbc663311, type: 2}
   infoCanvas: {fileID: 2022649618}
 --- !u!4 &1269184386
 Transform:

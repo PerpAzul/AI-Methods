@@ -3061,7 +3061,7 @@ Transform:
   m_GameObject: {fileID: 262527870}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.22, y: 0, z: 6.25}
+  m_LocalPosition: {x: 4.42, y: 0, z: 6.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3092,7 +3092,7 @@ Transform:
   m_GameObject: {fileID: 293193794}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.07, y: 0, z: 6.25}
+  m_LocalPosition: {x: 15.49, y: 0, z: 6.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10014,7 +10014,7 @@ Transform:
   m_GameObject: {fileID: 1034009743}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.81, y: 0, z: -3}
+  m_LocalPosition: {x: 2.12, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11782,6 +11782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1892231b7dfc4a7781b9f11d3aedf8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LineManager
+  lineMaterial: {fileID: 2100000, guid: 35f9638b2da8841f9952340bbc663311, type: 2}
   infoCanvas: {fileID: 1625816132}
 --- !u!4 &1269184386
 Transform:
@@ -13741,7 +13742,7 @@ Transform:
   m_GameObject: {fileID: 1552791187}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.75, y: 0, z: -3}
+  m_LocalPosition: {x: 7.32, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13772,7 +13773,7 @@ Transform:
   m_GameObject: {fileID: 1557680960}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.81, y: 0, z: 1}
+  m_LocalPosition: {x: 2.12, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15652,7 +15653,7 @@ Transform:
   m_GameObject: {fileID: 1814941582}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.75, y: 0, z: 1}
+  m_LocalPosition: {x: 7.32, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
