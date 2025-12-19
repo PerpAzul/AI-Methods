@@ -23,6 +23,7 @@ public class LineObject : InteractableI
         correctEdge = LevelManager.Instance.isCorrectConnection(startNode, endNode);
         if (correctEdge) {
             promptMessage = "";
+            Destroy(GetComponent<CapsuleCollider>());
         } else {
             promptMessage = "<size=58%>Löschen (Q)</size>";
             if (LevelManager.Instance.isNeutralConnection(startNode, endNode)) {
