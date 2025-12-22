@@ -6,7 +6,8 @@ public class LineManager : MonoBehaviour
     public static LineManager Instance;  // Singleton für einfachen Zugriff
 
     [SerializeField] private Material lineMaterial;
-    private LineRenderer currentLine;
+    [SerializeField] private Line[] lines;
+    private Line currentLine;
     private Transform firstTarget;
     private Transform secondTarget;
     private bool waitingForSecond = false;
@@ -22,29 +23,11 @@ public class LineManager : MonoBehaviour
         }
     }
 
-    void Update()
+    public void ConnectTo(Transform newTarget, Transform player, int idx)
     {
-        // Wenn es eine aktive Linie gibt, ihre Punkte updaten
-        if (currentLine != null)
-        {
-            if (firstTarget != null) {
-                if (waitingForSecond) { // we know that secondTarget is the player
-                    Vector3 playerChest = firstTarget.position + Vector3.up * 0.5f;
-                    currentLine.SetPosition(0, playerChest);
-                } else {
-                    currentLine.SetPosition(0, firstTarget.position);
-                }
-            }
-
-            if (secondTarget != null) {
-                currentLine.SetPosition(1, secondTarget.position);
-            }
-                
+        if (idx >= lines.Length) {
+            return;
         }
-    }
-
-    public void ConnectTo(Transform newTarget, Transform player)
-    {
         // check if max. edge amount reached
         if (LevelManager.Instance.HasReachedMaxEdges()) {
             if (currentLine != null)
@@ -60,7 +43,7 @@ public class LineManager : MonoBehaviour
             // Start: Spieler -> Objekt
             waitingForSecond = true;
             if (currentLine != null) Destroy(currentLine.gameObject); // alte Linie löschen
-            CreateLine(player, newTarget);
+            CreateLine(newTarget, player, idx);
             firstTarget = player;
             secondTarget = newTarget;
         }
@@ -72,7 +55,7 @@ public class LineManager : MonoBehaviour
             secondTarget = newTarget;
             Destroy(currentLine.gameObject); // alte Linie löschen
             if (LevelManager.Instance.isValidConnection(firstTarget, secondTarget)) {
-                CreateLine(firstTarget, secondTarget);
+                CreateLine(firstTarget, secondTarget, idx);
                 AddCollider(currentLine.gameObject, firstTarget, secondTarget);
                 LevelManager.Instance.addEdge(firstTarget, secondTarget);
             }
@@ -80,30 +63,20 @@ public class LineManager : MonoBehaviour
         }
     }
 
-    private void CreateLine(Transform start, Transform end)
+    private void CreateLine(Transform start, Transform end, int idx)
     {
-        GameObject lineObj = new GameObject("ConnectionLine");
-        currentLine = lineObj.AddComponent<LineRenderer>();
-
-        currentLine.positionCount = 2;
-        currentLine.startWidth = 0.05f;
-        currentLine.endWidth = 0.05f;
-        if (lineMaterial != null) {
-            currentLine.material = lineMaterial;
-        }
+        currentLine = Instantiate(lines[idx], lines[idx].transform.position, lines[idx].transform.rotation);
 
         if (waitingForSecond) {
-            currentLine.material.color = Color.cyan;
+            currentLine.SetColor(Color.cyan);
         } else {
-            currentLine.material.color = LevelManager.Instance.GetLineColor(start, end);
+            currentLine.SetColor(LevelManager.Instance.GetLineColor(start, end));
         }
 
-        currentLine.SetPosition(0, start.position);
-        currentLine.SetPosition(1, end.position);
+        currentLine.SetStart(start);
+        currentLine.SetEnd(end);
 
-        lineObj.transform.position = (end.position + start.position) / 2;
-
-        lineObj.layer = LayerMask.NameToLayer("Interactable");
+        currentLine.transform.position = (end.position + start.position) / 2;
     }
 
     private void AddCollider(GameObject lineObj, Transform startNode, Transform endNode)
@@ -119,7 +92,9 @@ public class LineManager : MonoBehaviour
         }
         col.radius = 1f;
         col.transform.localRotation = Quaternion.FromToRotation(Vector3.up, (end - start).normalized);
+        col.center = Vector3.zero;
 
+        lineObj.layer = LayerMask.NameToLayer("Interactable");
         LineObject lineObjComponent = lineObj.AddComponent<LineObject>();
         lineObjComponent.Init(startNode, endNode);
         if (infoCanvas != null) {

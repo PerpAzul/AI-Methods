@@ -73,8 +73,6 @@ public class LineObject : InteractableI
     // Update is called once per frame
     void Update()
     {
-        this.GetComponent<LineRenderer>().SetPosition(0, startNode.position);
-        this.GetComponent<LineRenderer>().SetPosition(1, endNode.position);
         if (LineManager.Instance != null && playerInRange && !LineManager.Instance.onPlayer())
         {
             promptMessage = earlierMessage;
