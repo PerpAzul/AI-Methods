@@ -41,7 +41,7 @@ public class ArtObject : InteractableI
 
         if (LineManager.Instance != null && player != null)
         {
-            LineManager.Instance.ConnectTo(transform, player.transform, 2);
+            LineManager.Instance.ConnectTo(transform, player.transform, 0);
         }
     }
 }

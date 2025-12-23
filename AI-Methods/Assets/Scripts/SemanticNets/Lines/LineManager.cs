@@ -5,7 +5,6 @@ public class LineManager : MonoBehaviour
 {
     public static LineManager Instance;  // Singleton für einfachen Zugriff
 
-    [SerializeField] private Material lineMaterial;
     [SerializeField] private Line[] lines;
     private Line currentLine;
     private Transform firstTarget;
@@ -25,7 +24,7 @@ public class LineManager : MonoBehaviour
 
     public void ConnectTo(Transform newTarget, Transform player, int idx)
     {
-        if (idx >= lines.Length) {
+        if (idx >= lines.Length || lines[idx] == null) {
             return;
         }
         // check if max. edge amount reached
@@ -66,6 +65,7 @@ public class LineManager : MonoBehaviour
     private void CreateLine(Transform start, Transform end, int idx)
     {
         currentLine = Instantiate(lines[idx], lines[idx].transform.position, lines[idx].transform.rotation);
+        currentLine.gameObject.SetActive(true);
 
         if (waitingForSecond) {
             currentLine.SetColor(Color.cyan);
