@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject minimapCanvas;      // Jammo minimap canvas, or null
 
     // gameplay state
-    public List<(string, string)> playerEdges = new();
+    public List<(string, string, int)> playerEdges = new();
 
     private int correctEdges = 0;
     private int incorrectEdges = 0;
@@ -63,7 +63,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    // Validation
+    // Validation: only one edge of a kind is allowed between nodes -> type does not matter
     public bool isValidConnection(Transform node1, Transform node2)
     {
         if (node1 == null || node2 == null)
@@ -91,7 +91,7 @@ public class LevelManager : MonoBehaviour
         return true;
     }
 
-    public bool isCorrectConnection(Transform node1, Transform node2)
+    public bool isCorrectConnection(Transform node1, Transform node2, int type)
     {
         TMP_Text tmpStart = node1.GetChild(0).GetComponent<TextMeshPro>();
         TMP_Text tmpEnd   = node2.GetChild(0).GetComponent<TextMeshPro>();
@@ -99,32 +99,32 @@ public class LevelManager : MonoBehaviour
         string node1Text = tmpStart.text;
         string node2Text = tmpEnd.text;
 
-        return LevelStorage.Instance.containsEdge(node1Text, node2Text, currentLevel);
+        return LevelStorage.Instance.containsEdge(node1Text, node2Text, type, currentLevel);
     }
 
-    public bool isNeutralConnection(Transform node1, Transform node2) {
+    public bool isNeutralConnection(Transform node1, Transform node2, int type) {
         TMP_Text tmpStart = node1.GetChild(0).GetComponent<TextMeshPro>();
         TMP_Text tmpEnd   = node2.GetChild(0).GetComponent<TextMeshPro>();
 
         string node1Text = tmpStart.text;
         string node2Text = tmpEnd.text;
 
-        return LevelStorage.Instance.containsTransitiveEdge(node1Text, node2Text, currentLevel);
+        return LevelStorage.Instance.containsTransitiveEdge(node1Text, node2Text, type, currentLevel);
     }
 
-    public Color GetLineColor(Transform node1, Transform node2)
+    public Color GetLineColor(Transform node1, Transform node2, int type)
     {
-        if (isCorrectConnection(node1, node2)) {
+        if (isCorrectConnection(node1, node2, type)) {
             return Color.green;
         }
-        if (isNeutralConnection(node1, node2)) {
+        if (isNeutralConnection(node1, node2, type)) {
             return Color.yellow;
         }
         return Color.red;
     }
 
     // Edge management
-    public void addEdge(Transform node1, Transform node2)
+    public void addEdge(Transform node1, Transform node2, int type)
     {
         if (HasReachedMaxEdges())
             return;
@@ -132,11 +132,9 @@ public class LevelManager : MonoBehaviour
         if (!isValidConnection(node1, node2))
             return;
 
-        // TODO: also check for trasitive connection here and update a neutral edge counter -> no points will be subtracted
-        // TODO: also update the maxEdgesReached() method
-        if (isCorrectConnection(node1, node2)) {
+        if (isCorrectConnection(node1, node2, type)) {
             correctEdges++;
-        } else if (isNeutralConnection(node1, node2)){
+        } else if (isNeutralConnection(node1, node2, type)){
             neutralEdges++;
         } else {
             incorrectEdges++;
@@ -148,7 +146,7 @@ public class LevelManager : MonoBehaviour
         string node1Text = Normalize(tmpStart.text);
         string node2Text = Normalize(tmpEnd.text);
 
-        playerEdges.Add((node1Text, node2Text));
+        playerEdges.Add((node1Text, node2Text, type));
 
         var pair = LevelStorage.Instance.getPair(node1Text, node2Text, currentLevel);
         if (pair.HasValue)
@@ -163,7 +161,7 @@ public class LevelManager : MonoBehaviour
         checkForLevelCompleteScreen();
     }
 
-    public void removeEdge(Transform node1, Transform node2)
+    public void removeEdge(Transform node1, Transform node2, int type)
     {
         TMP_Text tmpStart = node1.GetChild(0).GetComponent<TextMeshPro>();
         TMP_Text tmpEnd   = node2.GetChild(0).GetComponent<TextMeshPro>();
@@ -181,9 +179,9 @@ public class LevelManager : MonoBehaviour
             {
                 playerEdges.RemoveAt(i);
 
-                if (isCorrectConnection(node1, node2)) {
+                if (isCorrectConnection(node1, node2, type)) {
                     correctEdges--;
-                } else if (isNeutralConnection(node1, node2)) {
+                } else if (isNeutralConnection(node1, node2, type)) {
                     neutralEdges--;
                 } else { 
                     incorrectEdges--;

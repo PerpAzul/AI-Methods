@@ -5,28 +5,30 @@ public class LineObject : InteractableI
 {
     private Transform startNode;
     private Transform endNode;
+    private int type;
     private string earlierMessage;
     private bool playerInRange = false;
     private bool correctEdge;
 
     [SerializeField] public GameObject infoCanvas;
 
-    public void Init(Transform startNode, Transform endNode)
+    public void Init(Transform startNode, Transform endNode, int type)
     {
         this.startNode = startNode;
         this.endNode = endNode;
+        this.type = type;
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        correctEdge = LevelManager.Instance.isCorrectConnection(startNode, endNode);
+        correctEdge = LevelManager.Instance.isCorrectConnection(startNode, endNode, type);
         if (correctEdge) {
             promptMessage = "";
             Destroy(GetComponent<CapsuleCollider>());
         } else {
             promptMessage = "<size=58%>Löschen (Q)</size>";
-            if (LevelManager.Instance.isNeutralConnection(startNode, endNode)) {
+            if (LevelManager.Instance.isNeutralConnection(startNode, endNode, type)) {
                 promptMessage = "<size=70%>Es gibt eine bessere Lösung.[E]</size>\n" + promptMessage;
             }
         }
@@ -41,7 +43,7 @@ public class LineObject : InteractableI
         if (correctEdge) {
             return; // do nothing for correct edges
         }
-        if (LevelManager.Instance.isNeutralConnection(startNode, endNode)) {
+        if (LevelManager.Instance.isNeutralConnection(startNode, endNode, type)) {
             if (infoCanvas != null) {
                 infoCanvas.SetActive(!infoCanvas.activeSelf);
                 infoCanvas.GetComponentInChildren<TMPro.TMP_Text>().text = "Deine Verbindung " 
@@ -79,7 +81,7 @@ public class LineObject : InteractableI
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 if (!correctEdge) {
-                    LevelManager.Instance.removeEdge(startNode, endNode);
+                    LevelManager.Instance.removeEdge(startNode, endNode, type);
                     Destroy(this.gameObject);
                 }
             }

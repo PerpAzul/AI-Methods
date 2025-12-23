@@ -86,7 +86,7 @@ public class PointDisplay : MonoBehaviour
         {
             foreach (var edge in lm.playerEdges)
             {
-                if (LevelStorage.Instance.containsEdge(edge.Item1, edge.Item2, lm.currentLevel))
+                if (LevelStorage.Instance.containsEdge(edge.Item1, edge.Item2, edge.Item3, lm.currentLevel))
                 {
                     string key = NormalizeEdge(edge.Item1, edge.Item2);
 

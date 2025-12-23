@@ -55,8 +55,8 @@ public class LineManager : MonoBehaviour
             Destroy(currentLine.gameObject); // alte Linie löschen
             if (LevelManager.Instance.isValidConnection(firstTarget, secondTarget)) {
                 CreateLine(firstTarget, secondTarget, idx);
-                AddCollider(currentLine.gameObject, firstTarget, secondTarget);
-                LevelManager.Instance.addEdge(firstTarget, secondTarget);
+                AddCollider(currentLine.gameObject, firstTarget, secondTarget, idx);
+                LevelManager.Instance.addEdge(firstTarget, secondTarget, idx);
             }
             currentLine = null;
         }
@@ -70,7 +70,7 @@ public class LineManager : MonoBehaviour
         if (waitingForSecond) {
             currentLine.SetColor(Color.cyan);
         } else {
-            currentLine.SetColor(LevelManager.Instance.GetLineColor(start, end));
+            currentLine.SetColor(LevelManager.Instance.GetLineColor(start, end, idx));
         }
 
         currentLine.SetStart(start);
@@ -79,7 +79,7 @@ public class LineManager : MonoBehaviour
         currentLine.transform.position = (end.position + start.position) / 2;
     }
 
-    private void AddCollider(GameObject lineObj, Transform startNode, Transform endNode)
+    private void AddCollider(GameObject lineObj, Transform startNode, Transform endNode, int idx)
     {
         Vector3 start = startNode.position;
         Vector3 end = endNode.position;
@@ -96,7 +96,7 @@ public class LineManager : MonoBehaviour
 
         lineObj.layer = LayerMask.NameToLayer("Interactable");
         LineObject lineObjComponent = lineObj.AddComponent<LineObject>();
-        lineObjComponent.Init(startNode, endNode);
+        lineObjComponent.Init(startNode, endNode, idx);
         if (infoCanvas != null) {
             lineObjComponent.infoCanvas = infoCanvas;
         }
