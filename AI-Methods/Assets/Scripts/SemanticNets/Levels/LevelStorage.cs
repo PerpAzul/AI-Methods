@@ -11,6 +11,8 @@ public class LevelStorage : MonoBehaviour
 
     public List<(string, string, int)>[] levels;
 
+    public string[] meaning;
+
     // IMPORTANT: when adding a new level, add a new list here and initialize is in Awake()
     // IMPORTANT: the edges have to be unidirectional for now
 
@@ -57,6 +59,12 @@ public class LevelStorage : MonoBehaviour
             level0Edges,
             level1Edges,
             level2Edges
+        };
+
+        meaning = new string[]{
+            "ist",
+            "hat",
+            "kann"
         };
     }
 

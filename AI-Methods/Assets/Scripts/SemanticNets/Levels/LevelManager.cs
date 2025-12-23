@@ -151,8 +151,10 @@ public class LevelManager : MonoBehaviour
         var pair = LevelStorage.Instance.getPair(node1Text, node2Text, currentLevel);
         if (pair.HasValue)
         {
-            if (floatingExplanationText != null)
-                floatingExplanationText.TriggerText($"<size=70%>Logische Verbindung:</size>\n{pair.Value.Item2} ist {pair.Value.Item1}");
+            if (floatingExplanationText != null) {
+                string meaning = LevelStorage.Instance.meaning[type];
+                floatingExplanationText.TriggerText($"<size=70%>Logische Verbindung:</size>\n{pair.Value.Item2} {meaning} {pair.Value.Item1}");
+            }
         }
 
         lastAddedNode1 = node1;
