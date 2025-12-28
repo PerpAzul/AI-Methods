@@ -42,16 +42,25 @@ public class LevelStorage : MonoBehaviour
         };
 
         level2Edges = new List<(string, string, int)> {
-            ("Tier", "Wirbellose", 0),
-            ("Tier", "Wirbeltier", 0),
-            ("Wirbellose", "Insekt", 0),
-            ("Wirbellose", "Weichtier", 0),
-            ("Wirbeltier", "Fisch", 0),
-            ("Wirbeltier", "Amphibie", 0),
-            ("Insekt", "Käfer", 0),
-            ("Weichtier", "Muschel", 0),
-            ("Fisch", "Lachs", 0),
-            ("Amphibie", "Frosch", 0)
+            ("Tier", "Säugetier", 0),
+            ("Tier", "Fisch", 0),
+            ("Tier", "Vogel", 0),
+            ("Tier", "Zellen", 1),
+
+            ("Säugetier", "Hund", 0),
+            ("Säugetier", "Mensch", 0),
+            ("Säugetier", "Milchdrüsen", 1),
+
+            ("Hund", "Bellen", 2),
+            ("Mensch", "Programmieren", 2),
+
+            ("Fisch", "Hai", 0),
+            ("Fisch", "Kiemen", 1),
+            ("Fisch", "Schwimmen", 2),
+
+            ("Vogel", "Adler", 0),
+            ("Vogel", "Flügel", 1),
+            ("Vogel", "Fliegen", 2)
         };
 
         // more levels to be initialized here
