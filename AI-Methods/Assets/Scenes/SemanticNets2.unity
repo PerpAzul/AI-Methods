@@ -6353,7 +6353,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'fliegen
+  m_text: 'Fliegen
 
 '
   m_isRightToLeft: 0
