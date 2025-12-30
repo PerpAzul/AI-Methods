@@ -8,8 +8,7 @@ public class PlayerInteraction : MonoBehaviour
     private InputAction interactAction;
     private ThirdPersonUI thirdUI;
     [SerializeField] private float interactDistance = 0.5f;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -18,22 +17,36 @@ public class PlayerInteraction : MonoBehaviour
         thirdUI = GetComponent<ThirdPersonUI>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // If the line-type menu is open, don't show interaction prompts behind it
+        LineTypeMenu menu = FindObjectOfType<LineTypeMenu>(true);
+        if (menu != null && menu.IsOpen)
+        {
+            thirdUI.UpdateText(string.Empty);
+            return;
+        }
+
         thirdUI.UpdateText(string.Empty);
-        Collider[] hits = Physics.OverlapBox(transform.position + transform.forward * 0.25f, transform.localScale * interactDistance, transform.rotation, mask, QueryTriggerInteraction.Collide);
+        Collider[] hits = Physics.OverlapBox(
+            transform.position + transform.forward * 0.25f,
+            transform.localScale * interactDistance,
+            transform.rotation,
+            mask,
+            QueryTriggerInteraction.Collide
+        );
+
         foreach (Collider hit in hits)
         {
             InteractableI interactable = hit.GetComponent<InteractableI>();
             if (interactable != null)
             {
                 thirdUI.UpdateText(interactable.promptMessage);
-                break; // stop after first valid hit
+                break;
             }
         }
     }
-    
+
     void OnEnable()
     {
         interactAction.Enable();
@@ -46,14 +59,40 @@ public class PlayerInteraction : MonoBehaviour
 
     public void OnInteract(InputValue value)
     {
-        Collider[] hits = Physics.OverlapBox(transform.position + transform.forward * 0.25f, transform.localScale * interactDistance, transform.rotation, mask, QueryTriggerInteraction.Collide);
+        // IMPORTANT: Ignore the release call (Input System can fire on press + release)
+        bool pressed = false;
+        try
+        {
+            pressed = value.isPressed;
+        }
+        catch
+        {
+            pressed = value.Get<float>() > 0.5f;
+        }
+
+        if (!pressed)
+            return;
+
+        // If menu is open, do nothing (menu handles closing with R)
+        LineTypeMenu menu = FindObjectOfType<LineTypeMenu>(true);
+        if (menu != null && menu.IsOpen)
+            return;
+
+        Collider[] hits = Physics.OverlapBox(
+            transform.position + transform.forward * 0.25f,
+            transform.localScale * interactDistance,
+            transform.rotation,
+            mask,
+            QueryTriggerInteraction.Collide
+        );
+
         foreach (Collider hit in hits)
         {
             InteractableI interactable = hit.GetComponent<InteractableI>();
             if (interactable != null)
             {
                 interactable.BaseInteract();
-                break; // stop after first valid hit
+                break;
             }
         }
     }
