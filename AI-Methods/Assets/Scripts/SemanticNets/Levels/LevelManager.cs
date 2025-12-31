@@ -64,53 +64,42 @@ public class LevelManager : MonoBehaviour
     }
 
     // Validation: only one edge of a kind is allowed between nodes -> type does not matter
-    public bool isValidConnection(Transform node1, Transform node2)
+public bool isValidConnection(Transform node1, Transform node2)
+{
+    if (node1 == null || node2 == null) return false;
+    if (node1 == node2) return false;
+
+    if (!TryGetNodeLabel(node1, out string node1Text)) return false;
+    if (!TryGetNodeLabel(node2, out string node2Text)) return false;
+
+    foreach (var edge in playerEdges)
     {
-        if (node1 == null || node2 == null)
-            return false;
-
-        if (node1.Equals(node2))
-            return false;
-
-        TMP_Text tmpStart = node1.GetChild(0).GetComponent<TextMeshPro>();
-        TMP_Text tmpEnd   = node2.GetChild(0).GetComponent<TextMeshPro>();
-
-        string node1Text = Normalize(tmpStart.text);
-        string node2Text = Normalize(tmpEnd.text);
-
-
-        foreach (var edge in playerEdges)
-        {
-            if ((edge.Item1 == node1Text && edge.Item2 == node2Text) ||
-                (edge.Item1 == node2Text && edge.Item2 == node1Text))
-            {
-                return false; // already exists
-            }
-        }
-
-        return true;
+        if ((edge.Item1 == node1Text && edge.Item2 == node2Text) ||
+            (edge.Item1 == node2Text && edge.Item2 == node1Text))
+            return false; // already exists
     }
 
-    public bool isCorrectConnection(Transform node1, Transform node2, int type)
-    {
-        TMP_Text tmpStart = node1.GetChild(0).GetComponent<TextMeshPro>();
-        TMP_Text tmpEnd   = node2.GetChild(0).GetComponent<TextMeshPro>();
+    return true;
+}
 
-        string node1Text = tmpStart.text;
-        string node2Text = tmpEnd.text;
 
-        return LevelStorage.Instance.containsEdge(node1Text, node2Text, type, currentLevel);
-    }
+public bool isCorrectConnection(Transform node1, Transform node2, int type)
+{
+    if (!TryGetNodeLabel(node1, out string node1Text)) return false;
+    if (!TryGetNodeLabel(node2, out string node2Text)) return false;
 
-    public bool isNeutralConnection(Transform node1, Transform node2, int type) {
-        TMP_Text tmpStart = node1.GetChild(0).GetComponent<TextMeshPro>();
-        TMP_Text tmpEnd   = node2.GetChild(0).GetComponent<TextMeshPro>();
+    return LevelStorage.Instance.containsEdge(node1Text, node2Text, type, currentLevel);
+}
 
-        string node1Text = tmpStart.text;
-        string node2Text = tmpEnd.text;
 
-        return LevelStorage.Instance.containsTransitiveEdge(node1Text, node2Text, type, currentLevel);
-    }
+public bool isNeutralConnection(Transform node1, Transform node2, int type)
+{
+    if (!TryGetNodeLabel(node1, out string node1Text)) return false;
+    if (!TryGetNodeLabel(node2, out string node2Text)) return false;
+
+    return LevelStorage.Instance.containsTransitiveEdge(node1Text, node2Text, type, currentLevel);
+}
+
 
     public Color GetLineColor(Transform node1, Transform node2, int type)
     {
@@ -125,75 +114,78 @@ public class LevelManager : MonoBehaviour
 
     // Edge management
     public void addEdge(Transform node1, Transform node2, int type)
+{
+    if (HasReachedMaxEdges()) return;
+    if (!isValidConnection(node1, node2)) return;
+
+    if (isCorrectConnection(node1, node2, type)) correctEdges++;
+    else if (isNeutralConnection(node1, node2, type)) neutralEdges++;
+    else incorrectEdges++;
+
+    if (!TryGetNodeLabel(node1, out string node1Text)) return;
+    if (!TryGetNodeLabel(node2, out string node2Text)) return;
+
+    playerEdges.Add((node1Text, node2Text, type));
+
+    var pair = LevelStorage.Instance.getPair(node1Text, node2Text, currentLevel);
+    if (pair.HasValue && floatingExplanationText != null)
     {
-        if (HasReachedMaxEdges())
-            return;
-
-        if (!isValidConnection(node1, node2))
-            return;
-
-        if (isCorrectConnection(node1, node2, type)) {
-            correctEdges++;
-        } else if (isNeutralConnection(node1, node2, type)){
-            neutralEdges++;
-        } else {
-            incorrectEdges++;
-        }
-
-        TMP_Text tmpStart = node1.GetChild(0).GetComponent<TextMeshPro>();
-        TMP_Text tmpEnd   = node2.GetChild(0).GetComponent<TextMeshPro>();
-
-        string node1Text = Normalize(tmpStart.text);
-        string node2Text = Normalize(tmpEnd.text);
-
-        playerEdges.Add((node1Text, node2Text, type));
-
-        var pair = LevelStorage.Instance.getPair(node1Text, node2Text, currentLevel);
-        if (pair.HasValue)
-        {
-            if (floatingExplanationText != null) {
-                string meaning = LevelStorage.Instance.meaning[type];
-                floatingExplanationText.TriggerText($"<size=70%>Logische Verbindung:</size>\n{pair.Value.Item2} {meaning} {pair.Value.Item1}");
-            }
-        }
-
-        lastAddedNode1 = node1;
-        lastAddedNode2 = node2;
-
-        checkForLevelCompleteScreen();
+        string meaning = LevelStorage.Instance.meaning[type];
+        floatingExplanationText.TriggerText($"<size=70%>Logische Verbindung:</size>\n{pair.Value.Item2} {meaning} {pair.Value.Item1}");
     }
 
-    public void removeEdge(Transform node1, Transform node2, int type)
+    lastAddedNode1 = node1;
+    lastAddedNode2 = node2;
+
+    checkForLevelCompleteScreen();
+}
+
+
+public void removeEdge(Transform node1, Transform node2, int type)
+{
+    if (!TryGetNodeLabel(node1, out string node1Text)) return;
+    if (!TryGetNodeLabel(node2, out string node2Text)) return;
+
+    for (int i = 0; i < playerEdges.Count; i++)
     {
-        TMP_Text tmpStart = node1.GetChild(0).GetComponent<TextMeshPro>();
-        TMP_Text tmpEnd   = node2.GetChild(0).GetComponent<TextMeshPro>();
+        var edge = playerEdges[i];
 
-        string node1Text = Normalize(tmpStart.text);
-        string node2Text = Normalize(tmpEnd.text);
-
-
-        for (int i = 0; i < playerEdges.Count; i++)
+        if ((edge.Item1 == node1Text && edge.Item2 == node2Text) ||
+            (edge.Item1 == node2Text && edge.Item2 == node1Text))
         {
-            var edge = playerEdges[i];
+            playerEdges.RemoveAt(i);
 
-            if ((edge.Item1 == node1Text && edge.Item2 == node2Text) ||
-                (edge.Item1 == node2Text && edge.Item2 == node1Text))
-            {
-                playerEdges.RemoveAt(i);
+            if (isCorrectConnection(node1, node2, type)) correctEdges--;
+            else if (isNeutralConnection(node1, node2, type)) neutralEdges--;
+            else incorrectEdges--;
 
-                if (isCorrectConnection(node1, node2, type)) {
-                    correctEdges--;
-                } else if (isNeutralConnection(node1, node2, type)) {
-                    neutralEdges--;
-                } else { 
-                    incorrectEdges--;
-                }
-                break;
-            }
+            break;
         }
-
-        checkForLevelCompleteScreen();
     }
+
+    checkForLevelCompleteScreen();
+}
+
+
+// Node Label Helper
+    private bool TryGetNodeLabel(Transform node, out string label)
+{
+    label = null;
+    if (node == null) return false;
+
+    // Works for TextMeshPro (3D) and TextMeshProUGUI (Canvas)
+    TMP_Text tmp = node.GetComponentInChildren<TMP_Text>(true);
+    if (tmp != null)
+    {
+        label = Normalize(tmp.text);
+        return true;
+    }
+
+    // Fallback so we never crash (but you should fix the prefab)
+    label = Normalize(node.name);
+    Debug.LogWarning($"LevelManager: No TMP_Text found under '{node.name}'. Falling back to node.name as label.");
+    return true;
+}
 
     // Level completion
     public void checkForLevelCompleteScreen()
