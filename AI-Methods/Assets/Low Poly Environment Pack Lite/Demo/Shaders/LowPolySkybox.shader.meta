@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c87c69434c1dab54c8d0102936699a94
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 331281
+  packageName: Low Poly Environment Pack Lite
+  packageVersion: 1.0
+  assetPath: Assets/Low Poly Environment Pack Lite/Demo/Shaders/LowPolySkybox.shader
+  uploadId: 784336

@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: River
+  m_Shader: {fileID: 4800000, guid: 9885e4fce7776b3448b94f9cbac285f3, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlowTex:
+        m_Texture: {fileID: 2800000, guid: f2f06a367d226a441a7584831826c65c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FoamTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WaterTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Bands: 5.83
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DepthFactor: 0.81
+    - _DepthSteps: 5.12
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _Edge2Hardness: 1.54
+    - _Edge2Width: 0.107
+    - _EdgeFalloff: 1.31
+    - _EdgeHardness: 1.93
+    - _EdgeThickness: 0.95
+    - _EdgeWidth: 1
+    - _FakeLightStrength: 0.35
+    - _FlowSpeed: 2.82
+    - _FlowSpeed1: 0.3
+    - _FlowSpeed2: 0.2
+    - _FlowStrength: 0.397
+    - _FlowTiling: 2
+    - _FoamCutoff: 0.53
+    - _FoamIntensity: 1.08
+    - _FoamScale: 7.7
+    - _FoamSpeed: 0.88
+    - _FoamThreshold: 0.9
+    - _FoamTiling: 2
+    - _GlitterDensity: 1.1
+    - _GlitterSize: 101
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Opacity: 0.759
+    - _Parallax: 0.02
+    - _ShadingSteps: 5.81
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SpecularIntensity: 1.13
+    - _SpecularPower: 100
+    - _SrcBlend: 1
+    - _TintStrength: 1
+    - _Transparency: 1
+    - _UVSec: 0
+    - _UseBandedShading: 1
+    - _WaterTiling: 1
+    - _WaveFrequency: 0.1
+    - _WaveHeight: 0.01
+    - _WhiteFoamStrength: 0.6
+    - _ZWrite: 1
+    m_Colors:
+    - _BaseColor: {r: 0, g: 0.39496017, b: 1, a: 0.80784315}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DeepColor: {r: 0, g: 0.7290866, b: 0.8490566, a: 1}
+    - _Edge2Color: {r: 0.85, g: 0.95, b: 1, a: 1}
+    - _EdgeColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FakeLightDir: {r: 1.2, g: 2.63, b: 0.03, a: 0}
+    - _FlowDir1: {r: 1, g: 0, b: 0, a: 0}
+    - _FlowDir2: {r: -0.6, g: 0.2, b: 0, a: 0}
+    - _FlowDirection: {r: 1, g: 0, b: 0, a: 0}
+    - _FoamColor: {r: 1, g: 1, b: 1, a: 0.9}
+    - _FoamDir: {r: 0.2, g: 0.4, b: 0, a: 0}
+    - _ShallowColor: {r: 0, g: 1, b: 0.72498894, a: 0.8}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

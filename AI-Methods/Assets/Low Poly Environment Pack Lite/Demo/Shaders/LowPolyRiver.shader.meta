@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 9885e4fce7776b3448b94f9cbac285f3
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 331281
+  packageName: Low Poly Environment Pack Lite
+  packageVersion: 1.0
+  assetPath: Assets/Low Poly Environment Pack Lite/Demo/Shaders/LowPolyRiver.shader
+  uploadId: 784336
