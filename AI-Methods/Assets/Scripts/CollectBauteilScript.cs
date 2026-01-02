@@ -9,18 +9,23 @@ public class CollectBauteilScript : MonoBehaviour
     public GameObject geschafftScreen;
     //bool completedAllPlatforms;
     [SerializeField] private string nextScene;
+    bool reachedEnd;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //completedAllPlatforms = false;
         geschafftScreen.SetActive(false);
+        reachedEnd = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (reachedEnd && Input.GetKeyDown("L"))
+        { 
+            Debug.Log("Link zu nächstem Level hier!");
+        }
     }
 
     private void OnTriggerEnter(Collider other)

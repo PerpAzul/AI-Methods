@@ -20,6 +20,7 @@ public class RootPlatformScript : MonoBehaviour
     public ChangeGlowColorScript PlatformNine;
     public ChangeGlowColorScript PlatformTen;*/
     private int current;
+    public int counterWrongPlatforms;
 
 
     void Start()
@@ -32,6 +33,7 @@ public class RootPlatformScript : MonoBehaviour
         PlatformFive.nextPlatform = false;
         PlatformSix.nextPlatform = false;
         PlatformSeven.nextPlatform = false;
+        counterWrongPlatforms = 0;
     }
 
     public void ResetSceneFail()
@@ -50,6 +52,12 @@ public class RootPlatformScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (counterWrongPlatforms >= 3)
+        {
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currentSceneName);
+        }
+
         if (PlatformAnswer)
         { 
             PlatformAnswer = false;

@@ -61,7 +61,8 @@ public class ChangeGlowColorScript : MonoBehaviour
             cornerThree.GetComponent<Renderer>().material = redGlow;
             cornerFour.GetComponent<Renderer>().material = redGlow;
 
-            PlatformRoot.ResetSceneFail();
+
+            PlatformRoot.counterWrongPlatforms++;
         }
     }
 }

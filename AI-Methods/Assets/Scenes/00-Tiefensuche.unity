@@ -2757,11 +2757,19 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5537080120164905781, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 6157356134867657159, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_text
-      value: 'Tutorial-Level geschafft!!
+      value: 'Tutorial-Level geschafft!
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772840140787472855, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
+      propertyPath: m_text
+      value: "Dr\xFCcke \"L\" f\xFCr das n\xE4chste Level"
       objectReference: {fileID: 0}
     - target: {fileID: 6925856994656680641, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_IsActive
@@ -2978,6 +2986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bauteilPlatformScript: {fileID: 177632506}
   geschafftScreen: {fileID: 1724133624}
+  nextScene: 
 --- !u!1001 &1827886585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3774,6 +3783,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 495137950907621520, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.059547484
+      objectReference: {fileID: 0}
+    - target: {fileID: 495137950907621520, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.75609964
+      objectReference: {fileID: 0}
     - target: {fileID: 1136512624969978323, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -3853,6 +3870,14 @@ PrefabInstance:
     - target: {fileID: 4612028370348542268, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058576509919680794, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.088
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058576509919680794, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.778
       objectReference: {fileID: 0}
     - target: {fileID: 7249813772101503846, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_IsActive
