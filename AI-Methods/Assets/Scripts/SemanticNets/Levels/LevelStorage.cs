@@ -45,22 +45,22 @@ public class LevelStorage : MonoBehaviour
             ("Tier", "Säugetier", 0),
             ("Tier", "Fisch", 0),
             ("Tier", "Vogel", 0),
-            ("Tier", "Zellen", 1),
+            ("Zellen", "Tier", 1),
 
             ("Säugetier", "Hund", 0),
             ("Säugetier", "Mensch", 0),
-            ("Säugetier", "Milchdrüsen", 1),
+            ("Milchdrüsen", "Säugetier", 1),
 
-            ("Hund", "Bellen", 2),
-            ("Mensch", "Programmieren", 2),
+            ("Bellen", "Hund", 2),
+            ("Programmieren", "Mensch", 2),
 
             ("Fisch", "Hai", 0),
-            ("Fisch", "Kiemen", 1),
-            ("Fisch", "Schwimmen", 2),
+            ("Kiemen", "Fisch", 1),
+            ("Schwimmen", "Fisch", 2),
 
             ("Vogel", "Adler", 0),
-            ("Vogel", "Flügel", 1),
-            ("Vogel", "Fliegen", 2)
+            ("Flügel", "Vogel", 1),
+            ("Fliegen", "Vogel", 2)
         };
 
         // more levels to be initialized here
@@ -95,21 +95,23 @@ public class LevelStorage : MonoBehaviour
         node2 = Normalize(node2);
 
         string curNode = node2;
+        string oneOccurence = "";
         while (true) {
             bool found = false;
             foreach (var edge in levels[level]) {
-                if (Normalize(edge.Item2) == curNode && edge.Item3 == type) {
-                    curNode = edge.Item1;
-                    if (curNode == node1) {
+                if ((Normalize(edge.Item2) == curNode && edge.Item3 == 0)
+                    || (Normalize(edge.Item2) == curNode && edge.Item3 == type && edge.Item1 == node1)) {
+                    oneOccurence = edge.Item1;
+                    if (edge.Item1 == node1 && edge.Item3 == type) {
                         return true;
                     }
                     found = true;
-                    break;
                 }
             }
             if (!found) {
                 break;
             }
+            curNode = oneOccurence;
         }
 
         // same thing for case not unidirectional player input
@@ -117,18 +119,19 @@ public class LevelStorage : MonoBehaviour
         while (true) {
             bool found = false;
             foreach (var edge in levels[level]) {
-                if (Normalize(edge.Item2) == curNode && edge.Item3 == type) {
-                    curNode = edge.Item1;
-                    if (curNode == node2) {
+                if ((Normalize(edge.Item2) == curNode && edge.Item3 == 0)
+                    || (Normalize(edge.Item2) == curNode && edge.Item3 == type && edge.Item1 == node2)) {
+                    oneOccurence = edge.Item1;
+                    if (edge.Item1 == node2 && edge.Item3 == type) {
                         return true;
                     }
                     found = true;
-                    break;
                 }
             }
             if (!found) {
                 return false;
             }
+            curNode = oneOccurence;
         }
     }
 
