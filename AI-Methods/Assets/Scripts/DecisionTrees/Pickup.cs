@@ -28,7 +28,7 @@ public class Pickup: HintDisplayer
     
     void Update()
     {
-        if (guide && guide.canPickupTutorial)
+        if (guide && guide.canPickup)
         {
             // only show hint when item not already in database
             if (!isEnabled && !database.ContainsPickup(this))
@@ -43,7 +43,7 @@ public class Pickup: HintDisplayer
         // only pick up when item not already in database
         if (Input.GetKeyDown(KeyCode.F) && playerIsClose && !isPickingUp && !database.ContainsPickup(this))
         {
-            if (guide && !guide.canPickupTutorial)
+            if (guide && !guide.canPickup)
             {
                 return;
             }
@@ -85,6 +85,10 @@ public class Pickup: HintDisplayer
             }
             
             isPickingUp = true;
+            if (guide)
+            {
+                guide.canPickup = false;
+            }
             this.transform.position = new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z);
             this.transform.parent = target.transform;
             message = "Drücke [F] zum Ablegen";
@@ -94,6 +98,10 @@ public class Pickup: HintDisplayer
         else if (Input.GetKeyDown(KeyCode.F) && isPickingUp)
         {
             isPickingUp = false;
+            if (guide)
+            {
+                guide.canPickup = true;
+            }
             message = "Drücke [F] zum Aufnehmen";
             this.transform.parent = null;
             this.GetComponent<Rigidbody>().isKinematic = false;

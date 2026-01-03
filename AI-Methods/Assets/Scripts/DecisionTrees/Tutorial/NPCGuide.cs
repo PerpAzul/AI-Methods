@@ -23,13 +23,16 @@ public class NPCGuide : MonoBehaviour
     // This is a list of help actions that will be skipped immediately
     private List<string> alreadyDoneActions;
 
+
     private int currentActionIndex = 0;
     private NavMeshAgent agent;
     private Animator animator;
     
     private float playerDistance;
     private bool arrived;
-    public bool canPickupTutorial = false;
+    // This attribute blocks picking up items, items can be picked up when the tutorial is complete and the player
+    // it not already picking up an item
+    public bool canPickup = false;
     public bool canScanTutorial = false;
 
     void Start()
@@ -97,7 +100,7 @@ public class NPCGuide : MonoBehaviour
 
         if (currentAction.actionName.Equals("crystal_f"))
         {
-            canPickupTutorial = true;
+            canPickup = true;
         }
 
         if (currentAction.actionName.Equals("scan"))

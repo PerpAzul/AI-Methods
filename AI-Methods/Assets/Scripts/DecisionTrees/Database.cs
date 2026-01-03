@@ -36,8 +36,10 @@ public class Database : MonoBehaviour
     public List<Item> ScannedItems = new();
     public int index;
 
-    private bool IsPlayerNear;
-
+    [SerializeField]
+    // Database nur scrollen wenn player near
+    private CanvasToggle playerNearCanvasToggle;
+    
     private void Awake()
     {
         databaseCanvas.SetActive(true);
@@ -141,7 +143,7 @@ public class Database : MonoBehaviour
     private void Update()
     {
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
-        if (IsPlayerNear && databaseCanvas.activeSelf && ScannedItems.Count > 0)
+        if (playerNearCanvasToggle.isPlayerNear && databaseCanvas.activeSelf && ScannedItems.Count > 0)
         {
             if (scrollInput > 0)
             {
@@ -152,22 +154,6 @@ public class Database : MonoBehaviour
                 index = (index + 1) % ScannedItems.Count;
                 DisplayDatabase();
             }
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            IsPlayerNear = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            IsPlayerNear = false;
         }
     }
 }

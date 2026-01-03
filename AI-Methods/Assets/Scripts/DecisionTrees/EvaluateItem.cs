@@ -28,6 +28,10 @@ public class EvaluateItem : MonoBehaviour
     public ProgressBar progressBar;
     public NPCGuide guide;
 
+    [SerializeField]
+    // damit Maschine nur getestet werden kann wenn player im collider der maschine
+    private CanvasToggle playerNearCanvasToggle;
+
     public RectTransform warning;
     private bool isTesting = false;
 
@@ -85,7 +89,7 @@ public class EvaluateItem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T) && playerNearCanvasToggle.isPlayerNear)
         {
             if (!isTesting)
             {

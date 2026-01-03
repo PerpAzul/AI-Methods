@@ -1291,6 +1291,7 @@ MonoBehaviour:
   database: {fileID: 1717067175}
   progressBar: {fileID: 723587568}
   guide: {fileID: 892591497}
+  playerNearCanvasToggle: {fileID: 1329439179}
   warning: {fileID: 1782269944}
 --- !u!4 &52271865 stripped
 Transform:
@@ -2681,7 +2682,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87270157}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af9b7ad09786442491e5dd044997ef5f, type: 3}
   m_Name: 
@@ -33945,6 +33946,11 @@ MonoBehaviour:
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
+    message: 'Wichtig: Folge dem Tutorial bis du den ersten Gegenstand korrekt klassifiziert
+      hast!'
+    targetObject: {fileID: 0}
+  - type: 0
+    actionName: 
     message: Zuerst brauchen wir ein Buch, folge mir!
     targetObject: {fileID: 0}
   - type: 2
@@ -34064,7 +34070,7 @@ MonoBehaviour:
   textE: {fileID: 678417125}
   arrowCanvas: {fileID: 1212993716}
   warteAbstand: 4
-  canPickupTutorial: 0
+  canPickup: 0
   canScanTutorial: 0
 --- !u!195 &892591498
 NavMeshAgent:
@@ -39960,7 +39966,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089615633}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af9b7ad09786442491e5dd044997ef5f, type: 3}
   m_Name: 
@@ -48019,6 +48025,7 @@ MonoBehaviour:
   uiTree: {fileID: 1629041695}
   myCamera: {fileID: 199732293}
   guide: {fileID: 892591497}
+  isPlayerNear: 0
 --- !u!65 &1329439180
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -61128,6 +61135,7 @@ MonoBehaviour:
   evaluateResultText: {fileID: 906481634}
   newItemParticles: {fileID: 454560936}
   index: 0
+  playerNearCanvasToggle: {fileID: 1329439179}
 --- !u!1 &1737975193
 GameObject:
   m_ObjectHideFlags: 0

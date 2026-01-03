@@ -22,6 +22,7 @@ public class ScanItem : MonoBehaviour
             pickup.isEnabled = false;
             Destroy(other.gameObject);
             Database database = databaseConsole.GetComponent<Database>();
+            guide.canPickup = true;
             database.AddNewItem(new(pickup.isMetal, pickup.isDangerous, pickup.isBlueEnergy, pickup.texture2d));
         }
     }

@@ -12,7 +12,7 @@ public class CanvasToggle : MonoBehaviour
     public NPCGuide guide;
     private ToggleBookButtonUI toggleBookButtonUI;
 
-    private bool isPlayerNear;
+    public bool isPlayerNear;
 
     private void Start()
     {
