@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,10 +19,12 @@ public class barrierScript : MonoBehaviour
         rightPillar.GetComponent<Renderer>().material = greenGlowPillar;
         isRed = false;
         durchgang.SetActive(false);
+
+        StartCoroutine(timeredChange());
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         float random = Random.Range(0.0f, 10.0f);
         if (random < 0.01f)
@@ -41,6 +44,29 @@ public class barrierScript : MonoBehaviour
                 durchgang.SetActive(false);
             }
         }        
+    }*/
+
+    IEnumerator timeredChange()
+    {
+        while (true)
+        {
+            yield return new WaitForSecondsRealtime(5);
+
+            isRed = !isRed;
+            if (isRed)
+            {
+                leftPillar.GetComponent<Renderer>().material = redGlowPillar;
+                rightPillar.GetComponent<Renderer>().material = redGlowPillar;
+                durchgang.SetActive(true);
+            }
+            else
+            {
+                leftPillar.GetComponent<Renderer>().material = greenGlowPillar;
+                rightPillar.GetComponent<Renderer>().material = greenGlowPillar;
+                durchgang.SetActive(false);
+            }
+
+        }
     }
 
     private void OnTriggerEnter(Collider other)

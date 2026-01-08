@@ -23,8 +23,8 @@ public class CollectBauteilScript : MonoBehaviour
     void Update()
     {
         if (reachedEnd && Input.GetKeyDown("L"))
-        { 
-            Debug.Log("Link zu nächstem Level hier!");
+        {
+            SceneManager.LoadScene(nextScene);
         }
     }
 
