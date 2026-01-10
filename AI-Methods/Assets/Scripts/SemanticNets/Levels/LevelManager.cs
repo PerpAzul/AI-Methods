@@ -113,13 +113,16 @@ public bool isNeutralConnection(Transform node1, Transform node2, int type)
     }
 
     // Edge management
-    public void addEdge(Transform node1, Transform node2, int type)
+public void addEdge(Transform node1, Transform node2, int type)
 {
     if (HasReachedMaxEdges()) return;
     if (!isValidConnection(node1, node2)) return;
 
-    if (isCorrectConnection(node1, node2, type)) correctEdges++;
-    else if (isNeutralConnection(node1, node2, type)) neutralEdges++;
+    bool isCorrect = isCorrectConnection(node1, node2, type);
+    bool isNeutral = !isCorrect && isNeutralConnection(node1, node2, type);
+
+    if (isCorrect) correctEdges++;
+    else if (isNeutral) neutralEdges++;
     else incorrectEdges++;
 
     if (!TryGetNodeLabel(node1, out string node1Text)) return;
@@ -127,11 +130,25 @@ public bool isNeutralConnection(Transform node1, Transform node2, int type)
 
     playerEdges.Add((node1Text, node2Text, type));
 
-    var pair = LevelStorage.Instance.getPair(node1Text, node2Text, currentLevel);
-    if (pair.HasValue && floatingExplanationText != null)
+    if (floatingExplanationText != null)
     {
-        string meaning = LevelStorage.Instance.meaning[type];
-        floatingExplanationText.TriggerText($"<size=70%>Logische Verbindung:</size>\n{pair.Value.Item2} {meaning} {pair.Value.Item1}");
+        if (isNeutral)
+        {
+            floatingExplanationText.TriggerText(
+                "<size=70%>Ungenaue Verbindung:</size>\nFinde eine bessere Lösung"
+            );
+        }
+        else
+        {
+            var pair = LevelStorage.Instance.getPair(node1Text, node2Text, currentLevel);
+            if (pair.HasValue)
+            {
+                string meaning = LevelStorage.Instance.meaning[type];
+                floatingExplanationText.TriggerText(
+                    $"<size=70%>Logische Verbindung:</size>\n{pair.Value.Item2} {meaning} {pair.Value.Item1}"
+                );
+            }
+        }
     }
 
     lastAddedNode1 = node1;
@@ -139,6 +156,7 @@ public bool isNeutralConnection(Transform node1, Transform node2, int type)
 
     checkForLevelCompleteScreen();
 }
+
 
 
 public void removeEdge(Transform node1, Transform node2, int type)

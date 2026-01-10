@@ -4084,6 +4084,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1538713792}
     - target: {fileID: 7760609697886708385, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: charsPerSecond
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 7760609697886708385, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: characterAnimator
       value: 
       objectReference: {fileID: 1967293997}

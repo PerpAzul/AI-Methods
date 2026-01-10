@@ -12,23 +12,24 @@ public class FloatingExplanationText : MonoBehaviour
 
     private Vector2 initialAnchoredPosition;
 
-    public void Awake() {
+    public void Awake()
+    {
         initialAnchoredPosition = this.GetComponent<TextMeshProUGUI>().GetComponent<RectTransform>().anchoredPosition;
+        text = this.GetComponent<TextMeshProUGUI>(); // cache once
     }
 
     public void TriggerText(string message)
     {
-        text = this.GetComponent<TextMeshProUGUI>();
+        // update message immediately (no blank + wait)
         text.text = message;
-        StartCoroutine(FloatAndFade(1));
+
+        // prevent multiple overlapping coroutines
+        StopAllCoroutines();
+        StartCoroutine(FloatAndFade());
     }
 
-    private IEnumerator FloatAndFade(int seconds)
+    private IEnumerator FloatAndFade()
     {
-        string message = text.text;
-        text.text = "";
-        yield return new WaitForSeconds(seconds);
-        text.text = message;
         // Startzustand
         Color color = text.color;
         color.a = 1;
@@ -58,4 +59,3 @@ public class FloatingExplanationText : MonoBehaviour
         }
     }
 }
-
