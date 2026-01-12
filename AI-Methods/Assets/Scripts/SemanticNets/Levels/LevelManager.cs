@@ -277,6 +277,19 @@ public void removeEdge(Transform node1, Transform node2, int type)
         }
     }
 
+    public void loadLobby()
+    {
+        correctEdges = 0;
+        incorrectEdges = 0;
+        playerEdges.Clear();
+
+        // reset per-level tracking in PointDisplay, but keep total score if you want
+        if (PointDisplay.Instance != null)
+            PointDisplay.Instance.ResetForNewLevel();
+
+        StartCoroutine(LoadSceneRoutine("Lobby German"));
+    }
+
     // Edge limit
     public bool HasReachedMaxEdges()
     {

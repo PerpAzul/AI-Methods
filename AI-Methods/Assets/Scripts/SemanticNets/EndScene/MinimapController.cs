@@ -9,7 +9,9 @@ public class MinimapController : MonoBehaviour
 
     [Header("Minimap UI")]
     public Canvas endingCanvas;
-    public Button button;
+    public Button nextButton;
+    public Button backButton;
+    public Button lobbyButton;
     public string[] explanationText;
     public TextMeshProUGUI explanationTextField;
     public MinimapAnimator animator;
@@ -20,9 +22,18 @@ public class MinimapController : MonoBehaviour
 
     public void Awake() {
         Instance = this;
-        if (button != null) {
-            button.onClick.RemoveAllListeners();
-            button.onClick.AddListener(OnButtonClick);
+        if (nextButton != null) {
+            nextButton.onClick.RemoveAllListeners();
+            nextButton.onClick.AddListener(OnNextButtonClick);
+        }
+        if (backButton != null) {
+            backButton.onClick.RemoveAllListeners();
+            backButton.onClick.AddListener(OnBackButtonClick);
+        }
+        if (lobbyButton != null) {
+            lobbyButton.onClick.RemoveAllListeners();
+            lobbyButton.onClick.AddListener(OnLobbyButtonClick);
+            lobbyButton.gameObject.SetActive(false);
         }
         explanationTextField.text = explanationText.Length > 0 ? explanationText[0] : "";
         endingCanvas.gameObject.SetActive(false);
@@ -36,21 +47,18 @@ public class MinimapController : MonoBehaviour
 
     private IEnumerator ShowLargeMinimapRoutine()
     {
-        // 1. Minimap groß anzeigen
+        // Minimap groß anzeigen
         endingCanvas.gameObject.SetActive(true);
 
-        // CanvasGroup endingCanvasGroup = endingCanvas.GetComponent<CanvasGroup>();
-        // endingCanvasGroup.alpha = 0f;
-        // endingCanvasGroup.LeanAlpha(1f, 0.25f);
         yield return new WaitForSeconds(0.5f); // kleiner Buffer Frame
 
-        // 2. Bestimmte UI-Elemente ausblenden
+        // Bestimmte UI-Elemente ausblenden
         foreach (var obj in elementsToHide)
             obj.SetActive(false);
 
         yield return new WaitForSeconds(0.1f);
 
-        // 3. Animation ausführen
+        // Animation ausführen
         if (animator != null)
         {
             animator.AnimateElements();
@@ -60,7 +68,7 @@ public class MinimapController : MonoBehaviour
         yield return new WaitForSeconds(1f);
     }
 
-    public void OnButtonClick()
+    public void OnNextButtonClick()
     {
         if (textIdx >= explanationText.Length - 1)
         {
@@ -71,5 +79,33 @@ public class MinimapController : MonoBehaviour
             return;
         }
         explanationTextField.text = explanationText[++textIdx];
+        if (textIdx == explanationText.Length - 1)
+        {
+            nextButton.GetComponentInChildren<TextMeshProUGUI>().text = "Nächstes Level";
+            nextButton.GetComponent<RectTransform>().sizeDelta = new Vector2(167, nextButton.GetComponent<RectTransform>().sizeDelta.y);
+            if (lobbyButton != null) {
+                lobbyButton.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    public void OnBackButtonClick()
+    {
+        if (textIdx <= 0)
+            return;
+        explanationTextField.text = explanationText[--textIdx];
+        if (lobbyButton != null) {
+            lobbyButton.gameObject.SetActive(false);
+        }
+        nextButton.GetComponentInChildren<TextMeshProUGUI>().text = "Weiter";
+        nextButton.GetComponent<RectTransform>().sizeDelta = new Vector2(105.08f, nextButton.GetComponent<RectTransform>().sizeDelta.y);
+    }
+
+    public void OnLobbyButtonClick()
+    {
+        endingCanvas.gameObject.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        LevelManager.Instance.loadLobby();
     }
 }
