@@ -1404,6 +1404,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -1588,6 +1589,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -2075,6 +2077,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -2142,6 +2145,144 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b28dd70a689b2b649832f43119d5b551, type: 3}
   m_PrefabInstance: {fileID: 64341431}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &65377228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 65377229}
+  - component: {fileID: 65377231}
+  - component: {fileID: 65377230}
+  m_Layer: 0
+  m_Name: Text (TMP) (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &65377229
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65377228}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1986377436}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -47.7}
+  m_SizeDelta: {x: 600, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &65377230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65377228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Punkte: 0
+
+'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
+  m_sharedMaterial: {fileID: 5813618495108259790, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 40
+  m_fontSizeBase: 40
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &65377231
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65377228}
+  m_CullTransparentMesh: 1
 --- !u!1001 &67707262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2494,6 +2635,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -2639,6 +2781,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -4643,6 +4786,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -7341,6 +7485,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -7447,6 +7592,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -8398,6 +8544,7 @@ MonoBehaviour:
   isDangerous: 0
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 6a42efb98a886404c8c4332b5d4caa50, type: 2}
   guide: {fileID: 892591497}
@@ -9711,6 +9858,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -11568,6 +11716,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -12523,6 +12672,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -12999,6 +13149,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -13434,6 +13585,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -13648,6 +13800,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -19104,6 +19257,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -19363,6 +19517,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -19392,6 +19547,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -19497,6 +19653,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -19888,6 +20045,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -20080,6 +20238,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -20658,6 +20817,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -21860,6 +22020,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -23230,6 +23391,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -23573,6 +23735,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -23718,6 +23881,7 @@ MonoBehaviour:
   isDangerous: 0
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 81b7e328b0f8443e6ababc2c2d8d64e6, type: 2}
   guide: {fileID: 892591497}
@@ -24506,6 +24670,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -25995,6 +26160,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -26232,6 +26398,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 1
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: a21ac4b33a1994e33911f4d849ce05f7, type: 2}
   guide: {fileID: 892591497}
@@ -26511,6 +26678,9 @@ MonoBehaviour:
   levelFinished: {fileID: 859395734}
   reset: {fileID: 691282001}
   fillText: {fileID: 143797238}
+  pointsText: {fileID: 1902230400}
+  pointsEnd: {fileID: 65377230}
+  points: 0
 --- !u!1001 &724652931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26756,6 +26926,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -26785,6 +26956,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -28172,6 +28344,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -31979,6 +32152,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 832b58c75e5ea46c9852e05fa54f015c, type: 2}
   guide: {fileID: 892591497}
@@ -32640,6 +32814,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -32944,6 +33119,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -32955,7 +33131,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1861413921}
     m_Modifications:
     - target: {fileID: 116890, guid: e9a952fff0d5ee546bceadcd5743474e, type: 3}
       propertyPath: m_Name
@@ -32963,19 +33139,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 490578, guid: e9a952fff0d5ee546bceadcd5743474e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.1846
+      value: 10.184601
       objectReference: {fileID: 0}
     - target: {fileID: 490578, guid: e9a952fff0d5ee546bceadcd5743474e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.284997
+      value: -3.7150173
       objectReference: {fileID: 0}
     - target: {fileID: 490578, guid: e9a952fff0d5ee546bceadcd5743474e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -24.251293
+      value: 27.448708
       objectReference: {fileID: 0}
     - target: {fileID: 490578, guid: e9a952fff0d5ee546bceadcd5743474e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9658471
+      value: 0.96584713
       objectReference: {fileID: 0}
     - target: {fileID: 490578, guid: e9a952fff0d5ee546bceadcd5743474e, type: 3}
       propertyPath: m_LocalRotation.x
@@ -32983,7 +33159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 490578, guid: e9a952fff0d5ee546bceadcd5743474e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.2591127
+      value: -0.25911272
       objectReference: {fileID: 0}
     - target: {fileID: 490578, guid: e9a952fff0d5ee546bceadcd5743474e, type: 3}
       propertyPath: m_LocalRotation.z
@@ -33409,6 +33585,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -33913,6 +34090,7 @@ MonoBehaviour:
   isDangerous: 0
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 81b7e328b0f8443e6ababc2c2d8d64e6, type: 2}
   guide: {fileID: 892591497}
@@ -35644,6 +35822,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -40443,6 +40622,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -40726,6 +40906,7 @@ MonoBehaviour:
   isDangerous: 0
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 81b7e328b0f8443e6ababc2c2d8d64e6, type: 2}
   guide: {fileID: 892591497}
@@ -42155,6 +42336,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -42761,6 +42943,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1339757149798516, guid: f3de6c932859d8940b5ba1d50fb8035b, type: 3}
   m_PrefabInstance: {fileID: 1522204873}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1244289661 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 490578, guid: e9a952fff0d5ee546bceadcd5743474e, type: 3}
+  m_PrefabInstance: {fileID: 933512160}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1246345837
 GameObject:
   m_ObjectHideFlags: 0
@@ -42921,6 +43108,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -43973,6 +44161,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -44202,6 +44391,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -44602,6 +44792,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -47387,6 +47578,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -47416,6 +47608,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -48481,6 +48674,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -48572,6 +48766,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -48889,6 +49084,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 1
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: e4435d0c3cbda4d4c9f9072fbf65ef58, type: 2}
   guide: {fileID: 892591497}
@@ -49007,6 +49203,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -49386,6 +49583,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -49442,6 +49640,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -50393,6 +50592,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -51074,6 +51274,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -51809,6 +52010,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 1
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: e4435d0c3cbda4d4c9f9072fbf65ef58, type: 2}
   guide: {fileID: 892591497}
@@ -52067,6 +52269,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -52324,6 +52527,7 @@ RectTransform:
   - {fileID: 374659202}
   - {fileID: 982245805}
   - {fileID: 143797240}
+  - {fileID: 1902230399}
   m_Father: {fileID: 1418969232}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -53115,6 +53319,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -55256,6 +55461,7 @@ MonoBehaviour:
   isDangerous: 0
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 81b7e328b0f8443e6ababc2c2d8d64e6, type: 2}
   guide: {fileID: 892591497}
@@ -56335,6 +56541,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -56626,6 +56833,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -56692,6 +56900,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1861314926069448202, guid: 8ac9eceeacc25704a856555360a80992, type: 3}
   m_PrefabInstance: {fileID: 1672141260}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1675595086 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6427678035520313658, guid: cf27fb0ade0ef9a47b8e09a6ad11b4d8, type: 3}
+  m_PrefabInstance: {fileID: 1941088340}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1682124018
 PrefabInstance:
@@ -57479,6 +57692,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -58185,6 +58399,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -58933,6 +59148,7 @@ MonoBehaviour:
   isDangerous: 0
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 81b7e328b0f8443e6ababc2c2d8d64e6, type: 2}
   guide: {fileID: 892591497}
@@ -59024,6 +59240,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -60530,6 +60747,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 1
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: e4435d0c3cbda4d4c9f9072fbf65ef58, type: 2}
   guide: {fileID: 892591497}
@@ -61092,6 +61310,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -61657,6 +61876,7 @@ MonoBehaviour:
   isDangerous: 0
   isBlueEnergy: 1
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 8b48a435bf33943729e213f4df9fd646, type: 2}
   guide: {fileID: 892591497}
@@ -61904,6 +62124,7 @@ MonoBehaviour:
   isDangerous: 0
   isBlueEnergy: 1
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 605e896b18d2aecc69bce373b536952f, type: 2}
   guide: {fileID: 892591497}
@@ -62171,6 +62392,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -63139,6 +63361,8 @@ Transform:
   - {fileID: 544318079}
   - {fileID: 474173039}
   - {fileID: 1831609656}
+  - {fileID: 1244289661}
+  - {fileID: 1675595086}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1864486957
@@ -64241,6 +64465,142 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c0b2264371dda4d46b1b0a11ea4d5f03, type: 3}
   m_PrefabInstance: {fileID: 1901599570}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1902230398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1902230399}
+  - component: {fileID: 1902230401}
+  - component: {fileID: 1902230400}
+  m_Layer: 5
+  m_Name: points
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1902230399
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902230398}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1541249919}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 316.91666, y: -202}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1902230400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902230398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Punkte: 0'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
+  m_sharedMaterial: {fileID: 5813618495108259790, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 25
+  m_fontSizeBase: 25
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1902230401
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902230398}
+  m_CullTransparentMesh: 1
 --- !u!1 &1905236998
 GameObject:
   m_ObjectHideFlags: 0
@@ -65195,7 +65555,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1861413921}
     m_Modifications:
     - target: {fileID: 1818270842139911716, guid: cf27fb0ade0ef9a47b8e09a6ad11b4d8, type: 3}
       propertyPath: m_Name
@@ -65203,15 +65563,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6427678035520313658, guid: cf27fb0ade0ef9a47b8e09a6ad11b4d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.296484
+      value: -53.296486
       objectReference: {fileID: 0}
     - target: {fileID: 6427678035520313658, guid: cf27fb0ade0ef9a47b8e09a6ad11b4d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: -5.0000143
       objectReference: {fileID: 0}
     - target: {fileID: 6427678035520313658, guid: cf27fb0ade0ef9a47b8e09a6ad11b4d8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -31.684748
+      value: 20.015253
       objectReference: {fileID: 0}
     - target: {fileID: 6427678035520313658, guid: cf27fb0ade0ef9a47b8e09a6ad11b4d8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -67249,13 +67609,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7845135021059361395, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 44.4
+      objectReference: {fileID: 0}
     - target: {fileID: 8744632740362445302, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6925856994656680641, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6985522431857466496, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 65377229}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8326659491630515104, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       insertIndex: -1
@@ -67278,6 +67646,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763aa956c61e84e1a92b4c5aba435f1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1986377436 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6985522431857466496, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
+  m_PrefabInstance: {fileID: 1986377433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1986425756
 GameObject:
   m_ObjectHideFlags: 0
@@ -67973,6 +68346,7 @@ MonoBehaviour:
   isDangerous: 0
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 81b7e328b0f8443e6ababc2c2d8d64e6, type: 2}
   guide: {fileID: 892591497}
@@ -68002,6 +68376,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -68141,6 +68516,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -69253,6 +69629,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -69806,6 +70183,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -69862,6 +70240,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -69993,6 +70372,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -70437,6 +70817,7 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
@@ -71867,5 +72248,3 @@ SceneRoots:
   - {fileID: 977588485}
   - {fileID: 366508198}
   - {fileID: 553558865}
-  - {fileID: 933512160}
-  - {fileID: 1941088340}
