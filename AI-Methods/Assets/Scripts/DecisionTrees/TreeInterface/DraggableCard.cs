@@ -101,7 +101,9 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
             targetImage.color = new Color32(255, 255, 255, 255);
             if(guide && targetText.text.Contains("Metall") && r.gameObject.name == "?_1_1") guide.ContinueIfCurrentActionEquals("metal_card");
             if(guide && targetText.text.Contains("Schädlich") && r.gameObject.name == "?_2_1") guide.ContinueIfCurrentActionEquals("danger_card");
-
+            if(guide && targetText.text.Contains("Rot") && r.gameObject.name == "?_1_1") guide.ContinueIfCurrentActionEquals("rot_card");
+            if(guide && targetText.text.Contains("Obst") && r.gameObject.name == "?_2_1") guide.ContinueIfCurrentActionEquals("obst_card");
+            if(guide && targetText.text.Contains("Obst") && r.gameObject.name == "?_2_2") guide.ContinueIfCurrentActionEquals("obst_card_2");
             break;
         }
     }
