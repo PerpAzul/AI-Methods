@@ -11151,7 +11151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4431084402279646, guid: 8e0f285c21cdcf14e8d5c06c57ba936b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.726
+      value: -1.08
       objectReference: {fileID: 0}
     - target: {fileID: 4431084402279646, guid: 8e0f285c21cdcf14e8d5c06c57ba936b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15929,7 +15929,7 @@ MonoBehaviour:
   - type: 0
     actionName: 
     message: Wenn dein Baum eine falsche Entscheidung trifft, erscheint eine Warnung
-      neben dem betroffenen Entscheidungsdaumen.
+      neben dem Entscheidungsdaumen am Ende vom falschen Pfad.
     targetObject: {fileID: 0}
   - type: 1
     actionName: 
