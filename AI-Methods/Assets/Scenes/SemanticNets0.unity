@@ -4052,28 +4052,39 @@ PrefabInstance:
       value: Sprechen
       objectReference: {fileID: 0}
     - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: 'dialogue.sentences.Array.data[0]'
-      value: "Hallo! Willkommen im Obstgarten.\nDie KI hat hier ihr Wissen \xFCber
-        Essen gesammelt, aber die Verbindungen zwischen den Begriffen sind durcheinander
-        geraten. \nIn diesem kurzen Tutorial zeige ich dir, wie du der KI hilfst,
-        wieder Ordnung ins Wissen zu bringen."
+      value: "Hallo! Willkommen im Obstgarten.\r\nDie KI hat hier ihr Wissen \xFCber
+        Fr\xFCchte und Gem\xFCse gesammelt, aber die Verbindungen zwischen den Begriffen
+        sind durcheinander geraten. \nIn diesem kurzen Tutorial zeige ich dir, wie
+        du der KI hilfst, wieder Ordnung ins Wissen zu bringen."
       objectReference: {fileID: 0}
     - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: 'dialogue.sentences.Array.data[1]'
-      value: "Wissen kann in der Informatik in sogenannten semantischen Netzen dargestellt
-        werden. \nKnoten repr\xE4sentieren Konzepte, w\xE4hrend Kanten die Beziehungen
-        zwischen diesen Konzepten darstellen."
+      value: "Wissen kann in semantischen Netzen dargestellt werden:\r\nKnoten sind
+        Begriffe (z.B. \u201EApfel\u201C, \u201EObst\u201C, \u201EEssen\u201C).\nKanten
+        sind Beziehungen zwischen Begriffen (z.B. \u201Eist\u201C, \u201Ehat\u201C,
+        \u201Ekann\u201C)."
       objectReference: {fileID: 0}
     - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: 'dialogue.sentences.Array.data[2]'
-      value: "Du kannst zu jedem Begriff laufen und durch Interaktion eine Linie
-        zu jedem anderen Begriff ziehen. \nEine Linie zwischen \u201EObst\u201D und
-        \u201EEssen\u201D bedeutet beispielsweise: \u201EObst ist eine Art von Essen\u201D."
+      value: "So funktioniert\u2019s im Tutorial:\r\nLaufe zu einem Objekt und interagiere,
+        um eine Kante (Linie) zu ziehen.\r\nW\xE4hle dann den Verbindungstyp (z.B.
+        \u201Eist\u201C).\r\nBeispiel: \u201EApfel\u201C ist \u201EObst\u201C oder
+        \u201EObst\u201C ist eine Art von \u201EEssen\u201C."
       objectReference: {fileID: 0}
     - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: 'dialogue.sentences.Array.data[3]'
-      value: "Denk daran: Je mehr richtige Verbindungen du herstellst, desto besser
-        versteht die KI die Welt um sie herum! \nNur du kannst sie reparieren."
+      value: 'Ziel im Obstgarten-Tutorial:
+
+        Stelle die richtigen Verbindungen
+        her und achte auf genaue Beziehungen.
+
+        Je besser deine Verbindungen,
+        desto besser versteht die KI die Begriffe hier im Obstgarten.'
       objectReference: {fileID: 0}
     - target: {fileID: 7760609697886708385, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: isInDialogue

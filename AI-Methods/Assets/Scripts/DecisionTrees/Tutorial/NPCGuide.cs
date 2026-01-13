@@ -98,12 +98,12 @@ public class NPCGuide : MonoBehaviour
         }
         arrived = false; // Reset arrival state
 
-        if (currentAction.actionName.Equals("crystal_f"))
+        if (currentAction.actionName.Equals("crystal_f") || currentAction.actionName.Equals("tomato_f"))
         {
             canPickup = true;
         }
 
-        if (currentAction.actionName.Equals("scan"))
+        if (currentAction.actionName.Equals("scan") || currentAction.actionName.Equals("tomato_scan"))
         {
             canScanTutorial = true;
         }
