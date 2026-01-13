@@ -8,8 +8,6 @@ public class WheelInterface : MonoBehaviour
     public GameObject wheelDecision;
     public ParticleSystem steamEffect;
 
-    private bool finished = false;
-
     void Awake() {
         int count = 0;
 
@@ -36,11 +34,6 @@ public class WheelInterface : MonoBehaviour
         } else {
             wheelDecision.SetActive(false);
         }
-
-        if (count == 3) {
-           StartCoroutine(StartSteamEffect());
-           finished = true;
-        }
     }
 
     IEnumerator StartSteamEffect() {
@@ -50,7 +43,7 @@ public class WheelInterface : MonoBehaviour
 
     void Update()
     {
-        if (!finished) {
+        if (!wheelDecision.activeSelf || !wheelSemantic.activeSelf || !wheelSearch.activeSelf) {
             return;
         }
         wheelSearch.transform.Rotate(Vector3.forward, 20 * Time.deltaTime);
