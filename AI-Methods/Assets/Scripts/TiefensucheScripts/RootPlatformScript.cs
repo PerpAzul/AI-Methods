@@ -22,6 +22,10 @@ public class RootPlatformScript : MonoBehaviour
     private int current;
     public int counterWrongPlatforms;
 
+    public GameObject infopointOne;
+    public GameObject infopointTwo;
+    public GameObject infopointThree;
+
 
     void Start()
     {
@@ -34,6 +38,9 @@ public class RootPlatformScript : MonoBehaviour
         PlatformSix.nextPlatform = false;
         PlatformSeven.nextPlatform = false;
         counterWrongPlatforms = 0;
+        infopointOne.SetActive(true);
+        infopointTwo.SetActive(false);
+        infopointThree.SetActive(false);
     }
 
     public void ResetSceneFail()
@@ -76,33 +83,44 @@ public class RootPlatformScript : MonoBehaviour
             }*/
             if (PlatformSix.nextPlatform && whichPlatform == 6)
             {
-                Debug.Log("next6");
+                //Debug.Log("next6");
                 PlatformSeven.nextPlatform = true;
             }
             else if (PlatformFive.nextPlatform && whichPlatform == 5) 
             {
-                Debug.Log("next5");
+                //Debug.Log("next5");
                 PlatformSix.nextPlatform = true;
+                whichPlatform++;
             }
             else if (PlatformFour.nextPlatform && whichPlatform == 4)
             {
-                Debug.Log("next4");
+                //Debug.Log("next4");
                 PlatformFive.nextPlatform = true;
+                whichPlatform++;
             }
             else if (PlatformThree.nextPlatform && whichPlatform == 3)
             {
-                Debug.Log("next3");
+                //Debug.Log("next3");
                 PlatformFour.nextPlatform = true;
+                whichPlatform++;
+                infopointTwo.SetActive(false);
             }
             else if (PlatformTwo.nextPlatform && whichPlatform == 2)
             {
-                Debug.Log("next2");
+                //Debug.Log("next2");
                 PlatformThree.nextPlatform = true;
+                whichPlatform++;
+                
+                infopointOne.SetActive(false);
+                infopointThree.SetActive(true);
             }
             else if (PlatformOne.nextPlatform && whichPlatform == 1)
             {
-                Debug.Log("next1");
+                //Debug.Log("next1");
                 PlatformTwo.nextPlatform = true;
+                whichPlatform++;
+                
+                infopointTwo.SetActive(true);
             }
         }
     }

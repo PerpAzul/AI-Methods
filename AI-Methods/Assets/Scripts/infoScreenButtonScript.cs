@@ -12,6 +12,7 @@ public class infoScreenButtonScript : MonoBehaviour
     void Start()
     {
         //button.onClick.AddListener(TaskOnClick);
+        //thisScreen.SetActive(false);
     }
 
     // Update is called once per frame
