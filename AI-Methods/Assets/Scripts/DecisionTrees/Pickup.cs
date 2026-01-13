@@ -9,6 +9,7 @@ public class Pickup: HintDisplayer
     
     private bool playerIsClose;
     public bool isPickingUp;
+    public ProgressBar progressBar;
     
     [Header("Player target")]
     public GameObject target;
@@ -24,6 +25,7 @@ public class Pickup: HintDisplayer
         message = "Drücke [F] zum Aufnehmen";
         isEnabled = false;
         findHelper = GameObject.Find("GameManager").GetComponent<FindHelper>();
+        progressBar = GameObject.Find("Progress Bar").GetComponent<ProgressBar>();
     }
     
     void Update()
@@ -49,6 +51,8 @@ public class Pickup: HintDisplayer
             }
             if (this.name.Equals("crystal_17_2")) {
                 if (guide) {
+                    progressBar.points += 10.0f;
+                    SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
                     guide.ContinueIfCurrentActionEquals("crystal_f");
                 }
             }
@@ -56,30 +60,44 @@ public class Pickup: HintDisplayer
             if (!database.ContainsPickup(this)) {
                 if (isBlueEnergy && !isMetal && !isDangerous)
                 {
+                    SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
+                    progressBar.points += 10.0f;
                     findHelper.find(2);
                 }
                 if (!isBlueEnergy && isMetal && !isDangerous)
                 {
+                    SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
+                    progressBar.points += 10.0f;
                     findHelper.find(3);
                 }
                 if (!isBlueEnergy && !isMetal && !isDangerous)
                 {
+                    SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
+                    progressBar.points += 10.0f;
                     findHelper.find(4);
                 }
                 if (!isBlueEnergy && isMetal && isDangerous)
                 {
+                    SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
+                    progressBar.points += 10.0f;
                     findHelper.find(5);
                 }
                 if (!isBlueEnergy && !isMetal && isDangerous)
                 {
+                    SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
+                    progressBar.points += 10.0f;
                     findHelper.find(6);
                 }
                 if (isBlueEnergy && !isMetal && isDangerous)
                 {
+                    SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
+                    progressBar.points += 10.0f;
                     findHelper.find(7);
                 }
                 if (isBlueEnergy && isMetal && !isDangerous)
                 {
+                    SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
+                    progressBar.points += 10.0f;
                     findHelper.find(8);
                 }
             }
@@ -106,6 +124,16 @@ public class Pickup: HintDisplayer
             this.transform.parent = null;
             this.GetComponent<Rigidbody>().isKinematic = false;
         }
+    }
+
+    // from semantic nets
+    private void SpawnFloatingText(string text, Color color, Vector3 worldPosition)
+    {
+        GameObject go = new GameObject("FloatingScoreText");
+        go.transform.position = worldPosition;
+
+        var floating = go.AddComponent<FloatingScoreText>();
+        floating.SetText(text, color);
     }
 
 

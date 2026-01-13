@@ -27,6 +27,8 @@ public class EvaluateItem : MonoBehaviour
     [Header("Database")] public Database database;
     public ProgressBar progressBar;
     public NPCGuide guide;
+    bool[] gottenPoints = {false, false, false, false, false, false, false, false};
+    bool[] deductedPoints = {false, false, false, false, false, false, false, false};
 
     [SerializeField]
     // damit Maschine nur getestet werden kann wenn player im collider der maschine
@@ -34,7 +36,6 @@ public class EvaluateItem : MonoBehaviour
 
     public RectTransform warning;
     private bool isTesting = false;
-
 
     private IEnumerator TestDatabase()
     {
@@ -69,11 +70,165 @@ public class EvaluateItem : MonoBehaviour
                 }
                 progress++;
                 progressBar.curr = progress;
+                bool isBlueEnergy = item.HasBlueEnergy;
+                bool isMetal = item.IsMetal;
+                bool isDangerous = item.IsDangerous;
+
+                if (isBlueEnergy && !isMetal && !isDangerous)
+                {
+                    if (!gottenPoints[0])
+                    {
+                        SpawnFloatingText("+20", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
+                        progressBar.points += 20.0f;
+                    }
+                    gottenPoints[0] = true;
+                }
+                else if (!isBlueEnergy && isMetal && !isDangerous)
+                {
+                    if (!gottenPoints[1])
+                    {
+                        SpawnFloatingText("+20", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
+                        progressBar.points += 20.0f;
+                    }
+                    gottenPoints[1] = true;
+                }
+                else if (!isBlueEnergy && !isMetal && !isDangerous)
+                {
+                    if (!gottenPoints[2])
+                    {
+                        SpawnFloatingText("+20", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
+                        progressBar.points += 20.0f;
+                    }
+                    gottenPoints[2] = true;
+                }
+                else if (!isBlueEnergy && isMetal && isDangerous)
+                {
+                    if (!gottenPoints[3])
+                    {
+                        SpawnFloatingText("+20", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
+                        progressBar.points += 20.0f;
+                    }
+                    gottenPoints[3] = true;
+                }
+                else if (!isBlueEnergy && !isMetal && isDangerous)
+                {
+                    if (!gottenPoints[4])
+                    {
+                        SpawnFloatingText("+20", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
+                        progressBar.points += 20.0f;
+                    }
+                    gottenPoints[4] = true;
+                }
+                else if (isBlueEnergy && !isMetal && isDangerous)
+                {
+                    if (!gottenPoints[5])
+                    {
+                        SpawnFloatingText("+20", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
+                        progressBar.points += 20.0f;
+                    }
+                    gottenPoints[5] = true;
+                }
+                else if (isBlueEnergy && isMetal && !isDangerous)
+                {
+                    if (!gottenPoints[6])
+                    {
+                        SpawnFloatingText("+20", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
+                        progressBar.points += 20.0f;
+                    }
+                    gottenPoints[6] = true;
+                }
+                else if (isBlueEnergy && isMetal && isDangerous)
+                {
+                    if (!gottenPoints[7])
+                    {
+                        SpawnFloatingText("+20", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
+                        progressBar.points += 20.0f;
+                    }
+                    gottenPoints[7] = true;
+                }
+
                 database.DisplayResult("KORREKT", progress/database.ScannedItems.Count);
                 yield return new WaitForSeconds(1);
             }
             else
             {
+                bool isBlueEnergy = item.HasBlueEnergy;
+                bool isMetal = item.IsMetal;
+                bool isDangerous = item.IsDangerous;
+
+                if (isBlueEnergy && !isMetal && !isDangerous)
+                {
+                    if (gottenPoints[0] && !deductedPoints[0])
+                    {
+                        deductedPoints[0] = true;
+                        SpawnFloatingText("-10", new Color(1f, 0.3f, 0.3f), this.gameObject.transform.position);
+                        progressBar.points -= 10.0f;
+                    }
+                }
+                if (!isBlueEnergy && isMetal && !isDangerous)
+                {
+                    if (gottenPoints[1] && !deductedPoints[1])
+                    {
+                        deductedPoints[1] = true;
+                        SpawnFloatingText("-10", new Color(1f, 0.3f, 0.3f), this.gameObject.transform.position);
+                        progressBar.points -= 10.0f;
+                    }
+                }
+                if (!isBlueEnergy && !isMetal && !isDangerous)
+                {
+                    if (gottenPoints[2] && !deductedPoints[2])
+                    {
+                        deductedPoints[2] = true;
+                        SpawnFloatingText("-10", new Color(1f, 0.3f, 0.3f), this.gameObject.transform.position);
+                        progressBar.points -= 10.0f;
+                    }
+                }
+                if (!isBlueEnergy && isMetal && isDangerous)
+                {
+                    if (gottenPoints[3]  && !deductedPoints[3])
+                    {
+                        deductedPoints[3] = true;
+                        SpawnFloatingText("-10", new Color(1f, 0.3f, 0.3f), this.gameObject.transform.position);
+                        progressBar.points -= 10.0f;
+                    }
+                }
+                if (!isBlueEnergy && !isMetal && isDangerous)
+                {
+                    if (gottenPoints[4]  && !deductedPoints[4])
+                    {
+                        deductedPoints[4] = true;
+                        SpawnFloatingText("-10", new Color(1f, 0.3f, 0.3f), this.gameObject.transform.position);
+                        progressBar.points -= 10.0f;
+                    }
+                }
+                if (isBlueEnergy && !isMetal && isDangerous)
+                {
+                    if (gottenPoints[5]  && !deductedPoints[5])
+                    {
+                        deductedPoints[5] = true;
+                        SpawnFloatingText("-10", new Color(1f, 0.3f, 0.3f), this.gameObject.transform.position);
+                        progressBar.points -= 10.0f;
+                    }
+                }
+                if (isBlueEnergy && isMetal && !isDangerous)
+                {
+                    if (gottenPoints[6]  && !deductedPoints[6])
+                    {
+                        deductedPoints[6] = true;
+                        SpawnFloatingText("-10", new Color(1f, 0.3f, 0.3f), this.gameObject.transform.position);
+                        progressBar.points -= 10.0f;
+                    }
+                }
+                if (isBlueEnergy && isMetal && isDangerous)
+                {
+                    if (gottenPoints[7]  && !deductedPoints[7])
+                    {
+                        deductedPoints[7] = true;
+                        SpawnFloatingText("-10", new Color(1f, 0.3f, 0.3f), this.gameObject.transform.position);
+                        progressBar.points -= 10.0f;
+                    }
+                }
+
                 database.DisplayResult("FALSCH", progress/database.ScannedItems.Count);
                 DisplayResultError(result.Path[^1]);
                 break;
@@ -301,5 +456,13 @@ public class EvaluateItem : MonoBehaviour
 
         return false;
     }
-    
+    // from semantic nets
+    private void SpawnFloatingText(string text, Color color, Vector3 worldPosition)
+    {
+        GameObject go = new GameObject("FloatingScoreText");
+        go.transform.position = worldPosition;
+
+        var floating = go.AddComponent<FloatingScoreText>();
+        floating.SetText(text, color);
+    }
 }

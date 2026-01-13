@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using System;
 
 public class ProgressBar : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class ProgressBar : MonoBehaviour
     public GameObject levelFinished;
     public GameObject reset;
     public TextMeshProUGUI fillText;
+    public TextMeshProUGUI pointsText;
+    public TextMeshProUGUI pointsEnd;
+    private bool finished = false;
+    public float points = 0.0f;
+    private float completionMultiplier = 1.0f;
+    private float time = 0.0f;
 
     void Awake()
     {
@@ -21,7 +28,9 @@ public class ProgressBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        time += Time.deltaTime;
         setFill();
+        setPoints();
         // make sure you can still interact with ui after pausing
         if (reset.activeSelf || levelFinished.activeSelf)
         {
@@ -31,7 +40,15 @@ public class ProgressBar : MonoBehaviour
 
         if (curr >= 8.0f)
         {
-            levelFinished.SetActive(true);
+            if (!finished)
+            {
+                levelFinished.SetActive(true);
+                Debug.Log(time);
+                completionMultiplier = completionMultiplier - (0.00006f * time);
+                points += (float) Math.Round(new decimal (60 * completionMultiplier), 1);
+                pointsEnd.text = $"Punkte: {points}";
+            }
+            finished = true;
             Time.timeScale = 0f;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -54,6 +71,14 @@ public class ProgressBar : MonoBehaviour
         if (fillText)
         {
             fillText.text = $"{curr}/8";
+        }
+    }
+
+    void setPoints()
+    {
+        if (pointsText)
+        {
+            pointsText.text = $"Punkte: {points}";
         }
     }
 
