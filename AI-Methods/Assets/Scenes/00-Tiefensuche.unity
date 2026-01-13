@@ -1140,6 +1140,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2740962512772327536, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
+      propertyPath: m_Color.b
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740962512772327536, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
+      propertyPath: m_Color.g
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740962512772327536, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
+      propertyPath: m_Color.r
+      value: 0.69803923
+      objectReference: {fileID: 0}
     - target: {fileID: 2801747420426813615, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1187,6 +1199,18 @@ PrefabInstance:
     - target: {fileID: 3013664372090197713, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3407352628250653948, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 3407352628250653948, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 3407352628250653948, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6981132
       objectReference: {fileID: 0}
     - target: {fileID: 3679732209380098271, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: nextScreen
@@ -1710,6 +1734,18 @@ PrefabInstance:
     - target: {fileID: 5058576509919680794, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_LocalPosition.z
       value: -7.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344243640464391461, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
+      propertyPath: m_Color.b
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344243640464391461, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
+      propertyPath: m_Color.g
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344243640464391461, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
+      propertyPath: m_Color.r
+      value: 0.69803923
       objectReference: {fileID: 0}
     - target: {fileID: 5430701363682518435, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_Size.x
@@ -3313,6 +3349,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2403088888498419240, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2403088888498419250, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: m_Name
       value: NPC Robot
