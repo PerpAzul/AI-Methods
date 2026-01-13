@@ -383,7 +383,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7584591928906036958, guid: aa925dce6c9f94b4b8818aab84246b9f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1372062906}
   m_SourcePrefab: {fileID: 100100000, guid: aa925dce6c9f94b4b8818aab84246b9f, type: 3}
 --- !u!4 &18756285 stripped
 Transform:
@@ -400,30 +403,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4563459568915873646, guid: eed54a613be71b543a99e53a8e2914de, type: 3}
   m_PrefabInstance: {fileID: 263217935}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &52271861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52271860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 584e50d69ee1c8738a6222a2dc866d5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  decisionTree: {fileID: 1629041694}
-  database: {fileID: 1717067175}
-  progressBar: {fileID: 723587568}
-  guide: {fileID: 892591497}
-  playerNearCanvasToggle: {fileID: 1329439179}
-  warning: {fileID: 1782269944}
 --- !u!4 &52271865 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3755855717322859988, guid: eed54a613be71b543a99e53a8e2914de, type: 3}
   m_PrefabInstance: {fileID: 263217935}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &52271866
+--- !u!114 &52271870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -432,11 +417,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 52271860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f958410825f861ba8fbb8dd33d0eee1, type: 3}
+  m_Script: {fileID: 11500000, guid: cb4a3aabea8de484dbe5c64f5eafbc43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   databaseConsole: {fileID: 467973179}
   guide: {fileID: 892591497}
+--- !u!114 &52271871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52271860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75461220ceb194d93b90f28c67f94d0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decisionTree: {fileID: 1629041694}
+  database: {fileID: 1717067179}
+  progressBar: {fileID: 723587568}
+  guide: {fileID: 892591497}
+  playerNearCanvasToggle: {fileID: 1329439179}
+  warning: {fileID: 1782269944}
 --- !u!1 &54476256
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,7 +1814,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 7/8
+  m_text: 3/4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
   m_sharedMaterial: {fileID: 5813618495108259790, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
@@ -3692,10 +3695,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4563459568915873646, guid: eed54a613be71b543a99e53a8e2914de, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 52271861}
+      addedObject: {fileID: 52271871}
     - targetCorrespondingSourceObject: {fileID: 4563459568915873646, guid: eed54a613be71b543a99e53a8e2914de, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 52271866}
+      addedObject: {fileID: 52271870}
   m_SourcePrefab: {fileID: 100100000, guid: eed54a613be71b543a99e53a8e2914de, type: 3}
 --- !u!1 &272504142 stripped
 GameObject:
@@ -3721,10 +3724,11 @@ MonoBehaviour:
   isDangerous: 0
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 6a42efb98a886404c8c4332b5d4caa50, type: 2}
   guide: {fileID: 892591497}
-  database: {fileID: 1717067175}
+  database: {fileID: 0}
   player: {fileID: 653160694}
 --- !u!54 &272504148
 Rigidbody:
@@ -3831,6 +3835,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1000013284424148, guid: b29c3addc4240254785fef8671d1291b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1792267388}
+    - targetCorrespondingSourceObject: {fileID: 1000013284424148, guid: b29c3addc4240254785fef8671d1291b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1792267391}
   m_SourcePrefab: {fileID: 100100000, guid: b29c3addc4240254785fef8671d1291b, type: 3}
 --- !u!4 &287745965 stripped
 Transform:
@@ -4054,6 +4061,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1000012997751318, guid: 0550765fb22bb954ea0412b7153ff417, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1781667624}
+    - targetCorrespondingSourceObject: {fileID: 1000012997751318, guid: 0550765fb22bb954ea0412b7153ff417, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1781667627}
   m_SourcePrefab: {fileID: 100100000, guid: 0550765fb22bb954ea0412b7153ff417, type: 3}
 --- !u!4 &289877025 stripped
 Transform:
@@ -11145,7 +11155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4431084402279646, guid: 8e0f285c21cdcf14e8d5c06c57ba936b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.561
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4431084402279646, guid: 8e0f285c21cdcf14e8d5c06c57ba936b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13178,10 +13188,11 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 1
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: a21ac4b33a1994e33911f4d849ce05f7, type: 2}
   guide: {fileID: 892591497}
-  database: {fileID: 1717067175}
+  database: {fileID: 0}
   player: {fileID: 653160694}
 --- !u!65 &717988936
 BoxCollider:
@@ -13295,7 +13306,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 723587564}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73defcad1cdad46f3b3b064059e4b5e5, type: 3}
+  m_Script: {fileID: 11500000, guid: 87899af070a964b5da96daaec3fcac5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   filler: {fileID: 965367145}
@@ -15069,7 +15080,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4008610799542497148, guid: 54545446ea7bb1d49a60e927b5cc5fe6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 854177656}
+      addedObject: {fileID: 854177661}
   m_SourcePrefab: {fileID: 100100000, guid: 54545446ea7bb1d49a60e927b5cc5fe6, type: 3}
 --- !u!4 &854177654 stripped
 Transform:
@@ -15081,7 +15092,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4008610799542497148, guid: 54545446ea7bb1d49a60e927b5cc5fe6, type: 3}
   m_PrefabInstance: {fileID: 854177653}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &854177656
+--- !u!114 &854177661
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15090,20 +15101,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 854177655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 168b82f41358f4b378dffc9487666eab, type: 3}
+  m_Script: {fileID: 11500000, guid: d79fc5edff02349bbbfc93c9fa5bf07e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   message: 
   uiOffset: {x: 0, y: 0.7, z: 0}
   isEnabled: 0
-  isMetal: 1
-  isDangerous: 1
-  isBlueEnergy: 1
+  isRed: 1
+  isFruit: 1
   isPickingUp: 0
+  progressBar: {fileID: 723587568}
   target: {fileID: 1864486957}
-  texture2d: {fileID: 8400000, guid: a21ac4b33a1994e33911f4d849ce05f7, type: 2}
+  texture2d: {fileID: 8400000, guid: a1cb0376d5685c36c8466697d78d06c8, type: 2}
   guide: {fileID: 892591497}
-  database: {fileID: 1717067175}
+  database: {fileID: 1717067179}
   player: {fileID: 653160694}
 --- !u!1 &859395734 stripped
 GameObject:
@@ -15265,7 +15276,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8579182689602438748, guid: e3cb56b09184bf12384d8d3f80700217, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1392323212}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5545949408156443199, guid: e3cb56b09184bf12384d8d3f80700217, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1549341474}
   m_SourcePrefab: {fileID: 100100000, guid: e3cb56b09184bf12384d8d3f80700217, type: 3}
 --- !u!1 &870117732
 GameObject:
@@ -15677,10 +15691,11 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 832b58c75e5ea46c9852e05fa54f015c, type: 2}
   guide: {fileID: 892591497}
-  database: {fileID: 1717067175}
+  database: {fileID: 0}
   player: {fileID: 653160694}
 --- !u!1 &892591490 stripped
 GameObject:
@@ -15750,77 +15765,76 @@ MonoBehaviour:
   helpActions:
   - type: 0
     actionName: 
-    message: Servus, willkommen auf meinem Schrottplatz!
+    message: Servus und willkommen auf dem Bauernhof! Der eine oder andere war vielleicht
+      schon hier ;)
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    message: Hier baust du einen Entscheidungsbaum.
+    message: In diesem Minigame baust du einen Entscheidungsbaum.
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    message: Keine Sorge, ich zeige dir erstmal wie alles funktioniert :)
+    message: "In diesem Tutorial-Level werde ich dir Schritt-f\xFCr-Schritt zeigen,
+      wie das geht :)"
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    message: 'Wichtig: Folge dem Tutorial bis du den ersten Gegenstand korrekt klassifiziert
-      hast!'
-    targetObject: {fileID: 0}
-  - type: 0
-    actionName: 
-    message: Zuerst brauchen wir ein Buch, folge mir!
+    message: Folge mir erstmal zur Maschine!
     targetObject: {fileID: 0}
   - type: 2
     actionName: 
     message: 
-    targetObject: {fileID: 0}
-  - type: 1
-    actionName: book_e
-    message: Siehst du das Buch zwischen den Pflanzen? Sammle es auf!
+    targetObject: {fileID: 1142802290}
+  - type: 0
+    actionName: 
+    message: "Hier wirst du deinen Entscheidungsbaum bauen k\xF6nnen. "
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    message: "Diese B\xFCcher enthalten wertvolle Informationen"
+    message: "Entscheidungsb\xE4ume entscheiden \xFCber den Wert oder den Wertebereich
+      von einer gewissen Eigenschaft."
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    message: "Du musst die Gegenst\xE4nde aus den B\xFCchern finden im Raum..."
-    targetObject: {fileID: 0}
-  - type: 1
-    actionName: book_q
-    message: "Dr\xFCcke [Q] um erneut ein Buch anzuschauen"
+    message: In unserem Fall wollen wir entscheiden, ob ein Essen gut ist oder nicht.
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    message: "Toll gemacht! Schau dir nochmal die Gegenst\xE4nde in dem Buch an."
+    message: 'Dies tun wir hier anhand von zwei Eigenschaften von unserem Essen:
+      Obst (Ja/Nein), Rot (Ja/Nein)'
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    message: Wir sammeln gemeinsam den Kristall auf. Folge mir!
+    message: "Bevor wir den Baum selbst bauen, sammeln wir ein St\xFCck Essen, was
+      wir bewerten wollen. "
+    targetObject: {fileID: 0}
+  - type: 0
+    actionName: 
+    message: Wir sammeln die Tomate gemeinsam auf. Folge mir!
     targetObject: {fileID: 0}
   - type: 2
     actionName: 
     message: 
-    targetObject: {fileID: 717988937}
+    targetObject: {fileID: 287745965}
   - type: 1
-    actionName: crystal_f
-    message: "Sammle den Kristall auf, dr\xFCcke dazu [F]"
+    actionName: tomato_f
+    message: "Sammle die Tomate auf, dr\xFCcke dazu [F]"
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    message: "Wir scannen den Kristall nun an der mysteri\xF6sen Maschine ein. Folge
-      mir!"
+    message: Wir scannen die Tomate nun an der Maschine ein. Folge mir!
     targetObject: {fileID: 0}
   - type: 2
     actionName: 
     message: 
-    targetObject: {fileID: 0}
+    targetObject: {fileID: 1142802290}
   - type: 1
-    actionName: scan
-    message: Bring den Kristall unter das rote Licht, um ihn einzuscannen.
+    actionName: tomato_scan
+    message: Bring die Tomate unter das rote Licht, um ihn einzuscannen.
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    message: Nun siehst du auf dem Bildschirm, ob der Kristall von der Maschine als
+    message: Nun siehst du auf dem Bildschirm, ob die Tomate von der Maschine als
       gut erkannt wurde.
     targetObject: {fileID: 0}
   - type: 0
@@ -15828,8 +15842,8 @@ MonoBehaviour:
     message: Wir beginnen jetzt damit, den Entscheidungsbaum zu bauen
     targetObject: {fileID: 0}
   - type: 1
-    actionName: metal_card
-    message: "\xD6ffne den Editor an der Maschine \xFCber [E] und ziehe die Metall?-Karte
+    actionName: rot_card
+    message: "\xD6ffne den Editor an der Maschine \xFCber [E] und ziehe die Rot?-Karte
       auf das Fragezeichen ganz links"
     targetObject: {fileID: 0}
   - type: 1
@@ -15845,40 +15859,82 @@ MonoBehaviour:
     message: Du siehst an der gelben Warnung, wo sie nicht weiter wusste
     targetObject: {fileID: 0}
   - type: 1
-    actionName: danger_card
-    message: "Ziehe die \"Sch\xE4dlich?\" Karte auf das Fragezeichen unter der Warnung"
+    actionName: obst_card
+    message: Ziehe die "Obst?" Karte auf das Fragezeichen unter der Warnung
     targetObject: {fileID: 0}
   - type: 1
     actionName: second_test
-    message: "Dr\xFCcke jetzt wieder T, um zu schauen wo die Maschine h\xE4ngen bleiben
-      wird!"
-    targetObject: {fileID: 0}
-  - type: 1
-    actionName: third_test
-    message: "Ziehe jetzt die blaue Energie Karte unter die Warnung und teste anschlie\xDFend
-      die Maschine erneut"
+    message: Teste jetzt die Maschine erneut!
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    message: Super! Jetzt stimmt nur noch das Ergebnis nicht.
+    message: "Super! Nun stimmt aber die Entscheidung von deinem Baum nicht mit der
+      Datenbank \xFCberein. "
     targetObject: {fileID: 0}
   - type: 1
     actionName: machine_t_correct
-    message: Der Kristall ist gut, drehe daher den Daumen im Editor um, indem du
-      ihn anklickst und teste erneut!
+    message: "Klicke auf den Daumen unter der Warnung, um die Entscheidung f\xFCr
+      diesen Pfad zu \xE4ndern und teste die Maschine erneut..."
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    message: Perfekt! Der erste Gegenstand ist korrekt klassifiziert
+    message: "Gut gemacht. Wir sammeln nun das n\xE4chste Essen auf. Folge mir!"
+    targetObject: {fileID: 0}
+  - type: 2
+    actionName: 
+    message: 
+    targetObject: {fileID: 289877025}
+  - type: 1
+    actionName: banana_f
+    message: "Sammle die Banene auf, dr\xFCcke dazu [F]"
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    message: "Suche jetzt alle anderen B\xFCcher und Gegenst\xE4nde..."
+    message: Folge mir nun wieder zur Maschine!
+    targetObject: {fileID: 0}
+  - type: 2
+    actionName: 
+    message: 
+    targetObject: {fileID: 1142802290}
+  - type: 1
+    actionName: banana_scan
+    message: Bring die Banane unter das rote Licht, um ihn einzuscannen.
+    targetObject: {fileID: 0}
+  - type: 1
+    actionName: banana_test
+    message: Teste nun die Maschine!
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    message: und programmiere danach die Maschine so, dass alle korrekt klassifiziert
-      werden. Viel Erfolg!
+    message: "Du siehst, dass die Maschine wieder h\xE4ngen bleibt."
+    targetObject: {fileID: 0}
+  - type: 1
+    actionName: obst_card_2
+    message: Ziehe nun die Obst?-Karte auf das Fragezeichen unter der Warnung.
+    targetObject: {fileID: 0}
+  - type: 1
+    actionName: banana_correct
+    message: Teste die Maschine jetzt erneut und schaue, dass die Entscheidung von
+      deinem Baum der Datenbank entspricht.
+    targetObject: {fileID: 0}
+  - type: 0
+    actionName: 
+    message: "Sehr gut! Der Baum ist fast vollst\xE4ndig."
+    targetObject: {fileID: 0}
+  - type: 0
+    actionName: 
+    message: "Sammle die \xFCbrigen 2 St\xFCcke Essen hinter dir auf und schaue,
+      dass der Baum sie korrekt klassifiziert! "
+    targetObject: {fileID: 0}
+  - type: 0
+    actionName: 
+    message: Wenn dein Baum eine falsche Entscheidung trifft, erscheint eine Warnung
+      neben dem betroffenen Entscheidungsdaumen.
+    targetObject: {fileID: 0}
+  - type: 1
+    actionName: 
+    message: "Erinnerung: Du kannst durch Anklicken des Daumens die Entscheidung
+      f\xFCr den jeweiligen Pfad \xE4ndern!"
     targetObject: {fileID: 0}
   player: {fileID: 653160694}
   messageCanvas: {fileID: 7780720}
@@ -16309,10 +16365,11 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 91ca42ce567cb9c2ca60d7c8ddf131e8, type: 2}
   guide: {fileID: 892591497}
-  database: {fileID: 1717067175}
+  database: {fileID: 0}
   player: {fileID: 653160694}
 --- !u!65 &955955704
 BoxCollider:
@@ -16626,10 +16683,11 @@ MonoBehaviour:
   isDangerous: 0
   isBlueEnergy: 0
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 81b7e328b0f8443e6ababc2c2d8d64e6, type: 2}
   guide: {fileID: 892591497}
-  database: {fileID: 1717067175}
+  database: {fileID: 0}
   player: {fileID: 653160694}
 --- !u!1 &977588484
 GameObject:
@@ -16659,8 +16717,7 @@ Transform:
   m_LocalPosition: {x: 19.141068, y: 1.7258089, z: 3.985085}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1521767739}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &982245804
@@ -17580,6 +17637,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 449768, guid: 888614259d2d71142a4ba0b538e54caf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 221339181}
+    - targetCorrespondingSourceObject: {fileID: 449768, guid: 888614259d2d71142a4ba0b538e54caf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1142802290}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 133022, guid: 888614259d2d71142a4ba0b538e54caf, type: 3}
       insertIndex: -1
@@ -18433,6 +18493,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123442009}
   m_CullTransparentMesh: 1
+--- !u!1 &1142802289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1142802290}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1142802290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142802289}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.53, y: 0, z: 3.88}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1046002533}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1155732844
 GameObject:
   m_ObjectHideFlags: 0
@@ -20111,6 +20202,35 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+--- !u!1 &1372062901 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7584591928906036958, guid: aa925dce6c9f94b4b8818aab84246b9f, type: 3}
+  m_PrefabInstance: {fileID: 18756284}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1372062906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372062901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d79fc5edff02349bbbfc93c9fa5bf07e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: 
+  uiOffset: {x: 0, y: 0.7, z: 0}
+  isEnabled: 0
+  isRed: 0
+  isFruit: 0
+  isPickingUp: 0
+  progressBar: {fileID: 723587568}
+  target: {fileID: 1864486957}
+  texture2d: {fileID: 8400000, guid: 0fac8abaa60e125f6bbe3477db00eef0, type: 2}
+  guide: {fileID: 892591497}
+  database: {fileID: 1717067179}
+  player: {fileID: 653160694}
 --- !u!1 &1372926708
 GameObject:
   m_ObjectHideFlags: 0
@@ -21272,177 +21392,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520044514}
   m_CullTransparentMesh: 1
---- !u!1001 &1521767736
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 977588485}
-    m_Modifications:
-    - target: {fileID: 100000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-      propertyPath: m_Name
-      value: book_0001d
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -41.031067
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.72580886
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -8.665085
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.62453276
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.78099865
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -102.704
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 100000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1521767738}
-    - targetCorrespondingSourceObject: {fileID: 100000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1521767742}
-    - targetCorrespondingSourceObject: {fileID: 100000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1521767745}
-    - targetCorrespondingSourceObject: {fileID: 100000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1521767746}
-  m_SourcePrefab: {fileID: 100100000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
---- !u!1 &1521767737 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-  m_PrefabInstance: {fileID: 1521767736}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1521767738
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1521767737}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0.11399999, z: 0}
---- !u!4 &1521767739 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: f99df1970d4b71441a320ce6acc52709, type: 3}
-  m_PrefabInstance: {fileID: 1521767736}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1521767742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1521767737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63e89d5fd80e84703b8a6dca93a8e2c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fullscreenCanvas: {fileID: 1840102991}
-  myCamera: {fileID: 199732293}
-  locked: {fileID: 1574117192}
-  guide: {fileID: 0}
-  playerProximity: {fileID: 1864486962}
---- !u!114 &1521767745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1521767737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96909e665a6c5f81fa06f69747fd2e3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: "Dr\xFCcke [E] um das Buch zu sammeln"
-  uiOffset: {x: 0, y: 0.5, z: 0}
-  isEnabled: 1
---- !u!54 &1521767746
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1521767737}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1523858793
 GameObject:
   m_ObjectHideFlags: 0
@@ -22046,6 +21995,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546650569}
   m_CullTransparentMesh: 1
+--- !u!1 &1549341472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5545949408156443199, guid: e3cb56b09184bf12384d8d3f80700217, type: 3}
+  m_PrefabInstance: {fileID: 869726144}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1549341474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549341472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 02ec8142926214410987134c37ab182c, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &1563006200
 GameObject:
   m_ObjectHideFlags: 0
@@ -23496,14 +23482,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 188452, guid: d78f2ba16003e6e4681b4702d6dcb72e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1717067175}
+      addedObject: {fileID: 1717067179}
   m_SourcePrefab: {fileID: 100100000, guid: d78f2ba16003e6e4681b4702d6dcb72e, type: 3}
 --- !u!4 &1717067171 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 460470, guid: d78f2ba16003e6e4681b4702d6dcb72e, type: 3}
   m_PrefabInstance: {fileID: 1717067170}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1717067175
+--- !u!114 &1717067179
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23512,7 +23498,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 467973179}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6721d02456c1f484185feac1375c914e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ca55f5fac5364d1baa3425c9ddeed7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   databaseCanvas: {fileID: 1496307745}
@@ -23520,9 +23506,8 @@ MonoBehaviour:
   items: {fileID: 962088415}
   indexText: {fileID: 54476258}
   preview: {fileID: 1275275914}
-  metalToggle: {fileID: 1405296349}
-  dangerToggle: {fileID: 1356983264}
-  enerToggle: {fileID: 0}
+  redToggle: {fileID: 1356983264}
+  fruitToggle: {fileID: 1405296349}
   useful: {fileID: 1802614984}
   evaluateCanvas: {fileID: 347187348}
   progressBar: {fileID: 1439346365}
@@ -23899,6 +23884,30 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 6d05be1b78e41a948b8d50bee67bce65, type: 3}
+--- !u!114 &1781667627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781667620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d79fc5edff02349bbbfc93c9fa5bf07e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: 
+  uiOffset: {x: 0, y: 0.7, z: 0}
+  isEnabled: 0
+  isRed: 0
+  isFruit: 1
+  isPickingUp: 0
+  progressBar: {fileID: 723587568}
+  target: {fileID: 1864486957}
+  texture2d: {fileID: 8400000, guid: ef986d24e609f5598acf73902c6057e3, type: 2}
+  guide: {fileID: 892591497}
+  database: {fileID: 1717067179}
+  player: {fileID: 653160694}
 --- !u!1 &1782269943
 GameObject:
   m_ObjectHideFlags: 0
@@ -24164,6 +24173,30 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: b3eeac06e2127d64a98cfe86b50eeda8, type: 3}
+--- !u!114 &1792267391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792267384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d79fc5edff02349bbbfc93c9fa5bf07e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: 
+  uiOffset: {x: 0, y: 0.7, z: 0}
+  isEnabled: 0
+  isRed: 1
+  isFruit: 0
+  isPickingUp: 0
+  progressBar: {fileID: 723587568}
+  target: {fileID: 1864486957}
+  texture2d: {fileID: 8400000, guid: 44d942753a869906794c942fda4b2834, type: 2}
+  guide: {fileID: 892591497}
+  database: {fileID: 1717067179}
+  player: {fileID: 653160694}
 --- !u!1 &1799956838
 GameObject:
   m_ObjectHideFlags: 0
@@ -24290,10 +24323,11 @@ MonoBehaviour:
   isDangerous: 1
   isBlueEnergy: 1
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: e4435d0c3cbda4d4c9f9072fbf65ef58, type: 2}
   guide: {fileID: 892591497}
-  database: {fileID: 1717067175}
+  database: {fileID: 0}
   player: {fileID: 653160694}
 --- !u!1 &1802614982
 GameObject:
@@ -24773,10 +24807,11 @@ MonoBehaviour:
   isDangerous: 0
   isBlueEnergy: 1
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 8b48a435bf33943729e213f4df9fd646, type: 2}
   guide: {fileID: 892591497}
-  database: {fileID: 1717067175}
+  database: {fileID: 0}
   player: {fileID: 653160694}
 --- !u!1 &1846502041 stripped
 GameObject:
@@ -24834,10 +24869,11 @@ MonoBehaviour:
   isDangerous: 0
   isBlueEnergy: 1
   isPickingUp: 0
+  progressBar: {fileID: 0}
   target: {fileID: 1864486957}
   texture2d: {fileID: 8400000, guid: 605e896b18d2aecc69bce373b536952f, type: 2}
   guide: {fileID: 892591497}
-  database: {fileID: 1717067175}
+  database: {fileID: 0}
   player: {fileID: 653160694}
 --- !u!1 &1864486957
 GameObject:
@@ -25969,7 +26005,7 @@ PrefabInstance:
     - target: {fileID: 2890022948502039324, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1986377435}
+      objectReference: {fileID: 1986377440}
     - target: {fileID: 2890022948502039324, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -25980,7 +26016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2890022948502039324, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GoToNextLevel, Assembly-CSharp
+      value: GoToNormal, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2890022948502039324, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -25988,7 +26024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6157356134867657159, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_text
-      value: 'Level 1 geschafft!!
+      value: 'Level 0 geschafft!!
 
 '
       objectReference: {fileID: 0}
@@ -26090,14 +26126,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8326659491630515104, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1986377435}
+      addedObject: {fileID: 1986377440}
   m_SourcePrefab: {fileID: 100100000, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
 --- !u!1 &1986377434 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8326659491630515104, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
   m_PrefabInstance: {fileID: 1986377433}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1986377435
+--- !u!114 &1986377440
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26106,7 +26142,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1986377434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 763aa956c61e84e1a92b4c5aba435f1d, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ef2b4e42c64e45718e29f475c534811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1992038241

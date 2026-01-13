@@ -22,13 +22,10 @@ EditorBuildSettings:
     guid: 334b7f5f6ef95a344b615c91a50cab44
   - enabled: 0
     path: Assets/Scenes/02-Tiefensuche.unity
-    guid: f9eb7cb898222854f9669cb9c4016722
+    guid: f037cab8c7e837344a688cc044701b97
   - enabled: 0
     path: Assets/Scenes/DecisionTreeInterface.unity
     guid: 0d358cf53e40d3752824386dab108057
-  - enabled: 1
-    path: Assets/Scenes/DecisionTreeUI.unity
-    guid: 67988a77dcd9e42d1b363887b3496050
   - enabled: 1
     path: Assets/Scenes/SemanticNets1.unity
     guid: 4fa3ca681399146b590fccb475cea4c0
@@ -41,6 +38,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SemanticNets0.unity
     guid: d684b7e6239b14fabbec5b5de29a462c
+  - enabled: 1
+    path: Assets/Scenes/DecisionTreeUI.unity
+    guid: 67988a77dcd9e42d1b363887b3496050
+  - enabled: 1
+    path: Assets/Scenes/DecisionTreeSmall.unity
+    guid: 1a73b5c46feb347ab9636afb37c84641
+  - enabled: 1
+    path: Assets/Scenes/DecisionTreeObst.unity
+    guid: 477417df4afb28d2ba5390b91d781d46
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
   m_UseUCBPForAssetBundles: 0
