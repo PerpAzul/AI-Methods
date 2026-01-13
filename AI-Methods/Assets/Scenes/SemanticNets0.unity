@@ -4053,27 +4053,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: 'dialogue.sentences.Array.data[0]'
-      value: "Hallo Spieler! In dieser Bibliothek wurde einmal das gesamte Wissen
-        der KI gesammelt. Leider sind die Verbindungen verloren gegangen und die
-        KI versteht die Zusammenh\xE4nge nicht mehr. Hilf der KI, wieder ein qualitatives
-        Wissen herzustellen!"
+      value: "Hallo! Willkommen im Obstgarten.\nDie KI hat hier ihr Wissen \xFCber
+        Essen gesammelt, aber die Verbindungen zwischen den Begriffen sind durcheinander
+        geraten. \nIn diesem kurzen Tutorial zeige ich dir, wie du der KI hilfst,
+        wieder Ordnung ins Wissen zu bringen."
       objectReference: {fileID: 0}
     - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: 'dialogue.sentences.Array.data[1]'
       value: "Wissen kann in der Informatik in sogenannten semantischen Netzen dargestellt
-        werden. Knoten repr\xE4sentieren Konzepte, w\xE4hrend Kanten die Beziehungen
+        werden. \nKnoten repr\xE4sentieren Konzepte, w\xE4hrend Kanten die Beziehungen
         zwischen diesen Konzepten darstellen."
       objectReference: {fileID: 0}
     - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: 'dialogue.sentences.Array.data[2]'
-      value: "Du kannst zu jedem Buch laufen und durch Interaktion eine Linie zu
-        jedem anderen Buch ziehen. Eine Linie zwischen \u201EObst\u201D und \u201EEssen\u201D
-        bedeutet beispielsweise: \u201EObst ist eine Art von Essen\u201D."
+      value: "Du kannst zu jedem Begriff laufen und durch Interaktion eine Linie
+        zu jedem anderen Begriff ziehen. \nEine Linie zwischen \u201EObst\u201D und
+        \u201EEssen\u201D bedeutet beispielsweise: \u201EObst ist eine Art von Essen\u201D."
       objectReference: {fileID: 0}
     - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: 'dialogue.sentences.Array.data[3]'
-      value: 'Denk daran: Je mehr richtige Verbindungen du herstellst, desto besser
-        versteht die KI die Welt um sie herum! Nur du kannst sie reparieren.'
+      value: "Denk daran: Je mehr richtige Verbindungen du herstellst, desto besser
+        versteht die KI die Welt um sie herum! \nNur du kannst sie reparieren."
       objectReference: {fileID: 0}
     - target: {fileID: 7760609697886708385, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: isInDialogue
