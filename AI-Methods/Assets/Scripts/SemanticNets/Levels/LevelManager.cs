@@ -239,7 +239,7 @@ public void removeEdge(Transform node1, Transform node2, int type)
         if (levelCompletePanel != null)
             levelCompletePanel.SetActive(true);
 
-        VariableStore.SetCurrentLevelSemantic(currentLevel + 1);
+        VariableStore.MarkLevelAsFinishedSemantic(currentLevel);
         Time.timeScale = 0f;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;

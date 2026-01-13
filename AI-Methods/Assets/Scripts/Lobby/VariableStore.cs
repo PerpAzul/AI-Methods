@@ -13,17 +13,23 @@ public static class VariableStore
     public static void SetScoreSemantic(int score, int level)
     {
         PlayerPrefs.SetInt("SemanticNetsScore" + level, score);
+        PlayerPrefs.Save();
     }
 
     public static int GetCurrentLevelSemantic()
     {
+        while (PlayerPrefs.GetInt("SemanticNetsLevelFinished" + PlayerPrefs.GetInt("SemanticNetsLevel")) == 1) {
+            PlayerPrefs.SetInt("SemanticNetsLevel", PlayerPrefs.GetInt("SemanticNetsLevel") + 1);
+        }
         return PlayerPrefs.GetInt("SemanticNetsLevel");
     }
 
-    public static void SetCurrentLevelSemantic(int level)
+    public static void MarkLevelAsFinishedSemantic(int level)
     {
-        PlayerPrefs.SetInt("SemanticNetsLevel", level);
-    } 
+        PlayerPrefs.SetInt("SemanticNetsLevelFinished" + level, 1);
+        PlayerPrefs.SetInt("SemanticNetsLevel", level + 1);
+        PlayerPrefs.Save();
+    }
 
 
     // Depth First Search
@@ -36,16 +42,22 @@ public static class VariableStore
     public static void SetScoreSearch(int score, int level)
     {
         PlayerPrefs.SetInt("DepthFirstSearchScore" + level, score);
+        PlayerPrefs.Save();
     }
 
     public static int GetCurrentLevelSearch()
     {
+        while (PlayerPrefs.GetInt("DepthFirstSearchLevelFinished" + PlayerPrefs.GetInt("DepthFirstSearchLevel")) == 1) {
+            PlayerPrefs.SetInt("DepthFirstSearchLevel", PlayerPrefs.GetInt("DepthFirstSearchLevel") + 1);
+        }
         return PlayerPrefs.GetInt("DepthFirstSearchLevel");
     }
 
-    public static void SetCurrentLevelSearch(int level)
+    public static void MarkLevelAsFinishedSearch(int level)
     {
-        PlayerPrefs.SetInt("DepthFirstSearchLevel", level);
+        PlayerPrefs.SetInt("DepthFirstSearchLevelFinished" + level, 1);
+        PlayerPrefs.SetInt("DepthFirstSearchLevel", level + 1);
+        PlayerPrefs.Save();
     } 
 
 
@@ -59,15 +71,21 @@ public static class VariableStore
     public static void SetScoreDecision(int score, int level)
     {
         PlayerPrefs.SetInt("DecisionTreesScore" + level, score);
+        PlayerPrefs.Save();
     }
 
     public static int GetCurrentLevelDecision()
     {
+        while (PlayerPrefs.GetInt("DecisionTreesLevelFinished" + PlayerPrefs.GetInt("DecisionTreesLevel")) == 1) {
+            PlayerPrefs.SetInt("DecisionTreesLevel", PlayerPrefs.GetInt("DecisionTreesLevel") + 1);
+        }
         return PlayerPrefs.GetInt("DecisionTreesLevel");
     }
 
-    public static void SetCurrentLevelDecision(int level)
+    public static void MarkLevelAsFinishedDecision(int level)
     {
-        PlayerPrefs.SetInt("DecisionTreesLevel", level);
+        PlayerPrefs.SetInt("DecisionTreesLevelFinished" + level, 1);
+        PlayerPrefs.SetInt("DecisionTreesLevel", level + 1);
+        PlayerPrefs.Save();
     }
 }
