@@ -227,6 +227,11 @@ public void removeEdge(Transform node1, Transform node2, int type)
         {
             int currentScore = PointDisplay.Instance.GetScore();
             scoreText.text = "Punkte: " + (currentScore + PointDisplay.Instance.GetAdd());
+            int previousScore = 0;
+            for (int i = 0; i < currentLevel; i++) {
+                previousScore += VariableStore.GetScoresSemantic(i);
+            }
+            VariableStore.SetScoreSemantic(currentScore + PointDisplay.Instance.GetAdd() - previousScore, currentLevel);
         } else {
             scoreText.text = "";
         }
@@ -234,6 +239,7 @@ public void removeEdge(Transform node1, Transform node2, int type)
         if (levelCompletePanel != null)
             levelCompletePanel.SetActive(true);
 
+        VariableStore.SetCurrentLevelSemantic(currentLevel + 1);
         Time.timeScale = 0f;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
