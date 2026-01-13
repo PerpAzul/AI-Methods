@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class LineTypeMenu : MonoBehaviour
 {
@@ -8,6 +11,15 @@ public class LineTypeMenu : MonoBehaviour
     [SerializeField] private TMP_Text titleText;
     [SerializeField] private TMP_Text optionsText;
     [SerializeField] private TMP_Text hintText;
+
+    [Header("Click selection (assign in Inspector)")]
+    [Tooltip("GraphicRaycaster on the Canvas that contains the 3 option buttons.")]
+    [SerializeField] private GraphicRaycaster uiRaycaster;
+
+    [Tooltip("Root transforms for the three option buttons (the Button object itself).")]
+    [SerializeField] private Transform option1Root;
+    [SerializeField] private Transform option2Root;
+    [SerializeField] private Transform option3Root;
 
     [Header("Blocking movement")]
     [Tooltip("If true, pauses the whole game while menu is open (simple & reliable).")]
@@ -82,6 +94,41 @@ public class LineTypeMenu : MonoBehaviour
             Pick(1);
         else if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
             Pick(2);
+        else if (Input.GetMouseButtonDown(0))
+        {
+            // Click detection via UI raycast, routed through the SAME Pick() calls as keyboard.
+            if (uiRaycaster != null && EventSystem.current != null)
+            {
+                var pointer = new PointerEventData(EventSystem.current)
+                {
+                    position = Input.mousePosition
+                };
+
+                var results = new List<RaycastResult>();
+                uiRaycaster.Raycast(pointer, results);
+
+                for (int i = 0; i < results.Count; i++)
+                {
+                    Transform hit = results[i].gameObject.transform;
+
+                    if (option1Root != null && hit.IsChildOf(option1Root))
+                    {
+                        Pick(0);
+                        break;
+                    }
+                    if (option2Root != null && hit.IsChildOf(option2Root))
+                    {
+                        Pick(1);
+                        break;
+                    }
+                    if (option3Root != null && hit.IsChildOf(option3Root))
+                    {
+                        Pick(2);
+                        break;
+                    }
+                }
+            }
+        }
         else if (Input.GetKeyDown(KeyCode.R))
             Close(); // close without picking
     }
