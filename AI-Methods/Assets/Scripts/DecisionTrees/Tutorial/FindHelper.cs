@@ -1,7 +1,8 @@
 using UnityEngine;
 public class FindHelper : MonoBehaviour
 {
-    private float hintTime = 6.0f;
+    // time in seconds to spawn arrow
+    private float hintTime = 45.0f;
     // saves whether the player has found: book_blue_energy, book_dangerous, plant, crate, bin, radioactive barrel, explosive barrel, gas tank, can
     private bool[] hasFound = {false, false, false, false, false, false, false, false, false};
     [SerializeField] private GameObject arrowCanvas;
@@ -25,7 +26,7 @@ public class FindHelper : MonoBehaviour
                     bounceEffect = GameObject.Find("findArrow").GetComponent<BounceEffect>();
                     arrowCanvas.transform.position = arrowTransforms[i];
                     bounceEffect.startPos = arrowTransforms[i];
-                    hintTime = 6.0f;
+                    hintTime = 45.0f;
                     return;
                 }
             }
@@ -34,7 +35,7 @@ public class FindHelper : MonoBehaviour
 
     public void find(int index)
     {
-        hintTime = 6.0f;
+        hintTime = 45.0f;
         arrowCanvas.SetActive(false);
         hasFound[index] = true;
     }
