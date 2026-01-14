@@ -195,7 +195,8 @@ public class IntroTutorial : MonoBehaviour
                 if (playerInRange && Input.GetKeyDown(KeyCode.E))
                 {
                     StopHintIfRunning();
-                    interactionCanvas.enabled = false;
+                    if (interactionCanvas != null)
+                        interactionCanvas.enabled = false;
                     currentPromptMode = PromptMode.None;
                     step = 16;
                     gameObject.SetActive(false);
@@ -232,16 +233,20 @@ public class IntroTutorial : MonoBehaviour
     private void ShowTutorialPrompt(string text)
     {
         currentPromptMode = PromptMode.Tutorial;
-        interactionCanvas.GetComponentInChildren<TMPro.TMP_Text>().text = text;
-        interactionCanvas.enabled = true;
+        if (interactionCanvas != null) {
+            interactionCanvas.GetComponentInChildren<TMPro.TMP_Text>().text = text;
+            interactionCanvas.enabled = true;
+        }
     }
 
     private IEnumerator ShowHintDelayed(string text)
     {
         currentPromptMode = PromptMode.Hint;
-        interactionCanvas.GetComponentInChildren<TMPro.TMP_Text>().text = text;
+        if (interactionCanvas != null)
+            interactionCanvas.GetComponentInChildren<TMPro.TMP_Text>().text = text;
         yield return new WaitForSeconds(1f);
-        interactionCanvas.enabled = true;
+        if (interactionCanvas != null)
+            interactionCanvas.enabled = true;
     }
 
     private void StopHintIfRunning()
@@ -339,7 +344,8 @@ private IEnumerator ApplerEssenCreatedRoutine()
 
             if (currentPromptMode == PromptMode.Hint)
             {
-                interactionCanvas.enabled = false;
+                if (interactionCanvas != null)
+                    interactionCanvas.enabled = false;
                 currentPromptMode = PromptMode.None;
             }
         }
