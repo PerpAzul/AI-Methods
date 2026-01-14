@@ -1044,8 +1044,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.6925364, y: 1.6926777, z: 1.7817593}
-  m_Center: {x: 10.18438, y: 0.3463385, z: -5.549532}
+  m_Size: {x: 1.6925354, y: 1.6926777, z: 1.4332662}
+  m_Center: {x: 10.18438, y: 0.3463385, z: -5.375285}
 --- !u!1 &435072756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,6 +1606,15 @@ PrefabInstance:
     - target: {fileID: 2922281969305848571, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2955836910584003967, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
+      propertyPath: m_text
+      value: "Das machst du hier mithilfe von der Tiefensuche. Dabei w\xE4hlst du
+        immer den rechtesten Weg, bis du nicht mehr weiterkommst (in Fachsprache
+        sagt man: du bist bei einem 'Blatt' angekommen). Dann gehst du eine Plattform
+        zur\xFCck, w\xE4hlst den zweitrechtesten Pfad zur n\xE4chsten Plattform und
+        folgst dem Weg wieder bis zu seinem Ende. Das wiederholst du so lange, bis
+        du das gesuchte Bauteil findest. "
       objectReference: {fileID: 0}
     - target: {fileID: 3013664372090197713, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2961,6 +2970,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7663487289623225356, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
   m_PrefabInstance: {fileID: 1724133623}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1724133625 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8744632740362445302, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
+  m_PrefabInstance: {fileID: 1724133623}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1734982826
 GameObject:
   m_ObjectHideFlags: 0
@@ -3075,6 +3095,9 @@ MonoBehaviour:
   bauteilPlatformScript: {fileID: 177632506}
   geschafftScreen: {fileID: 1724133624}
   nextScene: 01-Tiefensuche
+  whichLevel: 0
+  text: {fileID: 1724133625}
+  PlatformRoot: {fileID: 4024373124428592645}
 --- !u!1001 &1827886585
 PrefabInstance:
   m_ObjectHideFlags: 0

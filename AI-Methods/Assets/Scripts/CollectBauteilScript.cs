@@ -1,6 +1,8 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CollectBauteilScript : MonoBehaviour
 {
@@ -10,7 +12,10 @@ public class CollectBauteilScript : MonoBehaviour
     //bool completedAllPlatforms;
     [SerializeField] private string nextScene;
     bool reachedEnd;
-    
+    public int whichLevel;
+    public TextMeshProUGUI text;
+    public RootPlatformScript PlatformRoot;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,7 +27,7 @@ public class CollectBauteilScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (reachedEnd && Input.GetKeyDown("L"))
+        if (reachedEnd && Input.GetKeyDown(KeyCode.L))
         {
             SceneManager.LoadScene(nextScene);
         }
@@ -34,7 +39,16 @@ public class CollectBauteilScript : MonoBehaviour
         {
             //Debug.Log("found Bauteil!!");
             geschafftScreen.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
+            reachedEnd = true;
+            if (whichLevel > 0)
+            {
+                int geschafftePunkte = 300 - (PlatformRoot.counterWrongPlatforms * 50);
+                //Debug.Log(geschafftePunkte);
+                text.text = "Punkte: " + geschafftePunkte;
+                VariableStore.SetScoreSearch(geschafftePunkte, whichLevel);
+            }
+            VariableStore.MarkLevelAsFinishedSearch(whichLevel);
+            //Cursor.lockState = CursorLockMode.None;
             //put "win screen"
         }
         

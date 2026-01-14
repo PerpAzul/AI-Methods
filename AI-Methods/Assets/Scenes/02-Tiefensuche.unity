@@ -2916,6 +2916,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2630260988483213536, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -24
+      objectReference: {fileID: 0}
     - target: {fileID: 2890022948502039324, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -2960,7 +2964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6925856994656680641, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6985522431857466496, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_Pivot.x
@@ -3060,6 +3064,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7663487289623225356, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
   m_PrefabInstance: {fileID: 1724133623}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1724133625 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8744632740362445302, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
+  m_PrefabInstance: {fileID: 1724133623}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1734982826
 GameObject:
   m_ObjectHideFlags: 0
@@ -3173,7 +3188,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bauteilPlatformScript: {fileID: 177632506}
   geschafftScreen: {fileID: 1724133624}
-  nextScene: Lobby German
+  nextScene: 03-Tiefensuche
+  whichLevel: 2
+  text: {fileID: 1724133625}
+  PlatformRoot: {fileID: 4024373124428592645}
 --- !u!1001 &1806205146
 PrefabInstance:
   m_ObjectHideFlags: 0
