@@ -10,6 +10,7 @@ public class DialogueTrigger : InteractableI
 
     protected override void Interact()
     {
+        alreadyInteracted = true;
         // for decision trees bot
         if (arrow != null)
         {
