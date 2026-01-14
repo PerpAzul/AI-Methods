@@ -7,6 +7,9 @@ public class GoToNormal : MonoBehaviour
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private GameObject progressBar;
     [SerializeField] private GameObject levelComplete;
+    [SerializeField] private GameObject cutscene1;
+    [SerializeField] private GameObject cutscene2;
+    [SerializeField] private GameObject cutscene3;
     public void finishLevel()
     {
         Debug.Log("Click");
@@ -14,7 +17,27 @@ public class GoToNormal : MonoBehaviour
         VariableStore.MarkLevelAsFinishedDecision(0);
         StartCoroutine(LoadSceneRoutine("DecisionTreeSmall"));
         progressBar.SetActive(false);
-        levelComplete.GetComponent<Canvas>().enabled = false;
+        cutscene3.GetComponent<Canvas>().enabled = false;
+    }
+
+    public void goToCutscene1()
+    {
+        levelComplete.SetActive(false);
+        cutscene2.SetActive(false);
+        cutscene1.SetActive(true);
+    }
+
+    public void goToCutscene2()
+    {
+        cutscene1.SetActive(false);
+        cutscene3.SetActive(false);
+        cutscene2.SetActive(true);
+    }
+
+    public void goToCutscene3()
+    {
+        cutscene2.SetActive(false);
+        cutscene3.SetActive(true);
     }
 
     // Loading Screen for Scene from semantic nets 
