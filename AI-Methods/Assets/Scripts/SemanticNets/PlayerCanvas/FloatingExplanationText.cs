@@ -14,8 +14,9 @@ public class FloatingExplanationText : MonoBehaviour
 
     public void Awake()
     {
-        initialAnchoredPosition = this.GetComponent<TextMeshProUGUI>().GetComponent<RectTransform>().anchoredPosition;
-        text = this.GetComponent<TextMeshProUGUI>(); // cache once
+        // cache once
+        text = GetComponent<TextMeshProUGUI>();
+        initialAnchoredPosition = text.GetComponent<RectTransform>().anchoredPosition;
     }
 
     public void TriggerText(string message)
@@ -32,12 +33,12 @@ public class FloatingExplanationText : MonoBehaviour
     {
         // Startzustand
         Color color = text.color;
-        color.a = 1;
+        color.a = 1f;
         text.color = color;
 
         RectTransform rt = text.GetComponent<RectTransform>();
-        Vector3 startPos = initialAnchoredPosition + (Vector2) startOffset;
-        Vector3 endPos = initialAnchoredPosition + (Vector2) endOffset;
+        Vector3 startPos = initialAnchoredPosition + (Vector2)startOffset;
+        Vector3 endPos = initialAnchoredPosition + (Vector2)endOffset;
 
         rt.anchoredPosition = startPos;
 
@@ -45,14 +46,16 @@ public class FloatingExplanationText : MonoBehaviour
 
         while (t < 1f)
         {
-            t += Time.deltaTime / moveDuration;
+            // IMPORTANT: unscaled time so it also works while the game is paused / timescale 0
+            float dt = Time.unscaledDeltaTime;
+            t += dt / Mathf.Max(0.0001f, moveDuration);
 
             // Bewegung von unten zur Mitte
             rt.anchoredPosition = Vector3.Lerp(startPos, endPos, t);
 
             // Farbverlauf (Alpha reduzieren)
-            float fadeT = Mathf.Clamp01(t * moveDuration / fadeDuration);
-            color.a = Mathf.Lerp(1, 0, fadeT);
+            float fadeT = Mathf.Clamp01(t * moveDuration / Mathf.Max(0.0001f, fadeDuration));
+            color.a = Mathf.Lerp(1f, 0f, fadeT);
             text.color = color;
 
             yield return null;
