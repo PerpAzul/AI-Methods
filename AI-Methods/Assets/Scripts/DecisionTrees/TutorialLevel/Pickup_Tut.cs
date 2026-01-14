@@ -56,6 +56,16 @@ public class Pickup_Tut: HintDisplayer
                     guide.ContinueIfCurrentActionEquals("banana_f");
                 }
             }
+            if (this.isRed && this.isFruit) {
+                if (guide) {
+                    guide.ContinueIfCurrentActionEquals("watermelon_f");
+                }
+            }
+            if (!this.isRed && !this.isFruit) {
+                if (guide) {
+                    guide.ContinueIfCurrentActionEquals("carrot_f");
+                }
+            }
             
             isPickingUp = true;
             if (guide)

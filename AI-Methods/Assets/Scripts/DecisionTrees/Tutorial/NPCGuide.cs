@@ -34,6 +34,7 @@ public class NPCGuide : MonoBehaviour
     // it not already picking up an item
     public bool canPickup = false;
     public bool canScanTutorial = false;
+    public bool canReadFood = false;
 
     void Start()
     {
@@ -101,6 +102,11 @@ public class NPCGuide : MonoBehaviour
         if (currentAction.actionName.Equals("crystal_f") || currentAction.actionName.Equals("tomato_f"))
         {
             canPickup = true;
+        }
+
+        if (currentAction.actionName.Equals("book_e"))
+        {
+            canReadFood = true;
         }
 
         if (currentAction.actionName.Equals("scan") || currentAction.actionName.Equals("tomato_scan"))

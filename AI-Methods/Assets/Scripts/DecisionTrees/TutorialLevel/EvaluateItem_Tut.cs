@@ -51,6 +51,8 @@ public class EvaluateItem_Tut : MonoBehaviour
             }
 
             if(guide && item.IsFruit && !item.IsRed) guide.ContinueIfCurrentActionEquals("banana_test");
+
+            if(guide && !item.IsFruit && !item.IsRed) guide.ContinueIfCurrentActionEquals("carrot_test");
             
             if (!result.Path[^1].StartsWith("toggle"))
             {
@@ -69,6 +71,10 @@ public class EvaluateItem_Tut : MonoBehaviour
                 {
                     if (guide) guide.ContinueIfCurrentActionEquals("banana_correct");
                 }
+                if (item.IsFruit && item.IsRed)
+                {
+                    if (guide) guide.ContinueIfCurrentActionEquals("watermelon_correct");
+                }
                 progress++;
                 progressBar.curr = progress;
 
@@ -77,6 +83,11 @@ public class EvaluateItem_Tut : MonoBehaviour
             }
             else
             {
+                if (item.IsFruit && !item.IsRed)
+                {
+                    if (guide) guide.ContinueIfCurrentActionEquals("banana_incorrect");
+                }
+
                 database.DisplayResult("FALSCH", progress/database.ScannedItems.Count);
                 DisplayResultError(result.Path[^1]);
                 break;

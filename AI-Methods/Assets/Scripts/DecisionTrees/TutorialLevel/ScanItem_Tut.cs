@@ -20,6 +20,14 @@ public class ScanItem_Tut : MonoBehaviour
             {
                 if (guide) guide.ContinueIfCurrentActionEquals("banana_scan");
             }
+            if (other.GetComponent<Pickup_Tut>().isRed && other.GetComponent<Pickup_Tut>().isFruit)
+            {
+                if (guide) guide.ContinueIfCurrentActionEquals("watermelon_scan");
+            }
+            if (!other.GetComponent<Pickup_Tut>().isRed && !other.GetComponent<Pickup_Tut>().isFruit)
+            {
+                if (guide) guide.ContinueIfCurrentActionEquals("carrot_scan");
+            }
 
             Pickup_Tut pickup = other.GetComponent<Pickup_Tut>();
             pickup.message = "";
