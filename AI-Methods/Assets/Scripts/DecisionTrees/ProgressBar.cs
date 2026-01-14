@@ -2,7 +2,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem;
 using System;
 
 public class ProgressBar : MonoBehaviour
@@ -16,7 +15,7 @@ public class ProgressBar : MonoBehaviour
     public TextMeshProUGUI pointsText;
     public TextMeshProUGUI pointsEnd;
     private bool finished = false;
-    public float points = 0.0f;
+    public int points = 0;
     private float completionMultiplier = 1.0f;
     private float time = 0.0f;
 
@@ -45,7 +44,7 @@ public class ProgressBar : MonoBehaviour
                 levelFinished.SetActive(true);
                 Debug.Log(time);
                 completionMultiplier = completionMultiplier - (0.0005f * time);
-                points += (float) Math.Round(new decimal (60 * completionMultiplier), 1);
+                points += Decimal.ToInt32(Math.Round(new decimal (60 * completionMultiplier), 1));
                 pointsEnd.text = $"Punkte: {points}";
             }
             finished = true;

@@ -30,28 +30,21 @@ public class Pickup: HintDisplayer
     
     void Update()
     {
-        if (guide && guide.canPickup)
+        // only show hint when item not already in database
+         if (!isEnabled && !database.ContainsPickup(this))
         {
-            // only show hint when item not already in database
-            if (!isEnabled && !database.ContainsPickup(this))
-            {
-                isEnabled = true;
-            } else if (isEnabled && database.ContainsPickup(this))
-            {
-                isEnabled = false;
-            }
+            isEnabled = true;
+        } else if (isEnabled && database.ContainsPickup(this))
+        {
+            isEnabled = false;
         }
 
         // only pick up when item not already in database
         if (Input.GetKeyDown(KeyCode.F) && playerIsClose && !isPickingUp && !database.ContainsPickup(this))
         {
-            if (guide && !guide.canPickup)
-            {
-                return;
-            }
             if (this.name.Equals("crystal_17_2")) {
                 if (guide) {
-                    progressBar.points += 10.0f;
+                    progressBar.points += 10;
                     SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
                     guide.ContinueIfCurrentActionEquals("crystal_f");
                 }
@@ -61,43 +54,43 @@ public class Pickup: HintDisplayer
                 if (isBlueEnergy && !isMetal && !isDangerous)
                 {
                     SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
-                    progressBar.points += 10.0f;
+                    progressBar.points += 10;
                     findHelper.find(2);
                 }
                 if (!isBlueEnergy && isMetal && !isDangerous)
                 {
                     SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
-                    progressBar.points += 10.0f;
+                    progressBar.points += 10;
                     findHelper.find(3);
                 }
                 if (!isBlueEnergy && !isMetal && !isDangerous)
                 {
                     SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
-                    progressBar.points += 10.0f;
+                    progressBar.points += 10;
                     findHelper.find(4);
                 }
                 if (!isBlueEnergy && isMetal && isDangerous)
                 {
                     SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
-                    progressBar.points += 10.0f;
+                    progressBar.points += 10;
                     findHelper.find(5);
                 }
                 if (!isBlueEnergy && !isMetal && isDangerous)
                 {
                     SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
-                    progressBar.points += 10.0f;
+                    progressBar.points += 10;
                     findHelper.find(6);
                 }
                 if (isBlueEnergy && !isMetal && isDangerous)
                 {
                     SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
-                    progressBar.points += 10.0f;
+                    progressBar.points += 10;
                     findHelper.find(7);
                 }
                 if (isBlueEnergy && isMetal && !isDangerous)
                 {
                     SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
-                    progressBar.points += 10.0f;
+                    progressBar.points += 10;
                     findHelper.find(8);
                 }
             }

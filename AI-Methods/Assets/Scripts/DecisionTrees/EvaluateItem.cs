@@ -79,7 +79,7 @@ public class EvaluateItem : MonoBehaviour
                     if (!gottenPoints[0])
                     {
                         SpawnFloatingText("+20", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
-                        progressBar.points += 20.0f;
+                        progressBar.points += 20;
                     }
                     gottenPoints[0] = true;
                 }
@@ -88,7 +88,7 @@ public class EvaluateItem : MonoBehaviour
                     if (!gottenPoints[1])
                     {
                         SpawnFloatingText("+20", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
-                        progressBar.points += 20.0f;
+                        progressBar.points += 20;
                     }
                     gottenPoints[1] = true;
                 }
@@ -97,7 +97,7 @@ public class EvaluateItem : MonoBehaviour
                     if (!gottenPoints[2])
                     {
                         SpawnFloatingText("+20", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
-                        progressBar.points += 20.0f;
+                        progressBar.points += 20;
                     }
                     gottenPoints[2] = true;
                 }
@@ -106,7 +106,7 @@ public class EvaluateItem : MonoBehaviour
                     if (!gottenPoints[3])
                     {
                         SpawnFloatingText("+20", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
-                        progressBar.points += 20.0f;
+                        progressBar.points += 20;
                     }
                     gottenPoints[3] = true;
                 }
@@ -115,7 +115,7 @@ public class EvaluateItem : MonoBehaviour
                     if (!gottenPoints[4])
                     {
                         SpawnFloatingText("+20", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
-                        progressBar.points += 20.0f;
+                        progressBar.points += 20;
                     }
                     gottenPoints[4] = true;
                 }
@@ -124,7 +124,7 @@ public class EvaluateItem : MonoBehaviour
                     if (!gottenPoints[5])
                     {
                         SpawnFloatingText("+20", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
-                        progressBar.points += 20.0f;
+                        progressBar.points += 20;
                     }
                     gottenPoints[5] = true;
                 }
@@ -133,7 +133,7 @@ public class EvaluateItem : MonoBehaviour
                     if (!gottenPoints[6])
                     {
                         SpawnFloatingText("+20", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
-                        progressBar.points += 20.0f;
+                        progressBar.points += 20;
                     }
                     gottenPoints[6] = true;
                 }
@@ -142,7 +142,7 @@ public class EvaluateItem : MonoBehaviour
                     if (!gottenPoints[7])
                     {
                         SpawnFloatingText("+20", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
-                        progressBar.points += 20.0f;
+                        progressBar.points += 20;
                     }
                     gottenPoints[7] = true;
                 }
@@ -162,7 +162,7 @@ public class EvaluateItem : MonoBehaviour
                     {
                         deductedPoints[0] = true;
                         SpawnFloatingText("-10", new Color(1f, 0.3f, 0.3f), this.gameObject.transform.position);
-                        progressBar.points -= 10.0f;
+                        progressBar.points -= 10;
                     }
                 }
                 if (!isBlueEnergy && isMetal && !isDangerous)
@@ -171,7 +171,7 @@ public class EvaluateItem : MonoBehaviour
                     {
                         deductedPoints[1] = true;
                         SpawnFloatingText("-10", new Color(1f, 0.3f, 0.3f), this.gameObject.transform.position);
-                        progressBar.points -= 10.0f;
+                        progressBar.points -= 10;
                     }
                 }
                 if (!isBlueEnergy && !isMetal && !isDangerous)
@@ -180,7 +180,7 @@ public class EvaluateItem : MonoBehaviour
                     {
                         deductedPoints[2] = true;
                         SpawnFloatingText("-10", new Color(1f, 0.3f, 0.3f), this.gameObject.transform.position);
-                        progressBar.points -= 10.0f;
+                        progressBar.points -= 10;
                     }
                 }
                 if (!isBlueEnergy && isMetal && isDangerous)
@@ -189,7 +189,7 @@ public class EvaluateItem : MonoBehaviour
                     {
                         deductedPoints[3] = true;
                         SpawnFloatingText("-10", new Color(1f, 0.3f, 0.3f), this.gameObject.transform.position);
-                        progressBar.points -= 10.0f;
+                        progressBar.points -= 10;
                     }
                 }
                 if (!isBlueEnergy && !isMetal && isDangerous)
@@ -198,7 +198,7 @@ public class EvaluateItem : MonoBehaviour
                     {
                         deductedPoints[4] = true;
                         SpawnFloatingText("-10", new Color(1f, 0.3f, 0.3f), this.gameObject.transform.position);
-                        progressBar.points -= 10.0f;
+                        progressBar.points -= 10;
                     }
                 }
                 if (isBlueEnergy && !isMetal && isDangerous)
@@ -207,7 +207,7 @@ public class EvaluateItem : MonoBehaviour
                     {
                         deductedPoints[5] = true;
                         SpawnFloatingText("-10", new Color(1f, 0.3f, 0.3f), this.gameObject.transform.position);
-                        progressBar.points -= 10.0f;
+                        progressBar.points -= 10;
                     }
                 }
                 if (isBlueEnergy && isMetal && !isDangerous)
@@ -216,7 +216,7 @@ public class EvaluateItem : MonoBehaviour
                     {
                         deductedPoints[6] = true;
                         SpawnFloatingText("-10", new Color(1f, 0.3f, 0.3f), this.gameObject.transform.position);
-                        progressBar.points -= 10.0f;
+                        progressBar.points -= 10;
                     }
                 }
                 if (isBlueEnergy && isMetal && isDangerous)
@@ -225,7 +225,7 @@ public class EvaluateItem : MonoBehaviour
                     {
                         deductedPoints[7] = true;
                         SpawnFloatingText("-10", new Color(1f, 0.3f, 0.3f), this.gameObject.transform.position);
-                        progressBar.points -= 10.0f;
+                        progressBar.points -= 10;
                     }
                 }
 

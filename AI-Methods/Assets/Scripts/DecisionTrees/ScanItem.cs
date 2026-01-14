@@ -11,10 +11,6 @@ public class ScanItem : MonoBehaviour
         {
             if (other.gameObject.name.Equals("crystal_17_2"))
             {
-                if (!guide.canScanTutorial)
-                {
-                    return;
-                }
                 if (guide) guide.ContinueIfCurrentActionEquals("scan");
             }
             Pickup pickup = other.GetComponent<Pickup>();

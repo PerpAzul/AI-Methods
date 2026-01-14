@@ -14340,6 +14340,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4668443037059085953, guid: 9d8aaba18c7b19424a96aaa80c2a30cc, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668443037059085953, guid: 9d8aaba18c7b19424a96aaa80c2a30cc, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
@@ -15765,8 +15769,8 @@ MonoBehaviour:
   helpActions:
   - type: 0
     actionName: 
-    message: Servus und willkommen auf dem Bauernhof! Der eine oder andere war vielleicht
-      schon hier ;)
+    message: Servus und willkommen im Obstgarten! Der eine oder andere war vielleicht
+      schon mal hier ;)
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
@@ -15929,7 +15933,7 @@ MonoBehaviour:
   - type: 0
     actionName: 
     message: Wenn dein Baum eine falsche Entscheidung trifft, erscheint eine Warnung
-      neben dem Entscheidungsdaumen am Ende vom falschen Pfad.
+      neben dem betroffenen Entscheidungsdaumen.
     targetObject: {fileID: 0}
   - type: 1
     actionName: 
@@ -20823,7 +20827,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &1418969232
 RectTransform:
@@ -25158,6 +25162,110 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7064514491660987492, guid: aa925dce6c9f94b4b8818aab84246b9f, type: 3}
   m_PrefabInstance: {fileID: 1902068102}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1903265971
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4231444578177053947, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4231444578177053947, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4231444578177053947, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4231444578177053947, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4231444578177053947, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4231444578177053947, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287293879317296553, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_text
+      value: 'Wird geladen...
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287293879317296553, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_margin.z
+      value: -568.1674
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712419936322900967, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_Name
+      value: Loading Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712419936322900967, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840180597539108217, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930865055127060298, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.058289
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930865055127060298, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.484589
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930865055127060298, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.6226914
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930865055127060298, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930865055127060298, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930865055127060298, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930865055127060298, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930865055127060298, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930865055127060298, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930865055127060298, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+--- !u!1 &1903265972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4712419936322900967, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
+  m_PrefabInstance: {fileID: 1903265971}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1905236998
 GameObject:
   m_ObjectHideFlags: 0
@@ -26022,6 +26130,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3092478876707714738, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6157356134867657159, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_text
       value: 'Level 0 geschafft!!
@@ -26145,6 +26257,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef2b4e42c64e45718e29f475c534811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadingScreen: {fileID: 1903265972}
+  progressBar: {fileID: 1418969228}
+  levelComplete: {fileID: 859395734}
 --- !u!1 &1992038241
 GameObject:
   m_ObjectHideFlags: 0
@@ -27228,3 +27343,4 @@ SceneRoots:
   - {fileID: 553558865}
   - {fileID: 869726144}
   - {fileID: 1376297764}
+  - {fileID: 1903265971}

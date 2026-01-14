@@ -47,6 +47,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DecisionTreeObst.unity
     guid: 477417df4afb28d2ba5390b91d781d46
+  - enabled: 1
+    path: Assets/Scenes/03-Tiefensuche.unity
+    guid: 2dcf4b4d94078314490b82dda757a748
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
   m_UseUCBPForAssetBundles: 0
