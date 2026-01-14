@@ -11,7 +11,7 @@ public class WheelInterface : MonoBehaviour
     void Awake() {
         int count = 0;
 
-        if (VariableStore.GetCurrentLevelSearch() == 2) {
+        if (VariableStore.GetCurrentLevelSearch() >= 2) {
             wheelSearch.SetActive(true);
             StartCoroutine(StartSteamEffect());
             count++;
@@ -19,7 +19,7 @@ public class WheelInterface : MonoBehaviour
             wheelSearch.SetActive(false);
         }
 
-        if (VariableStore.GetCurrentLevelSemantic() == 2) {
+        if (VariableStore.GetCurrentLevelSemantic() >= 2) {
             wheelSemantic.SetActive(true);
             StartCoroutine(StartSteamEffect());
             count++;
@@ -27,7 +27,7 @@ public class WheelInterface : MonoBehaviour
             wheelSemantic.SetActive(false);
         }
 
-        if (VariableStore.GetCurrentLevelDecision() == 2) {
+        if (VariableStore.GetCurrentLevelDecision() >= 2) {
             wheelDecision.SetActive(true);
             StartCoroutine(StartSteamEffect());
             count++;

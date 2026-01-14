@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -115,6 +116,14 @@ public class PauseMenu : MonoBehaviour
 
     public void ExitGame()
     {
+        if (SceneManager.GetActiveScene().name != "Lobby" && SceneManager.GetActiveScene().name != "Lobby German") {
+            // if in any scene other than Lobby, go to Lobby first
+            Time.timeScale = 1f;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            SceneManager.LoadScene("Lobby German");
+            return;
+        }
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
