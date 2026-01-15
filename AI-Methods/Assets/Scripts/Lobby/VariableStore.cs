@@ -2,6 +2,19 @@ using UnityEngine;
 
 public static class VariableStore
 {
+    // General
+
+    public static bool IsLobbyTutorialFinished()
+    {
+        return PlayerPrefs.GetInt("LobbyTutorialFinished") == 1 ? true : false;
+    }
+
+    public static void SetLobbyTutorialFinishedStatus(bool finished)
+    {
+        PlayerPrefs.SetInt("LobbyTutorialFinished", finished ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
 
     // Semantic Nets
 

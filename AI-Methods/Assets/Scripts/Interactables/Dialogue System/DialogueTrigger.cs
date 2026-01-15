@@ -10,6 +10,7 @@ public class DialogueTrigger : InteractableI
 
     protected override void Interact()
     {
+        VariableStore.SetLobbyTutorialFinishedStatus(true); // for sake of simplicity just set true in every scene
         alreadyInteracted = true;
         // for decision trees bot
         if (arrow != null)

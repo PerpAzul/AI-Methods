@@ -2949,7 +2949,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6452128, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2957,10 +2957,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 141970, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 527254656}
-    - targetCorrespondingSourceObject: {fileID: 141970, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 527254661}
+      addedObject: {fileID: 527254658}
   m_SourcePrefab: {fileID: 100100000, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
 --- !u!4 &527254654 stripped
 Transform:
@@ -2972,30 +2969,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 141970, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
   m_PrefabInstance: {fileID: 527254653}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &527254656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 527254655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a9d4fb45d94a3541ae9e97e34a9a762, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  promptMessage: Semantische Netze
-  useEvents: 1
-  pauseMenu: {fileID: 3345539542530430290}
-  nextSceneName: SemanticNets0
-  loadingScreen: {fileID: 1337076900}
-  player: {fileID: 5816971818265893251}
 --- !u!64 &527254657 stripped
 MeshCollider:
   m_CorrespondingSourceObject: {fileID: 6452128, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
   m_PrefabInstance: {fileID: 527254653}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &527254661
+--- !u!114 &527254658
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3004,24 +2983,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 527254655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43b20cea166b3364cbb8ddebbfebddd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ff91f03d82c06341b0ed7ded3e217d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2895537612536380778}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  promptMessage: Semantische Netze
+  useEvents: 0
 --- !u!1 &529406832
 GameObject:
   m_ObjectHideFlags: 0
@@ -13349,11 +13315,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335550770}
   m_CullTransparentMesh: 1
---- !u!1 &1337076900 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4712419936322900967, guid: ffbb2d6f746a6674882cc78018a4f3b0, type: 3}
-  m_PrefabInstance: {fileID: 6388669561821119616}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1343414018
 GameObject:
   m_ObjectHideFlags: 0
@@ -14134,35 +14095,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 498868, guid: f18932879bb23b84ca5370b65419ee41, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2106498788}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 126730, guid: f18932879bb23b84ca5370b65419ee41, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1508651070}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f18932879bb23b84ca5370b65419ee41, type: 3}
 --- !u!4 &1508651068 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 498868, guid: f18932879bb23b84ca5370b65419ee41, type: 3}
   m_PrefabInstance: {fileID: 1508651067}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1508651069 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 126730, guid: f18932879bb23b84ca5370b65419ee41, type: 3}
-  m_PrefabInstance: {fileID: 1508651067}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1508651070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1508651069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f8512c02dd220f449130407069fad52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  promptMessage: 
-  useEvents: 0
 --- !u!1 &1538974666
 GameObject:
   m_ObjectHideFlags: 0
@@ -14967,35 +14906,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 498868, guid: f18932879bb23b84ca5370b65419ee41, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1866801220}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 126730, guid: f18932879bb23b84ca5370b65419ee41, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1589949312}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f18932879bb23b84ca5370b65419ee41, type: 3}
 --- !u!4 &1589949310 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 498868, guid: f18932879bb23b84ca5370b65419ee41, type: 3}
   m_PrefabInstance: {fileID: 1589949309}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1589949311 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 126730, guid: f18932879bb23b84ca5370b65419ee41, type: 3}
-  m_PrefabInstance: {fileID: 1589949309}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1589949312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589949311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 655096c59583ef1438efb04248ccac85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  promptMessage: 
-  useEvents: 0
 --- !u!1 &1620218081
 GameObject:
   m_ObjectHideFlags: 0
@@ -15516,35 +15433,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 498868, guid: f18932879bb23b84ca5370b65419ee41, type: 3}
       insertIndex: -1
       addedObject: {fileID: 527254654}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 126730, guid: f18932879bb23b84ca5370b65419ee41, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1682527161}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f18932879bb23b84ca5370b65419ee41, type: 3}
 --- !u!4 &1682527159 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 498868, guid: f18932879bb23b84ca5370b65419ee41, type: 3}
   m_PrefabInstance: {fileID: 1682527158}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1682527160 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 126730, guid: f18932879bb23b84ca5370b65419ee41, type: 3}
-  m_PrefabInstance: {fileID: 1682527158}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1682527161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1682527160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ff91f03d82c06341b0ed7ded3e217d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  promptMessage: 
-  useEvents: 0
 --- !u!1 &1692739816
 GameObject:
   m_ObjectHideFlags: 0
@@ -16659,7 +16554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6452128, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16667,10 +16562,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 141970, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1866801222}
-    - targetCorrespondingSourceObject: {fileID: 141970, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1866801227}
+      addedObject: {fileID: 1866801224}
   m_SourcePrefab: {fileID: 100100000, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
 --- !u!4 &1866801220 stripped
 Transform:
@@ -16682,30 +16574,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 141970, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
   m_PrefabInstance: {fileID: 1866801219}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1866801222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866801221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a9d4fb45d94a3541ae9e97e34a9a762, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  promptMessage: "Entscheidungsb\xE4ume"
-  useEvents: 1
-  pauseMenu: {fileID: 3345539542530430290}
-  nextSceneName: DecisionTreeObst
-  loadingScreen: {fileID: 1337076900}
-  player: {fileID: 5816971818265893251}
 --- !u!64 &1866801223 stripped
 MeshCollider:
   m_CorrespondingSourceObject: {fileID: 6452128, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
   m_PrefabInstance: {fileID: 1866801219}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1866801227
+--- !u!114 &1866801224
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16714,24 +16588,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1866801221}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43b20cea166b3364cbb8ddebbfebddd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 655096c59583ef1438efb04248ccac85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2895537612536380778}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  promptMessage: "Entscheidungsb\xE4ume"
+  useEvents: 0
 --- !u!1 &1874710177
 GameObject:
   m_ObjectHideFlags: 0
@@ -17953,7 +17814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6452128, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17961,10 +17822,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 141970, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2106498790}
-    - targetCorrespondingSourceObject: {fileID: 141970, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2106498795}
+      addedObject: {fileID: 2106498792}
   m_SourcePrefab: {fileID: 100100000, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
 --- !u!4 &2106498788 stripped
 Transform:
@@ -17976,30 +17834,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 141970, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
   m_PrefabInstance: {fileID: 2106498787}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2106498790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106498789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a9d4fb45d94a3541ae9e97e34a9a762, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  promptMessage: Suche
-  useEvents: 1
-  pauseMenu: {fileID: 3345539542530430290}
-  nextSceneName: 01-Tiefensuche
-  loadingScreen: {fileID: 1337076900}
-  player: {fileID: 5816971818265893251}
 --- !u!64 &2106498791 stripped
 MeshCollider:
   m_CorrespondingSourceObject: {fileID: 6452128, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
   m_PrefabInstance: {fileID: 2106498787}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2106498795
+--- !u!114 &2106498792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18008,24 +17848,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2106498789}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43b20cea166b3364cbb8ddebbfebddd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f8512c02dd220f449130407069fad52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2895537612536380778}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  promptMessage: Tiefensuche
+  useEvents: 0
 --- !u!1 &2144183851
 GameObject:
   m_ObjectHideFlags: 0
@@ -18165,11 +17992,6 @@ CanvasRenderer:
 --- !u!1 &1376146501352059861 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7442212427607783244, guid: 9edd3e6702368424cbe518a3c9ef137d, type: 3}
-  m_PrefabInstance: {fileID: 4189713800978212049}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2895537612536380778 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8733658882643347285, guid: 9edd3e6702368424cbe518a3c9ef137d, type: 3}
   m_PrefabInstance: {fileID: 4189713800978212049}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &3345539542530430290 stripped
@@ -18339,17 +18161,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5930770328092103441, guid: 9edd3e6702368424cbe518a3c9ef137d, type: 3}
   m_PrefabInstance: {fileID: 4189713800978212049}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5816971818265893251 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7897368221772241341, guid: 9edd3e6702368424cbe518a3c9ef137d, type: 3}
-  m_PrefabInstance: {fileID: 4189713800978212049}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 16237004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f08e657de56b44146ad96b63d23e1084, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5816971818265893254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18362,6 +18173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec0862a3cf3234ad1bd754542fc306aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorialTeleporter: {fileID: 38763503}
+  lobbyTeleporter: {fileID: 1343414019}
+  tutorialCanvas: {fileID: 445102950}
 --- !u!1001 &6388669561821119616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18490,6 +18304,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3345539542530430290}
     - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
+      propertyPath: useEvents
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962799452232891366, guid: bcded6983318aed4994647bf0c941975, type: 3}
       propertyPath: promptMessage
       value: 'Sprechen [E]'
       objectReference: {fileID: 0}
@@ -18536,7 +18354,8 @@ PrefabInstance:
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1866801223}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7807355785629471917, guid: bcded6983318aed4994647bf0c941975, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

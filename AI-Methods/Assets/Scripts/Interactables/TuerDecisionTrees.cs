@@ -12,8 +12,12 @@ public class TuerDecisionTrees : InteractableI
     // Update is called once per frame
     protected override void Interact()
     {
+        if (!VariableStore.IsLobbyTutorialFinished()) {
+            return;
+        }
+
         int curLevel = VariableStore.GetCurrentLevelDecision();
-        //currentLevel = ist das Level, was man als nächstes machen muss
+        //currentLevel = ist das Level, was man als nï¿½chstes machen muss
         switch (curLevel)
         {
             case 0:
@@ -25,6 +29,5 @@ public class TuerDecisionTrees : InteractableI
             default:
                 break;
         }
-
     }
 }

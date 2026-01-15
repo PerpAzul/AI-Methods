@@ -12,6 +12,12 @@ public class ArrowLobby : MonoBehaviour
         StartCoroutine(spawnArrowAfterSeconds(showAfterSeconds));
     }
 
+    public void Start() {
+        if (VariableStore.IsLobbyTutorialFinished()) {
+            this.gameObject.SetActive(false);
+        }
+    }
+
     public void Update() {
         if (arrowCanvas.enabled) {
             float newY = interactable.transform.position.y + 1.4f + Mathf.Sin(Time.time * 3f) * 0.2f;
