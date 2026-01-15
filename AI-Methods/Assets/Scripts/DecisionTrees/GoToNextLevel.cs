@@ -4,6 +4,10 @@ using System.Collections;
 
 public class GoToNextLevel : MonoBehaviour
 {
+    [SerializeField] private GameObject cutscene1;
+    [SerializeField] private GameObject cutscene2;
+    [SerializeField] private GameObject cutscene3;
+    [SerializeField] private GameObject cutscene4;
     private ProgressBar progressBar;
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private GameObject levelComplete;
@@ -17,8 +21,35 @@ public class GoToNextLevel : MonoBehaviour
         VariableStore.SetScoreDecision(progressBar.points, 1);
         VariableStore.MarkLevelAsFinishedDecision(1);
         StartCoroutine(LoadSceneRoutine("Lobby German"));
-        progressBar.gameObject.SetActive(false);
-        levelComplete.GetComponent<Canvas>().enabled = false;
+        progressBar.transform.root.gameObject.SetActive(false);
+        cutscene4.GetComponent<Canvas>().enabled = false;
+    }
+
+    public void goToCutscene1()
+    {
+        levelComplete.SetActive(false);
+        cutscene2.SetActive(false);
+        cutscene1.SetActive(true);
+    }
+
+    public void goToCutscene2()
+    {
+        cutscene1.SetActive(false);
+        cutscene3.SetActive(false);
+        cutscene2.SetActive(true);
+    }
+
+    public void goToCutscene3()
+    {
+        cutscene2.SetActive(false);
+        cutscene4.SetActive(false);
+        cutscene3.SetActive(true);
+    }
+
+    public void goToCutscene4()
+    {
+        cutscene3.SetActive(false);
+        cutscene4.SetActive(true);
     }
 
     // Loading Screen for Scene from semantic nets 
