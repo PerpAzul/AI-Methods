@@ -42,7 +42,7 @@ public class CollectBauteilScript : MonoBehaviour
             reachedEnd = true;
             if (whichLevel > 0)
             {
-                int geschafftePunkte = 300 - (PlatformRoot.counterWrongPlatforms * 50);
+                int geschafftePunkte = 100 - (PlatformRoot.counterWrongPlatforms * 25);
                 //Debug.Log(geschafftePunkte);
                 text.text = "Punkte: " + geschafftePunkte;
                 VariableStore.SetScoreSearch(geschafftePunkte, whichLevel);
