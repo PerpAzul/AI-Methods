@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
+public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerMoveHandler, IPointerExitHandler
 {
     public bool ClearMe;
 
@@ -14,6 +15,10 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
     public Texture2D hoverCursor;
 
     public NPCGuide guide;
+
+    [SerializeField] private List<DragAndDrop> toCheck;
+    [SerializeField] private GameObject hoverWarning;
+    private RectTransform hoverWarningRectTransform;
 
     private Text myText;
     private Image myImage;
@@ -27,6 +32,8 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
         }
         myText = GetComponentInChildren<Text>();
         myImage = GetComponent<Image>();
+        if(hoverWarning)
+            hoverWarningRectTransform = hoverWarning.GetComponent<RectTransform>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -119,6 +126,36 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
     public void OnPointerExit(PointerEventData eventData)
     {
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        hoverWarning.SetActive(false);
     }
 
+    public void OnPointerMove(PointerEventData eventData)
+    {
+        bool collision = false;
+        foreach (var check in toCheck)
+        {
+            if (check.myText.text == myText.text && myText.text != "?")
+            {
+                collision = true;
+            }
+        }
+
+        if (collision)
+        {
+            myText.color = new Color32(255, 0, 0, 255);
+            hoverWarning.SetActive(true);
+            Vector2 localPoint;
+
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                hoverWarningRectTransform.parent.GetComponent<RectTransform>(),
+                eventData.position,
+                null,
+                out localPoint);
+            hoverWarningRectTransform.localPosition = localPoint + new Vector2(300, 0);
+        }
+        else
+        {
+            myText.color = new Color32(255, 255, 255, 255);
+        }
+    }
 }
