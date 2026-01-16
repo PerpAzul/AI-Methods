@@ -45,12 +45,15 @@ public class EvaluateItem_Tut : MonoBehaviour
             database.DisplayEvaluate(item, progress/database.ScannedItems.Count);
             yield return new WaitForSeconds(0.5f);
 
-            if (guide && result.Path[^1] == "toggle_2")
+            
+            if (guide && result.Path[^1] == "toggle_1")
             {
                 guide.ContinueIfCurrentActionEquals("second_test");
+                Debug.Log("shadfhh");   
             }
 
             if(guide && item.IsFruit && !item.IsRed) guide.ContinueIfCurrentActionEquals("banana_test");
+            if(guide && !item.IsFruit && item.IsRed) guide.ContinueIfCurrentActionEquals("watermelon_test");
 
             if(guide && !item.IsFruit && !item.IsRed) guide.ContinueIfCurrentActionEquals("carrot_test");
             
@@ -62,7 +65,7 @@ public class EvaluateItem_Tut : MonoBehaviour
             }
             else if(result.Useful == item.Useful())
             {
-                if (!item.IsFruit && item.IsRed)
+                if (item.IsFruit && item.IsRed)
                 {
                     if (guide) guide.ContinueIfCurrentActionEquals("machine_t_correct");
                 }
@@ -71,7 +74,7 @@ public class EvaluateItem_Tut : MonoBehaviour
                 {
                     if (guide) guide.ContinueIfCurrentActionEquals("banana_correct");
                 }
-                if (item.IsFruit && item.IsRed)
+                if (!item.IsFruit && item.IsRed)
                 {
                     if (guide) guide.ContinueIfCurrentActionEquals("watermelon_correct");
                 }
@@ -86,6 +89,10 @@ public class EvaluateItem_Tut : MonoBehaviour
                 if (item.IsFruit && !item.IsRed)
                 {
                     if (guide) guide.ContinueIfCurrentActionEquals("banana_incorrect");
+                }
+                if (!item.IsFruit && item.IsRed)
+                {
+                    if (guide) guide.ContinueIfCurrentActionEquals("watermelon_incorrect");
                 }
 
                 database.DisplayResult("FALSCH", progress/database.ScannedItems.Count);
@@ -241,7 +248,7 @@ public class EvaluateItem_Tut : MonoBehaviour
     private bool AnswerNode(string key)
     {
         string text = FindNodeText(key);
-        if (text == "Rot?" && red || text == "Obst?" && fruit)
+        if (text == "Rot?" && red || text == "Pilz?" && fruit)
         {
             return true;
         }

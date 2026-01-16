@@ -42,12 +42,17 @@ public class Pickup_Tut: HintDisplayer
         // only pick up when item not already in database
         if (Input.GetKeyDown(KeyCode.F) && playerIsClose && !isPickingUp && !database.ContainsPickup(this))
         {
+            Debug.Log("shshe");
             if (guide && !guide.canPickup)
             {
                 return;
             }
-            if (this.isRed && !this.isFruit) {
+            Debug.Log("shshelal");
+            if (this.isRed && this.isFruit)
+            {
+                Debug.Log("shshelaahsdfl");
                 if (guide) {
+                    Debug.Log("shelaahsdfl");
                     guide.ContinueIfCurrentActionEquals("tomato_f");
                 }
             }
@@ -56,7 +61,7 @@ public class Pickup_Tut: HintDisplayer
                     guide.ContinueIfCurrentActionEquals("banana_f");
                 }
             }
-            if (this.isRed && this.isFruit) {
+            if (this.isRed && !this.isFruit) {
                 if (guide) {
                     guide.ContinueIfCurrentActionEquals("watermelon_f");
                 }

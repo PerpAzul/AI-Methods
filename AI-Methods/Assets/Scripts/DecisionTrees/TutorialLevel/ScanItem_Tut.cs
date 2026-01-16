@@ -12,7 +12,7 @@ public class ScanItem_Tut : MonoBehaviour
             {
                 return;
             }
-            if (other.GetComponent<Pickup_Tut>().isRed && !other.GetComponent<Pickup_Tut>().isFruit)
+            if (other.GetComponent<Pickup_Tut>().isRed && other.GetComponent<Pickup_Tut>().isFruit)
             {
                 if (guide) guide.ContinueIfCurrentActionEquals("tomato_scan");
             }
@@ -20,7 +20,7 @@ public class ScanItem_Tut : MonoBehaviour
             {
                 if (guide) guide.ContinueIfCurrentActionEquals("banana_scan");
             }
-            if (other.GetComponent<Pickup_Tut>().isRed && other.GetComponent<Pickup_Tut>().isFruit)
+            if (other.GetComponent<Pickup_Tut>().isRed && !other.GetComponent<Pickup_Tut>().isFruit)
             {
                 if (guide) guide.ContinueIfCurrentActionEquals("watermelon_scan");
             }
