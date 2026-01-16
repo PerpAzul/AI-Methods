@@ -10,11 +10,12 @@ public enum ActionType
 [System.Serializable]
 public class NPCAction
 {
-    public ActionType type;
-    public string actionName;
+    public ActionType type = ActionType.ShowMessageWithE;
+    public string actionName = string.Empty;
+    public bool displayInInterface = false;
     
     [Header("If Type is ShowMessage")]
-    [TextArea] public string message; // The text to display
+    [TextArea] public string message = ""; // The text to display
     
     [Header("If Type is LeadToTarget")]
     public Transform targetObject; // Where to walk

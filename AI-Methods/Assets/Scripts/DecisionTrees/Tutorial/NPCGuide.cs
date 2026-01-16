@@ -16,6 +16,9 @@ public class NPCGuide : MonoBehaviour
     public TextMeshProUGUI messageTextMesh;
     public TextMeshProUGUI textE;
     public GameObject arrowCanvas;
+    public GameObject interfaceMessageCanvas;
+    public TextMeshProUGUI interfaceMessageTextMesh;
+    public TextMeshProUGUI intefaceTextE;
 
     [Header("Settings")]
     public float warteAbstand = 4.0f;
@@ -51,6 +54,7 @@ public class NPCGuide : MonoBehaviour
             // disable robot when tutorial is done
             messageCanvas.SetActive(false);
             arrowCanvas.SetActive(false);
+            interfaceMessageCanvas.SetActive(false);
             return;
         }
         
@@ -73,6 +77,11 @@ public class NPCGuide : MonoBehaviour
     public void ContinueIfCurrentActionEquals(string actionName)
     {
         alreadyDoneActions.Add(actionName);
+        ContinueIfCurrentActionEqualsNoTrack(actionName);
+    }
+
+    public void ContinueIfCurrentActionEqualsNoTrack(string actionName)
+    {
         if (currentActionIndex >= helpActions.Count) return;
         if (helpActions[currentActionIndex].actionName == actionName)
         {
@@ -118,6 +127,7 @@ public class NPCGuide : MonoBehaviour
         {
             agent.ResetPath(); // Clear old path
             messageCanvas.SetActive(false);
+            interfaceMessageCanvas.SetActive(false);
             arrowCanvas.SetActive(false);
             
             agent.isStopped = false;
@@ -128,8 +138,19 @@ public class NPCGuide : MonoBehaviour
         else
         {
             // Setup UI
-            textE.gameObject.SetActive(currentAction.type == ActionType.ShowMessageWithE);
-            messageTextMesh.text = currentAction.message;
+            textE.gameObject.SetActive(currentAction.type == ActionType.ShowMessageWithE && !currentAction.displayInInterface);
+            intefaceTextE.gameObject.SetActive(currentAction.type == ActionType.ShowMessageWithE && currentAction.displayInInterface);
+            if (currentAction.displayInInterface)
+            {
+                interfaceMessageTextMesh.text = currentAction.message;
+                interfaceMessageCanvas.SetActive(true);
+                messageTextMesh.text = "Öffne das Interface an der Maschine über [E]";
+            }
+            else
+            {
+                interfaceMessageCanvas.SetActive(false);
+                messageTextMesh.text = currentAction.message;
+            }
             messageCanvas.SetActive(true);
             arrowCanvas.SetActive(false);
             

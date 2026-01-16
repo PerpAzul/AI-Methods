@@ -35022,133 +35022,165 @@ MonoBehaviour:
   helpActions:
   - type: 0
     actionName: 
-    message: Servus, willkommen auf meinem Schrottplatz!
+    displayInInterface: 0
+    message: Servus, willkommen auf dem Schrottplatz!
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    message: Hier baust du einen Entscheidungsbaum.
+    displayInInterface: 0
+    message: "Hier baust du einen weiteren Entscheidungsbaum. Diesmal ist er etwas
+      komplexer und es gibt mehr Gegenst\xE4nde"
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    message: Keine Sorge, ich zeige dir erstmal wie alles funktioniert :)
+    displayInInterface: 0
+    message: "Es gibt 3 B\xFCcher, in denen steht welche Gegenst\xE4nde es gibt und
+      welche gut bzw schlecht sind."
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    message: 'Wichtig: Folge dem Tutorial bis du den ersten Gegenstand korrekt klassifiziert
-      hast!'
+    displayInInterface: 0
+    message: "Du kannst das entweder selbst probieren zu l\xF6sen oder du h\xF6rst
+      mir weiter bei den Erkl\xE4rungen zu"
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    message: Zuerst brauchen wir ein Buch, folge mir!
+    displayInInterface: 0
+    message: "Ich f\xFChre dich jetzt (wenn du das willst) zum ersten Buch"
     targetObject: {fileID: 0}
   - type: 2
     actionName: 
+    displayInInterface: 0
     message: 
     targetObject: {fileID: 1940836722}
   - type: 1
     actionName: book_e
+    displayInInterface: 0
     message: Siehst du das Buch zwischen den Pflanzen? Sammle es auf!
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
+    displayInInterface: 0
     message: "Diese B\xFCcher enthalten wertvolle Informationen"
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
+    displayInInterface: 0
     message: "Du musst die Gegenst\xE4nde aus den B\xFCchern finden im Raum..."
     targetObject: {fileID: 0}
   - type: 1
     actionName: book_q
+    displayInInterface: 0
     message: "Dr\xFCcke [Q] um erneut ein Buch anzuschauen"
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
+    displayInInterface: 0
     message: "Toll gemacht! Schau dir nochmal die Gegenst\xE4nde in dem Buch an."
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
+    displayInInterface: 0
     message: Wir sammeln gemeinsam den Kristall auf. Folge mir!
     targetObject: {fileID: 0}
   - type: 2
     actionName: 
+    displayInInterface: 0
     message: 
     targetObject: {fileID: 717988937}
   - type: 1
     actionName: crystal_f
+    displayInInterface: 0
     message: "Sammle den Kristall auf, dr\xFCcke dazu [F]"
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
+    displayInInterface: 0
     message: "Wir scannen den Kristall nun an der mysteri\xF6sen Maschine ein. Folge
       mir!"
     targetObject: {fileID: 0}
   - type: 2
     actionName: 
+    displayInInterface: 0
     message: 
     targetObject: {fileID: 1831609656}
   - type: 1
     actionName: scan
+    displayInInterface: 0
     message: Bring den Kristall unter das rote Licht, um ihn einzuscannen.
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
+    displayInInterface: 0
     message: Nun siehst du auf dem Bildschirm, ob der Kristall von der Maschine als
       gut erkannt wurde.
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
+    displayInInterface: 0
     message: Wir beginnen jetzt damit, den Entscheidungsbaum zu bauen
     targetObject: {fileID: 0}
   - type: 1
     actionName: metal_card
-    message: "\xD6ffne den Editor an der Maschine \xFCber [E] und ziehe die Metall?-Karte
-      auf das Fragezeichen ganz links"
+    displayInInterface: 1
+    message: Ziehe die Metall?-Karte auf das Fragezeichen ganz links
     targetObject: {fileID: 0}
   - type: 1
     actionName: first_test
+    displayInInterface: 1
     message: "Dr\xFCcke jetzt [T] um den Testdurchlauf zu starten"
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
+    displayInInterface: 1
     message: "Oh nein, die Maschine ist h\xE4ngen geblieben!"
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
+    displayInInterface: 0
     message: Du siehst an der gelben Warnung, wo sie nicht weiter wusste
     targetObject: {fileID: 0}
   - type: 1
     actionName: danger_card
+    displayInInterface: 0
     message: "Ziehe die \"Sch\xE4dlich?\" Karte auf das Fragezeichen unter der Warnung"
     targetObject: {fileID: 0}
   - type: 1
     actionName: second_test
+    displayInInterface: 0
     message: "Dr\xFCcke jetzt wieder T, um zu schauen wo die Maschine h\xE4ngen bleiben
       wird!"
     targetObject: {fileID: 0}
   - type: 1
     actionName: third_test
+    displayInInterface: 1
     message: "Ziehe jetzt die blaue Energie Karte unter die Warnung und teste anschlie\xDFend
       die Maschine erneut"
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
+    displayInInterface: 1
     message: Super! Jetzt stimmt nur noch das Ergebnis nicht.
     targetObject: {fileID: 0}
   - type: 1
     actionName: machine_t_correct
+    displayInInterface: 1
     message: Der Kristall ist gut, drehe daher den Daumen im Editor um, indem du
       ihn anklickst und teste erneut!
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
+    displayInInterface: 1
     message: Perfekt! Der erste Gegenstand ist korrekt klassifiziert
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
+    displayInInterface: 1
     message: "Suche jetzt alle anderen B\xFCcher und Gegenst\xE4nde..."
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
+    displayInInterface: 1
     message: und programmiere danach die Maschine so, dass alle korrekt klassifiziert
       werden. Viel Erfolg!
     targetObject: {fileID: 0}
@@ -35157,6 +35189,9 @@ MonoBehaviour:
   messageTextMesh: {fileID: 1171934615}
   textE: {fileID: 678417125}
   arrowCanvas: {fileID: 1212993716}
+  interfaceMessageCanvas: {fileID: 0}
+  interfaceMessageTextMesh: {fileID: 0}
+  intefaceTextE: {fileID: 0}
   warteAbstand: 4
   canPickup: 0
   canScanTutorial: 0

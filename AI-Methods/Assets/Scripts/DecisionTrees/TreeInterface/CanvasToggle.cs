@@ -60,6 +60,10 @@ public class CanvasToggle : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         } else if (Input.GetKeyDown(KeyCode.E) && fullscreenCanvas.gameObject.activeSelf)
         {
+            if (guide)
+            {
+                guide.ContinueIfCurrentActionEqualsNoTrack("next_via_e");
+            }
             toggleBookButtonUI.treeOpen = false;
             uiTree.SetParent((worldPanelParent));
             uiTree.anchoredPosition = Vector2.zero;
