@@ -21,8 +21,7 @@ public class ResetMenu : MonoBehaviour
     }
 
     public void ConfirmResetButton() {
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();
+        VariableStore.Reset();
 
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);

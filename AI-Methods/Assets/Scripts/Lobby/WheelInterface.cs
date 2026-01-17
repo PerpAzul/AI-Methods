@@ -7,6 +7,7 @@ public class WheelInterface : MonoBehaviour
     public GameObject wheelSemantic;
     public GameObject wheelDecision;
     public ParticleSystem steamEffect;
+    public GameObject congratsMessage;
 
     void Awake() {
         int count = 0;
@@ -33,6 +34,11 @@ public class WheelInterface : MonoBehaviour
             count++;
         } else {
             wheelDecision.SetActive(false);
+        }
+
+        // show game finished message once
+        if (count == 3) {
+            congratsMessage.SetActive(true);
         }
     }
 

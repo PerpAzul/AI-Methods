@@ -15,6 +15,22 @@ public static class VariableStore
         PlayerPrefs.Save();
     }
 
+    public static bool IsGameFinished()
+    {
+        return PlayerPrefs.GetInt("GameFinished") == 1 ? true : false;
+    }
+
+    public static void SetGameStateFinished(bool finished)
+    {
+        PlayerPrefs.SetInt("GameFinished", finished ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
+    public static void Reset() {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+    }
+
 
     // Semantic Nets
 
