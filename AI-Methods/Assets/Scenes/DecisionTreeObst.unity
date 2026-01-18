@@ -16781,8 +16781,8 @@ MonoBehaviour:
   - type: 0
     actionName: 
     displayInInterface: 0
-    message: "F\xFCr jeden Gegenstand muss die Entscheidung von deinem Baum mit der
-      Datenbank \xFCbereinstimmen."
+    message: "F\xFCr jeden Gegenstand muss die Entscheidung vom Baum mit der Datenbank
+      und den B\xFCchern \xFCbereinstimmen."
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
@@ -16875,7 +16875,7 @@ MonoBehaviour:
     actionName: watermelon_test
     displayInInterface: 0
     message: "Teste nun die Maschine! Denke daran, dass das Testen  l\xE4nger braucht,
-      je mehr Gegenst\xE4nde in der Datenbank ist"
+      je mehr Gegenst\xE4nde in der Datenbank sind"
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
@@ -21435,7 +21435,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 0e485444741a9412e9919cab68232796, type: 3}
+  m_Texture: {fileID: 2800000, guid: 394c0e5c547bf4ab58e619f40e2e0463, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -22038,7 +22038,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 0e485444741a9412e9919cab68232796, type: 3}
+  m_Texture: {fileID: 2800000, guid: 394c0e5c547bf4ab58e619f40e2e0463, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -28147,7 +28147,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 0e485444741a9412e9919cab68232796, type: 3}
+  m_Texture: {fileID: 2800000, guid: 394c0e5c547bf4ab58e619f40e2e0463, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0

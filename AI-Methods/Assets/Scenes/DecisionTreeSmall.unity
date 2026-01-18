@@ -35463,7 +35463,7 @@ MonoBehaviour:
     actionName: 
     displayInInterface: 0
     message: "Wenn du l\xE4nger kein Buch oder Gegenstand findest, wird ein Pfeil
-      \xFCber dem n\xE4chsten fehlenden Objekt auftauchen, um dir zu helfen."
+      \xFCber dem n\xE4chsten fehlenden Objekt auftauchen."
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
@@ -35555,17 +35555,17 @@ MonoBehaviour:
     targetObject: {fileID: 0}
   - type: 1
     actionName: metal_card
-    displayInInterface: 1
+    displayInInterface: 0
     message: Ziehe die Metall?-Karte auf das Fragezeichen ganz links
     targetObject: {fileID: 0}
   - type: 1
     actionName: first_test
-    displayInInterface: 1
+    displayInInterface: 0
     message: "Dr\xFCcke jetzt [T] um den Testdurchlauf zu starten"
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    displayInInterface: 1
+    displayInInterface: 0
     message: "Oh nein, die Maschine ist h\xE4ngen geblieben!"
     targetObject: {fileID: 0}
   - type: 0
@@ -35586,34 +35586,34 @@ MonoBehaviour:
     targetObject: {fileID: 0}
   - type: 1
     actionName: third_test
-    displayInInterface: 1
+    displayInInterface: 0
     message: "Ziehe jetzt die blaue Energie Karte unter die Warnung und teste anschlie\xDFend
       die Maschine erneut"
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    displayInInterface: 1
+    displayInInterface: 0
     message: Super! Jetzt stimmt nur noch das Ergebnis nicht.
     targetObject: {fileID: 0}
   - type: 1
     actionName: machine_t_correct
-    displayInInterface: 1
+    displayInInterface: 0
     message: Der Kristall ist gut, drehe daher den Daumen im Editor um, indem du
       ihn anklickst und teste erneut!
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    displayInInterface: 1
+    displayInInterface: 0
     message: Perfekt! Der erste Gegenstand ist korrekt klassifiziert
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    displayInInterface: 1
+    displayInInterface: 0
     message: "Suche jetzt alle anderen B\xFCcher und Gegenst\xE4nde..."
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    displayInInterface: 1
+    displayInInterface: 0
     message: und programmiere danach die Maschine so, dass alle korrekt klassifiziert
       werden. Viel Erfolg!
     targetObject: {fileID: 0}

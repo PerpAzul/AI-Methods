@@ -43,7 +43,8 @@ public class ProgressBar : MonoBehaviour
             {
                 levelFinished.SetActive(true);
                 Debug.Log(time);
-                completionMultiplier = completionMultiplier - (0.0005f * time);
+                // time-based completion bonus
+                completionMultiplier = completionMultiplier - (0.0002f * time);
                 points += Decimal.ToInt32(Math.Round(new decimal (60 * completionMultiplier), 1));
                 pointsEnd.text = $"Punkte: {points}";
             }
