@@ -18353,7 +18353,7 @@ GameObject:
   - component: {fileID: 1012499665}
   - component: {fileID: 1012499664}
   m_Layer: 5
-  m_Name: no_3_1
+  m_Name: no_2_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27489,7 +27489,7 @@ GameObject:
   - component: {fileID: 1974783566}
   - component: {fileID: 1974783565}
   m_Layer: 5
-  m_Name: yes_3_1
+  m_Name: yes_2_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27565,7 +27565,7 @@ GameObject:
   - component: {fileID: 1977063729}
   - component: {fileID: 1977063728}
   m_Layer: 5
-  m_Name: yes_3_2
+  m_Name: yes_2_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
