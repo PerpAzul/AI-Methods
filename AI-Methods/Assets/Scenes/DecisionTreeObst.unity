@@ -563,6 +563,7 @@ MonoBehaviour:
   cutscene1: {fileID: 1335830904}
   cutscene2: {fileID: 584946262}
   cutscene3: {fileID: 833237447}
+  dtInterface: {fileID: 0}
 --- !u!1 &52271860 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4563459568915873646, guid: eed54a613be71b543a99e53a8e2914de, type: 3}
@@ -4985,6 +4986,7 @@ MonoBehaviour:
   cutscene1: {fileID: 1335830904}
   cutscene2: {fileID: 584946262}
   cutscene3: {fileID: 833237447}
+  dtInterface: {fileID: 0}
 --- !u!1 &315697510
 GameObject:
   m_ObjectHideFlags: 0
@@ -6527,6 +6529,7 @@ MonoBehaviour:
   cutscene1: {fileID: 1335830904}
   cutscene2: {fileID: 584946262}
   cutscene3: {fileID: 833237447}
+  dtInterface: {fileID: 0}
 --- !u!1 &401817505
 GameObject:
   m_ObjectHideFlags: 0
@@ -14779,6 +14782,7 @@ MonoBehaviour:
   cutscene1: {fileID: 1335830904}
   cutscene2: {fileID: 584946262}
   cutscene3: {fileID: 833237447}
+  dtInterface: {fileID: 1979800176}
 --- !u!1001 &816062114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16865,13 +16869,13 @@ MonoBehaviour:
   - type: 1
     actionName: watermelon_scan
     displayInInterface: 0
-    message: Bring die Wassermelone unter das rote Licht, um ihn einzuscannen.
+    message: Bring die Wassermelone unter das rote Licht, um sie einzuscannen.
     targetObject: {fileID: 0}
   - type: 1
     actionName: watermelon_test
     displayInInterface: 0
     message: "Teste nun die Maschine! Denke daran, dass das Testen  l\xE4nger braucht,
-      je mehr Essen in der Datenbank ist"
+      je mehr Gegenst\xE4nde in der Datenbank ist"
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
@@ -16902,7 +16906,8 @@ MonoBehaviour:
   - type: 0
     actionName: next_via_e_2
     displayInInterface: 1
-    message: "Sehr gut! Der Baum ist fast fertig. Lass uns das n\xE4chste Essen sammeln!"
+    message: "Sehr gut! Der Baum ist fast fertig. Lass uns den n\xE4chsten Gegenstand
+      sammeln!"
     targetObject: {fileID: 0}
   - type: 2
     actionName: 
@@ -16927,7 +16932,7 @@ MonoBehaviour:
   - type: 1
     actionName: banana_scan
     displayInInterface: 0
-    message: Bring den Steinpilz unter das rote Licht, um sie einzuscannen.
+    message: Bring den Steinpilz unter das rote Licht, um ihn einzuscannen.
     targetObject: {fileID: 0}
   - type: 1
     actionName: banana_correct
@@ -16968,7 +16973,7 @@ MonoBehaviour:
   - type: 1
     actionName: carrot_scan
     displayInInterface: 0
-    message: Bring die Karotte unter das rote Licht, um sie einzuscannen.
+    message: Bring den Stock unter das rote Licht, um ihn einzuscannen.
     targetObject: {fileID: 0}
   - type: 1
     actionName: carrot_test
@@ -21430,7 +21435,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 9b5bc49c0e15c45d1955eb23d839c013, type: 3}
+  m_Texture: {fileID: 2800000, guid: 0e485444741a9412e9919cab68232796, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -22033,7 +22038,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 9b5bc49c0e15c45d1955eb23d839c013, type: 3}
+  m_Texture: {fileID: 2800000, guid: 0e485444741a9412e9919cab68232796, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -22810,6 +22815,7 @@ MonoBehaviour:
   cutscene1: {fileID: 1335830904}
   cutscene2: {fileID: 584946262}
   cutscene3: {fileID: 833237447}
+  dtInterface: {fileID: 0}
 --- !u!1 &1496307745
 GameObject:
   m_ObjectHideFlags: 0
@@ -27660,6 +27666,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1979800176 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 903006908223883341, guid: 9d8aaba18c7b19424a96aaa80c2a30cc, type: 3}
+  m_PrefabInstance: {fileID: 816062114}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1986377433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27829,6 +27840,7 @@ MonoBehaviour:
   cutscene1: {fileID: 1335830904}
   cutscene2: {fileID: 584946262}
   cutscene3: {fileID: 833237447}
+  dtInterface: {fileID: 0}
 --- !u!1 &2002728000
 GameObject:
   m_ObjectHideFlags: 0
@@ -28135,7 +28147,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 9b5bc49c0e15c45d1955eb23d839c013, type: 3}
+  m_Texture: {fileID: 2800000, guid: 0e485444741a9412e9919cab68232796, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -28606,9 +28618,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Gl\xFCckwunsch, du hast den Entscheidungsbaum erfolgreich entworfen! Nun
-    kann die KI entscheiden, ob Essen gut ist oder nicht.\n\nDies nennt man Klassifizieren:
-    Eingaben werden in Klassen eingeordnet, hier \"gut\" und \"schlecht\".\n\nIm
-    Bereich Machine Learning werden oft Entscheidungsb\xE4ume daf\xFCr eingesetzt."
+    kann die KI entscheiden, ob ein Gegenstand gut zum Essen geeignet ist oder nicht.\n\nDies
+    nennt man Klassifizieren: Eingaben werden in Klassen eingeordnet, hier \"gut\"
+    und \"schlecht\".\n\nIm Bereich Machine Learning werden oft Entscheidungsb\xE4ume
+    daf\xFCr eingesetzt."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}
   m_sharedMaterial: {fileID: 5813618495108259790, guid: 406ab9b921df31e40b4dd86570da21e0, type: 2}

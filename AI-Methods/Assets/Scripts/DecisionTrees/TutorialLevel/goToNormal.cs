@@ -10,6 +10,7 @@ public class GoToNormal : MonoBehaviour
     [SerializeField] private GameObject cutscene1;
     [SerializeField] private GameObject cutscene2;
     [SerializeField] private GameObject cutscene3;
+    [SerializeField] private GameObject dtInterface;
     public void finishLevel()
     {
         Debug.Log("Click");
@@ -17,6 +18,7 @@ public class GoToNormal : MonoBehaviour
         VariableStore.MarkLevelAsFinishedDecision(0);
         StartCoroutine(LoadSceneRoutine("DecisionTreeSmall"));
         progressBar.SetActive(false);
+        dtInterface.SetActive(false);
         cutscene3.GetComponent<Canvas>().enabled = false;
     }
 

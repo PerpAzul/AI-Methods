@@ -11,6 +11,7 @@ public class GoToNextLevel : MonoBehaviour
     private ProgressBar progressBar;
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private GameObject levelComplete;
+    [SerializeField] private GameObject dtInterface;
     private void Start()
     {
         progressBar = GameObject.Find("Progress Bar").GetComponent<ProgressBar>();
@@ -22,6 +23,7 @@ public class GoToNextLevel : MonoBehaviour
         VariableStore.MarkLevelAsFinishedDecision(1);
         StartCoroutine(LoadSceneRoutine("Lobby German"));
         progressBar.transform.root.gameObject.SetActive(false);
+        dtInterface.SetActive(false);
         cutscene4.GetComponent<Canvas>().enabled = false;
     }
 

@@ -53,13 +53,17 @@ public class BookToggle : MonoBehaviour
         
         if (isNear && Input.GetKeyDown(KeyCode.E))
         {
-            if (this.name.Equals("book_0001b"))
+            if (this.name.Equals("buch_metall"))
             {
                 findHelper.find(0);
             }
-            if (this.name.Equals("book_0001d"))
+            if (this.name.Equals("book_0001b"))
             {
                 findHelper.find(1);
+            }
+            if (this.name.Equals("book_0001d"))
+            {
+                findHelper.find(2);
             }
             if(guide) guide.ContinueIfCurrentActionEquals("book_e");
             toggleBookButtonUI.bookOpen = true;

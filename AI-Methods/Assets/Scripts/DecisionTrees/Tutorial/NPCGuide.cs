@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class NPCGuide : MonoBehaviour
 {
@@ -56,6 +57,16 @@ public class NPCGuide : MonoBehaviour
             arrowCanvas.SetActive(false);
             interfaceMessageCanvas.SetActive(false);
             return;
+        }
+
+        // stop displaying arrow above robot if player doesnt use tutorial
+        if (helpActions[currentActionIndex].actionName.Equals("choose_tut"))
+        {
+            arrowCanvas.SetActive(false);
+        } 
+        else
+        {
+            arrowCanvas.SetActive(true);
         }
         
         playerDistance = Vector3.Distance(transform.position, player.position);
@@ -181,7 +192,10 @@ public class NPCGuide : MonoBehaviour
         else
         {
             agent.isStopped = true; 
-            arrowCanvas.SetActive(true);
+            if (!helpActions[currentActionIndex].actionName.Equals("choose_tut"))
+            {
+                arrowCanvas.SetActive(true);
+            }
         }
 
         // Animation
@@ -234,7 +248,10 @@ public class NPCGuide : MonoBehaviour
         {
             // Hide UI if player walks away
             messageCanvas.SetActive(false);
-            arrowCanvas.SetActive(true);
+            if (!helpActions[currentActionIndex].actionName.Equals("choose_tut"))
+            {
+                arrowCanvas.SetActive(true);
+            }
         }
     }
 }
