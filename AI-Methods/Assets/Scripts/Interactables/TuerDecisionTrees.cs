@@ -3,10 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class TuerDecisionTrees : InteractableI
 {
+    string earlierMessage;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        earlierMessage = promptMessage;
     }
 
     // Update is called once per frame
@@ -27,6 +28,7 @@ public class TuerDecisionTrees : InteractableI
                 SceneManager.LoadScene("DecisionTreeSmall");
                 break;
             default:
+                promptMessage = earlierMessage + "\n<size=70%>Alle Level geschafft! Gehe durch eine andere Tür oder in die Mitte der Lobby um bestimmte Level nochmal zu spielen.</size>";
                 break;
         }
     }

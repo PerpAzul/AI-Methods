@@ -3,10 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class TuerTiefensuche : InteractableI
 {
+    string earlierMessage;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        earlierMessage = promptMessage;
     }
 
 
@@ -33,6 +34,7 @@ public class TuerTiefensuche : InteractableI
                 SceneManager.LoadScene("03-Tiefensuche");
                 break;
             default:
+                promptMessage = earlierMessage + "\n<size=70%>Alle Level geschafft! Gehe durch eine andere Tür oder in die Mitte der Lobby um bestimmte Level nochmal zu spielen.</size>";
                 break;
         }
 
