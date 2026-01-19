@@ -3,10 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class TuerSemanticNets : InteractableI
 {
+    string earlierMessage;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        earlierMessage = promptMessage;
     }
 
     // Update is called once per frame
@@ -30,6 +31,7 @@ public class TuerSemanticNets : InteractableI
                 SceneManager.LoadScene("SemanticNets2");
                 break;
             default:
+                promptMessage = earlierMessage + "\n<size=70%>Alle Level geschafft! Gehe durch eine andere Tür oder in die Mitte der Lobby um bestimmte Level nochmal zu spielen.</size>";
                 break;
         }
 

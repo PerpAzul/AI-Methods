@@ -36,7 +36,7 @@ public class Roadmap : MonoBehaviour
                 }
             }
         }
-        totalScoreTextSemantic.text = "Gesamt: " + sum;
+        totalScoreTextSemantic.text = "Gesamt: " + sum + "<size=55%>/300</size>";
 
         int levelSearch = VariableStore.GetCurrentLevelSearch();
         sum = 0;
@@ -59,7 +59,7 @@ public class Roadmap : MonoBehaviour
                 }
             }
         }
-        totalScoreTextSearch.text = "Gesamt: " + sum;
+        totalScoreTextSearch.text = "Gesamt: " + sum + "<size=55%>/300</size>";
 
         int levelDecision = VariableStore.GetCurrentLevelDecision();
         sum = 0;
@@ -82,6 +82,6 @@ public class Roadmap : MonoBehaviour
                 }
             }
         }
-        totalScoreTextDecision.text = "Gesamt: " + sum;
+        totalScoreTextDecision.text = "Gesamt: " + sum + "<size=55%>/300</size>";
     }
 }
