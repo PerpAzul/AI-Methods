@@ -18,35 +18,33 @@ public class OptionsMenu : MonoBehaviour
     void Start()
     {
         // Fullscreen
-        bool isFullscreen = PlayerPrefs.GetInt("Fullscreen", Screen.fullScreen ? 1 : 0) == 1;
+        bool isFullscreen = VariableStore.GetFullscreen();
         SetFullScreen(isFullscreen);
 
         // Graphics Quality
-        SetGraphicsQuality(PlayerPrefs.GetInt("Quality", 2));
+        SetGraphicsQuality(VariableStore.GetQuality());
 
         // Resolution 
-        SetResolution(PlayerPrefs.GetInt("Resolution", 1));
+        SetResolution(VariableStore.GetResolution());
 
         // Volume
-        SetVolume(PlayerPrefs.GetFloat("Volume", 1f));
+        SetVolume(VariableStore.GetVolume());
 
         // Sensitivity
-        SetSensitivity(PlayerPrefs.GetFloat("Sensitivity", 2f));
+        SetSensitivity(VariableStore.GetSensitivity());
     }
 
     public void SetFullScreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
         fullscreenToggle.isOn = isFullScreen;
-        PlayerPrefs.SetInt("Fullscreen", isFullScreen ? 1 : 0);
-        PlayerPrefs.Save();
+        VariableStore.SetFullscreen(isFullScreen);
     }
 
     public void SetGraphicsQuality(int index)
     {
         QualitySettings.SetQualityLevel(index);
-        PlayerPrefs.SetInt("Quality", index);
-        PlayerPrefs.Save();
+        VariableStore.SetQuality(index);
         graphicsDropdown.value = index;
     }
 
@@ -67,23 +65,20 @@ public class OptionsMenu : MonoBehaviour
                 Screen.SetResolution(3840, 2160, Screen.fullScreen);
                 break;
         }
-        PlayerPrefs.SetInt("Resolution", index);
-        PlayerPrefs.Save();
+        VariableStore.SetResolution(index);
         resolutionDropdown.value = index;
     }
 
     public void SetVolume(float volume)
     {
-        PlayerPrefs.SetFloat("Volume", volume);
-        PlayerPrefs.Save();
+        VariableStore.SetVolume(volume);
         volumeSlider.value = volume;
         audioMixer.SetFloat("volume", volume);
     }
     
     public void SetSensitivity(float sensitivity)
     {
-        PlayerPrefs.SetFloat("Sensitivity", sensitivity);
-        PlayerPrefs.Save();
+        VariableStore.SetSensitivity(sensitivity);
         sensitivitySlider.value = sensitivity;
     }
 }
