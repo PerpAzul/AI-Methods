@@ -22,6 +22,7 @@ public class RootPlatformScript : MonoBehaviour
     private int current;
     public int counterWrongPlatforms;
 
+    public GameObject infopointZero;
     public GameObject infopointOne;
     public GameObject infopointTwo;
     public GameObject infopointThree;
@@ -38,6 +39,7 @@ public class RootPlatformScript : MonoBehaviour
         PlatformSix.nextPlatform = false;
         PlatformSeven.nextPlatform = false;
         counterWrongPlatforms = 0;
+        infopointZero.SetActive(true);
         infopointOne.SetActive(true);
         infopointTwo.SetActive(false);
         infopointThree.SetActive(false);
@@ -121,6 +123,7 @@ public class RootPlatformScript : MonoBehaviour
                 whichPlatform++;
                 
                 infopointTwo.SetActive(true);
+                infopointZero.SetActive(false);
             }
         }
     }
