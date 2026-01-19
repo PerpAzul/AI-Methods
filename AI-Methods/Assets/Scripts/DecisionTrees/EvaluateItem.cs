@@ -40,8 +40,8 @@ public class EvaluateItem : MonoBehaviour
     private IEnumerator TestDatabase()
     {
         isTesting = true;
-        if(guide) guide.ContinueIfCurrentActionEquals("first_test");
-        if(guide) guide.ContinueIfCurrentActionEquals("second_test");
+        if(guide) guide.ContinueIfCurrentActionEqualsNoTrack("first_test");
+        if(guide) guide.ContinueIfCurrentActionEqualsNoTrack("second_test");
         warning.gameObject.SetActive(false);
         float progress = 0;
         foreach (Item item in database.ScannedItems)
@@ -53,7 +53,7 @@ public class EvaluateItem : MonoBehaviour
 
             if (guide && result.Path[^1] == "toggle_1")
             {
-                guide.ContinueIfCurrentActionEquals("third_test");
+                guide.ContinueIfCurrentActionEqualsNoTrack("third_test");
             }
             
             if (!result.Path[^1].StartsWith("toggle"))

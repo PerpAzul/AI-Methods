@@ -49,7 +49,6 @@ public class EvaluateItem_Tut : MonoBehaviour
             if (guide && result.Path[^1] == "toggle_1")
             {
                 guide.ContinueIfCurrentActionEquals("second_test");
-                Debug.Log("shadfhh");   
             }
 
             if(guide && item.IsFruit && !item.IsRed) guide.ContinueIfCurrentActionEquals("banana_test");

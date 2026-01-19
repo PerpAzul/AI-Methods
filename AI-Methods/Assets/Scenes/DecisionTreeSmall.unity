@@ -8440,8 +8440,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -270, y: -30}
-  m_SizeDelta: {x: 750, y: 400}
+  m_AnchoredPosition: {x: -300, y: -30}
+  m_SizeDelta: {x: 700, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &255102200
 MonoBehaviour:
@@ -21017,7 +21017,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1176, y: 505}
+  m_AnchoredPosition: {x: 0, y: -650}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &482895988
@@ -27721,7 +27721,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 120, y: 73.8}
+  m_AnchoredPosition: {x: 400, y: 270}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &688388879
@@ -28586,7 +28586,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 200, y: 40}
   m_SizeDelta: {x: 200, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &709420687
@@ -30945,16 +30945,16 @@ RectTransform:
   m_GameObject: {fileID: 785536321}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 709420686}
   - {fileID: 255102199}
   m_Father: {fileID: 1407092394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -600, y: 530}
   m_SizeDelta: {x: 1050, y: 1440}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &785536323
@@ -35555,65 +35555,65 @@ MonoBehaviour:
     targetObject: {fileID: 0}
   - type: 1
     actionName: metal_card
-    displayInInterface: 0
+    displayInInterface: 1
     message: Ziehe die Metall?-Karte auf das Fragezeichen ganz links
     targetObject: {fileID: 0}
   - type: 1
     actionName: first_test
-    displayInInterface: 0
+    displayInInterface: 1
     message: "Dr\xFCcke jetzt [T] um den Testdurchlauf zu starten"
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    displayInInterface: 0
+    displayInInterface: 1
     message: "Oh nein, die Maschine ist h\xE4ngen geblieben!"
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    displayInInterface: 0
+    displayInInterface: 1
     message: Du siehst an der gelben Warnung, wo sie nicht weiter wusste
     targetObject: {fileID: 0}
   - type: 1
     actionName: danger_card
-    displayInInterface: 0
+    displayInInterface: 1
     message: "Ziehe die \"Sch\xE4dlich?\" Karte auf das Fragezeichen unter der Warnung"
     targetObject: {fileID: 0}
   - type: 1
     actionName: second_test
-    displayInInterface: 0
+    displayInInterface: 1
     message: "Dr\xFCcke jetzt wieder T, um zu schauen wo die Maschine h\xE4ngen bleiben
       wird!"
     targetObject: {fileID: 0}
   - type: 1
     actionName: third_test
-    displayInInterface: 0
+    displayInInterface: 1
     message: "Ziehe jetzt die blaue Energie Karte unter die Warnung und teste anschlie\xDFend
       die Maschine erneut"
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    displayInInterface: 0
+    displayInInterface: 1
     message: Super! Jetzt stimmt nur noch das Ergebnis nicht.
     targetObject: {fileID: 0}
   - type: 1
     actionName: machine_t_correct
-    displayInInterface: 0
+    displayInInterface: 1
     message: Der Kristall ist gut, drehe daher den Daumen im Editor um, indem du
       ihn anklickst und teste erneut!
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    displayInInterface: 0
+    displayInInterface: 1
     message: Perfekt! Der erste Gegenstand ist korrekt klassifiziert
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    displayInInterface: 0
+    displayInInterface: 1
     message: "Suche jetzt alle anderen B\xFCcher und Gegenst\xE4nde..."
     targetObject: {fileID: 0}
   - type: 0
     actionName: 
-    displayInInterface: 0
+    displayInInterface: 1
     message: und programmiere danach die Maschine so, dass alle korrekt klassifiziert
       werden. Viel Erfolg!
     targetObject: {fileID: 0}
@@ -43363,7 +43363,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1016, y: 506}
+  m_AnchoredPosition: {x: 200, y: -650}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1155732846
@@ -60940,7 +60940,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1176, y: 622}
+  m_AnchoredPosition: {x: 0, y: -550}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1655417416
@@ -62500,7 +62500,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 700, y: 200}
+  m_SizeDelta: {x: 660, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1722292142
 MonoBehaviour:
@@ -63215,7 +63215,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1016, y: 622}
+  m_AnchoredPosition: {x: 200, y: -550}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1749481861
