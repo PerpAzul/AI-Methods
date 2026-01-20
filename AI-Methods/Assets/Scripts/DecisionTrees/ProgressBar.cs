@@ -18,6 +18,7 @@ public class ProgressBar : MonoBehaviour
     public int points = 0;
     private float completionMultiplier = 1.0f;
     private float time = 0.0f;
+    public bool[] hasPickedUp = {false, false, false, false, false, false, false, false};
 
     void Awake()
     {

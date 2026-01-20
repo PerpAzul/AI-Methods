@@ -19,7 +19,6 @@ public class Pickup: HintDisplayer
     private FindHelper findHelper;
     public Database database;
     [SerializeField] private Transform player;
-    private bool[] hasPickedUp = {false, false, false, false, false, false, false, false};
 
     private void Start()
     {
@@ -45,9 +44,9 @@ public class Pickup: HintDisplayer
         {
             if (this.name.Equals("crystal_17_2")) {
                 if (guide) {
-                    if (!hasPickedUp[0])
+                    if (!progressBar.hasPickedUp[0])
                     {
-                        hasPickedUp[0] = true;
+                        progressBar.hasPickedUp[0] = true;
                         progressBar.points += 10;
                         SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
                     }
@@ -59,9 +58,9 @@ public class Pickup: HintDisplayer
             if (!database.ContainsPickup(this)) {
                 if (isBlueEnergy && !isMetal && !isDangerous)
                 {
-                    if (!hasPickedUp[1])
+                    if (!progressBar.hasPickedUp[1])
                     {
-                        hasPickedUp[1] = true;
+                        progressBar.hasPickedUp[1] = true;
                         progressBar.points += 10;
                         SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
                     }
@@ -69,9 +68,9 @@ public class Pickup: HintDisplayer
                 }
                 if (!isBlueEnergy && isMetal && !isDangerous)
                 {
-                    if (!hasPickedUp[2])
+                    if (!progressBar.hasPickedUp[2])
                     {
-                        hasPickedUp[2] = true;
+                        progressBar.hasPickedUp[2] = true;
                         progressBar.points += 10;
                         SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
                     }
@@ -79,9 +78,9 @@ public class Pickup: HintDisplayer
                 }
                 if (!isBlueEnergy && !isMetal && !isDangerous)
                 {
-                    if (!hasPickedUp[3])
+                    if (!progressBar.hasPickedUp[3])
                     {
-                        hasPickedUp[3] = true;
+                        progressBar.hasPickedUp[3] = true;
                         progressBar.points += 10;
                         SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
                     }
@@ -89,9 +88,9 @@ public class Pickup: HintDisplayer
                 }
                 if (!isBlueEnergy && isMetal && isDangerous)
                 {
-                    if (!hasPickedUp[4])
+                    if (!progressBar.hasPickedUp[4])
                     {
-                        hasPickedUp[4] = true;
+                        progressBar.hasPickedUp[4] = true;
                         progressBar.points += 10;
                         SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
                     }
@@ -99,9 +98,9 @@ public class Pickup: HintDisplayer
                 }
                 if (!isBlueEnergy && !isMetal && isDangerous)
                 {
-                    if (!hasPickedUp[5])
+                    if (!progressBar.hasPickedUp[5])
                     {
-                        hasPickedUp[5] = true;
+                        progressBar.hasPickedUp[5] = true;
                         progressBar.points += 10;
                         SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
                     }
@@ -109,9 +108,9 @@ public class Pickup: HintDisplayer
                 }
                 if (isBlueEnergy && !isMetal && isDangerous)
                 {
-                    if (!hasPickedUp[6])
+                    if (!progressBar.hasPickedUp[6])
                     {
-                        hasPickedUp[6] = true;
+                        progressBar.hasPickedUp[6] = true;
                         progressBar.points += 10;
                         SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
                     }
@@ -119,9 +118,9 @@ public class Pickup: HintDisplayer
                 }
                 if (isBlueEnergy && isMetal && !isDangerous)
                 {
-                    if (!hasPickedUp[7])
+                    if (!progressBar.hasPickedUp[7])
                     {
-                        hasPickedUp[7] = true;
+                        progressBar.hasPickedUp[7] = true;
                         progressBar.points += 10;
                         SpawnFloatingText("+10", new Color(0.3f, 1f, 0.3f), this.gameObject.transform.position);
                     }
