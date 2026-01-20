@@ -27,10 +27,27 @@ public class CollectBauteilScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (reachedEnd && Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.L) && reachedEnd)
         {
             SceneManager.LoadScene(nextScene);
         }
+
+        if ((Input.GetKeyDown("2") || Input.GetKeyDown(KeyCode.Keypad2)) && reachedEnd)
+        {
+            //Debug.Log("first step");
+            if (whichLevel == 1)
+            {
+                //Debug.Log("got this far");
+                SceneManager.LoadScene("02-Tiefensuche");
+                //Debug.Log("got even further");
+            }
+            
+        }
+
+        /*if (Input.GetKeyDown(KeyCode.A))
+        {
+            Debug.Log("pressed A");
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)
