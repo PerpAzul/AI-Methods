@@ -54,7 +54,7 @@ public class CollectBauteilScript : MonoBehaviour
     {
         if (bauteilPlatformScript.nextPlatform)
         {
-            tiefensucheInfotafelScript.isReadingTurorial = true;
+            //tiefensucheInfotafelScript.isReadingTurorial = true;
             //Debug.Log("found Bauteil!!");
             geschafftScreen.SetActive(true);
             reachedEnd = true;
@@ -74,7 +74,7 @@ public class CollectBauteilScript : MonoBehaviour
 
     public void NextLevel()
     {
-        tiefensucheInfotafelScript.isReadingTurorial = false;
+        //tiefensucheInfotafelScript.isReadingTurorial = false;
         SceneManager.LoadScene(nextScene);
     }
 }
