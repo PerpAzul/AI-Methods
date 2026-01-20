@@ -16856,15 +16856,10 @@ MonoBehaviour:
     displayInInterface: 0
     message: "Sammle die Wassermelone auf, dr\xFCcke dazu [F]"
     targetObject: {fileID: 0}
-  - type: 0
-    actionName: 
-    displayInInterface: 0
-    message: Folge mir nun wieder zur Maschine!
-    targetObject: {fileID: 0}
   - type: 2
     actionName: 
     displayInInterface: 0
-    message: 
+    message: Folge mir nun wieder zur Maschine!
     targetObject: {fileID: 1142802290}
   - type: 1
     actionName: watermelon_scan
@@ -16919,15 +16914,10 @@ MonoBehaviour:
     displayInInterface: 0
     message: "Sammle den Steinpilz auf, dr\xFCcke dazu [F]"
     targetObject: {fileID: 0}
-  - type: 0
-    actionName: 
-    displayInInterface: 0
-    message: Folge mir nun wieder zur Maschine!
-    targetObject: {fileID: 0}
   - type: 2
     actionName: 
     displayInInterface: 0
-    message: 
+    message: Folge mir nun wieder zur Maschine!
     targetObject: {fileID: 1142802290}
   - type: 1
     actionName: banana_scan
@@ -16960,15 +16950,10 @@ MonoBehaviour:
     displayInInterface: 0
     message: "Sammle den Stock auf, dr\xFCcke dazu [F]"
     targetObject: {fileID: 0}
-  - type: 0
-    actionName: 
-    displayInInterface: 0
-    message: Folge mir nun wieder zur Maschine!
-    targetObject: {fileID: 0}
   - type: 2
     actionName: 
     displayInInterface: 0
-    message: 
+    message: Folge mir nun wieder zur Maschine!
     targetObject: {fileID: 1142802290}
   - type: 1
     actionName: carrot_scan
@@ -20471,7 +20456,7 @@ GameObject:
   - component: {fileID: 1251522569}
   - component: {fileID: 1251522568}
   m_Layer: 5
-  m_Name: no_3_2
+  m_Name: no_2_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
