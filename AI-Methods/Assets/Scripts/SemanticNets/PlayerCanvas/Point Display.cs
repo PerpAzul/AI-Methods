@@ -1,3 +1,4 @@
+// PointDisplay.cs
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
@@ -9,8 +10,8 @@ public class PointDisplay : MonoBehaviour
 
     public static PointDisplay Instance;
 
-    // Score should persist across scenes
-    private static int score = 0;
+    // Score should start at 0 each level (per scene / per instance)
+    private int score = 0;
 
     private int lastCorrect = 0;
     private int lastIncorrect = 0;
@@ -25,6 +26,7 @@ public class PointDisplay : MonoBehaviour
     // Tracks correct edges that have already given points
     private HashSet<string> scoredCorrectEdges = new HashSet<string>();
 
+    // important for obtaining what was added because score gets updated later than the actual level complete canvas in levelmanager
     private int add = 0;
 
     void Awake()
@@ -77,7 +79,7 @@ public class PointDisplay : MonoBehaviour
         int edgeCount = LevelStorage.Instance.levels[level].Count;
 
         // ---- correct scoring values ----
-        float correctP   = 150f / edgeCount;      
+        float correctP   = 150f / edgeCount;
         // ---- incorrect scoring values ----
         float incorrectP = (-150f / edgeCount) + 5f;
 
@@ -113,7 +115,7 @@ public class PointDisplay : MonoBehaviour
         // ----------------- incorrect edges -----------------
         if (currentIncorrect > lastIncorrect)
         {
-            int add = Mathf.RoundToInt(incorrectP);
+            add = Mathf.RoundToInt(incorrectP); // update the field (no shadowing)
             score += add;
 
             FlashColor(new Color(1f, 0.3f, 0.3f));
@@ -137,7 +139,6 @@ public class PointDisplay : MonoBehaviour
             scoreText.color = Color.Lerp(targetColor, baseColor, t);
         }
     }
-
 
     private string NormalizeEdge(string a, string b)
     {
@@ -171,6 +172,10 @@ public class PointDisplay : MonoBehaviour
         lastCorrect = 0;
         lastIncorrect = 0;
         scoredCorrectEdges.Clear();
+
+        score = 0;
+        add = 0;
+        UpdateScoreText();
     }
 
     public int GetScore()
@@ -178,9 +183,14 @@ public class PointDisplay : MonoBehaviour
         return score;
     }
 
-    // important for obtaining what was added because score gets updated later than the actual level complete canvas in levelmanager
     public int GetAdd()
     {
         return add;
+    }
+
+    // NEW: lets LevelManager know if the last correct edge has been scored yet
+    public int GetScoredCorrectEdgesCount()
+    {
+        return scoredCorrectEdges.Count;
     }
 }

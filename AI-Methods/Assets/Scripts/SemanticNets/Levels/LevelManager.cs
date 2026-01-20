@@ -1,3 +1,4 @@
+// LevelManager.cs
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
@@ -64,42 +65,39 @@ public class LevelManager : MonoBehaviour
     }
 
     // Validation: only one edge of a kind is allowed between nodes -> type does not matter
-public bool isValidConnection(Transform node1, Transform node2)
-{
-    if (node1 == null || node2 == null) return false;
-    if (node1 == node2) return false;
-
-    if (!TryGetNodeLabel(node1, out string node1Text)) return false;
-    if (!TryGetNodeLabel(node2, out string node2Text)) return false;
-
-    foreach (var edge in playerEdges)
+    public bool isValidConnection(Transform node1, Transform node2)
     {
-        if ((edge.Item1 == node1Text && edge.Item2 == node2Text) ||
-            (edge.Item1 == node2Text && edge.Item2 == node1Text))
-            return false; // already exists
+        if (node1 == null || node2 == null) return false;
+        if (node1 == node2) return false;
+
+        if (!TryGetNodeLabel(node1, out string node1Text)) return false;
+        if (!TryGetNodeLabel(node2, out string node2Text)) return false;
+
+        foreach (var edge in playerEdges)
+        {
+            if ((edge.Item1 == node1Text && edge.Item2 == node2Text) ||
+                (edge.Item1 == node2Text && edge.Item2 == node1Text))
+                return false; // already exists
+        }
+
+        return true;
     }
 
-    return true;
-}
+    public bool isCorrectConnection(Transform node1, Transform node2, int type)
+    {
+        if (!TryGetNodeLabel(node1, out string node1Text)) return false;
+        if (!TryGetNodeLabel(node2, out string node2Text)) return false;
 
+        return LevelStorage.Instance.containsEdge(node1Text, node2Text, type, currentLevel);
+    }
 
-public bool isCorrectConnection(Transform node1, Transform node2, int type)
-{
-    if (!TryGetNodeLabel(node1, out string node1Text)) return false;
-    if (!TryGetNodeLabel(node2, out string node2Text)) return false;
+    public bool isNeutralConnection(Transform node1, Transform node2, int type)
+    {
+        if (!TryGetNodeLabel(node1, out string node1Text)) return false;
+        if (!TryGetNodeLabel(node2, out string node2Text)) return false;
 
-    return LevelStorage.Instance.containsEdge(node1Text, node2Text, type, currentLevel);
-}
-
-
-public bool isNeutralConnection(Transform node1, Transform node2, int type)
-{
-    if (!TryGetNodeLabel(node1, out string node1Text)) return false;
-    if (!TryGetNodeLabel(node2, out string node2Text)) return false;
-
-    return LevelStorage.Instance.containsTransitiveEdge(node1Text, node2Text, type, currentLevel);
-}
-
+        return LevelStorage.Instance.containsTransitiveEdge(node1Text, node2Text, type, currentLevel);
+    }
 
     public Color GetLineColor(Transform node1, Transform node2, int type)
     {
@@ -113,97 +111,94 @@ public bool isNeutralConnection(Transform node1, Transform node2, int type)
     }
 
     // Edge management
-public void addEdge(Transform node1, Transform node2, int type)
-{
-    if (HasReachedMaxEdges()) return;
-    if (!isValidConnection(node1, node2)) return;
-
-    bool isCorrect = isCorrectConnection(node1, node2, type);
-    bool isNeutral = !isCorrect && isNeutralConnection(node1, node2, type);
-
-    if (isCorrect) correctEdges++;
-    else if (isNeutral) neutralEdges++;
-    else incorrectEdges++;
-
-    if (!TryGetNodeLabel(node1, out string node1Text)) return;
-    if (!TryGetNodeLabel(node2, out string node2Text)) return;
-
-    playerEdges.Add((node1Text, node2Text, type));
-
-    if (floatingExplanationText != null)
+    public void addEdge(Transform node1, Transform node2, int type)
     {
-        if (isNeutral)
+        if (HasReachedMaxEdges()) return;
+        if (!isValidConnection(node1, node2)) return;
+
+        bool isCorrect = isCorrectConnection(node1, node2, type);
+        bool isNeutral = !isCorrect && isNeutralConnection(node1, node2, type);
+
+        if (isCorrect) correctEdges++;
+        else if (isNeutral) neutralEdges++;
+        else incorrectEdges++;
+
+        if (!TryGetNodeLabel(node1, out string node1Text)) return;
+        if (!TryGetNodeLabel(node2, out string node2Text)) return;
+
+        playerEdges.Add((node1Text, node2Text, type));
+
+        if (floatingExplanationText != null)
         {
-            floatingExplanationText.TriggerText(
-                "<size=70%>Ungenaue Verbindung:</size>\nFinde eine bessere Lösung"
-            );
-        }
-        else
-        {
-            var pair = LevelStorage.Instance.getPair(node1Text, node2Text, currentLevel);
-            if (pair.HasValue)
+            if (isNeutral)
             {
-                string meaning = LevelStorage.Instance.meaning[type];
                 floatingExplanationText.TriggerText(
-                    $"<size=70%>Logische Verbindung:</size>\n{pair.Value.Item2} {meaning} {pair.Value.Item1}"
+                    "<size=70%>Ungenaue Verbindung:</size>\nFinde eine bessere Lösung"
                 );
             }
+            else
+            {
+                var pair = LevelStorage.Instance.getPair(node1Text, node2Text, currentLevel);
+                if (pair.HasValue)
+                {
+                    string meaning = LevelStorage.Instance.meaning[type];
+                    floatingExplanationText.TriggerText(
+                        $"<size=70%>Logische Verbindung:</size>\n{pair.Value.Item2} {meaning} {pair.Value.Item1}"
+                    );
+                }
+            }
         }
+
+        lastAddedNode1 = node1;
+        lastAddedNode2 = node2;
+
+        checkForLevelCompleteScreen();
     }
 
-    lastAddedNode1 = node1;
-    lastAddedNode2 = node2;
-
-    checkForLevelCompleteScreen();
-}
-
-
-
-public void removeEdge(Transform node1, Transform node2, int type)
-{
-    if (!TryGetNodeLabel(node1, out string node1Text)) return;
-    if (!TryGetNodeLabel(node2, out string node2Text)) return;
-
-    for (int i = 0; i < playerEdges.Count; i++)
+    public void removeEdge(Transform node1, Transform node2, int type)
     {
-        var edge = playerEdges[i];
+        if (!TryGetNodeLabel(node1, out string node1Text)) return;
+        if (!TryGetNodeLabel(node2, out string node2Text)) return;
 
-        if ((edge.Item1 == node1Text && edge.Item2 == node2Text) ||
-            (edge.Item1 == node2Text && edge.Item2 == node1Text))
+        for (int i = 0; i < playerEdges.Count; i++)
         {
-            playerEdges.RemoveAt(i);
+            var edge = playerEdges[i];
 
-            if (isCorrectConnection(node1, node2, type)) correctEdges--;
-            else if (isNeutralConnection(node1, node2, type)) neutralEdges--;
-            else incorrectEdges--;
+            if ((edge.Item1 == node1Text && edge.Item2 == node2Text) ||
+                (edge.Item1 == node2Text && edge.Item2 == node1Text))
+            {
+                playerEdges.RemoveAt(i);
 
-            break;
+                if (isCorrectConnection(node1, node2, type)) correctEdges--;
+                else if (isNeutralConnection(node1, node2, type)) neutralEdges--;
+                else incorrectEdges--;
+
+                break;
+            }
         }
+
+        checkForLevelCompleteScreen();
     }
 
-    checkForLevelCompleteScreen();
-}
-
-
-// Node Label Helper
+    // Node Label Helper
     private bool TryGetNodeLabel(Transform node, out string label)
-{
-    label = null;
-    if (node == null) return false;
-
-    // Works for TextMeshPro (3D) and TextMeshProUGUI (Canvas)
-    TMP_Text tmp = node.GetComponentInChildren<TMP_Text>(true);
-    if (tmp != null)
     {
-        label = Normalize(tmp.text);
+        label = null;
+        if (node == null) return false;
+
+        // Works for TextMeshPro (3D) and TextMeshProUGUI (Canvas)
+        TMP_Text tmp = node.GetComponentInChildren<TMP_Text>(true);
+        if (tmp != null)
+        {
+            label = Normalize(tmp.text);
+            return true;
+        }
+
+        // Fallback so we never crash (but you should fix the prefab)
+        label = Normalize(node.name);
+        Debug.LogWarning($"LevelManager: No TMP_Text found under '{node.name}'. Falling back to node.name as label.");
         return true;
     }
-
-    // Fallback so we never crash (but you should fix the prefab)
-    label = Normalize(node.name);
-    Debug.LogWarning($"LevelManager: No TMP_Text found under '{node.name}'. Falling back to node.name as label.");
-    return true;
-}
 
     // Level completion
     public void checkForLevelCompleteScreen()
@@ -214,7 +209,7 @@ public void removeEdge(Transform node1, Transform node2, int type)
         if (!allCorrect || !noIncorrect)
             return;
 
-        // hide minimap 
+        // hide minimap
         if (minimapCanvas != null)
             minimapCanvas.SetActive(false);
 
@@ -222,17 +217,24 @@ public void removeEdge(Transform node1, Transform node2, int type)
         if (titleText != null)
             titleText.text = "Level " + currentLevel + " geschafft!";
 
-        // score text
+        // score text (add the last correct-edge points ONLY if PointDisplay hasn't applied it yet)
         if (scoreText != null && PointDisplay.Instance != null)
         {
-            int currentScore = PointDisplay.Instance.GetScore();
-            scoreText.text = "Punkte: " + (currentScore + PointDisplay.Instance.GetAdd());
-            int previousScore = 0;
-            for (int i = 0; i < currentLevel; i++) {
-                previousScore += VariableStore.GetScoresSemantic(i);
+            int levelScore = PointDisplay.Instance.GetScore();
+
+            // If PointDisplay hasn't registered all correct edges yet, we’re in the “same-frame” timing case:
+            if (PointDisplay.Instance.GetScoredCorrectEdgesCount() < correctEdges)
+            {
+                levelScore += PointDisplay.Instance.GetAdd(); // restores your original +1-edge behavior
             }
-            VariableStore.SetScoreSemantic(currentScore + PointDisplay.Instance.GetAdd() - previousScore, currentLevel);
-        } else {
+
+            scoreText.text = "Punkte: " + levelScore;
+
+            // store completed level score
+            VariableStore.SetScoreSemantic(levelScore, currentLevel);
+        }
+        else
+        {
             scoreText.text = "";
         }
 
@@ -257,18 +259,18 @@ public void removeEdge(Transform node1, Transform node2, int type)
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             loadNextLevel();
-        }  
+        }
     }
-
 
     // Level transitions
     public void loadNextLevel()
     {
         correctEdges = 0;
         incorrectEdges = 0;
+        neutralEdges = 0;
         playerEdges.Clear();
 
-        // reset per-level tracking in PointDisplay, but keep total score if you want
+        // reset per-level tracking AND per-level score in PointDisplay
         if (PointDisplay.Instance != null)
             PointDisplay.Instance.ResetForNewLevel();
 
@@ -287,9 +289,10 @@ public void removeEdge(Transform node1, Transform node2, int type)
     {
         correctEdges = 0;
         incorrectEdges = 0;
+        neutralEdges = 0;
         playerEdges.Clear();
 
-        // reset per-level tracking in PointDisplay, but keep total score if you want
+        // reset per-level tracking AND per-level score in PointDisplay
         if (PointDisplay.Instance != null)
             PointDisplay.Instance.ResetForNewLevel();
 
@@ -312,9 +315,9 @@ public void removeEdge(Transform node1, Transform node2, int type)
     {
         loadingScreen.SetActive(true);
         yield return null;
-        
+
         AsyncOperation operation = SceneManager.LoadSceneAsync(nextSceneName);
-        
+
         while (!operation.isDone)
         {
             yield return null;
@@ -322,11 +325,10 @@ public void removeEdge(Transform node1, Transform node2, int type)
     }
 
     //Normalize Text to recognize Strings that aren't exactly equal
-        private string Normalize(string s)
+    private string Normalize(string s)
     {
         return s.Normalize(System.Text.NormalizationForm.FormC).Trim();
     }
-
 
     // Getters
     public int getCorrectEdgesCount() => correctEdges;
