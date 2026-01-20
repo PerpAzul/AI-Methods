@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class tiefensucheInfotafelScript : MonoBehaviour
@@ -16,6 +17,10 @@ public class tiefensucheInfotafelScript : MonoBehaviour
     public GameObject animationNine;
     public GameObject fourthInfoScreen;
 
+    public GameObject thisScreen;
+    bool bereitsBesucht;
+    public bool tutLevel;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,6 +37,8 @@ public class tiefensucheInfotafelScript : MonoBehaviour
         animationSeven.SetActive(false);
         animationEight.SetActive(false);
         animationNine.SetActive(false);
+
+        bereitsBesucht = false;
     }
 
     // Update is called once per frame
@@ -42,6 +49,12 @@ public class tiefensucheInfotafelScript : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (tutLevel && bereitsBesucht)
+        { 
+            thisScreen.SetActive(false);
+            return;
+        }
         animationOne.SetActive(true);
+        bereitsBesucht = true;
     }
 }
