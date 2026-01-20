@@ -6,6 +6,7 @@ public class infoScreenButtonScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject nextScreen;
     public GameObject thisScreen;
+    public GameObject wholeInfopoint;
     public Button button;
     public bool finalScreen;
 
@@ -28,7 +29,7 @@ public class infoScreenButtonScript : MonoBehaviour
             {
                 nextScreen.SetActive(true);
             }
-            
+            wholeInfopoint.SetActive(false);
             thisScreen.SetActive(false);
         }
     }
