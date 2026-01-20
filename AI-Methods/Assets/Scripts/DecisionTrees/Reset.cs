@@ -8,7 +8,7 @@ public class Reset : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        SceneManager.LoadScene("DecisionTreeUI");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void cancel()
