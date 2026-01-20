@@ -7,9 +7,16 @@ public class TuerTiefensuche : InteractableI
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (VariableStore.IsLobbyTutorialFinished()) {
+            promptMessage = "Tiefensuche";
+        }
         earlierMessage = promptMessage;
     }
 
+    public void ChangePrompt()
+    {
+        promptMessage = "Tiefensuche";
+    }
 
     protected override void Interact()
     {

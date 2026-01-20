@@ -26,12 +26,12 @@ public class CongratsMessage : MonoBehaviour
     }
 
     private IEnumerator FadeOut() {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(6f);
         for (int i = 0; i < text.Length; i++) {
             yield return new WaitForSeconds(1f);
             StartCoroutine(FloatAndFade(text[i]));
         }
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(15f);
         this.gameObject.SetActive(false);
     }
 

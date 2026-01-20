@@ -9,10 +9,19 @@ public class WheelInterface : MonoBehaviour
     public ParticleSystem steamEffect;
     public GameObject congratsMessage;
 
+    [SerializeField] GameObject TextSemantic;
+    [SerializeField] GameObject TextSearch;
+    [SerializeField] GameObject TextDecision;
+    [SerializeField] GameObject Image;
+
     void Awake() {
         int count = 0;
 
         if (VariableStore.GetCurrentLevelSearch() >= 2) {
+            CongratulationsText.congratulationsSearch++;
+            if(CongratulationsText.congratulationsSearch == 1){
+                StartCoroutine(CongratulationsText.ActivateImage(TextSearch, Image));
+            }
             wheelSearch.SetActive(true);
             StartCoroutine(StartSteamEffect());
             count++;
@@ -22,7 +31,10 @@ public class WheelInterface : MonoBehaviour
 
         if (VariableStore.GetCurrentLevelSemantic() >= 2) {
             wheelSemantic.SetActive(true);
-            StartCoroutine(StartSteamEffect());
+            CongratulationsText.congratulationsSemantic++;
+            if(CongratulationsText.congratulationsSemantic == 1){
+                StartCoroutine(CongratulationsText.ActivateImage(TextSemantic, Image));
+            }
             count++;
         } else {
             wheelSemantic.SetActive(false);
@@ -30,6 +42,10 @@ public class WheelInterface : MonoBehaviour
 
         if (VariableStore.GetCurrentLevelDecision() >= 2) {
             wheelDecision.SetActive(true);
+            CongratulationsText.congratulationsDecision++;
+            if(CongratulationsText.congratulationsDecision == 1){
+                StartCoroutine(CongratulationsText.ActivateImage(TextDecision, Image));
+            }
             StartCoroutine(StartSteamEffect());
             count++;
         } else {

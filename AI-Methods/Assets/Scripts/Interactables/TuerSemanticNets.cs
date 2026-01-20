@@ -7,7 +7,15 @@ public class TuerSemanticNets : InteractableI
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (VariableStore.IsLobbyTutorialFinished()) {
+            promptMessage = "Semantische Netze";
+        }
         earlierMessage = promptMessage;
+    }
+
+    public void ChangePrompt()
+    {
+        promptMessage = "Semantische Netze";
     }
 
     // Update is called once per frame
