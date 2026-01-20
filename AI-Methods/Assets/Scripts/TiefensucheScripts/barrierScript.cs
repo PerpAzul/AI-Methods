@@ -12,6 +12,7 @@ public class barrierScript : MonoBehaviour
     public Material greenGlowPillar;
 
     private bool isRed;
+    public RootPlatformScript PlatformRoot;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -73,8 +74,9 @@ public class barrierScript : MonoBehaviour
     {
         if (isRed)
         {
-            string currentSceneName = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene(currentSceneName);
+            //string currentSceneName = SceneManager.GetActiveScene().name;
+            //SceneManager.LoadScene(currentSceneName);
+            PlatformRoot.counterWrongPlatforms++;
         }
     }
 }

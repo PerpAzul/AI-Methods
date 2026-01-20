@@ -1294,7 +1294,7 @@ PrefabInstance:
       objectReference: {fileID: 527282316}
     - target: {fileID: 4965309419471326390, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_text
-      value: 'Weiter [C]'
+      value: 'Weiter [E]'
       objectReference: {fileID: 0}
     - target: {fileID: 4982799397284292650, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_text
@@ -1379,7 +1379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9214438600632230653, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_text
-      value: 'Weiter [C]'
+      value: 'Weiter [E]'
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5430701363682518435, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
@@ -1876,7 +1876,7 @@ PrefabInstance:
       objectReference: {fileID: 942437214}
     - target: {fileID: 5054050151754196061, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_text
-      value: 'Weiter [C]'
+      value: 'Weiter [E]'
       objectReference: {fileID: 0}
     - target: {fileID: 5058576509919680794, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2838,7 +2838,7 @@ PrefabInstance:
       objectReference: {fileID: 1306738929}
     - target: {fileID: 4965309419471326390, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_text
-      value: 'Weiter [C]'
+      value: 'Weiter [E]'
       objectReference: {fileID: 0}
     - target: {fileID: 5058576509919680794, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3579,8 +3579,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.3555365, y: 3.879192, z: 6.400516}
-  m_Center: {x: -0.0710106, y: 1.939596, z: -0.26030305}
+  m_Size: {x: 7.6937647, y: 3.879192, z: 7.6294465}
+  m_Center: {x: 0.043383434, y: 1.939596, z: -0.87476826}
 --- !u!114 &1786503406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4322,7 +4322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 878768444103702727, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_text
-      value: 'Weiter [C]'
+      value: 'Weiter [E]'
       objectReference: {fileID: 0}
     - target: {fileID: 1136512624969978323, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_IsActive
@@ -4346,7 +4346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2168611559884576165, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_text
-      value: 'Weiter [C]'
+      value: 'Weiter [E]'
       objectReference: {fileID: 0}
     - target: {fileID: 2498721834855887925, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_IsActive
@@ -4358,7 +4358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2915964868942672368, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_text
-      value: 'Weiter [C]'
+      value: 'Weiter [E]'
       objectReference: {fileID: 0}
     - target: {fileID: 2922281969305848571, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_IsActive
@@ -4406,7 +4406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3707534638664563216, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_text
-      value: 'Weiter [C]'
+      value: 'Weiter [E]'
       objectReference: {fileID: 0}
     - target: {fileID: 4157592672394745218, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_IsActive
@@ -4418,11 +4418,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4299326268234749002, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_text
-      value: 'Weiter [C]'
+      value: 'Weiter [E]'
       objectReference: {fileID: 0}
     - target: {fileID: 4517132985189942362, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_text
-      value: 'Weiter [C]'
+      value: 'Weiter [E]'
       objectReference: {fileID: 0}
     - target: {fileID: 4612028370348542268, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_Name
@@ -4466,15 +4466,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6578686665312567144, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_text
-      value: 'Weiter [C]'
+      value: 'Weiter [E]'
       objectReference: {fileID: 0}
     - target: {fileID: 6935403236007788028, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_text
-      value: 'Weiter [C]'
+      value: 'Weiter [E]'
       objectReference: {fileID: 0}
     - target: {fileID: 7107928844013766619, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_text
-      value: 'Weiter [C]'
+      value: 'Weiter [E]'
       objectReference: {fileID: 0}
     - target: {fileID: 7249813772101503846, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_IsActive
@@ -4486,7 +4486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8236457352876112473, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_text
-      value: 'Weiter [C]'
+      value: 'Weiter [E]'
       objectReference: {fileID: 0}
     - target: {fileID: 8309011239647785325, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_IsActive
@@ -4494,15 +4494,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8397198369469075306, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.79622644
       objectReference: {fileID: 0}
     - target: {fileID: 8397198369469075306, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.79622644
       objectReference: {fileID: 0}
     - target: {fileID: 8397198369469075306, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.79622644
       objectReference: {fileID: 0}
     - target: {fileID: 8795260110185459169, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_IsActive
