@@ -22,11 +22,11 @@ public class SimpleController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift)) speed *= 2;
 
-        RB.linearVelocity = transform.forward * speed;
+        RB.velocity = transform.forward * speed;
 
         float direction = Input.GetAxis("Horizontal") / 2;
 
-        RB.linearVelocity += transform.right * direction * Speed/2;
+        RB.velocity += transform.right * direction * Speed/2;
     }
 
     // Update is called once per frame
