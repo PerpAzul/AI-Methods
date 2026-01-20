@@ -29,7 +29,7 @@ public class LineObject : InteractableI
         } else {
             promptMessage = "<size=58%>Löschen (Q)</size>";
             if (LevelManager.Instance.isNeutralConnection(startNode, endNode, type)) {
-                promptMessage = "<size=70%>Es gibt eine bessere Lösung.[E]</size>\n" + promptMessage;
+                promptMessage = "<size=70%>Es gibt eine bessere Lösung.(Tipp: [E])</size>\n" + promptMessage;
             }
         }
         earlierMessage = promptMessage;
@@ -48,7 +48,7 @@ public class LineObject : InteractableI
                 infoCanvas.SetActive(!infoCanvas.activeSelf);
                 infoCanvas.GetComponentInChildren<TMPro.TMP_Text>().text = "Deine Verbindung " 
                     + startNode.GetChild(0).GetComponent<TMPro.TMP_Text>().text + " - "
-                    + endNode.GetChild(0).GetComponent<TMPro.TMP_Text>().text + " ist logisch korrekt, aber nocht nicht perfekt.\n"
+                    + endNode.GetChild(0).GetComponent<TMPro.TMP_Text>().text + " ist zwar korrekt, aber noch nicht perfekt.\n"
                     + "Damit das Netz nicht zu unübersichtlich wird, solltest du versuchen, "
                     + startNode.GetChild(0).GetComponent<TMPro.TMP_Text>().text + " und "
                     + endNode.GetChild(0).GetComponent<TMPro.TMP_Text>().text + " über einen oder mehrere Knoten dazwischen zu verbinden.";
