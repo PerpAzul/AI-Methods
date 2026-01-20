@@ -115,7 +115,9 @@ public static class VariableStore
         while (semanticNetsScores.Count <= level) {
             semanticNetsScores.Add(0);
         }
-        semanticNetsScores[level] = score;
+        if (score > semanticNetsScores[level]) {
+            semanticNetsScores[level] = score;
+        }
     }
 
     public static int GetCurrentLevelSemantic()
@@ -153,7 +155,9 @@ public static class VariableStore
         while (depthFirstSearchScores.Count <= level) {
             depthFirstSearchScores.Add(0);
         }
-        depthFirstSearchScores[level] = score;
+        if (score > depthFirstSearchScores[level]) {
+            depthFirstSearchScores[level] = score;
+        }
     }
 
     public static int GetCurrentLevelSearch()
@@ -191,7 +195,9 @@ public static class VariableStore
         while (decisionTreesScores.Count <= level) {
             decisionTreesScores.Add(0);
         }
-        decisionTreesScores[level] = score;
+        if (score > decisionTreesScores[level]) {
+            decisionTreesScores[level] = score;
+        }
     }
 
     public static int GetCurrentLevelDecision()

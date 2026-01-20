@@ -86,8 +86,10 @@ public static class VariableStorePersistent
 
     public static void SetScoreSemantic(int score, int level)
     {
-        PlayerPrefs.SetInt("SemanticNetsScore" + level, score);
-        PlayerPrefs.Save();
+        if (score > GetScoresSemantic(level)) {
+            PlayerPrefs.SetInt("SemanticNetsScore" + level, score);
+            PlayerPrefs.Save();
+        }
     }
 
     public static int GetCurrentLevelSemantic()
@@ -115,7 +117,9 @@ public static class VariableStorePersistent
 
     public static void SetScoreSearch(int score, int level)
     {
-        PlayerPrefs.SetInt("DepthFirstSearchScore" + level, score);
+        if (score > GetScoresSearch(level)) {
+            PlayerPrefs.SetInt("DepthFirstSearchScore" + level, score);
+        }
         PlayerPrefs.Save();
     }
 
@@ -144,10 +148,11 @@ public static class VariableStorePersistent
 
     public static void SetScoreDecision(int score, int level)
     {
-        PlayerPrefs.SetInt("DecisionTreesScore" + level, score);
-        PlayerPrefs.Save();
+        if (score > GetScoresDecision(level)) {
+            PlayerPrefs.SetInt("DecisionTreesScore" + level, score);
+            PlayerPrefs.Save();
+        }
     }
-
     public static int GetCurrentLevelDecision()
     {
         while (PlayerPrefs.GetInt("DecisionTreesLevelFinished" + PlayerPrefs.GetInt("DecisionTreesLevel")) == 1) {

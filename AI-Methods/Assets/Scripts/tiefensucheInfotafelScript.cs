@@ -20,10 +20,13 @@ public class tiefensucheInfotafelScript : MonoBehaviour
     public GameObject thisScreen;
     bool bereitsBesucht;
     public bool tutLevel;
+    public static bool isReadingTurorial;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        isReadingTurorial = false;
+
         firstInfoScreen.SetActive(false);
         secondInfoScreen.SetActive(false);
         thirdInfoScreen.SetActive(false);
@@ -54,6 +57,8 @@ public class tiefensucheInfotafelScript : MonoBehaviour
             thisScreen.SetActive(false);
             return;
         }
+
+        //isReadingTurorial = true;
         animationOne.SetActive(true);
         bereitsBesucht = true;
     }

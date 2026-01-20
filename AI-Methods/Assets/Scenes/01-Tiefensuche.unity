@@ -4237,6 +4237,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.728
       objectReference: {fileID: 0}
+    - target: {fileID: 5430701363682518435, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
+      propertyPath: m_Center.z
+      value: 0.64
+      objectReference: {fileID: 0}
     - target: {fileID: 6578686665312567144, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_text
       value: 'Weiter [E]'

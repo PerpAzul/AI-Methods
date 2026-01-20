@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (Time.timeScale == 0 || manager.isInDialogue || pauseMenu.isPaused)
+        if (Time.timeScale == 0 || manager.isInDialogue || pauseMenu.isPaused || isLoading || isInteracting || tiefensucheInfotafelScript.isReadingTurorial)
         {
             moveInput = Vector2.zero; 
         }
@@ -146,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
     // New Input System (Player Input → Send Messages)
     public void OnMove(InputValue value)
     {
-        if (Time.timeScale == 0 || manager.isInDialogue || pauseMenu.isPaused || isLoading || isInteracting)
+        if (Time.timeScale == 0 || manager.isInDialogue || pauseMenu.isPaused || isLoading || isInteracting || tiefensucheInfotafelScript.isReadingTurorial)
         {
             moveInput = Vector2.zero; 
             return;
@@ -156,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
-        if (Time.timeScale == 0 || manager.isInDialogue || pauseMenu.isPaused || isLoading || isInteracting)
+        if (Time.timeScale == 0 || manager.isInDialogue || pauseMenu.isPaused || isLoading || isInteracting || tiefensucheInfotafelScript.isReadingTurorial)
         {
             return;
         }

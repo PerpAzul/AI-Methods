@@ -20,11 +20,15 @@ public class infoScreenButtonScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            //if(finalScreen){
+                //tiefensucheInfotafelScript.isReadingTurorial = false;
+            //}
+
             if (!finalScreen)
             {
                 nextScreen.SetActive(true);
             }
-
+            
             thisScreen.SetActive(false);
         }
     }

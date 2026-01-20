@@ -228,6 +228,8 @@ public class LevelManager : MonoBehaviour
                 levelScore += PointDisplay.Instance.GetAdd(); // restores your original +1-edge behavior
             }
 
+            if (levelScore < 0) levelScore = 0;
+            if (levelScore > 150) levelScore = 150;
             scoreText.text = "Punkte: " + levelScore;
 
             // store completed level score

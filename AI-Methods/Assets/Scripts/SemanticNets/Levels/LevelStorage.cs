@@ -49,7 +49,6 @@ public class LevelStorage : MonoBehaviour
 
             ("Säugetier", "Hund", 0),
             ("Säugetier", "Mensch", 0),
-            ("Milchdrüsen", "Säugetier", 1),
 
             ("Bellen", "Hund", 2),
             ("Programmieren", "Mensch", 2),
