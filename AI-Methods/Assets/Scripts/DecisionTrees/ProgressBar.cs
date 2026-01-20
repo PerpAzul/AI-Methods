@@ -46,6 +46,7 @@ public class ProgressBar : MonoBehaviour
                 // time-based completion bonus
                 completionMultiplier = completionMultiplier - (0.0002f * time);
                 points += Decimal.ToInt32(Math.Round(new decimal (60 * completionMultiplier), 1));
+                points = points > 300 ? 300 : points;
                 pointsEnd.text = $"Punkte: {points}";
             }
             finished = true;
