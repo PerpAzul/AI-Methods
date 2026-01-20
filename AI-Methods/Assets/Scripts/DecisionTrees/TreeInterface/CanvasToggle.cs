@@ -44,6 +44,11 @@ public class CanvasToggle : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
+        else
+        {
+            guide.ContinueIfCurrentActionEqualsNoTrack("next_via_e");
+        }
+        
 
         if (isPlayerNear && Input.GetKeyDown(KeyCode.E) && !fullscreenCanvas.gameObject.activeSelf)
         {

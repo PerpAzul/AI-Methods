@@ -35,7 +35,14 @@ public class EvaluateItem_Tut : MonoBehaviour
     private IEnumerator TestDatabase()
     {
         isTesting = true;
-        if(guide) guide.ContinueIfCurrentActionEquals("first_test");
+        if (guide)
+        {
+            guide.ContinueIfCurrentActionEquals("first_test");
+            guide.ContinueIfCurrentActionEqualsNoTrack("banana_test");
+            guide.ContinueIfCurrentActionEqualsNoTrack("watermelon_test");
+            guide.ContinueIfCurrentActionEqualsNoTrack("carrot_test");
+            
+        }
         warning.gameObject.SetActive(false);
         float progress = 0;
         foreach (Item_Tut item in database.ScannedItems)
@@ -75,7 +82,11 @@ public class EvaluateItem_Tut : MonoBehaviour
                 }
                 if (!item.IsFruit && item.IsRed)
                 {
-                    if (guide) guide.ContinueIfCurrentActionEquals("watermelon_correct");
+                    if (guide)
+                    {
+                        guide.ContinueIfCurrentActionEquals("watermelon_incorrect");
+                        guide.ContinueIfCurrentActionEquals("watermelon_correct");
+                    }
                 }
                 progress++;
                 progressBar.curr = progress;
