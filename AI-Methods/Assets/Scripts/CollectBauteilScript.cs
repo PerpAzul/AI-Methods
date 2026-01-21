@@ -44,6 +44,15 @@ public class CollectBauteilScript : MonoBehaviour
             
         }
 
+        if ((Input.GetKeyDown("3") || Input.GetKeyDown(KeyCode.Keypad3)) && reachedEnd)
+        {
+            if (whichLevel == 2)
+            {
+                SceneManager.LoadScene("03-Tiefensuche");
+            }
+
+        }
+
         /*if (Input.GetKeyDown(KeyCode.A))
         {
             Debug.Log("pressed A");
