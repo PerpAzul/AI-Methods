@@ -6813,7 +6813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e35e3fe4347542b4a51ef197f892dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: Fortschritt
+  promptMessage: 'Fortschritt [E]'
   useEvents: 0
   roadmapCanvas: {fileID: 879760790}
 --- !u!1 &1020546655

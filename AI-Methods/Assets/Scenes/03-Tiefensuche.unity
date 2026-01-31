@@ -3012,7 +3012,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6772840140787472855, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_text
-      value: "Dr\xFCcke \"L\" f\xFCr das n\xE4chste Level"
+      value: "Dr\xFCcke \"L\" f\xFCr die Lobby"
       objectReference: {fileID: 0}
     - target: {fileID: 6925856994656680641, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_IsActive

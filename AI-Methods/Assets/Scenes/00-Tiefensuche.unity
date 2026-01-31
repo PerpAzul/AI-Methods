@@ -4764,6 +4764,10 @@ PrefabInstance:
         diese rot. Es ist aber Vorsicht geboten: Wenn du dreimal eine falsche Plattform
         w\xE4hlst, wird das Level neu gestartet! "
       objectReference: {fileID: 0}
+    - target: {fileID: 1867329255747494979, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
+      propertyPath: finalScreen
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2123162317336334794, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -4780,6 +4784,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 337252398}
+    - target: {fileID: 2504068423093412006, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
+      propertyPath: wholeInfopoint
+      value: 
+      objectReference: {fileID: 1200495360}
     - target: {fileID: 2504068423093412006, guid: a5c7f943028aed741be8c0b4f85dc425, type: 3}
       propertyPath: characterController
       value: 

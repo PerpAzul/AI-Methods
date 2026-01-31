@@ -429,6 +429,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8200619105073266913, guid: af14cd3151d67b740ba7061ff1636f69, type: 3}
+      propertyPath: PlatformRoot
+      value: 
+      objectReference: {fileID: 4024373124428592645}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -989,6 +993,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8200619105073266913, guid: af14cd3151d67b740ba7061ff1636f69, type: 3}
+      propertyPath: PlatformRoot
+      value: 
+      objectReference: {fileID: 4024373124428592645}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1311,6 +1319,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8200619105073266913, guid: af14cd3151d67b740ba7061ff1636f69, type: 3}
+      propertyPath: PlatformRoot
+      value: 
+      objectReference: {fileID: 4024373124428592645}
     - target: {fileID: 9173815149199264408, guid: af14cd3151d67b740ba7061ff1636f69, type: 3}
       propertyPath: m_Height
       value: 1.0627323
