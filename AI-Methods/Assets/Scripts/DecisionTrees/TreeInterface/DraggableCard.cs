@@ -52,6 +52,15 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
         }
     }
 
+    public void DestroyDragged()
+    {
+        if (currentClone != null)
+        {
+            Destroy(currentClone);
+            currentClone = null;
+        }
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
         if (currentClone != null)

@@ -9512,6 +9512,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 302925904}
   m_CullTransparentMesh: 1
+--- !u!114 &311577983 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4177071172515560074, guid: 9d8aaba18c7b19424a96aaa80c2a30cc, type: 3}
+  m_PrefabInstance: {fileID: 816062114}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac3a2f097b28301a9b7caed7e642efe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &314033354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27306,6 +27317,7 @@ MonoBehaviour:
   pointsText: {fileID: 1902230400}
   pointsEnd: {fileID: 65377230}
   points: 0
+  hasPickedUp: 0000000000000000
 --- !u!1001 &724652931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33297,6 +33309,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b28dd70a689b2b649832f43119d5b551, type: 3}
   m_PrefabInstance: {fileID: 926112540}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &928173194 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5543006175211664423, guid: 9d8aaba18c7b19424a96aaa80c2a30cc, type: 3}
+  m_PrefabInstance: {fileID: 816062114}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac3a2f097b28301a9b7caed7e642efe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &933512160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44699,6 +44722,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b28dd70a689b2b649832f43119d5b551, type: 3}
   m_PrefabInstance: {fileID: 1303465725}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1304559243 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1872504453492325014, guid: 9d8aaba18c7b19424a96aaa80c2a30cc, type: 3}
+  m_PrefabInstance: {fileID: 816062114}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac3a2f097b28301a9b7caed7e642efe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1304641475
 GameObject:
   m_ObjectHideFlags: 0
@@ -45236,6 +45270,11 @@ MonoBehaviour:
   uiTree: {fileID: 1629041695}
   myCamera: {fileID: 199732293}
   guide: {fileID: 892591497}
+  ddPilz: {fileID: 0}
+  ddRot: {fileID: 0}
+  ddMetall: {fileID: 1304559243}
+  ddSchaedlich: {fileID: 928173194}
+  ddBlaueEnergie: {fileID: 311577983}
   isPlayerNear: 0
 --- !u!65 &1329439180
 BoxCollider:
@@ -65849,6 +65888,10 @@ PrefabInstance:
     - target: {fileID: 2890022948502039324, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092478876707714738, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6157356134867657159, guid: 0569b098160b94a5d8354e7eb5a0c658, type: 3}
       propertyPath: m_text

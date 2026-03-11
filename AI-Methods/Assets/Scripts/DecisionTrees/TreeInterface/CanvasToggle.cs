@@ -11,6 +11,11 @@ public class CanvasToggle : MonoBehaviour
     public CinemachineCamera myCamera;
     public NPCGuide guide;
     private ToggleBookButtonUI toggleBookButtonUI;
+    [SerializeField] private DragAndDrop ddPilz;
+    [SerializeField] private DragAndDrop ddRot;
+    [SerializeField] private DragAndDrop ddMetall;
+    [SerializeField] private DragAndDrop ddSchaedlich;
+    [SerializeField] private DragAndDrop ddBlaueEnergie;
 
     public bool isPlayerNear;
 
@@ -65,6 +70,31 @@ public class CanvasToggle : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         } else if (Input.GetKeyDown(KeyCode.E) && fullscreenCanvas.gameObject.activeSelf)
         {
+            // lvl 0 prevent weird ui bugs when holding mouse
+            if (ddPilz)
+            {
+                ddPilz.DestroyDragged();
+            }
+
+            if (ddRot)
+            {
+                ddRot.DestroyDragged();
+            }
+
+            // lvl 1 do the same
+            if (ddMetall)
+            {
+                ddMetall.DestroyDragged();
+            }
+            if (ddSchaedlich)
+            {
+                ddSchaedlich.DestroyDragged();
+            }
+            if (ddBlaueEnergie)
+            {
+                ddBlaueEnergie.DestroyDragged();
+            }
+
             if (guide)
             {
                 guide.ContinueIfCurrentActionEqualsNoTrack("next_via_e");
